@@ -1,0 +1,8 @@
+#.gitignore file.
+
+#Shows up odd in Windows explorer.
+
+Project.dmb
+Project.lk
+Project.rsc
+Project.rsc.lk
