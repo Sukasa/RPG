@@ -8,4 +8,5 @@ atom
 
 
 atom/proc/GetAngleTo(var/atom/To)
-	return arctan(-(To.x - src.y) / (To.x - src.x))
+	return arctan(-(To.y - src.y) / (To.x - src.x))
+
