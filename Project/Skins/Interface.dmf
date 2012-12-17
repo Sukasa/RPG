@@ -49,11 +49,78 @@ menu "menu"
 		saved-params = "is-checked"
 
 
-window "default"
-	elem "default"
+window "chatwindow_overlay"
+	elem "chatwindow_overlay"
 		type = MAIN
+		pos = 281,113
+		size = 415x170
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = #000000
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		on-size = ""
+		title = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = false
+		is-minimized = false
+		is-maximized = false
+		can-scroll = none
+		icon = ""
+		image = ""
+		image-mode = tile
+		keep-aspect = false
+		transparent-color = #ff00ff
+		alpha = 96
+		macro = ""
+		menu = ""
+		on-close = ""
+	elem "output1"
+		type = OUTPUT
 		pos = 0,0
-		size = 640x480
+		size = 415x168
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = #000000
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "max-lines"
+		on-size = ""
+		link-color = #0000ff
+		visited-color = #ff00ff
+		style = ""
+		enable-http-images = false
+		max-lines = 1000
+		image = ""
+
+window "mainwindow"
+	elem "mainwindow"
+		type = MAIN
+		pos = 358,62
+		size = 872x544
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -89,4 +156,53 @@ window "default"
 		macro = "macro"
 		menu = "menu"
 		on-close = ""
+	elem "input1"
+		type = INPUT
+		pos = 0,520
+		size = 872x20
+		anchor1 = 0,96
+		anchor2 = 64,100
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = #ffffff
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = sunken
+		drop-zone = false
+		right-click = false
+		saved-params = ""
+		on-size = ""
+		command = ""
+		multi-line = false
+		is-password = false
+		no-command = false
+	elem "map1"
+		type = MAP
+		pos = 0,0
+		size = 624x520
+		anchor1 = 0,0
+		anchor2 = 100,94
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = none
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = sunken
+		drop-zone = true
+		right-click = true
+		saved-params = "icon-size"
+		on-size = ""
+		icon-size = 0
+		text-mode = false
+		on-show = ""
+		on-hide = ""
+		style = ""
 

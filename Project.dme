@@ -19,12 +19,19 @@
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "Project\Code\__Patches.dm"
+#include "Project\Code\Atom.dm"
 #include "Project\Code\Constants.dm"
-#include "Project\Code\World.dm"
 #include "Project\Code\Setup.dm"
+#include "Project\Code\World.dm"
 #include "Project\Code\WorldMain.dm"
+#include "Project\Code\Mob\Mob.dm"
+#include "Project\Code\Mob\Soldier.dm"
+#include "Project\Code\Multiplayer\Client.dm"
 #include "Project\Code\Terrain\Floor.dm"
+#include "Project\Code\Terrain\Turf.dm"
 #include "Project\Code\Terrain\Wall.dm"
+#include "Project\Code\Utility\Geometry.dm"
 #include "Project\Code\Utility\TurfHelpers.dm"
 #include "Project\Maps\GenericMap.dmm"
 #include "Project\Skins\Interface.dmf"
