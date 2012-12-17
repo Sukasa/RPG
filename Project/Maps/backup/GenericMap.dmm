@@ -1,7 +1,7 @@
 "a" = (/turf,/area)
 "b" = (/turf/Wall/Outer_Wall,/area)
 "c" = (/turf/Floor,/area)
-"d" = (/turf/Floor/Generic/Basic,/area)
+"d" = (/turf/Generic/Basic,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

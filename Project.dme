@@ -9,13 +9,23 @@
 #define FILE_DIR .
 #define FILE_DIR "Project"
 #define FILE_DIR "Project/Icons"
+#define FILE_DIR "Project/Icons/Terrain"
+#define FILE_DIR "Project/Icons/Terrain/Floor"
+#define FILE_DIR "Project/Icons/Terrain/Wall"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
+#define DEBUG
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
-#include "Project\Code\Project.dm"
+#include "Project\Code\Constants.dm"
+#include "Project\Code\World.dm"
+#include "Project\Code\Setup.dm"
+#include "Project\Code\WorldMain.dm"
+#include "Project\Code\Terrain\Floor.dm"
+#include "Project\Code\Terrain\Wall.dm"
+#include "Project\Code\Utility\TurfHelpers.dm"
 #include "Project\Maps\GenericMap.dmm"
 #include "Project\Skins\Interface.dmf"
 // END_INCLUDE
