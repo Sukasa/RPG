@@ -9,6 +9,7 @@
 #define FILE_DIR .
 #define FILE_DIR "Project"
 #define FILE_DIR "Project/Icons"
+#define FILE_DIR "Project/Icons/Mob"
 #define FILE_DIR "Project/Icons/Terrain"
 #define FILE_DIR "Project/Icons/Terrain/Floor"
 #define FILE_DIR "Project/Icons/Terrain/Wall"

@@ -52,7 +52,7 @@ menu "menu"
 window "chatwindow_overlay"
 	elem "chatwindow_overlay"
 		type = MAIN
-		pos = 281,113
+		pos = 281,0
 		size = 415x170
 		anchor1 = none
 		anchor2 = none
@@ -61,7 +61,7 @@ window "chatwindow_overlay"
 		font-style = ""
 		text-color = #000000
 		background-color = #000000
-		is-visible = true
+		is-visible = false
 		is-disabled = false
 		is-transparent = false
 		is-default = false

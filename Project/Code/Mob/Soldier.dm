@@ -17,25 +17,28 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 	var/list/CoverInfo = Target.GetCover()
 	var/Angle = Target.GetAngleTo(src)
 
-	world << "Angle is [Angle]"
+	world.log << "Angle is [Angle]"
 
 	var/AngleIndex = CoverIndexFromAngles(Angle, CardinalAngles8)
 
-	world << "AngleIndex [AngleIndex] with an angle of [CardinalAngles8[AngleIndex]]"
+	world.log << "AngleIndex [AngleIndex] means ref of [CardinalAngles8[AngleIndex]] ([CardinalAngles8[AngleIndex]])"
 
 	Angle = (Angle % 45) / 45 //We don't need the firing angle anymore, so reuse the var as the interpolation factor
+
 	var/CoverValue = (CoverInfo[AngleIndex] * (1 - Angle)) + (CoverInfo[AngleIndex + 1] * Angle)
+
+	world.log << "Cover Value: [CoverValue]"
 
 	//Do cover penalties here
 
 	if (prob(100 - CoverValue))
-		world << "HIT!"
+		world.log << "HIT!"
 
 	return
 
 
 /mob/Soldier/Click()
-	world << "[src] clicked by [usr]"
+	world.log << "[src] clicked by [usr]"
 	if(istype(usr,/mob/Soldier))
 		var/mob/Soldier/a = usr
 		a.Shoot(src)

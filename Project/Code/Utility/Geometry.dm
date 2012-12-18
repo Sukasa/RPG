@@ -2,15 +2,14 @@ proc/tan(var/V)
 	return sin(V) / cos(V)
 
 proc/arctan(var/V)
-	return (360 + (1 / tan(V))) % 360
+	return arcsin(V / sqrt(1 + (V * V)))
+	//return 1 / tan(V)
 
 proc/CoverIndexFromAngles(var/Angle, var/list/RefAngles)
-	var/Index = 0
+	var/Index = 1
 	for (var/RefAngle in RefAngles)
-		if (RefAngle < Angle)
-			world << "[Index], [RefAngle] from [Angle]"
-			return Index+1
+		if (RefAngle > Angle)
+			world.log << "[Angle]° becomes [RefAngle] (Index [Index])"
+			return Index
 		Index += 1
-	return Index+1
-
-proc/arctan2(x,y) return 2*arctan(y/(sqrt(x**2+y**2)+x))
+	return 1
