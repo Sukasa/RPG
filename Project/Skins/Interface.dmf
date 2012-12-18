@@ -1,39 +1,39 @@
 macro "macro"
 	elem 
-		name = "North+REP"
-		command = ".north"
+		name = "CENTER+REP"
+		command = ".center"
 		is-disabled = false
 	elem 
-		name = "South+REP"
-		command = ".south"
-		is-disabled = false
-	elem 
-		name = "East+REP"
-		command = ".east"
-		is-disabled = false
-	elem 
-		name = "West+REP"
-		command = ".west"
-		is-disabled = false
-	elem 
-		name = "Northeast+REP"
+		name = "NORTHEAST+REP"
 		command = ".northeast"
 		is-disabled = false
 	elem 
-		name = "Northwest+REP"
-		command = ".northwest"
-		is-disabled = false
-	elem 
-		name = "Southeast+REP"
+		name = "SOUTHEAST+REP"
 		command = ".southeast"
 		is-disabled = false
 	elem 
-		name = "Southwest+REP"
+		name = "SOUTHWEST+REP"
 		command = ".southwest"
 		is-disabled = false
 	elem 
-		name = "Center+REP"
-		command = ".center"
+		name = "NORTHWEST+REP"
+		command = ".northwest"
+		is-disabled = false
+	elem 
+		name = "WEST+REP"
+		command = ".west"
+		is-disabled = false
+	elem 
+		name = "NORTH+REP"
+		command = ".north"
+		is-disabled = false
+	elem 
+		name = "EAST+REP"
+		command = ".east"
+		is-disabled = false
+	elem 
+		name = "SOUTH+REP"
+		command = ".south"
 		is-disabled = false
 
 
@@ -49,19 +49,19 @@ menu "menu"
 		saved-params = "is-checked"
 
 
-window "chatwindow_overlay"
-	elem "chatwindow_overlay"
+window "pane_map"
+	elem "pane_map"
 		type = MAIN
 		pos = 281,0
-		size = 415x170
+		size = 640x480
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #000000
-		is-visible = false
+		background-color = none
+		is-visible = true
 		is-disabled = false
 		is-transparent = false
 		is-default = false
@@ -76,34 +76,100 @@ window "chatwindow_overlay"
 		can-close = false
 		can-minimize = false
 		can-resize = false
-		is-pane = false
+		is-pane = true
 		is-minimized = false
 		is-maximized = false
 		can-scroll = none
 		icon = ""
 		image = ""
-		image-mode = tile
+		image-mode = stretch
 		keep-aspect = false
-		transparent-color = #ff00ff
-		alpha = 96
+		transparent-color = none
+		alpha = 255
+		macro = ""
+		menu = ""
+		on-close = ""
+	elem "map1"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = none
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = none
+		drop-zone = false
+		right-click = true
+		saved-params = "icon-size"
+		on-size = ""
+		icon-size = 32
+		text-mode = false
+		on-show = ""
+		on-hide = ""
+		style = ""
+
+window "pane_sidebar"
+	elem "pane_sidebar"
+		type = MAIN
+		pos = 281,0
+		size = 270x643
+		anchor1 = none
+		anchor2 = none
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = false
+		border = none
+		drop-zone = false
+		right-click = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		on-size = ""
+		title = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		is-minimized = false
+		is-maximized = false
+		can-scroll = none
+		icon = ""
+		image = ""
+		image-mode = stretch
+		keep-aspect = false
+		transparent-color = none
+		alpha = 255
 		macro = ""
 		menu = ""
 		on-close = ""
 	elem "output1"
 		type = OUTPUT
 		pos = 0,0
-		size = 415x168
+		size = 269x640
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
 		text-color = #000000
-		background-color = #000000
+		background-color = #ffffff
 		is-visible = true
 		is-disabled = false
 		is-transparent = false
-		is-default = false
+		is-default = true
 		border = none
 		drop-zone = false
 		right-click = false
@@ -112,15 +178,15 @@ window "chatwindow_overlay"
 		link-color = #0000ff
 		visited-color = #ff00ff
 		style = ""
-		enable-http-images = false
+		enable-http-images = true
 		max-lines = 1000
 		image = ""
 
-window "mainwindow"
-	elem "mainwindow"
+window "window_main"
+	elem "window_main"
 		type = MAIN
-		pos = 358,62
-		size = 872x544
+		pos = 281,0
+		size = 960x581
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -156,12 +222,38 @@ window "mainwindow"
 		macro = "macro"
 		menu = "menu"
 		on-close = ""
+	elem "child1"
+		type = CHILD
+		pos = 0,0
+		size = 956x552
+		anchor1 = 0,0
+		anchor2 = 100,96
+		font-family = ""
+		font-size = 0
+		font-style = ""
+		text-color = #000000
+		background-color = none
+		is-visible = true
+		is-disabled = false
+		is-transparent = false
+		is-default = true
+		border = sunken
+		drop-zone = false
+		right-click = false
+		saved-params = "splitter"
+		on-size = ""
+		left = "pane_map"
+		right = "pane_sidebar"
+		is-vert = true
+		splitter = 75
+		show-splitter = true
+		lock = right
 	elem "input1"
 		type = INPUT
-		pos = 0,520
-		size = 872x20
+		pos = 0,556
+		size = 956x21
 		anchor1 = 0,96
-		anchor2 = 64,100
+		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
@@ -180,29 +272,4 @@ window "mainwindow"
 		multi-line = false
 		is-password = false
 		no-command = false
-	elem "map1"
-		type = MAP
-		pos = 0,0
-		size = 624x520
-		anchor1 = 0,0
-		anchor2 = 100,94
-		font-family = ""
-		font-size = 0
-		font-style = ""
-		text-color = none
-		background-color = none
-		is-visible = true
-		is-disabled = false
-		is-transparent = false
-		is-default = true
-		border = sunken
-		drop-zone = true
-		right-click = true
-		saved-params = "icon-size"
-		on-size = ""
-		icon-size = 0
-		text-mode = false
-		on-show = ""
-		on-hide = ""
-		style = ""
 

@@ -16,5 +16,12 @@ turf/Floor/Generic
 	icon = 'GenericInteriorFloors.dmi'
 
 turf/Floor/Generic/Basic
+	VarietyCount = 3
 	BaseState = "Basic"
 	icon_state = "Basic0"
+
+turf/Floor/Sand
+	icon = 'Sand.dmi'
+	VarietyCount = 3
+	BaseState = "Sand"
+	icon_state = "Sand0"

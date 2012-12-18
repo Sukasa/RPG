@@ -3,42 +3,50 @@ mob/Soldier
 	icon = 'Human.dmi'
 	icon_state = "man"
 
+	bound_width = 12
+	bound_height = 27
+
 
 mob/Soldier/proc/Shoot(var/mob/Target)
 
-	//Shooting a mob works in an interesting way.  First, a cover check is done.  If the mob is not in cover, or their cover value wasn't enough,
-	//Then the cover check passes.  Then a check is done for weapon accuracy, and there is a chance of missing there.
-	//The reason we do the accuracy check second is so that when dealing with someone at an awkward angle around a corner,
-	//There is still a chance that they can be hit via the cover mechanic.  The accuracy mechanic would require a raycast if we did it first,
-	//And that wouldn't mesh well with how BYOND's tiling and movement mechanics work.
+	//Shooting a mob works in an interesting way.  There are three checks needed before a mob is shot:
+	//First, a raycast is done.  If the ray terminates within 1 block of the target (i.e. either hitting them or their cover),
+	//the raycast check passes and the cover check is done
 
-	//Effectively, our solution solves our technical problems and makes for intuitive and understandable gameplay mechanics.
+	//The cover check gets the target's cover value, determined by their immediate surroundings and the angle of incidence
+	//plus any penalties.  If prob() on the result passes, the cover check succeeds
+
+	//Lastly, a prob() on the weapon spread is conducted.  If THAT passes, the bullet hit the target.
+
+	//Depending on the cover value, the target either takes a glancing blow, a major blow, or is just stunned from a very near miss.
 
 	var/list/CoverInfo = Target.GetCover()
 	var/Angle = Target.GetAngleTo(src)
 
-	world << "Angle is [Angle]"
+	//world << "Angle is [Angle]"
 
 	var/AngleIndex = Angle2Index(Angle, CardinalAngles8)
 
-	world << "AngleIndex [AngleIndex] means ref of [CardinalAngles8[AngleIndex]] ([CardinalAngles8[AngleIndex]])"
+	//world << "AngleIndex [AngleIndex] means ref of [CardinalAngles8[AngleIndex]] ([CardinalAngles8[AngleIndex]])"
 
 	Angle = (Angle % 45) / 45 //We don't need the firing angle anymore, so reuse the var as the interpolation factor
 
 	var/CoverValue = (CoverInfo[AngleIndex] * (1 - Angle)) + (CoverInfo[AngleIndex + 1] * Angle)
 
-	world << "Cover Value: [CoverValue]"
+	//world << "Cover Value: [CoverValue]"
 
 	//Do cover penalties here
 
 	if (prob(100 - CoverValue))
-		world << "HIT!"
+		world << "The shot connects!"
 
 	return
 
 
 /mob/Soldier/Click()
-	world << "[src] clicked by [usr]"
+	if (usr == src)
+		return //No shooting yourself!
+	world << "[usr] shoots at [src]!"
 	if(istype(usr,/mob/Soldier))
 		var/mob/Soldier/a = usr
 		a.Shoot(src)

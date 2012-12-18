@@ -1,8 +1,8 @@
 client
-	show_popup_menus = 1
+	show_popup_menus = FALSE
 
 
 /client/New()
 	..()
-	src.mob.x = 12
-	src.mob.y = 18
+	src.mob.x = 10
+	src.mob.y = 12

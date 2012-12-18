@@ -1,5 +1,12 @@
+#define TRUE 1
+#define FALSE 0
+
 var
 	const
+		RankPlayer = 0
+		RankModerator = 1
+		RankProgrammer = 2
+		RankAdministrator = 3
 
 	list
 

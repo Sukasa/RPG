@@ -1,6 +1,6 @@
 
 turf/Wall
-	opacity = 0 //Temporary, for cover system testing
+	opacity = 1
 	density = 1
 	icon_state = "0"
 
@@ -16,3 +16,6 @@ turf/Wall/New()
 
 turf/Wall/Outer_Wall
 	icon = 'ExteriorWall.dmi'
+
+turf/Wall/Inner_Wall
+	icon = 'InteriorWall.dmi'

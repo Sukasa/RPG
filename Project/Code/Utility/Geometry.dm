@@ -1,9 +1,4 @@
-proc/tan(var/V)
-	return sin(V) / cos(V)
 
-proc/arctan(var/V)
-	return 1 / tan(V)
-	return arcsin(V / sqrt(1 + (V * V)))
 
 // Angle2Index takes a list of angles and returns the index of the angle that is closest to it while remaining counterclockwise of the supplied angle.
 // Generally, you will want to pass this CardinalAngles or CardinalAngles8 as the RefAngles parameter.
@@ -11,7 +6,45 @@ proc/Angle2Index(var/Angle, var/list/RefAngles)
 	var/Index = 1
 	for (var/RefAngle in RefAngles)
 		if (RefAngle > Angle)
-			world.log << "[Angle]° becomes [RefAngle] (Index [Index])"
+			//world.log << "[Angle]° becomes [RefAngle] (Index [Index])"
 			return Index
 		Index += 1
 	return 1
+
+
+//TODO: Refactor to match coding style
+//Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
+// (Injoke.  Refer to your preferred SS13 branch and check helpers.dm)
+
+proc/GetTilesInLine(var/atom/Start,var/atom/End)
+	var/px=Start.x		//starting x
+	var/py=Start.y
+
+	var/line[] = list(locate(get_turf(Start)))
+
+	var/dx=End.x-px	//x distance
+	var/dy=End.y-py
+	var/dxabs=abs(dx)//Absolute value of x distance
+	var/dyabs=abs(dy)
+	var/sdx=sign(dx)	//Sign of x distance (+ or -)
+	var/sdy=sign(dy)
+	var/x=dxabs>>1	//Counters for steps taken, setting to distance/2
+	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
+	var/j			//Generic integer for counting
+	if(dxabs>=dyabs)	//x distance is greater than y
+		for(j=0;j<dxabs;j++)//It'll take dxabs steps to get there
+			y+=dyabs
+			if(y>=dxabs)	//Every dyabs steps, step once in y direction
+				y-=dxabs
+				py+=sdy
+			px+=sdx		//Step on in x direction
+			line+=locate(px,py,Start.z)//Add the turf to the list
+	else
+		for(j=0;j<dyabs;j++)
+			x+=dxabs
+			if(x>=dyabs)
+				x-=dyabs
+				px+=sdx
+			py+=sdy
+			line+=locate(px,py,Start.z)
+	return line

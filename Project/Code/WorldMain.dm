@@ -1,3 +1,6 @@
+var/datum/Ticker/Ticker
+
 world
 	New()
-		// Main Entrypoint for world
+		Ticker = new()
+		Ticker.Start()
