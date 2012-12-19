@@ -6,9 +6,6 @@ mob/Soldier
 	bound_width = 12
 	bound_height = 27
 
-/mob/Soldier/New()
-	..()
-
 mob/Soldier/proc/Shoot(var/mob/Target)
 
 	//Shooting a mob works in an interesting way.  There are three checks needed before a mob is shot:
@@ -22,31 +19,35 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 
 	//Depending on the cover value, the target either takes a glancing blow, a major blow, or is just stunned from a very near miss.
 
+
+
+	//TODO initial raycast
+
+
 	var/list/CoverInfo = Target.GetCover()
 	var/Angle = Target.GetAngleTo(src)
 
-	//world << "Angle is [Angle]"
-
 	var/AngleIndex = Angle2Index(Angle, CardinalAngles8)
-
-	//world << "AngleIndex [AngleIndex] means ref of [CardinalAngles8[AngleIndex]] ([CardinalAngles8[AngleIndex]])"
 
 	Angle = (Angle % 45) / 45 //We don't need the firing angle anymore, so reuse the var as the interpolation factor
 
 	var/CoverValue = (CoverInfo[AngleIndex] * (1 - Angle)) + (CoverInfo[AngleIndex + 1] * Angle)
-
-	//world << "Cover Value: [CoverValue]"
 
 	//Do cover penalties here
 
 	if (prob(100 - CoverValue))
 		world << "The shot connects!"
 
+	//TODO spread check
+
 	return
 
 
 /mob/Soldier/Attack(var/datum/Mouse/Mouse)
-	if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted) || !Mouse.Highlighted.CanTarget)
+	if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted))
 		return //No shooting yourself!
-	world << "[src] shoots at [Mouse.Highlighted]!"
-	src.Shoot(Mouse.Highlighted)
+	if (Mouse.Highlighted.CanTarget)
+		world << "[src] shoots at \icon [Mouse.Highlighted][Mouse.Highlighted]!"
+		src.Shoot(Mouse.Highlighted)
+	else
+		world << "[src] fires \his gun randomly"

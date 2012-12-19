@@ -6,7 +6,6 @@ proc/Angle2Index(var/Angle, var/list/RefAngles)
 	var/Index = 1
 	for (var/RefAngle in RefAngles)
 		if (RefAngle > Angle)
-			//world.log << "[Angle]° becomes [RefAngle] (Index [Index])"
 			return Index
 		Index += 1
 	return 1

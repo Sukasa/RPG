@@ -7,9 +7,6 @@ mob
 		SmoothMove
 	sight = SEE_TURFS
 
-/mob/verb/Say(var/Text as text)
-	world << "&lt;[ckey]&gt; [Text]"
-
 /mob/proc/GetCoverPenalty()
 	return 0
 

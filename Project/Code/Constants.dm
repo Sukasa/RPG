@@ -8,6 +8,17 @@ var
 		RankProgrammer = 2
 		RankAdministrator = 3
 
+		MaxChatboxHeight = 9	//Maximum height (in lines of text) of the chat box
+		SpeechLifetime = 70		//How long (in 10ths of a second) lines in chat should remain visible
+
+		ChannelAttackers = 1
+		ChannelDefenders = 2
+		ChannelSpectators = 4
+		ChannelAdmin = 8
+
+		ChannelNone = 0
+		ChannelAll = 65535
+
 	list
 
 		//NOTE: Don't change the order of these!  The Cardinal* and CardinalAngles* value orders match up with code implemented in Utility/Geometry.dm and Atom.dm

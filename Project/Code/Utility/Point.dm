@@ -19,14 +19,14 @@
 	FineY = (TileY * 32) + PixelY
 
 /datum/Point/proc/GetDistanceTo(var/datum/Point/To)
-	if (istype(To, /atom))
+	if (IsAtom(To))
 		To = new/datum/Point(To)
 	var/dX = (To.FineX - src.FineX) / 32
 	var/dY = (To.FineY - src.FineY) / 32
 	return sqrt((dX * dX) + (dY * dY))
 
 /datum/Point/proc/GetAngleTo(var/datum/Point/To)
-	if (istype(To, /atom))
+	if (IsAtom(To))
 		To = new/datum/Point(To)
 
 	var/dX = To.FineX - src.FineX

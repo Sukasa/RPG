@@ -185,8 +185,8 @@ window "pane_sidebar"
 window "window_main"
 	elem "window_main"
 		type = MAIN
-		pos = 281,0
-		size = 960x581
+		pos = 760,225
+		size = 1035x582
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -222,12 +222,12 @@ window "window_main"
 		macro = "macro"
 		menu = "menu"
 		on-close = ""
-	elem "child1"
+	elem "mainsplitter"
 		type = CHILD
 		pos = 0,0
-		size = 956x552
+		size = 1031x552
 		anchor1 = 0,0
-		anchor2 = 100,96
+		anchor2 = 100,100
 		font-family = ""
 		font-size = 0
 		font-style = ""
@@ -250,9 +250,9 @@ window "window_main"
 		lock = right
 	elem "input1"
 		type = INPUT
-		pos = 0,556
-		size = 956x21
-		anchor1 = 0,96
+		pos = 0,557
+		size = 1031x21
+		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = ""
 		font-size = 0

@@ -1,5 +1,5 @@
-/datum/Mouse
-	var
+/datum/Mouse // Type Definition
+	var	// Variables in the type
 		LeftDown = 0
 		RightDown = 0
 		MiddleDown = 0
@@ -11,8 +11,7 @@
 		datum/Point/Pos = new()
 		atom/Highlighted
 
-
-/datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)
+/datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)	//Function def, easier to ctrl-F
 	Pos.TileX = A.x
 	Pos.TileY = A.y
 	Pos.PixelX = text2num(Params["icon_x"])
