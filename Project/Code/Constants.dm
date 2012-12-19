@@ -27,4 +27,3 @@ var
 
 		Cardinal8 = list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
 		CardinalAngles8 = list(45, 90, 135, 180, 225, 270, 315, 360)
-

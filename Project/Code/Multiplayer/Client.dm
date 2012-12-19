@@ -2,7 +2,7 @@ client
 	show_popup_menus = FALSE
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
-		CanAddress = ChannelAll
+		BroadcastChannels = ChannelAll
 		SubscribedChannels = ChannelAll
 
 /client/New()
