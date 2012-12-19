@@ -105,7 +105,7 @@ window "pane_map"
 		is-transparent = false
 		is-default = true
 		border = none
-		drop-zone = false
+		drop-zone = true
 		right-click = true
 		saved-params = "icon-size"
 		on-size = ""
@@ -268,7 +268,7 @@ window "window_main"
 		right-click = false
 		saved-params = ""
 		on-size = ""
-		command = ""
+		command = "Say"
 		multi-line = false
 		is-password = false
 		no-command = false

@@ -6,6 +6,8 @@ mob/Soldier
 	bound_width = 12
 	bound_height = 27
 
+/mob/Soldier/New()
+	..()
 
 mob/Soldier/proc/Shoot(var/mob/Target)
 
@@ -43,10 +45,8 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 	return
 
 
-/mob/Soldier/Click()
-	if (usr == src)
+/mob/Soldier/Attack(var/datum/Mouse/Mouse)
+	if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted) || !Mouse.Highlighted.CanTarget)
 		return //No shooting yourself!
-	world << "[usr] shoots at [src]!"
-	if(istype(usr,/mob/Soldier))
-		var/mob/Soldier/a = usr
-		a.Shoot(src)
+	world << "[src] shoots at [Mouse.Highlighted]!"
+	src.Shoot(Mouse.Highlighted)

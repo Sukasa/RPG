@@ -11,11 +11,18 @@ proc/Angle2Index(var/Angle, var/list/RefAngles)
 		Index += 1
 	return 1
 
+//Raytrace algorithm.  Given a starting position and Angle (CW from North), returns the terminus turf
+proc/Raytrace(var/atom/Start, var/Angle, var/CollideWith = 0)
+	if (!CollideWith)
+		CollideWith = list(/atom)
+
+	//
+
+	return
 
 //TODO: Refactor to match coding style
 //Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
 // (Injoke.  Refer to your preferred SS13 branch and check helpers.dm)
-
 proc/GetTilesInLine(var/atom/Start,var/atom/End)
 	var/px=Start.x		//starting x
 	var/py=Start.y
@@ -29,7 +36,7 @@ proc/GetTilesInLine(var/atom/Start,var/atom/End)
 	var/sdx=sign(dx)	//Sign of x distance (+ or -)
 	var/sdy=sign(dy)
 	var/x=dxabs>>1	//Counters for steps taken, setting to distance/2
-	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
+	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() fast.
 	var/j			//Generic integer for counting
 	if(dxabs>=dyabs)	//x distance is greater than y
 		for(j=0;j<dxabs;j++)//It'll take dxabs steps to get there
@@ -37,7 +44,7 @@ proc/GetTilesInLine(var/atom/Start,var/atom/End)
 			if(y>=dxabs)	//Every dyabs steps, step once in y direction
 				y-=dxabs
 				py+=sdy
-			px+=sdx		//Step on in x direction
+			px+=sdx		//Step one in x direction
 			line+=locate(px,py,Start.z)//Add the turf to the list
 	else
 		for(j=0;j<dyabs;j++)

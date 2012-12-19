@@ -13,6 +13,7 @@
 #define FILE_DIR "Project/Icons/Objects"
 #define FILE_DIR "Project/Icons/Terrain"
 #define FILE_DIR "Project/Icons/Terrain/Floor"
+#define FILE_DIR "Project/Icons/Terrain/Floorplan"
 #define FILE_DIR "Project/Icons/Terrain/Wall"
 // END_FILE_DIR
 
@@ -31,7 +32,10 @@
 #include "Project\Code\Game\GameMode\GameMode.dm"
 #include "Project\Code\Mob\Mob.dm"
 #include "Project\Code\Mob\Soldier.dm"
+#include "Project\Code\Multiplayer\Chatbox.dm"
 #include "Project\Code\Multiplayer\Client.dm"
+#include "Project\Code\Multiplayer\MouseControl.dm"
+#include "Project\Code\Objects\TurfStandIn.dm"
 #include "Project\Code\Objects\Cover\Bed.dm"
 #include "Project\Code\Objects\Cover\Rack.dm"
 #include "Project\Code\Objects\Cover\Tables.dm"
@@ -41,9 +45,10 @@
 #include "Project\Code\Terrain\Wall.dm"
 #include "Project\Code\Utility\Geometry.dm"
 #include "Project\Code\Utility\Math.dm"
+#include "Project\Code\Utility\Point.dm"
 #include "Project\Code\Utility\TurfHelpers.dm"
 #include "Project\Code\Utility\Types.dm"
-#include "Project\Maps\GenericMap.dmm"
+#include "Project\Maps\Splatterhouse.dmm"
 #include "Project\Skins\Interface.dmf"
 // END_INCLUDE
 
