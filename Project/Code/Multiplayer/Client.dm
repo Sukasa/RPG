@@ -10,3 +10,7 @@ client
 	screen += Chatbox
 	src.mob.x = 10
 	src.mob.y = 12
+
+
+/client/Move()
+	return

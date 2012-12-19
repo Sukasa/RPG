@@ -9,11 +9,13 @@
 		if (Mode && Mode.Started)
 			Mode.Tick()
 			for (var/mob/M in world)
-				M.Tick()
+				M.SlowTick()
 
 	// Mobs move at 20Hz
 	for (var/mob/M in world)
 		M.MoveTo()
+		M.FastTick()
+
 
 /datum/Ticker/proc/Start()
 	spawn

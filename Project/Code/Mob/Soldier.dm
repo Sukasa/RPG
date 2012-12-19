@@ -6,6 +6,17 @@ mob/Soldier
 	bound_width = 12
 	bound_height = 27
 
+
+	var/dmg_major = 0
+	var/dmg_minor = 0
+	var/dmg_blood = 100
+
+
+
+
+
+
+/*
 mob/Soldier/proc/Shoot(var/mob/Target)
 
 	//Shooting a mob works in an interesting way.  There are three checks needed before a mob is shot:
@@ -41,13 +52,44 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 	//TODO spread check
 
 	return
-
+*/
 
 /mob/Soldier/Attack(var/datum/Mouse/Mouse)
-	if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted))
-		return //No shooting yourself!
-	if (Mouse.Highlighted.CanTarget)
+
+	var/obj/item/item = src.SelectedItem()
+	if(!item)
+		return
+
+
+	if(istype(item,/obj/item/ranged))
+		var/obj/item/ranged/gun = item
+
+		if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted))
+			return //No shooting yourself!
+
 		world << "[src] shoots at \icon [Mouse.Highlighted][Mouse.Highlighted]!"
-		src.Shoot(Mouse.Highlighted)
-	else
-		world << "[src] fires \his gun randomly"
+		gun.Shoot(Mouse.Highlighted)
+
+/mob/Soldier/Stun(var/severity)
+	stunned = min(1000,stunned+severity)
+	world << "[src] got hit by a stunner and is now stunned for [stunned]"
+	flash_screen()
+
+
+/mob/Soldier/New()
+	..()
+	var/obj/item/ranged/stunner/stungun = new /obj/item/ranged/stunner(src)
+	Grab_Item(stungun,1)
+
+
+/mob/Soldier/FastTick()
+	..()
+	stunned = max(stunned-2,0)
+
+
+
+/mob/Soldier/SlowTick()
+	if(client) //DEBUG!
+		world << "Stunned for [stunned]"
+
+	..()
