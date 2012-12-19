@@ -1,11 +1,25 @@
 mob
 	var
-		MoveSpeed = 7
 		datum/Point/Destination
 		SubStepX
 		SubStepY
 		SmoothMove
+
+
+		list/inventory
+		inv_selected = 1
+		stunned = 0
+
+		var/obj/Runtime/flash/hud_flash
+
+
 	sight = SEE_TURFS
+
+
+/mob/New()
+	inventory = new /list(9)
+	hud_flash = new /obj/Runtime/flash()
+
 
 /mob/proc/GetCoverPenalty()
 	return 0
@@ -23,6 +37,8 @@ mob
 	if (!Target)
 		return
 	var/Angle = GetAngleTo(Destination)
+
+	var/MoveSpeed = MoveSpeed()
 
 	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x
 	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y
@@ -59,11 +75,90 @@ mob
 		Destination = null
 
 /mob/Move()
+
 	..()
+
 	if (!SmoothMove)
+		return
 		Destination = null
 	else
 		SmoothMove--
 
-/mob/proc/Tick()
+/mob/proc/SlowTick()
 	return
+
+/mob/proc/FastTick()
+	return
+
+/mob/proc/Health()
+	return 1000
+
+/mob/proc/Accuracy()
+	return 100
+
+/mob/proc/Dead()
+	return FALSE
+
+/mob/proc/Stunned()
+	return stunned
+
+/mob/proc/Stutter()
+	return FALSE
+
+/mob/proc/Blurred()
+	return FALSE
+
+/mob/proc/SelectedItem()
+//	world << inventory.len
+	return inventory[inv_selected]
+
+
+/mob/proc/MoveSpeed()
+	if(stunned)
+		if(stunned <= 100)
+			return 5-(stunned/30)
+		else
+			return 1
+
+	else
+		return 5
+
+
+/mob/proc/CanAttack()
+	return stunned<5
+
+/mob/proc/Stun(var/severity)
+	return
+
+
+/mob/proc/Grab_Item(var/obj/item/item,var/inventory_slot)
+	if(inventory_slot > inventory.len)
+		world << "Out of range"
+		return
+	if(inventory[inventory_slot] != null)
+		Drop_Item(inventory_slot)
+
+	item.SetOwner(src,inventory_slot)
+
+	item.loc = src
+
+	inventory[inventory_slot] = item
+/mob/proc/Drop_Item(var/inventory_slot)
+	if(inventory_slot > inventory.len)
+		return
+
+	var/obj/item/item = inventory[inventory_slot]
+	if(!item)
+		return
+	item.loc = src.loc
+
+
+
+
+/mob/Login()
+	..()
+	client.screen += hud_flash
+
+
+/mob/proc/flash_screen()
+	flick('FlashWhite.dmi',hud_flash)

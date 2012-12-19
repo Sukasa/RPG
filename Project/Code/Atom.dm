@@ -29,3 +29,7 @@ atom/movable/proc/GetAngleTo(var/atom/movable/To)
 atom/movable/proc/GetDistanceTo(var/atom/movable/To)
 	var/datum/Point/P = new(src)
 	return P.GetDistanceTo(To)
+
+
+atom/proc/Shot(var/atom/shooter,var/item/ranged/weapon)
+	return
