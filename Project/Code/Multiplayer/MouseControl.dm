@@ -1,5 +1,5 @@
-/datum/Mouse // Type Definition
-	var	// Variables in the type
+/datum/Mouse
+	var
 		LeftDown = 0
 		RightDown = 0
 		MiddleDown = 0
@@ -11,7 +11,7 @@
 		datum/Point/Pos = new()
 		atom/Highlighted
 
-/datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)	//Function def, easier to ctrl-F
+/datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)
 	Pos.TileX = A.x
 	Pos.TileY = A.y
 	Pos.PixelX = text2num(Params["icon_x"])
@@ -34,42 +34,49 @@
 
 	return
 
-
 /client
 	var
 		datum/Mouse/Mouse = new()
-
 
 /client/MouseDown(var/Object, var/Location, var/Control, var/P)
 	..()
 	if (!Object)
 		Object = Location
-	if (!IsAtom(Object) || !IsTurf(Location))
+	if (!IsAtom(Object))
 		return
 	Mouse.Set(Object, params2list(P))
-	if (Mouse.Left)
-		mob.SetMoveTarget(Mouse)
-	if (Mouse.Right)
-		mob.Attack(Mouse)
-
+	if (IsMovable(Mouse.Highlighted) && istype(Mouse.Highlighted, /obj/Runtime/HUD))
+		var/obj/Runtime/HUD/HUDObject/HO = Mouse.Highlighted
+		if (Mouse.Left)
+			HO.Master.LeftClick(HO, Mouse)
+		if (Mouse.Right)
+			HO.Master.RightClick(HO, Mouse)
+	else
+		if (Mouse.Left)
+			mob.SetMoveTarget(Mouse)
+		if (Mouse.Right)
+			mob.Attack(Mouse)
+		if (Mouse.Middle)
+			mob.Attack(Mouse, TRUE)
 
 /client/MouseUp(var/Object, var/Location, var/Control, var/P)
 	..()
 	if (!Object)
 		Object = Location
-	if (!IsAtom(Object) || !IsTurf(Location))
+	if (!IsAtom(Object))
 		return
 	Mouse.Set(Object, params2list(P), 0)
-
 
 /client/MouseDrag(var/Dragged, var/Over, var/FromLocation, var/ToLocation, var/FromControl, var/ToControl, var/P)
 	..()
 	if (!Over)
 		Over = ToLocation
-	if (!IsAtom(Over) || !IsTurf(ToLocation))
+	if (!IsAtom(Over))
 		return
 	Mouse.Set(Over, params2list(P), 2)
-	if (Mouse.LeftDown)
+	if (Mouse.Left)
 		mob.SetMoveTarget(Mouse)
-	if (Mouse.RightDown)
+	if (Mouse.Right)
 		mob.Attack(Mouse)
+	if (Mouse.Middle)
+		mob.Attack(Mouse, TRUE)

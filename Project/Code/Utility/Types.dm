@@ -4,6 +4,9 @@ proc/IsTurf(var/A)
 proc/IsAtom(var/A)
 	return istype(A, /atom)
 
+proc/IsObj(var/A)
+	return istype(A, /obj)
+
 proc/IsMovable(var/A)
 	return istype(A, /atom/movable)
 

@@ -1,9 +1,9 @@
 
-/obj/item/ranged/
+/obj/Item/ranged/
 	name = "Ranged item"
+	UseOnSelf = FALSE
 
-
-/obj/item/ranged/proc/Shoot(var/atom/Target)
+/obj/Item/ranged/proc/Shoot(var/atom/Target)
 
 
 	//Shooting a mob works in an interesting way.  There are three checks needed before a mob is shot:
@@ -55,16 +55,16 @@
 	return
 
 
-/obj/item/ranged/proc/Hit_Ranged(var/atom/Target,var/hit_severity)
+/obj/Item/ranged/proc/Hit_Ranged(var/atom/Target,var/hit_severity)
 	return
 
 
-/obj/item/ranged/stunner
+/obj/Item/ranged/stunner
 	name = "Stun projecter"
 	icon = 'gun.dmi'
 	icon_state = "ionrifle"
 
-/obj/item/ranged/stunner/Hit_Ranged(var/atom/Target,var/hit_severity)
+/obj/Item/ranged/stunner/Hit_Ranged(var/atom/Target,var/hit_severity)
 	world << "Hit_ranged"
 	if(istype(Target,/mob))
 		var/mob/mob = Target

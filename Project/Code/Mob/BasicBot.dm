@@ -10,12 +10,12 @@
 	..()
 
 	if(shoot)
-		world << "boop"
+		//world << "boop"
 		if(prob(10))
 			for(var/mob/Soldier/S in view(src))
 				if(S.client)
 					world << "Target [S]"
-					var/obj/item/ranged/gun = SelectedItem()
+					var/obj/Item/ranged/gun = SelectedItem()
 					gun.Shoot(S)
 
 

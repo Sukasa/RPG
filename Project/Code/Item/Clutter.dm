@@ -1,4 +1,4 @@
-/obj/item/tank
+/obj/Item/tank
 	name = "Oxygen tank"
 	icon = 'tank.dmi'
 	icon_state = "oxygen"
@@ -6,14 +6,14 @@
 	damage = 10
 
 
-/obj/item/canister
+/obj/Item/canister
 	name = "Gas canister"
 	icon = 'tank.dmi'
 	icon_state = "canister"
 	damage = 3
 
 
-/obj/item/medkit
+/obj/Item/medkit
 	name = "Medkit"
 	icon = 'storage.dmi'
 	icon_state = "firstaid"

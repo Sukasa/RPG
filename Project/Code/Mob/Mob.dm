@@ -24,7 +24,7 @@ mob
 /mob/proc/GetCoverPenalty()
 	return 0
 
-/mob/proc/Attack(var/datum/Mouse/Mouse)
+/mob/proc/Attack(var/datum/Mouse/Mouse, var/ForceAttack)
 	return
 
 /mob/proc/SetMoveTarget(var/datum/Mouse/Mouse)
@@ -131,7 +131,7 @@ mob
 	return
 
 
-/mob/proc/Grab_Item(var/obj/item/item,var/inventory_slot)
+/mob/proc/Grab_Item(var/obj/Item/item,var/inventory_slot)
 	if(inventory_slot > inventory.len)
 		world << "Out of range"
 		return
@@ -147,7 +147,7 @@ mob
 	if(inventory_slot > inventory.len)
 		return
 
-	var/obj/item/item = inventory[inventory_slot]
+	var/obj/Item/item = inventory[inventory_slot]
 	if(!item)
 		return
 	item.loc = src.loc

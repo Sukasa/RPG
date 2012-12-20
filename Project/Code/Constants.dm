@@ -10,11 +10,18 @@ var
 
 		MaxChatboxHeight = 9	//Maximum height (in lines of text) of the chat box
 		SpeechLifetime = 70		//How long (in 10ths of a second) lines in chat should remain visible
+		ChatboxOffsetX = 12
+		ChatboxOffsetY = 12
+
 
 		ChannelAttackers = 1
 		ChannelDefenders = 2
 		ChannelSpectators = 4
 		ChannelAdmin = 8
+		ChannelDebug = 16
+		ChannelGame = 32
+		ChannelInfo = 64
+
 
 		ChannelNone = 0
 		ChannelAll = 65535

@@ -2,20 +2,17 @@
 	var/list/Text = list()
 	var/NumLines = 1
 
-/obj/Runtime/Letter
-	icon = 'Text.dmi'
-	pixel_y = -4
-	mouse_opacity = FALSE
-
 /obj/Runtime/LetterBG
 	icon = 'TextBackground.dmi'
 	icon_state = "Line"
 	mouse_opacity = FALSE
+	pixel_x = ChatboxOffsetX
+	pixel_y = ChatboxOffsetY
 
 /obj/Runtime/Chatbox
 	icon = 'Text.dmi'
 	mouse_opacity = FALSE
-	screen_loc = "1,2"
+	screen_loc = "1,1"
 	var/SkipTimedRemoval = 0	//Number of times to skip timed removal.  Only used if a high speech rate has overfilled the text box
 	var/list/Lines = list()
 	var/DrawnLines = 0
@@ -50,7 +47,7 @@
 
 /obj/Runtime/Chatbox/proc/CreateChatLine(var/Line as text)
 	var/datum/ChatLine/ChatLine = new()
-	var/CurrentLineWidth = 0
+	var/CurrentLineWidth = ChatboxOffsetX
 	var/WordWidth = 0
 	var/list/WordBuffer = list()
 	ChatLine.Text += new/obj/Runtime/LetterBG()
@@ -66,8 +63,8 @@
 			WordWidth += LetterWidth + 1
 			WordBuffer += Letter
 		else
-			if (CurrentLineWidth + WordWidth > 400)
-				CurrentLineWidth = 0
+			if (CurrentLineWidth + WordWidth > 400 + ChatboxOffsetX)
+				CurrentLineWidth = ChatboxOffsetX
 				ChatLine.NumLines++
 				for (var/atom/A in ChatLine.Text)
 					A.pixel_y += 12

@@ -6,7 +6,7 @@
 	Ticks++
 	if (Ticks % 20 == 0)
 		//Game Mode, Machinery, etc tick at 1Hz
-		if (Mode && Mode.Started)
+		if (Mode && Mode.RunTicker())
 			Mode.Tick()
 			for (var/mob/M in world)
 				M.SlowTick()

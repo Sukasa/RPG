@@ -1,6 +1,6 @@
 
 //An an, able to be picked up. Similar to SS13's item system, but designed to be easier to use.
-/obj/item
+/obj/Item
 
 	name = "Generic Item"
 
@@ -9,11 +9,12 @@
 
 	var/mob/owner //Person who is holding the item
 	var/inventory_slot
+	var/UseOnSelf = TRUE //If the item can be used on its owner
 
-/obj/item/proc/Owner()
+/obj/Item/proc/Owner()
 	return owner
 
-/obj/item/proc/SetOwner(var/mob/newowner,var/slot)
+/obj/Item/proc/SetOwner(var/mob/newowner,var/slot)
 	owner = newowner
 	inventory_slot = slot
 

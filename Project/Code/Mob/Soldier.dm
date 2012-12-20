@@ -54,17 +54,17 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 	return
 */
 
-/mob/Soldier/Attack(var/datum/Mouse/Mouse)
+/mob/Soldier/Attack(var/datum/Mouse/Mouse, var/ForceAttack)
 
-	var/obj/item/item = src.SelectedItem()
+	var/obj/Item/item = src.SelectedItem()
+
 	if(!item)
 		return
 
+	if(istype(item,/obj/Item/ranged))
+		var/obj/Item/ranged/gun = item
 
-	if(istype(item,/obj/item/ranged))
-		var/obj/item/ranged/gun = item
-
-		if (src == Mouse.Highlighted || !IsMovable(Mouse.Highlighted))
+		if ((src == Mouse.Highlighted && !item.UseOnSelf) || !IsMovable(Mouse.Highlighted))
 			return //No shooting yourself!
 
 		world << "[src] shoots at \icon [Mouse.Highlighted][Mouse.Highlighted]!"
@@ -78,7 +78,7 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 
 /mob/Soldier/New()
 	..()
-	var/obj/item/ranged/stunner/stungun = new /obj/item/ranged/stunner(src)
+	var/obj/Item/ranged/stunner/stungun = new(src)
 	Grab_Item(stungun,1)
 
 
@@ -89,7 +89,7 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 
 
 /mob/Soldier/SlowTick()
-	if(client) //DEBUG!
+	if(client && stunned) //DEBUG!
 		world << "Stunned for [stunned]"
 
 	..()

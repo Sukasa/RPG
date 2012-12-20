@@ -9,11 +9,11 @@
 "i" = (/mob/Soldier,/turf/Floor/Generic/Basic,/area)
 "j" = (/obj/Furniture/Rack,/turf/Floor/Generic/Basic,/area)
 "k" = (/obj/Furniture/Table/Strong_Table,/turf/Floor/Generic/Basic,/area)
-"l" = (/obj/Furniture/Table/Strong_Table,/obj/item/tank,/turf/Floor/Generic/Basic,/area)
+"l" = (/obj/Furniture/Table/Strong_Table,/obj/Item/tank,/turf/Floor/Generic/Basic,/area)
 "m" = (/mob/Soldier/bot{move = 1},/turf/Floor/Generic/Basic{tag = "A"},/area)
-"n" = (/obj/item/medkit,/turf/Floor/Generic/Basic,/area)
-"o" = (/obj/item/tank,/turf/Floor/Generic/Basic{tag = "B"},/area)
-"p" = (/obj/item/tank,/turf/Floor/Generic/Basic,/area)
+"n" = (/obj/Item/medkit,/turf/Floor/Generic/Basic,/area)
+"o" = (/obj/Item/tank,/turf/Floor/Generic/Basic{tag = "B"},/area)
+"p" = (/obj/Item/tank,/turf/Floor/Generic/Basic,/area)
 "q" = (/mob/Soldier/bot{shoot = 1},/turf/Floor/Generic/Basic,/area)
 
 (1,1,1) = {"
