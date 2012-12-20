@@ -52,7 +52,7 @@
 	var/list/WordBuffer = list()
 	ChatLine.Text += new/obj/Runtime/LetterBG()
 	for(var/X = 1, X <= length(Line), X++)
-		var/obj/Runtime/Letter/Letter = new()
+		var/obj/Runtime/HUD/Letter/Letter = new()
 		var/LetterASCII = text2ascii(Line, X)
 		if (LetterASCII > VWF.len)
 			continue

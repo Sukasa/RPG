@@ -75,9 +75,7 @@ mob
 		Destination = null
 
 /mob/Move()
-
 	..()
-
 	if (!SmoothMove)
 		return
 		Destination = null
@@ -143,6 +141,7 @@ mob
 	item.loc = src
 
 	inventory[inventory_slot] = item
+
 /mob/proc/Drop_Item(var/inventory_slot)
 	if(inventory_slot > inventory.len)
 		return
@@ -152,8 +151,11 @@ mob
 		return
 	item.loc = src.loc
 
+/mob/proc/SetActiveSlot(var/InventoryIndex)
+	inv_selected = InventoryIndex
 
-
+/mob/proc/GetActiveSlot()
+	return inv_selected
 
 /mob/Login()
 	..()

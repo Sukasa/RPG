@@ -8,6 +8,9 @@
 /obj/Runtime/HUD/HUDController/proc/Initialize()
 	return
 
+/obj/Runtime/HUD/HUDController/proc/Update()
+	return
+
 /obj/Runtime/HUD/HUDController/proc/LeftClick(var/obj/Runtime/HUD/HUDObject/HO, var/datum/Mouse/Mouse)
 	return
 

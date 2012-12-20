@@ -6,6 +6,7 @@
 	var
 		obj/Item/SlotItem = null
 		Quantity = 1
+		SlotIndex = 0
 
 
 /obj/Runtime/HUD/HUDObject/InventorySlot/proc/SetSelected(var/Selected)
@@ -35,7 +36,7 @@
 	if (SlotItem)
 		overlays += SlotItem
 	if (Quantity != 1 || TRUE)
-		var/obj/Runtime/Letter = new()
+		var/obj/Runtime/HUD/Letter = new()
 		Letter.icon_state = "[Quantity + 48]"
 		Letter.pixel_y = 4
 		Letter.pixel_x = 26

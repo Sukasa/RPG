@@ -80,6 +80,7 @@ mob/Soldier/proc/Shoot(var/mob/Target)
 	..()
 	var/obj/Item/ranged/stunner/stungun = new(src)
 	Grab_Item(stungun,1)
+	client.HUD.Update()
 
 
 /mob/Soldier/FastTick()
