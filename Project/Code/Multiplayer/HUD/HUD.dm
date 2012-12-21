@@ -8,6 +8,9 @@
 /obj/Runtime/HUD/HUDController/proc/Initialize()
 	return
 
+/obj/Runtime/HUD/HUDController/proc/DeInitialize()
+	return
+
 /obj/Runtime/HUD/HUDController/proc/Update()
 	return
 

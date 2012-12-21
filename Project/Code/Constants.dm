@@ -13,6 +13,9 @@ var
 		ChatboxOffsetX = 12
 		ChatboxOffsetY = 12
 
+		TeamAttackers = 1
+		TeamDefenders = 2
+		TeamSpectators = 3
 
 		ChannelAttackers = 1
 		ChannelDefenders = 2

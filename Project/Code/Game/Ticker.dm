@@ -16,9 +16,20 @@
 		M.MoveTo()
 		M.FastTick()
 
+//Whether to allow a NEW player to join in
+/datum/Ticker/proc/AllowJoin()
+	if (!Mode || !Mode.RunTicker())
+		return TRUE
+	return Mode.AllowLateJoin && Config.AllowLateJoin
 
 /datum/Ticker/proc/Start()
 	spawn
 		while (TRUE)
 			Tick()
 			sleep(0.5)
+
+/datum/Ticker/proc/BeginRound(var/GameModeType)
+	Mode = new GameModeType()
+	if (Mode.AutoAssignTeams)
+		AutoAssignTeams()
+

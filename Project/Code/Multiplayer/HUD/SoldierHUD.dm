@@ -4,14 +4,15 @@
 	var/HUDComponents[] = list()
 	var/obj/Runtime/HUD/HUDObject/InventorySlot/Selected
 
-/obj/Runtime/HUD/HUDController/SoldierHUD/Initialize()
+/obj/Runtime/HUD/HUDController/SoldierHUD/DeInitialize()
 	for(var/obj/Runtime/HUD/HUDObject/InventorySlot/A in HUDComponents)
 		Client.screen -= A
 		A.SetMaster(null)
-
 	Selected = null
-
 	HUDComponents = list()
+
+/obj/Runtime/HUD/HUDController/SoldierHUD/Initialize()
+	DeInitialize()
 
 	for (var/X = 1, X <= Client.mob.inventory.len, X++)
 		var/obj/Runtime/HUD/HUDObject/InventorySlot/Slot = new()

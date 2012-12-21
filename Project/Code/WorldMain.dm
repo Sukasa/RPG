@@ -1,4 +1,5 @@
 var/datum/Ticker/Ticker
+var/datum/Configuration/Config
 
 world
 	New()

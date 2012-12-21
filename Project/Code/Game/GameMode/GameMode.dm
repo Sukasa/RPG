@@ -1,4 +1,9 @@
 /datum/GameMode
+	var
+		Name = ""
+		AutoAssignTeams = TRUE
+		AllowLateJoin = TRUE
+		ModeKey = ""
 
 /datum/GameMode/proc/Tick()
 	return
@@ -8,6 +13,9 @@
 
 /datum/GameMode/proc/End()
 	return
+
+/datum/GameMode/proc/CheckEnd()
+	return FALSE
 
 /datum/GameMode/proc/RunTicker()
 	return TRUE

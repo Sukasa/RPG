@@ -3,16 +3,33 @@ client
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
 		obj/Runtime/HUD/HUDController/HUD
+
 		BroadcastChannels = ChannelAll
 		SubscribedChannels = ChannelAll
 
 /client/New()
-	..()
+	if (Ticker && Ticker.AllowJoin()) // Either late join & allowed, or no round in effect
+		// Either reconnect the client to their mob, or create a new one
+
+		..()  //Standard mob creation: Soldier; name and gender set to BYOND user info
+		HUD = new/obj/Runtime/HUD/HUDController/SoldierHUD(src)
+	else
+
+		// Create as spectator - The round is already going and doesn't allow late (re)joins.
+		var/mob/Spectator/S = new()
+		S >> usr
+
+	// Init UI
 	screen += Chatbox
+	if (HUD)
+		HUD.Initialize()
+
+	// Set Mob team, if appropriate
+
+	// Set mob position
+
 	src.mob.x = 10
 	src.mob.y = 12
-	HUD = new/obj/Runtime/HUD/HUDController/SoldierHUD(src)
-	HUD.Initialize()
 
 
 /client/Move()
