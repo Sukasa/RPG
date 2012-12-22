@@ -18,8 +18,12 @@
 
 //Whether to allow a NEW player to join in
 /datum/Ticker/proc/AllowJoin()
+	return TRUE
 	if (!Mode || !Mode.RunTicker())
+		world << "No Mode, or No Ticker"
 		return TRUE
+	world << "Checking Mode & Config"
+	world << "M: [Mode.AllowLateJoin] C: [Config.AllowLateJoin]"
 	return Mode.AllowLateJoin && Config.AllowLateJoin
 
 /datum/Ticker/proc/Start()

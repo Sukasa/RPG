@@ -12,9 +12,14 @@
 		return
 	TileX = Location.x
 	TileY = Location.y
-	if (istype(Location, /atom/movable))
+	if (IsMovable(Location))
 		PixelX = Location:step_x
 		PixelY = Location:step_y
+		PixelX += Location:bound_width / 2
+		PixelY += Location:bound_height / 2
+	if (IsTurf(Location))
+		PixelX += 16
+		PixelY += 16
 	FineX = (TileX * 32) + PixelX
 	FineY = (TileY * 32) + PixelY
 
@@ -28,7 +33,6 @@
 /datum/Point/proc/GetAngleTo(var/datum/Point/To)
 	if (IsAtom(To))
 		To = new/datum/Point(To)
-
 	var/dX = To.FineX - src.FineX
 	var/dY = To.FineY - src.FineY
 	if(!dY)

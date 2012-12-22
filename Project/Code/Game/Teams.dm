@@ -2,7 +2,7 @@
 
 //Three teams: Attackers, Defenders, Spectators.  In 'teamless' modes, Defenders team is not used (Spectators are still allowed).
 var
-	list/Teams = list(list(), list(), list())
+	list/list/mob/Teams = list(list(), list(), list())
 
 proc/AutoAssignTeams()
 	var/AssignablePlayers[0]
@@ -20,8 +20,13 @@ proc/AutoAssignTeams()
 			Teams[TeamDefenders] += Player
 			AssignablePlayers -= Player
 
-proc/LateJoin(var/mob/LatePlayer)
-	if (Ticker.AllowJoin())
-		return TRUE
+proc/LateAssign(var/mob/NewPlayer)
+
+	//Due to how BYOND syntax works, I can't just do Teams[blah].len.  Seriously.
+	var/list/A = Teams[TeamAttackers]
+	var/list/D = Teams[TeamAttackers]
+
+	if (A.len > D.len)
+		Teams[TeamDefenders] += NewPlayer
 	else
-		return FALSE
+		Teams[TeamAttackers] += NewPlayer

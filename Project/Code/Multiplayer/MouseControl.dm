@@ -14,8 +14,11 @@
 /datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)
 	Pos.TileX = A.x
 	Pos.TileY = A.y
-	Pos.PixelX = text2num(Params["icon_x"])
-	Pos.PixelY = text2num(Params["icon_y"])
+	Pos.PixelX = text2num(Params["icon-x"]) - 1 + A.pixel_x
+	Pos.PixelY = text2num(Params["icon-y"]) - 1 + A.pixel_y
+	if (IsMovable(A))
+		Pos.PixelX += A:step_x
+		Pos.PixelY += A:step_y
 	Pos.FineX = (Pos.TileX * 32) + Pos.PixelX
 	Pos.FineY = (Pos.TileY * 32) + Pos.PixelY
 	Highlighted = A

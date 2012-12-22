@@ -37,8 +37,7 @@ mob
 	if (!Target)
 		return
 	var/Angle = GetAngleTo(Destination)
-
-	var/MoveSpeed = MoveSpeed()
+	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * 32)
 
 	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x
 	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y
@@ -66,12 +65,12 @@ mob
 	SubStepX = NewStepX % 1
 	SubStepY = NewStepY % 1
 
-	//TODO rework this so that if you're trying to hit a wall diagonally, you move in a cardinal4 direction instead
+	//TODO rework this so that if you're trying to hit a wall diagonally, you don't suddenly move at a slower pace.
 	SmoothMove = 2
 	Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
 	Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
-	if (GetDistanceTo(Destination) <= (MoveSpeed / 32))
+	if (GetDistanceTo(Destination) <= (1 / 32))
 		Destination = null
 
 /mob/Move()
