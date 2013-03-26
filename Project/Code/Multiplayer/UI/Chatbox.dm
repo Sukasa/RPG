@@ -2,13 +2,6 @@
 	var/list/Text = list()
 	var/NumLines = 1
 
-/obj/Runtime/LetterBG
-	icon = 'TextBackground.dmi'
-	icon_state = "Line"
-	mouse_opacity = FALSE
-	pixel_x = ChatboxOffsetX
-	pixel_y = ChatboxOffsetY
-
 /obj/Runtime/Chatbox
 	icon = 'Text.dmi'
 	mouse_opacity = FALSE
@@ -47,19 +40,24 @@
 
 /obj/Runtime/Chatbox/proc/CreateChatLine(var/Line as text)
 	var/datum/ChatLine/ChatLine = new()
-	var/CurrentLineWidth = ChatboxOffsetX
+	var/CurrentLineWidth = ChatboxOffsetX + ChatBoxTextOffsetX
 	var/WordWidth = 0
 	var/list/WordBuffer = list()
+	var/RenderColor = TextColours["\yellow"]
 	ChatLine.Text += new/obj/Runtime/LetterBG()
 	for(var/X = 1, X <= length(Line), X++)
 		var/obj/Runtime/HUD/Letter/Letter = new()
 		var/LetterASCII = text2ascii(Line, X)
-		if (LetterASCII > VWF.len)
+		if (LetterASCII == 255)
+			LetterASCII = text2ascii(Line, ++X++) // Yes, I did *++X++*
+			RenderColor = TextColours["[ascii2text(255)][ascii2text(LetterASCII)]"] || RenderColor
 			continue
 		var/LetterWidth = VWF[LetterASCII + 1]
 		if (LetterASCII != 32) //Space
 			Letter.pixel_x = WordWidth
-			Letter.icon_state = "[LetterASCII]"
+			var/icon/I = new('Text.dmi', "[LetterASCII]")
+			I.Blend(RenderColor, ICON_MULTIPLY)
+			Letter.icon = I
 			WordWidth += LetterWidth + 1
 			WordBuffer += Letter
 		else

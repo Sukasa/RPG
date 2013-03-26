@@ -3,11 +3,11 @@
 // Angle2Index takes a list of angles and returns the index of the angle that is closest to it while remaining counterclockwise of the supplied angle.
 // Generally, you will want to pass this CardinalAngles or CardinalAngles8 as the RefAngles parameter.
 proc/Angle2Index(var/Angle, var/list/RefAngles)
-	var/Index = 1
+	var/Index = 0
 	for (var/RefAngle in RefAngles)
+		Index++
 		if (RefAngle > Angle)
 			return Index
-		Index += 1
 	return 1
 
 //Raytrace algorithm.  Given a starting position and Angle (CW from North), returns the terminus turf

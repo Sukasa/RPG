@@ -10,21 +10,15 @@
 	..()
 
 	if(shoot)
-		//world << "boop"
-		if(prob(10))
+		if(prob(3))
 			for(var/mob/Soldier/S in view(src))
 				if(S.client)
-					world << "Target [S]"
 					var/obj/Item/ranged/gun = SelectedItem()
 					gun.Shoot(S)
 
 
 	if(move)
-
-		if(src.loc in range(locate(TagA),2))
-
-			src.Destination = new /datum/Point(locate("B"))
-
-		else if(src.loc in range(locate(TagB),2))
-
-			src.Destination = new /datum/Point(locate("A"))
+		if(src in range(locate(TagA),2))
+			Destination = new /datum/Point(locate("B"))
+		else if(src in range(locate(TagB),2))
+			Destination = new /datum/Point(locate("A"))

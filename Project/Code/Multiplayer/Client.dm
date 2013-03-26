@@ -7,6 +7,9 @@ client
 		BroadcastChannels = ChannelAll
 		SubscribedChannels = ChannelAll
 
+/client/proc/Send(var/Text)
+	Chatbox.WriteLine(Text)
+
 /client/New()
 	if (!Ticker || Ticker.AllowJoin()) // Either late join & allowed, or no round in effect
 		// Either reconnect the client to their mob, or create a new one
@@ -28,13 +31,12 @@ client
 	if (istype(usr, /mob/Spectator))
 		Teams[TeamSpectators] += usr
 
-
-
-
 	// Set mob position
-
-	src.mob.x = 10
-	src.mob.y = 12
+	var/Locs = SpawnZones[Ticker.Mode.GetAssignedTeam(mob)]
+	var/atom/movable/SpawnSpot = pick(Locs)
+	mob.loc = SpawnSpot
+	mob.x += rand(0, 9)
+	mob.y += rand(0, 6)
 
 
 /client/Move()

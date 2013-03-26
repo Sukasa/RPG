@@ -1,6 +1,6 @@
 /mob/verb/Say(var/Text as text)
 	if (findtext(Text, "/me", 1, 4))
-		Text = "* [name] [copytext(Text, 4)]"
+		Text = "\magenta * [name] [copytext(Text, 4)]"
 	else
 		Text = "<[name]> [Text]"
 	Broadcast(Text, client.BroadcastChannels)

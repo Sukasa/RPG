@@ -17,9 +17,10 @@ mob
 
 
 /mob/New()
+	..()
 	inventory = new /list(9)
 	hud_flash = new /obj/Runtime/flash()
-
+	SetCursor('TargetRed.dmi')
 
 /mob/proc/GetCoverPenalty()
 	return 0
@@ -80,12 +81,6 @@ mob
 		Destination = null
 	else
 		SmoothMove--
-
-/mob/proc/SlowTick()
-	return
-
-/mob/proc/FastTick()
-	return
 
 /mob/proc/Health()
 	return 1000

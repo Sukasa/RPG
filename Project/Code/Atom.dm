@@ -10,7 +10,7 @@ atom/movable/proc/GetFineX()
 atom/movable/proc/GetFineY()
 	return (src.y * 32) + src.step_y
 
-/atom/movable/proc/GetCover()
+atom/movable/proc/GetCover()
 	var/list/CoverInfo[9]
 	var/Index = 1
 	for (var/Direction in Cardinal8)
@@ -25,11 +25,33 @@ atom/movable/proc/GetAngleTo(var/atom/movable/To)
 	var/datum/Point/P = new(src)
 	return P.GetAngleTo(To)
 
-// Returns the angle to the passed atom, where 0° is due north
+// Returns the Distance to the passed atom
 atom/movable/proc/GetDistanceTo(var/atom/movable/To)
 	var/datum/Point/P = new(src)
 	return P.GetDistanceTo(To)
 
-
 atom/proc/Shot(var/atom/shooter,var/item/ranged/weapon)
 	return
+
+atom/proc/SlowTick()
+	return
+
+atom/proc/FastTick()
+	return
+
+atom/proc/SendHearers(var/Text)
+	for (var/mob/M in hearers())
+		if (M.client)
+			M.client.Chatbox.WriteLine(Text)
+
+atom/proc/SendOHearers(var/Text)
+	for (var/mob/M in ohearers())
+		if (M.client)
+			M.client.Chatbox.WriteLine(Text)
+
+atom/proc/SendUser(var/Text)
+	if (usr && usr.client)
+		usr.client.Chatbox.WriteLine(Text)
+
+atom/movable/proc/UserInRange(var/Range = 1.1)
+	return GetDistanceTo(usr) <= Range

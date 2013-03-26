@@ -26,7 +26,7 @@
 	Right = Params["right"]
 	Middle = Params["middle"]
 
-	if (Down == 1)
+	if (Down == 1) // Down can be 2 if neither of these is to be triggered
 		LeftDown |= text2num(Params["left"])
 		RightDown |= text2num(Params["right"])
 		MiddleDown |= text2num(Params["middle"])
@@ -47,6 +47,7 @@
 		Object = Location
 	if (!IsAtom(Object))
 		return
+	UpdateCursor(Object)
 	Mouse.Set(Object, params2list(P))
 	if (IsMovable(Mouse.Highlighted) && istype(Mouse.Highlighted, /obj/Runtime/HUD))
 		var/obj/Runtime/HUD/HUDObject/HO = Mouse.Highlighted
@@ -66,6 +67,7 @@
 	..()
 	if (!Object)
 		Object = Location
+	UpdateCursor(Object)
 	if (!IsAtom(Object))
 		return
 	Mouse.Set(Object, params2list(P), 0)
@@ -76,6 +78,7 @@
 		Over = ToLocation
 	if (!IsAtom(Over))
 		return
+	UpdateCursor(Over)
 	Mouse.Set(Over, params2list(P), 2)
 	if (Mouse.Left)
 		mob.SetMoveTarget(Mouse)

@@ -23,18 +23,20 @@
 
 	var/atom/owner = Owner()
 
-	if(!Target.CanTarget)
-		world << "Random gunshot"
+	if(!owner)
 		return
 
-	if(!owner)
+	if(!Target.CanTarget)
+		world << "Random gunshot"
 		return
 
 	if(istype(Target,/mob))
 		var/mob/mTarget = Target
 
+
+
 		var/list/CoverInfo = mTarget.GetCover()
-		var/Angle = mTarget.GetAngleTo(src)
+		var/Angle = mTarget.GetAngleTo(owner)
 
 		var/AngleIndex = Angle2Index(Angle, CardinalAngles8)
 
@@ -43,7 +45,6 @@
 		var/CoverValue = (CoverInfo[AngleIndex] * (1 - Angle)) + (CoverInfo[AngleIndex + 1] * Angle)
 
 		//Do cover penalties here
-
 		var/strike = prob(100-CoverValue)
 
 		if (strike)

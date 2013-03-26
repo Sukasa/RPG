@@ -19,3 +19,6 @@
 
 /datum/GameMode/proc/RunTicker()
 	return TRUE
+
+/datum/GameMode/proc/GetAssignedTeam(var/mob/Player)
+	return pick(list(TeamAttackers, TeamDefenders, TeamSpectators));

@@ -1,6 +1,7 @@
 /datum/Ticker
 	var/datum/GameMode/Mode = null
 	var/Ticks = 0
+	var/list/HighSpeedDevices = list( )
 
 /datum/Ticker/proc/Tick()
 	Ticks++
@@ -10,11 +11,19 @@
 			Mode.Tick()
 			for (var/mob/M in world)
 				M.SlowTick()
+			for(var/obj/Machinery/O in world)
+				O.SlowTick()
 
 	// Mobs move at 20Hz
 	for (var/mob/M in world)
 		M.MoveTo()
 		M.FastTick()
+
+	// Registered high-speed-logic devices also get ticked at 20Hz
+	for (var/obj/O in HighSpeedDevices)
+		O.FastTick()
+
+
 
 //Whether to allow a NEW player to join in
 /datum/Ticker/proc/AllowJoin()
