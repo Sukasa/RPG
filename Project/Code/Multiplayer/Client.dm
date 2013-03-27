@@ -4,9 +4,6 @@ client
 		obj/Runtime/Chatbox/Chatbox = new()
 		obj/Runtime/HUD/HUDController/HUD
 
-		BroadcastChannels = ChannelAll
-		SubscribedChannels = ChannelAll
-
 /client/proc/Send(var/Text)
 	Chatbox.WriteLine(Text)
 
@@ -31,12 +28,10 @@ client
 	if (istype(usr, /mob/Spectator))
 		Teams[TeamSpectators] += usr
 
+	Ticker.Mode.OnPlayerJoin(mob)
+
 	// Set mob position
-	var/Locs = SpawnZones[Ticker.Mode.GetAssignedTeam(mob)]
-	var/atom/movable/SpawnSpot = pick(Locs)
-	mob.loc = SpawnSpot
-	mob.x += rand(0, 9)
-	mob.y += rand(0, 6)
+	mob.Respawn()
 
 
 /client/Move()

@@ -1,17 +1,22 @@
 mob
 	var
-		datum/Point/Destination
-		SubStepX
-		SubStepY
-		SmoothMove
+		datum/Point/Destination = null
+		SubStepX = 0
+		SubStepY = 0
+		SmoothMove = 0
 
+		Team = TeamPregame
 
-		list/inventory
+		// These are OR'd with team and rank-based channel config
+		BroadcastChannels = Debug ? ChannelAll : ChannelNone
+		SubscribedChannels = Debug ? ChannelAll : ChannelNone
+
+		list/inventory = list( )
 		inv_selected = 1
 		stunned = 0
 
 		var/obj/Runtime/flash/hud_flash
-
+		var/Rank = RankPlayer
 
 	sight = SEE_TURFS
 
@@ -119,6 +124,7 @@ mob
 /mob/proc/CanAttack()
 	return stunned<5
 
+
 /mob/proc/Stun(var/severity)
 	return
 
@@ -129,27 +135,27 @@ mob
 		return
 	if(inventory[inventory_slot] != null)
 		Drop_Item(inventory_slot)
-
 	item.SetOwner(src,inventory_slot)
-
 	item.loc = src
-
 	inventory[inventory_slot] = item
+
 
 /mob/proc/Drop_Item(var/inventory_slot)
 	if(inventory_slot > inventory.len)
 		return
-
 	var/obj/Item/item = inventory[inventory_slot]
 	if(!item)
 		return
 	item.loc = src.loc
 
+
 /mob/proc/SetActiveSlot(var/InventoryIndex)
 	inv_selected = InventoryIndex
 
+
 /mob/proc/GetActiveSlot()
 	return inv_selected
+
 
 /mob/Login()
 	..()
@@ -158,3 +164,17 @@ mob
 
 /mob/proc/flash_screen()
 	flick('FlashWhite.dmi',hud_flash)
+
+
+/mob/proc/Respawn()
+	Team = Ticker.Mode.GetAssignedTeam(src)
+	var/Locs = Config.SpawnZones[Team]
+	var/atom/movable/SpawnSpot = pick(Locs)
+	Move(locate(SpawnSpot.x + rand(0, 9), SpawnSpot.y + rand(0, 6), SpawnSpot.z))
+	Destination = null
+	stunned = initial(stunned)
+	sight = initial(sight)
+	SubStepX = 0
+	SubStepY = 0
+
+	Ticker.Mode.OnPlayerSpawn(src)

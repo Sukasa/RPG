@@ -5,24 +5,30 @@
 
 /datum/Ticker/proc/Tick()
 	Ticks++
-	if (Ticks % 20 == 0)
+	if (Ticks % world.fps == 0)
 		//Game Mode, Machinery, etc tick at 1Hz
-		if (Mode && Mode.RunTicker())
+		if (Mode)
 			Mode.Tick()
+		if (Mode && Mode.RunTicker())
 			for (var/mob/M in world)
 				M.SlowTick()
 			for(var/obj/Machinery/O in world)
 				O.SlowTick()
 
-	// Mobs move at 20Hz
+	// Mobs move at 30Hz (or whatever the value of world.fps is)
 	for (var/mob/M in world)
 		M.MoveTo()
 		M.FastTick()
 
-	// Registered high-speed-logic devices also get ticked at 20Hz
+	// Registered high-speed-logic devices also get ticked at 30Hz (or whatever the value of world.fps is)
 	for (var/obj/O in HighSpeedDevices)
 		O.FastTick()
 
+
+/datum/Ticker/proc/ChangeGameMode(var/NewMode)
+	Mode.End()
+	Mode = new NewMode()
+	Mode.Start()
 
 
 //Whether to allow a NEW player to join in
@@ -39,7 +45,7 @@
 	spawn
 		while (TRUE)
 			Tick()
-			sleep(0.5)
+			sleep(0.5) // I'm not sure why 0.5 makes the ticker run at (world.fps) specifically, but...
 
 /datum/Ticker/proc/BeginRound(var/GameModeType)
 	Mode = new GameModeType()

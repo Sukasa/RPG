@@ -6,11 +6,11 @@
 	return
 
 /datum/GameMode/TeamDeathmatch/Start()
+	GameText("Begin!")
+	for (var/mob/M in world)
+		if (M.client)
+			M.Respawn()
 	return
-
-/datum/GameMode/TeamDeathmatch/CheckEnd()
-
-
 
 /datum/GameMode/TeamDeathmatch/End()
 	return

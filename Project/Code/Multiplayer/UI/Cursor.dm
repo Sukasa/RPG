@@ -20,7 +20,7 @@ atom/proc/SetClientCursor(var/Ref, var/Icon)
 
 client/proc/UpdateCursor(var/atom/Object)
 	if (IsAtom(Object))
-		mouse_pointer_icon = Object.CursorObject.ClientCursors[src] || Object.CursorObject.ClientCursors[src.mob] || Object.CursorObject.icon
+		mouse_pointer_icon = Object.CursorObject.ClientCursors[mob] || Object.CursorObject.icon
 
 client/MouseEntered(var/atom/Object, var/Location, var/Control, var/Params)
 	UpdateCursor(Object)

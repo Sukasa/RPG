@@ -13,12 +13,12 @@
 
 /obj/Machinery/Trap/PressurePlate/Crossed()
 	. = ..()
-	Trigger()
+	Activate()
 	icon_state = "PadDown"
 
 /obj/Machinery/Trap/PressurePlate/Uncrossed()
 	. = ..()
 	spawn(10)
-		if (Untrigger())
+		if (Deactivate())
 			icon_state = initial(icon_state)
 

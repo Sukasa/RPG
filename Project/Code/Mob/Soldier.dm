@@ -11,6 +11,12 @@ mob/Soldier
 	var/dmg_minor = 0
 	var/dmg_blood = 100
 
+/mob/Soldier/Respawn()
+	..()
+	dmg_major = initial(dmg_major)
+	dmg_minor = initial(dmg_minor)
+	dmg_blood = initial(dmg_blood)
+
 /mob/Soldier/Attack(var/datum/Mouse/Mouse, var/ForceAttack)
 
 	var/obj/Item/item = src.SelectedItem()

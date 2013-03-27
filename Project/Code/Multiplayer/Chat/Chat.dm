@@ -1,25 +1,35 @@
 /mob/verb/Say(var/Text as text)
-	if (findtext(Text, "/me", 1, 4))
-		Text = "\magenta * [name] [copytext(Text, 4)]"
+	if (findtext(Text, "/", 1, 2))
+		var/Space = findtext(Text, " ", 2)
+		var/Command = lowertext(copytext(Text, 2, Space))
+		if (Config.Commands.IsValidCommand(Command))
+			Config.Commands.Execute(src, Command, copytext(Text, Space + 1))
+		else
+			SendUser("\red Command [Command] not found")
 	else
-		Text = "<[name]> [Text]"
-	Broadcast(Text, client.BroadcastChannels)
+		Say("/say " + Text)
 
 /proc/Broadcast(var/Text as text, var/Channel = ChannelAll)
 	for(var/mob/M in world)
 		if (!M.client)
 			continue
-		var/client/C = M.client
-		if (C.SubscribedChannels & Channel)
-			C.Chatbox.WriteLine(Text)
+		if (M.SubscribedChannels & Channel)
+			M.client.Chatbox.WriteLine(Text)
 
 /proc/DebugText(var/Text as text)
-	#ifdef DEBUG
-	Broadcast(Text, ChannelDebug)
-	#endif
+#ifdef DEBUG
+	Broadcast("\green" + Text, ChannelDebug)
+#endif
 
 /proc/InfoText(var/Text as text)
-	Broadcast(Text, ChannelInfo)
+	Broadcast("\cyan" + Text, ChannelInfo)
 
 /proc/GameText(var/Text as text)
-	Broadcast(Text, ChannelGame)
+	Broadcast("\white" + Text, ChannelGame)
+
+proc/SendUser(var/mob/User = usr, var/Text)
+	if (istext(User))
+		Text = User
+		User = usr
+	if (User && User.client)
+		User.client.Chatbox.WriteLine(Text)

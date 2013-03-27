@@ -29,7 +29,7 @@
 	for(var/datum/ChatLine/ExistingLine in Lines)
 		for(var/atom/Letter in ExistingLine.Text)
 			Letter.pixel_y += (12 * ChatLine.NumLines)
-	while (DrawnLines + ChatLine.NumLines > MaxChatboxHeight)
+	while (DrawnLines + ChatLine.NumLines > MaxChatboxHeight + 1)
 		RemoveLine(TRUE)
 		SkipTimedRemoval++
 	Lines += ChatLine
@@ -62,7 +62,7 @@
 			WordBuffer += Letter
 		else
 			if (CurrentLineWidth + WordWidth > 400 + ChatboxOffsetX)
-				CurrentLineWidth = ChatboxOffsetX
+				CurrentLineWidth = ChatboxOffsetX + ChatBoxTextOffsetX
 				ChatLine.NumLines++
 				for (var/atom/A in ChatLine.Text)
 					A.pixel_y += 12

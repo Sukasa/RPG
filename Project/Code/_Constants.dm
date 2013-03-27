@@ -3,14 +3,21 @@
 
 var
 	const
-		RankBanned = -1
-		RankPlayer = 0
-		RankModerator = 1
-		RankProgrammer = 2
-		RankAdministrator = 3
 
-		MaxChatboxHeight = 9	//Maximum height (in lines of text) of the chat box
-		SpeechLifetime = 70		//How long (in 10ths of a second) lines in chat should remain visible
+		#ifdef DEBUG
+		Debug = TRUE
+		#else
+		Debug = FALSE
+		#endif
+
+		RankBanned = 1
+		RankPlayer = 2
+		RankModerator = 3
+		RankProgrammer = 4
+		RankAdministrator = 5
+
+		MaxChatboxHeight = 14	//Maximum height (in lines of text) of the chat box
+		SpeechLifetime = 80		//How long (in 10ths of a second) lines in chat should remain visible
 		ChatboxOffsetX = 12
 		ChatboxOffsetY = 12
 		ChatBoxTextOffsetY = 1
@@ -29,6 +36,12 @@ var
 		ChannelGame = 32
 		ChannelInfo = 64
 
+		ChannelAllChat = ChannelAttackers | ChannelDefenders | ChannelSpectators
+
+		ChannelDefault = ChannelGame | ChannelInfo
+		ChannelModDefault = ChannelDefault | ChannelAdmin
+		ChannelAdminDefault = ChannelModDefault | ChannelDebug
+
 		ChannelNone = 0
 		ChannelAll = 65535
 
@@ -42,6 +55,7 @@ var
 		CardinalAngles8 = list(45, 90, 135, 180, 225, 270, 315, 360)
 
 		// Text Colours.
-		TextColours = list ( "\red" =     rgb(255, 0, 0), 	"\green" = rgb(0, 255, 0),   "\blue" =   rgb(0, 0, 255),
+		TextColours = list ( "\red" =     rgb(255, 0, 0), 	"\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
 						 	 "\magenta" = rgb(255, 0, 255), "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
-							 "\white" =   rgb(255, 255, 255) )
+						     "\white" =   rgb(255, 255, 255) )
+

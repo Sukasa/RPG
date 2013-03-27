@@ -24,6 +24,6 @@
 			Team = TeamSpectators
 
 		New()
-			var/list/L = SpawnZones[Team]
+			var/list/L = Config.SpawnZones[Team]
 			L += loc
 			. = ..()

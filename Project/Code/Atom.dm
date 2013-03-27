@@ -1,3 +1,5 @@
+//TODO we should probably refactor this code into applicable subfolders
+
 atom
 	var
 		CoverValue = 0		// Worthiness of an atom as cover.  100 is full protection, 0 is no protection
@@ -49,9 +51,8 @@ atom/proc/SendOHearers(var/Text)
 		if (M.client)
 			M.client.Chatbox.WriteLine(Text)
 
-atom/proc/SendUser(var/Text)
-	if (usr && usr.client)
-		usr.client.Chatbox.WriteLine(Text)
-
-atom/movable/proc/UserInRange(var/Range = 1.1)
-	return GetDistanceTo(usr) <= Range
+atom/movable/proc/UserInRange(var/User = usr, var/Range = 1.1)
+	if (isnum(User))
+		Range = User
+		User = usr
+	return GetDistanceTo(User) <= Range
