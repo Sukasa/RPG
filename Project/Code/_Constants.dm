@@ -16,8 +16,8 @@ var
 		RankProgrammer = 4
 		RankAdministrator = 5
 
-		MaxChatboxHeight = 14	//Maximum height (in lines of text) of the chat box
-		SpeechLifetime = 80		//How long (in 10ths of a second) lines in chat should remain visible
+		ChatboxMaxHeight = 14	//Maximum height (in lines of text) of the chat box
+		ChatboxLifetime = 80		//How long (in 10ths of a second) lines in chat should remain visible
 		ChatboxOffsetX = 12
 		ChatboxOffsetY = 12
 		ChatBoxTextOffsetY = 1
@@ -44,6 +44,32 @@ var
 
 		ChannelNone = 0
 		ChannelAll = 65535
+
+		SizeTiny = 0
+		SizeSmall = 2
+		SizeMedium = 4
+		SizeLarge = 7
+		SizeHuge = 10
+
+		DamageTypePiercing = 1 // Causes internal bleeding.  Chance of causing a critical bleed.  Armour can stop this.
+		DamageTypeBlunt = 2    // Impact damage.  Stun, and causes minor internal bleeding for powerful shocks.
+		DamageTypeBurn = 4     // Applies blood loss if burns are bad enough but only stunning otherwise.
+		DamageTypeSlash = 8    // Depth depends on BaseDamage.  Armour stops this.
+		DamageTypePoison = 16  // If the target has existing injuries (Piercing, bloodloss), exacerbate.  Otherwise, ineffective.
+		DamageTypeStun = 32	   // Stuns a target, but does no other damage
+
+		TargetEnemies = 1
+		TargetAllies = 2
+		TargetTerrain = 4
+
+		TargetAll =     TargetEnemies | TargetAllies | TargetTerrain
+		TargetPlayers = TargetEnemies | TargetAllies
+
+		CursorGreen = 1
+		CursorYellow = 2
+		CursorRed = 3
+		CursorInvalid = 4
+		CursorNone = 5
 
 	list
 

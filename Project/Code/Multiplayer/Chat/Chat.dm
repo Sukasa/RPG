@@ -14,7 +14,7 @@
 		if (!M.client)
 			continue
 		if (M.SubscribedChannels & Channel)
-			M.client.Chatbox.WriteLine(Text)
+			M.client.Send(Text)
 
 /proc/DebugText(var/Text as text)
 #ifdef DEBUG
@@ -32,4 +32,4 @@ proc/SendUser(var/mob/User = usr, var/Text)
 		Text = User
 		User = usr
 	if (User && User.client)
-		User.client.Chatbox.WriteLine(Text)
+		User.client.Send(Text)

@@ -14,7 +14,7 @@
 /obj/Runtime/HUD/HUDController/SoldierHUD/Initialize()
 	DeInitialize()
 
-	for (var/X = 1, X <= Client.mob.inventory.len, X++)
+	for (var/X = 1, X <= Client.mob.Inventory.len, X++)
 		var/obj/Runtime/HUD/HUDObject/InventorySlot/Slot = new()
 
 		Slot.SetMaster(src)
@@ -28,7 +28,7 @@
 
 /obj/Runtime/HUD/HUDController/SoldierHUD/Update()
 	for(var/obj/Runtime/HUD/HUDObject/InventorySlot/Slot in HUDComponents)
-		Slot.SetContents(Client.mob.inventory[Slot.SlotIndex])
+		Slot.SetContents(Client.mob.Inventory[Slot.SlotIndex])
 	SelectSlot(Client.mob.GetActiveSlot())
 
 /obj/Runtime/HUD/HUDController/SoldierHUD/proc/SelectSlot(var/Index)

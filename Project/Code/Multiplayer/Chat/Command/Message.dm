@@ -8,6 +8,6 @@
 
 	var/Target = PlayerByName(TargetName)
 	if (Target)
-		SendUser(Target, "\blue ([Player.name]) [copytext(CommandText, Space + 1)]")
+		SendUser(Target, "\blue \[[Player.name]] [copytext(CommandText, Space + 1)]")
 	else
 		SendUser("\red No user by the name [TargetName] is online")

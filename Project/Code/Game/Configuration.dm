@@ -27,3 +27,10 @@
 
 	// Commands
 	var/datum/CommandController/Commands = new()
+
+	// Cursors
+	var/list/DefaultCursors = list( icon('TargetGreen.dmi'), icon('TargetYellow.dmi'), icon('TargetRed.dmi'), icon('TargetInvalid.dmi'), icon('Blank.dmi') )
+
+	proc/RegisterCursor(var/Icon)
+		DefaultCursors += GetCursor(Icon)
+		return length(DefaultCursors)

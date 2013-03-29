@@ -14,6 +14,11 @@ turf/Floor/New()
 	var/Rnd = roll(1, VarietyCount) - 1
 	icon_state = "[BaseState][Rnd]"
 
+turf/Floor/Generic/Lab
+	icon = 'LabFloor.dmi'
+	BaseState = "Basic"
+	icon_state = "Basic0"
+
 turf/Floor/Generic
 	icon = 'GenericInteriorFloors.dmi'
 

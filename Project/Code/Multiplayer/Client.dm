@@ -5,6 +5,7 @@ client
 		obj/Runtime/HUD/HUDController/HUD
 
 /client/proc/Send(var/Text)
+	ASSERT(Chatbox)
 	Chatbox.WriteLine(Text)
 
 /client/New()
@@ -21,6 +22,7 @@ client
 
 	// Init UI
 	screen += Chatbox
+
 	if (HUD)
 		HUD.Initialize()
 
@@ -33,6 +35,5 @@ client
 	// Set mob position
 	mob.Respawn()
 
-
 /client/Move()
-	return
+	return // Disable this proc.  We use mouse-based movement!

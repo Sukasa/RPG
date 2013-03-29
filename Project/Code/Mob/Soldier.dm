@@ -17,21 +17,27 @@ mob/Soldier
 	dmg_minor = initial(dmg_minor)
 	dmg_blood = initial(dmg_blood)
 
-/mob/Soldier/Attack(var/datum/Mouse/Mouse, var/ForceAttack)
 
-	var/obj/Item/item = src.SelectedItem()
+/mob/Soldier/Interact(var/datum/Mouse/Mouse, var/ForceAttack)
+	if (!ForceAttack && IsObj(Mouse.Highlighted) && UserInRange(Mouse.Highlighted, Mouse.Highlighted.InteractRange))
+		var/obj/A = Mouse.Highlighted
+		if (!A.Interact(src))
+			UseItem(Mouse)
+	else
+		UseItem(Mouse)
 
-	if(!item)
+
+/mob/Soldier/proc/UseItem(var/datum/Mouse/Mouse)
+	var/obj/Item/SelectedItem = src.SelectedItem()
+
+	if(!SelectedItem)
 		return
 
-	if(istype(item,/obj/Item/ranged))
-		var/obj/Item/ranged/gun = item
+	if (!SelectedItem.CanTarget(Mouse.Highlighted))
+		return
 
-		if ((src == Mouse.Highlighted && !item.UseOnSelf) || !IsMovable(Mouse.Highlighted))
-			return //No shooting yourself!
+	SelectedItem.AttackTarget(Mouse.Highlighted)
 
-		world << "[src] shoots at \icon [Mouse.Highlighted][Mouse.Highlighted]!"
-		gun.Shoot(Mouse.Highlighted)
 
 /mob/Soldier/Stun(var/severity)
 	stunned = min(1000,stunned+severity)
@@ -41,20 +47,15 @@ mob/Soldier
 
 /mob/Soldier/New()
 	..()
-	var/obj/Item/ranged/stunner/stungun = new(src)
-	Grab_Item(stungun, 1)
-	SetCursor('TargetRed.dmi')
-	SetClientCursor(src, 'TargetInvalid.dmi')
+	var/obj/Item/Ranged/Stunner/stungun = new(src)
+	GrabItem(stungun, 1)
 	spawn(0)
 		if (client && client.HUD)
 			client.HUD.Update()
 
-
 /mob/Soldier/FastTick()
 	..()
 	stunned = max(stunned-2,0)
-
-
 
 /mob/Soldier/SlowTick()
 	if(client && stunned) //DEBUG!

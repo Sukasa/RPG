@@ -3,18 +3,23 @@
 	icon = 'tank.dmi'
 	icon_state = "oxygen"
 
-	damage = 10
+	BaseDamage = 10
 
 
 /obj/Item/canister
 	name = "Gas canister"
 	icon = 'tank.dmi'
 	icon_state = "canister"
-	damage = 3
+	BaseDamage = 3
 
 
 /obj/Item/medkit
 	name = "Medkit"
 	icon = 'storage.dmi'
 	icon_state = "firstaid"
-	damage = 1
+	BaseDamage = -50
+	Targets = TargetAllies
+	AttackTarget(var/atom/Target)
+		if(istype(Target,/mob))
+			var/mob/mTarget = Target
+			mTarget.stunned = 0

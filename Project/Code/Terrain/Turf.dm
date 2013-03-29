@@ -14,11 +14,11 @@
 	spawn
 		CreateStandIn()
 		icon = 'Green.dmi'
-		SetCursor('TargetGreen.dmi')
+		SetCursor(CursorGreen)
 		icon_state = FloorplanIconState ? FloorplanIconState : icon_state
 
 /turf/proc/CreateStandIn()
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)
 	StandIn.icon = icon
 	StandIn.icon_state = icon_state
-	StandIn.SetCursor('TargetGreen.dmi')
+	StandIn.SetCursor(CursorGreen)

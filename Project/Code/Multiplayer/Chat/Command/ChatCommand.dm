@@ -11,5 +11,5 @@
 
 /datum/ChatCommand/proc/PlayerByName(var/PlayerName)
 	for(var/mob/M in world)
-		if (M.name == PlayerName)
+		if (lowertext(M.name) == lowertext(PlayerName))
 			return M

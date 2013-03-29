@@ -63,6 +63,8 @@
 #include "Project\Code\Objects\Effects.dm"
 #include "Project\Code\Objects\Object.dm"
 #include "Project\Code\Objects\TurfStandIn.dm"
+#include "Project\Code\Objects\Containers\Container.dm"
+#include "Project\Code\Objects\Containers\Crate.dm"
 #include "Project\Code\Objects\Cover\Bed.dm"
 #include "Project\Code\Objects\Cover\Rack.dm"
 #include "Project\Code\Objects\Cover\Tables.dm"

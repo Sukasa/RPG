@@ -1,20 +1,48 @@
+//An Item, able to be picked up. Similar to SS13's item system, but designed to be easier to use.
 
-//An an, able to be picked up. Similar to SS13's item system, but designed to be easier to use.
 /obj/Item
+	var/Size = SizeMedium
+	var/BaseDamage = 2
+	var/BaseDamageType = DamageTypeBlunt
+	var/MinRange = 0
+	var/MaxRange = 1.1
+	var/Targets = TargetAll
+	var/BypassCover = TRUE //Melee weapons ignore cover
 
-	name = "Generic Item"
+/obj/Item/proc/TargetCursor(var/atom/Target)
+	if (istype(Target, /obj/Runtime/HUD))
+		return null
+	if (!IsMovable(Target))
+		return null
+	if (CanTarget(Target))
+		return CursorObject.icon
+	return GetCursor(CursorInvalid)
 
-	var/size //Size of the item. 1 = Pocket sized, 10 = Massively bulky. Probably not needed for too much.
-	var/damage // Melee damage
+/obj/Item/proc/CanTarget(var/atom/Target)
+	if (!IsMovable(Target))
+		return FALSE
 
-	var/mob/owner //Person who is holding the item
-	var/inventory_slot
-	var/UseOnSelf = TRUE //If the item can be used on its owner
+	if (ismob(Target))
+		var/mob/Owner = Owner()
+		var/mob/TargetMob = Target
+		if (TargetMob.Team == Owner.Team)
+			return Targets & TargetAllies
+		if (TargetMob.Team != Owner.Team)
+			return Targets & TargetEnemies
+
+	if (IsObj(Target))
+		if (!(Targets & TargetTerrain))
+			return FALSE
+
+	var/Dist = GetDistanceTo(Target)
+	return Dist >= MinRange && Dist <= MaxRange
 
 /obj/Item/proc/Owner()
-	return owner
+	return loc
 
-/obj/Item/proc/SetOwner(var/mob/newowner,var/slot)
-	owner = newowner
-	inventory_slot = slot
+/obj/Item/proc/AttackTarget(var/atom/Target)
+	return
 
+/obj/Item/Interact(var/mob/User)
+	User.GrabItem(src)
+	return TRUE

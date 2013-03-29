@@ -11,26 +11,27 @@ mob
 		BroadcastChannels = Debug ? ChannelAll : ChannelNone
 		SubscribedChannels = Debug ? ChannelAll : ChannelNone
 
-		list/inventory = list( )
+		list/Inventory[9]
 		inv_selected = 1
 		stunned = 0
 
-		var/obj/Runtime/flash/hud_flash
-		var/Rank = RankPlayer
+		obj/Runtime/flash/hud_flash
+		Rank = RankPlayer
+
+		list/Damage[7]
 
 	sight = SEE_TURFS
 
 
 /mob/New()
 	..()
-	inventory = new /list(9)
 	hud_flash = new /obj/Runtime/flash()
-	SetCursor('TargetRed.dmi')
+	SetCursor(CursorRed)
 
 /mob/proc/GetCoverPenalty()
 	return 0
 
-/mob/proc/Attack(var/datum/Mouse/Mouse, var/ForceAttack)
+/mob/proc/Interact(var/datum/Mouse/Mouse, var/ForceAttack)
 	return
 
 /mob/proc/SetMoveTarget(var/datum/Mouse/Mouse)
@@ -106,8 +107,7 @@ mob
 	return FALSE
 
 /mob/proc/SelectedItem()
-//	world << inventory.len
-	return inventory[inv_selected]
+	return Inventory[inv_selected]
 
 
 /mob/proc/MoveSpeed()
@@ -129,24 +129,37 @@ mob
 	return
 
 
-/mob/proc/Grab_Item(var/obj/Item/item,var/inventory_slot)
-	if(inventory_slot > inventory.len)
-		world << "Out of range"
+/mob/proc/GrabItem(var/obj/Item/NewItem, var/InventorySlot = 0)
+	if(InventorySlot > Inventory.len)
+		DebugText("GrabItem Out of range: \icon [src] [src] [InventorySlot]")
 		return
-	if(inventory[inventory_slot] != null)
-		Drop_Item(inventory_slot)
-	item.SetOwner(src,inventory_slot)
-	item.loc = src
-	inventory[inventory_slot] = item
+
+	if (InventorySlot == 0)
+		InventorySlot = Inventory.Find(null)
+		if (!InventorySlot)
+			SendUser("\red Your inventory is full")
+			return
+
+	if(Inventory[InventorySlot])
+		Drop_Item(InventorySlot)
+
+	SendUser("You pick up \the [NewItem]")
+
+	NewItem.loc = src
+	Inventory[InventorySlot] = NewItem
+	if (client && client.HUD)
+		client.HUD.Update()
 
 
-/mob/proc/Drop_Item(var/inventory_slot)
-	if(inventory_slot > inventory.len)
+/mob/proc/Drop_Item(var/InventorySlot)
+	if(InventorySlot > Inventory.len)
 		return
-	var/obj/Item/item = inventory[inventory_slot]
+	var/obj/Item/item = Inventory[InventorySlot]
 	if(!item)
 		return
 	item.loc = src.loc
+	if (client && client.HUD)
+		client.HUD.Update()
 
 
 /mob/proc/SetActiveSlot(var/InventoryIndex)

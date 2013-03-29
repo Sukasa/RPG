@@ -3,3 +3,10 @@
 	name = ""
 	layer = TURF_LAYER
 	CanTarget = FALSE
+
+
+#ifdef DEBUG
+/obj/Runtime/TurfStandIn/Interact(var/mob/User)
+	DebugText("[loc:GetCoverValue()]")
+	return TRUE
+#endif

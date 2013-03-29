@@ -29,13 +29,13 @@
 	for(var/datum/ChatLine/ExistingLine in Lines)
 		for(var/atom/Letter in ExistingLine.Text)
 			Letter.pixel_y += (12 * ChatLine.NumLines)
-	while (DrawnLines + ChatLine.NumLines > MaxChatboxHeight + 1)
+	while (DrawnLines + ChatLine.NumLines > ChatboxMaxHeight + 1)
 		RemoveLine(TRUE)
 		SkipTimedRemoval++
 	Lines += ChatLine
 	Render()
 	DrawnLines+= ChatLine.NumLines
-	spawn(SpeechLifetime)
+	spawn(ChatboxLifetime)
 		RemoveLine()
 
 /obj/Runtime/Chatbox/proc/CreateChatLine(var/Line as text)
