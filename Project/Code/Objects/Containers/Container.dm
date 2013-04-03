@@ -20,7 +20,6 @@
 		else
 			Absorb()
 			icon_state = initial(icon_state)
-
 	return TRUE
 
 /obj/Container/proc/Absorb()

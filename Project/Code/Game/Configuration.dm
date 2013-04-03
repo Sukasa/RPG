@@ -13,10 +13,16 @@
 
 	var/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
-	// Chat Piping
-	var/list/DefaultChannels = list( ChannelDefault, ChannelDefault, ChannelModDefault, ChannelAdminDefault, ChannelAdminDefault ) // By Rank
-	var/list/TeamChannels = list( ChannelAttackers, ChannelDefenders, ChannelSpectators, ChannelAllChat) // By Team
+	var/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
+	// Chat Piping
+	var/list/RankChannels = list( ChannelDefault, ChannelDefault, ChannelModDefault, ChannelAdminDefault, ChannelAdminDefault ) // By Rank
+	var/list/RxTeamChannels = list( ChannelAttackers, ChannelDefenders, ChannelAllChat, ChannelSpectators) // By Team
+	var/list/TxTeamChannels = list( ChannelAttackers, ChannelDefenders, ChannelSpectators, ChannelSpectators) // By Team
+
+
+	//TODO load from config file
+	//TODO save to config file?
 
 
 	// Runtime-generated configuration

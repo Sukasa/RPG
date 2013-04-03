@@ -24,5 +24,6 @@
 /obj/Machinery/Trap/proc/Deactivate()
 	Count--
 	SendValue(Count)
-	Reveal(FALSE)
+	if (!Count)
+		Reveal(FALSE)
 	return !Count

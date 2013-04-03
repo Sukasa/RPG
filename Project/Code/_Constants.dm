@@ -23,18 +23,19 @@ var
 		ChatBoxTextOffsetY = 1
 		ChatBoxTextOffsetX = 3
 
+		TeamUnknown = 0
 		TeamAttackers = 1
 		TeamDefenders = 2
 		TeamSpectators = 3
 		TeamPregame = 4
 
-		ChannelAttackers = 1
-		ChannelDefenders = 2
-		ChannelSpectators = 4
-		ChannelAdmin = 8
-		ChannelDebug = 16
-		ChannelGame = 32
-		ChannelInfo = 64
+		ChannelAttackers = 1		// Attacker chat
+		ChannelDefenders = 2		// Defender chat
+		ChannelSpectators = 4		// Spectator chat
+		ChannelAdmin = 8			// Admin chat
+		ChannelDebug = 16			// Debug info
+		ChannelGame = 32			// Game text.  Consists of game information such as kill announcement, flag captures, etc
+		ChannelInfo = 64			// Info text.  Consists of game meta-information, such as admins starting the round, rule changes, etc
 
 		ChannelAllChat = ChannelAttackers | ChannelDefenders | ChannelSpectators
 

@@ -11,11 +11,12 @@
 
 /turf/New()
 	..()
-	spawn
-		CreateStandIn()
-		icon = 'Green.dmi'
-		SetCursor(CursorGreen)
-		icon_state = FloorplanIconState ? FloorplanIconState : icon_state
+
+/turf/proc/Init()
+	CreateStandIn()
+	icon = 'Green.dmi'
+	SetCursor(CursorGreen)
+	icon_state = FloorplanIconState ? FloorplanIconState : icon_state
 
 /turf/proc/CreateStandIn()
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)

@@ -4,6 +4,7 @@
 		AutoAssignTeams = TRUE
 		AllowLateJoin = TRUE
 		ModeKey = ""
+		list/Commands = list( )
 
 /datum/GameMode/proc/Tick()
 	return
@@ -30,7 +31,7 @@
 	return
 
 /datum/GameMode/proc/GetAssignedTeam(var/mob/Player)
-	return pick(list(TeamAttackers, TeamDefenders, TeamSpectators));
+	return LateAssign(Player)
 
-/datum/GameMode/proc/Command(var/Command, var/CommandParams[])
+/datum/GameMode/proc/Command(var/mob/Executor, var/Command, var/CommandParams[])
 	return

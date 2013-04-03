@@ -5,7 +5,7 @@ mob
 		SubStepY = 0
 		SmoothMove = 0
 
-		Team = TeamPregame
+		Team = TeamUnknown
 
 		// These are OR'd with team and rank-based channel config
 		BroadcastChannels = Debug ? ChannelAll : ChannelNone
@@ -19,6 +19,8 @@ mob
 		Rank = RankPlayer
 
 		list/Damage[7]
+
+		Spectate = FALSE // Does the user wish to spectate this round?
 
 	sight = SEE_TURFS
 
@@ -36,7 +38,7 @@ mob
 
 /mob/proc/SetMoveTarget(var/datum/Mouse/Mouse)
 	Destination = Mouse.Pos.Clone()
-	//TODO Movement cursor
+	//TODO Movement cursor?
 	return
 
 /mob/proc/MoveTo(var/datum/Point/Target = Destination)
@@ -137,13 +139,13 @@ mob
 	if (InventorySlot == 0)
 		InventorySlot = Inventory.Find(null)
 		if (!InventorySlot)
-			SendUser("\red Your inventory is full")
+			SendUser(src, "\red Your inventory is full")
 			return
 
 	if(Inventory[InventorySlot])
 		Drop_Item(InventorySlot)
 
-	SendUser("You pick up \the [NewItem]")
+	SendUser(src, "You pick up \the [NewItem]")
 
 	NewItem.loc = src
 	Inventory[InventorySlot] = NewItem
@@ -180,7 +182,9 @@ mob
 
 
 /mob/proc/Respawn()
-	Team = Ticker.Mode.GetAssignedTeam(src)
+	if (Team == TeamUnknown)
+		Team = Ticker.Mode.GetAssignedTeam(src)
+
 	var/Locs = Config.SpawnZones[Team]
 	var/atom/movable/SpawnSpot = pick(Locs)
 	Move(locate(SpawnSpot.x + rand(0, 9), SpawnSpot.y + rand(0, 6), SpawnSpot.z))

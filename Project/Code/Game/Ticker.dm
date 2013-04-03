@@ -28,6 +28,8 @@
 /datum/Ticker/proc/ChangeGameMode(var/NewMode)
 	Mode.End()
 	Mode = new NewMode()
+	if (Mode.AutoAssignTeams)
+		AutoAssignTeams()
 	Mode.Start()
 
 
@@ -46,9 +48,4 @@
 		while (TRUE)
 			Tick()
 			sleep(0.5) // I'm not sure why 0.5 makes the ticker run at (world.fps) specifically, but...
-
-/datum/Ticker/proc/BeginRound(var/GameModeType)
-	Mode = new GameModeType()
-	if (Mode.AutoAssignTeams)
-		AutoAssignTeams()
 
