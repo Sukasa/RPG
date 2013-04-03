@@ -15,28 +15,34 @@
 
 	var/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
-	// Chat Piping
-	var/list/RankChannels = list( ChannelDefault, ChannelDefault, ChannelModDefault, ChannelAdminDefault, ChannelAdminDefault ) // By Rank
-	var/list/RxTeamChannels = list( ChannelAttackers, ChannelDefenders, ChannelAllChat, ChannelSpectators) // By Team
-	var/list/TxTeamChannels = list( ChannelAttackers, ChannelDefenders, ChannelSpectators, ChannelSpectators) // By Team
+	var/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
 
+	// Chat Piping
+	var/list/RankChannels = list(ChannelDefault, ChannelDefault, ChannelModDefault, ChannelAdminDefault, ChannelAdminDefault) // By Rank
+	var/list/RxTeamChannels = list(ChannelAttackers, ChannelDefenders, ChannelAllChat, ChannelSpectators) // By Team
+	var/list/TxTeamChannels = list(ChannelAttackers, ChannelDefenders, ChannelSpectators, ChannelSpectators) // By Team
+
+	var/list/Ranks = list("topkasa" = RankProgrammer, "googolplexed" = RankAdministrator)
 
 	//TODO load from config file
 	//TODO save to config file?
 
 
 	// Runtime-generated configuration
-
+	var/list/Teams = list(list( ), list( ), list( ), list( ))
 
 	// Spawns
-	var/list/SpawnZones = list( list( ), list( ), list( ), list( ) )
+	var/list/SpawnZones = list(list( ), list( ), list( ), list( ))
 
 	// Commands
 	var/datum/CommandController/Commands = new()
 
 	// Cursors
-	var/list/DefaultCursors = list( icon('TargetGreen.dmi'), icon('TargetYellow.dmi'), icon('TargetRed.dmi'), icon('TargetInvalid.dmi'), icon('Blank.dmi') )
+	var/list/DefaultCursors = list(icon('TargetGreen.dmi'), icon('TargetYellow.dmi'), icon('TargetRed.dmi'), icon('TargetInvalid.dmi'), icon('Blank.dmi'))
 
 	proc/RegisterCursor(var/Icon)
 		DefaultCursors += GetCursor(Icon)
 		return length(DefaultCursors)
+
+	// Networks (Signal, Power, etc)
+	var/datum/NetworkController/NetController = new()

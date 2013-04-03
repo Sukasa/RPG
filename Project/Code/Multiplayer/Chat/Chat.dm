@@ -19,7 +19,6 @@
 			continue
 		if ((M.SubscribedChannels | Config.RankChannels[M.Rank] | (Config.Alltalk ? ChannelAllChat : Config.RxTeamChannels[M.Team] )) & Channel)
 			M.client.Send(Text)
-	world.log << Text
 
 /proc/DebugText(var/Text as text)
 #ifdef DEBUG

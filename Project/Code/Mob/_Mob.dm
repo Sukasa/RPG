@@ -16,7 +16,7 @@ mob
 		stunned = 0
 
 		obj/Runtime/flash/hud_flash
-		Rank = RankPlayer
+		Rank = RankUnranked
 
 		list/Damage[7]
 
@@ -182,7 +182,14 @@ mob
 
 
 /mob/proc/Respawn()
-	if (Team == TeamUnknown)
+	if (Rank == RankUnranked)
+		Rank = Config.Ranks[ckey] || (client ? Config.Ranks[client.address] : null) || RankPlayer
+
+	if (Rank == RankBanned)
+		Team = TeamSpectators
+		Config.Teams[TeamSpectators] += src
+
+	else if (Team == TeamUnknown)
 		Team = Ticker.Mode.GetAssignedTeam(src)
 
 	var/Locs = Config.SpawnZones[Team]

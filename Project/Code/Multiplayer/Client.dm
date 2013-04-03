@@ -28,7 +28,7 @@ client
 
 	// Set Mob team, if appropriate
 	if (istype(usr, /mob/Spectator))
-		Teams[TeamSpectators] += usr
+		Config.Teams[TeamSpectators] += usr
 
 	Ticker.Mode.OnPlayerJoin(mob)
 

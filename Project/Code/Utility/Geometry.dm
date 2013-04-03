@@ -8,7 +8,7 @@ proc/Angle2Index(var/Angle, var/list/RefAngles)
 			return Index
 	return 1
 
-//Raytrace algorithm.  Given a starting position and Angle (CW from North), returns the terminus turf
+// Raytrace algorithm.  Given a starting position and Angle (CW from North), returns the terminus turf
 proc/Raytrace(var/atom/Start, var/Angle, var/CollideWith = 0)
 	if (!CollideWith)
 		CollideWith = list(/atom)
@@ -17,8 +17,8 @@ proc/Raytrace(var/atom/Start, var/Angle, var/CollideWith = 0)
 
 	return
 
-//TODO: Refactor to match coding style
-//Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
+// TODO: Refactor to match coding style
+// Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
 // (Injoke.  Refer to your preferred SS13 branch and check helpers.dm)
 proc/GetTilesInLine(var/atom/Start,var/atom/End)
 	var/px=Start.x		//starting x
@@ -52,3 +52,6 @@ proc/GetTilesInLine(var/atom/Start,var/atom/End)
 			py+=sdy
 			line+=locate(px,py,Start.z)
 	return line
+
+proc/Reverse(var/Dir)
+	return turn(Dir, 180)

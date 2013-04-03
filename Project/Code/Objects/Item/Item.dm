@@ -6,7 +6,7 @@
 	var/BaseDamageType = DamageTypeBlunt
 	var/MinRange = 0
 	var/MaxRange = 1.1
-	var/Targets = TargetAll
+	var/Targets = TargetMap
 	var/BypassCover = TRUE //Melee weapons ignore cover
 
 /obj/Item/proc/TargetCursor(var/atom/Target)

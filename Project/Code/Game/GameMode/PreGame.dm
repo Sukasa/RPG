@@ -41,9 +41,9 @@
 	set background = TRUE
 	for (var/turf/T in world)
 		T.Init()
-		sleep(0)
+		sleep(-1)
 
-	//TODO generate network information
+	Config.NetController.Init()
 
 	//TODO other world initialization as needed
 
