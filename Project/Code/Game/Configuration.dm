@@ -29,6 +29,8 @@
 
 
 	// Runtime-generated configuration
+
+	// Team memberlists
 	var/list/Teams = list(list( ), list( ), list( ), list( ))
 
 	// Spawns

@@ -5,6 +5,7 @@
 		AllowLateJoin = TRUE
 		ModeKey = ""
 		list/Commands = list( )
+		DefaultCanVote = FALSE
 
 /datum/GameMode/proc/Tick()
 	return

@@ -22,7 +22,7 @@
 
 /datum/GameMode/PreGame/Start()
 	Timeout = Config.PregamePeriod
-	DebugText("Completed PreGame Start.  Time to begin is [Timeout]")
+	DebugText("Completed PreGame Start.  The round will begin in [round(Timeout / 60)] Minutes")
 	spawn
 		InitWorld()
 	return

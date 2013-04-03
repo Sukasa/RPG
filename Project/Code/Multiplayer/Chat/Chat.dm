@@ -17,7 +17,7 @@
 	for(var/mob/M in world)
 		if (!M.client)
 			continue
-		if ((M.SubscribedChannels | Config.RankChannels[M.Rank] | (Config.Alltalk ? ChannelAllChat : Config.RxTeamChannels[M.Team] )) & Channel)
+		if ((M.SubscribedChannels | Config.RankChannels[M.Rank] | Config.RxTeamChannels[M.Team]) & Channel)
 			M.client.Send(Text)
 
 /proc/DebugText(var/Text as text)

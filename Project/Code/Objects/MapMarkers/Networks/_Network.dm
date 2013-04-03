@@ -1,7 +1,7 @@
 /obj/MapMarker/Network
 	CanTarget = FALSE
 	var/Dirs = 0
-	var/NetNum = 0
+	var/datum/Network/Network = null
 
 /obj/MapMarker/Network/New()
 	invisibility = 80

@@ -2,6 +2,7 @@
 	Name = "Team Deathmatch"
 	ModeKey = "TDM"
 	AutoAssignTeams = TRUE
+	DefaultCanVote = TRUE
 
 /datum/GameMode/TeamDeathmatch/Tick()
 	return

@@ -6,7 +6,7 @@
 /datum/Ticker/proc/Tick()
 	Ticks++
 	if (Ticks % world.fps == 0)
-		//Game Mode, Machinery, etc tick at 1Hz
+		//Game Mode, Machinery, etc slowtick at 1Hz
 		if (Mode)
 			Mode.Tick()
 		if (Mode && Mode.RunTicker())
@@ -18,11 +18,18 @@
 	// Mobs move at 30Hz (or whatever the value of world.fps is)
 	for (var/mob/M in world)
 		M.MoveTo()
-		M.FastTick()
 
-	// Registered high-speed-logic devices also get ticked at 30Hz (or whatever the value of world.fps is)
-	for (var/obj/O in HighSpeedDevices)
-		O.FastTick()
+	if (Mode && Mode.RunTicker())
+		Config.NetController.Tick()
+
+		// Mobs fasttick at 30Hz (or whatever the value of world.fps is), but only if the ticker says to.
+		for (var/mob/M in world)
+			M.FastTick()
+
+		// Registered high-speed-logic devices also get fastticked at 30Hz (or whatever the value of world.fps is)
+		for (var/obj/O in HighSpeedDevices)
+			O.FastTick()
+
 
 
 /datum/Ticker/proc/ChangeGameMode(var/NewMode)
