@@ -3,7 +3,7 @@
 	name = ""
 	layer = TURF_LAYER
 	CanTarget = FALSE
-
+	InteractRange = 9
 
 #ifdef DEBUG
 /obj/Runtime/TurfStandIn/Interact(var/mob/User)

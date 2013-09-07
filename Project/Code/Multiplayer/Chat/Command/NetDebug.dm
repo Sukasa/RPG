@@ -7,7 +7,7 @@
 	for(var/Index = 1; Index <= Config.NetController.Networks.len; Index++)
 		var/datum/Network/Network = Config.NetController.Networks[Index]
 		if (Network)
-			SendUser("\white Network [Index]: [Network.Cables.len] Cables of type [Network.Type] with [Network.Devices.len] devices attached")
+			SendUser("\white Network [Index]:\yellow [Network.Cables.len] [Network.Type] cable with [Network.Devices.len] devices")
 		else
 			SendUser("\white Network [Index]:\red Removed")
 	return

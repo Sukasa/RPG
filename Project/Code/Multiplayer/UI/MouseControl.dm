@@ -43,6 +43,8 @@
 
 /client/MouseDown(var/Object, var/Location, var/Control, var/P)
 	..()
+	if (!EnableMouse)
+		return
 	if (!Object)
 		Object = Location
 	if (!IsAtom(Object))
@@ -65,6 +67,8 @@
 
 /client/MouseUp(var/Object, var/Location, var/Control, var/P)
 	..()
+	if (!EnableMouse)
+		return
 	if (!Object)
 		Object = Location
 	UpdateCursor(Object)
@@ -74,6 +78,8 @@
 
 /client/MouseDrag(var/Dragged, var/Over, var/FromLocation, var/ToLocation, var/FromControl, var/ToControl, var/P)
 	..()
+	if (!EnableMouse)
+		return
 	if (!Over)
 		Over = ToLocation
 	if (!IsAtom(Over))

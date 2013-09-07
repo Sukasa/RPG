@@ -1,11 +1,11 @@
-//TODO we should probably refactor this code into applicable subfolders
+//TODO we should probably refactor this code into applicable files instead of being here at the top
 
 atom
 	var
 		CoverValue = 0		// Worthiness of an atom as cover.  100 is full protection, 0 is no protection
 		BulletDensity = 0	// Whether you can fire over/through an atom.  Doesn't affect the ability of that atom to give cover.
 		CanTarget = TRUE	// Whether you can target an atom directly.  Right-clicking an object with this set to false will just fire in that general direction
-		InteractRange = 0
+		InteractRange = 1.5
 
 atom/movable/proc/GetFineX()
 	return (src.x * 32) + src.step_x
@@ -36,9 +36,6 @@ atom/proc/GetDistanceTo(var/atom/movable/To)
 	var/datum/Point/P = new(A)
 	return P.GetDistanceTo(To)
 
-atom/proc/Shot(var/atom/shooter,var/item/ranged/weapon)
-	return
-
 atom/proc/SlowTick()
 	return
 
@@ -55,9 +52,9 @@ atom/proc/SendOHearers(var/Text)
 		if (M.client)
 			M.client.Send(Text)
 
-atom/movable/proc/UserInRange(var/User = usr, var/Range)
-	if (isnum(User))
+atom/proc/UserInRange(var/User = 0, var/Range = 0)
+	if (!ismob(User))
 		Range = User
 		User = usr
-	Range = Range || 1.5
+	Range = Range || InteractRange
 	return GetDistanceTo(User) <= Range

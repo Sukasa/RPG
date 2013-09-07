@@ -13,6 +13,7 @@
 
 	var/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
+	var/StartMode   =    /datum/GameMode/SplashCards
 	var/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
 	var/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
@@ -22,13 +23,18 @@
 	var/list/RxTeamChannels = list(ChannelAttackers, ChannelDefenders, ChannelAllChat, ChannelSpectators) // By Team
 	var/list/TxTeamChannels = list(ChannelAttackers, ChannelDefenders, ChannelSpectators, ChannelSpectators) // By Team
 
-	var/list/Ranks = list("topkasa" = RankProgrammer, "googolplexed" = RankAdministrator)
+	var/list/Ranks = list("topkasa" = RankAdministrator, "googolplexed" = RankAdministrator, "raspberryfloof" = RankAdministrator)
 
 	//TODO load from config file
 	//TODO save to config file?
 
 
 	// Runtime-generated configuration
+
+	// Data Files
+	var/savefile/MapCache
+	var/savefile/Saves
+
 
 	// Team memberlists
 	var/list/Teams = list(list( ), list( ), list( ), list( ))

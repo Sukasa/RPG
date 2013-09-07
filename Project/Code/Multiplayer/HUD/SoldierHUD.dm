@@ -35,9 +35,10 @@
 	if (Selected)
 		Selected.SetSelected(FALSE)
 
-	Selected = HUDComponents[Index]
-	Selected.SetSelected(TRUE)
-	Client.mob.SetActiveSlot(Selected.SlotIndex)
+	if (HUDComponents.len >= Index)
+		Selected = HUDComponents[Index]
+		Selected.SetSelected(TRUE)
+		Client.mob.SetActiveSlot(Selected.SlotIndex)
 
 /obj/Runtime/HUD/HUDController/SoldierHUD/LeftClick(var/obj/Runtime/HUD/HUDObject/HO, var/datum/Mouse/Mouse)
 	if (istype(HO, /obj/Runtime/HUD/HUDObject/InventorySlot))

@@ -24,7 +24,7 @@
 "ax" = (/obj/Container/WoodCrate{step_x = 16; step_y = 0},/turf/Floor/Generic/Basic,/area)
 "ay" = (/obj/Container/WoodCrate{step_x = 30; step_y = -7},/turf/Floor/Generic/Basic,/area)
 "az" = (/obj/Furniture/Rack,/obj/Item/medkit,/turf/Floor/Generic/Basic,/area)
-"aA" = (/obj/Container/WoodCrate{step_x = 28; step_y = 19},/turf/Floor/Generic/Basic,/area)
+"aA" = (/obj/Container/WoodCrate{step_x = 0; step_y = 19},/turf/Floor/Generic/Basic,/area)
 "aB" = (/obj/Furniture/Table,/obj/Item/tank,/turf/Floor/Generic/Lab,/area)
 "aC" = (/obj/Machinery/Trap/PressurePlate,/turf/Floor/Generic/Basic,/area)
 "aD" = (/obj/MapMarker/Network/Signal{tag = "icon-3"; icon_state = "3"},/turf/Floor/Generic/Basic,/area)
@@ -65,7 +65,7 @@
 "bm" = (/obj/Machinery/DebugLight,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
 "bn" = (/obj/Container/WoodCrate{step_x = 22; step_y = 20},/turf/Floor/Generic/Lab,/area)
 "bo" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal{tag = "icon-11"; icon_state = "11"},/turf/Floor/Generic/Basic,/area)
-"bp" = (/obj/Container/WoodCrate{step_x = 31; step_y = 10},/turf/Floor/Generic/Lab,/area)
+"bp" = (/obj/Container/WoodCrate{step_x = 0; step_y = 10},/turf/Floor/Generic/Lab,/area)
 "bq" = (/obj/Item/medkit,/obj/Container/WoodCrate{step_x = 16; step_y = 0},/turf/Floor/Generic/Lab,/area)
 "br" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/Machinery/Trap/PressurePlate/Stealthed,/turf/Floor/Generic/Basic,/area)
 "bs" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
@@ -116,7 +116,7 @@ adabadadadadadacacacacacacacacacacacacacacacacadadadafafafafadadadadadadadadadad
 adabadadadadadacawaxagawayagagawagagagagagagatafafafafafafafafafafafafafafafafafafafafafatagagagagagagagagagagagagagagagagagagagagagagagabatatatatatatatacadadadadadadadadadadadabad
 adabadadadadadacagagagagagagagagagagagagagagatafafafafafafafafafafafafafafafafafafafafafatagagagagagagagagagagagagagagagagagagagagagagagabatatatatatatatacadadadadadadadadadadadabad
 adabadadadadadacagagagagagagagagagagagagagagatafafafafafafafafafafafafafafafafafafafafafatagagagagagagagagagagagagagagagagagagagagagagagagatatatatatatatacadadadadadadadadadadadabad
-adabadadadadadacabababagagagagazazazazagagagacadadadafafafafafafafafafafafafafafafafafafatagagagagagagagagaAagagagagagagagagagagagagagagagatatatatatatatacadadadadadadadadadadadabad
+adabadadadadadacabababagagagagazazazazagagagacadadadafafafafafafafafafafafafafafafafafafatagagagagagagagagagaAagagagagagagagagagagagagagagatatatatatatatacadadadadadadadadadadadabad
 adabadadadadadacaBaBabagagagagababababagagabacadadadadadadadadadafafafafadadadadadadadadacababagagabababababababababababababababagagagagabatatatatatatatacadadadadadadadadadadadabad
 adabadadadadadacatatatagaCagaCabawagagagagagacadadadadadadadadadafafafafadadadadadadadadacagagagagagagagagagagagagagagagagagagabagagagagababacacacacacacacadadadadadadadadadadadabad
 adabadadadadadacatatatagaDagaDabagagagagagagacaEadadadadadadadadafafafafadadadadadadadadacagagagagagagagagagagagagagagagagagagabagagagagagagacadadadadadadadadadadadadadadadadadabad
@@ -156,7 +156,7 @@ adabadacagagagagbfararagagagagagagagagagagagbbbgagagagagagagagagagagagagatafafaf
 adabadacagagagagaXararagagagagagagagagagagabbbbhagagabababababatatabacacacadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagagagagagagagagagagagagagagagagagabbibjaKaHabbkatatatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagagagamagagagblagagagagagagagagagabbmbhagagabatbnatatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacabagagabababababababababababababababaHboagagabbkbpatatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacabagagabababababababababababababababaHboagagabbkatbpatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagagagagagagagagagagagagagagagagagagagbhagagabbqatatatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagaUaUbrbsbsbtbsbubsbvbsbsbsbsbtbsbsbsbwaUaUbxbybzbybybyatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagamagagagagaVagagagagagagagagaVagagagbhagagabbAatatatatbBatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad

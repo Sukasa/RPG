@@ -21,7 +21,6 @@
 	for (var/obj/Machinery/Machine in Network.Devices)
 		Machine.Networks += Network
 
-
 /datum/NetworkController/proc/CreateNetwork(var/obj/MapMarker/Network/StartElement)
 	var/datum/Network/NewNetwork = new()
 	NewNetwork.Cables = list(StartElement)

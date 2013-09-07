@@ -19,7 +19,7 @@ mob/Soldier
 
 
 /mob/Soldier/Interact(var/datum/Mouse/Mouse, var/ForceAttack)
-	if (!ForceAttack && IsObj(Mouse.Highlighted) && UserInRange(Mouse.Highlighted, Mouse.Highlighted.InteractRange))
+	if (!ForceAttack && IsObj(Mouse.Highlighted) && Mouse.Highlighted.UserInRange())
 		var/obj/A = Mouse.Highlighted
 		if (!A.Interact(src))
 			UseItem(Mouse)
@@ -56,6 +56,15 @@ mob/Soldier
 /mob/Soldier/FastTick()
 	..()
 	stunned = max(stunned-2,0)
+	if (client && client.EnableKeyboardMovement)
+		if (client.Keys["s"] || client.Keys["south"])
+			step(src, SOUTH, MoveSpeed())
+		if (client.Keys["d"] || client.Keys["east"])
+			step(src, EAST, MoveSpeed())
+		if (client.Keys["a"] || client.Keys["west"])
+			step(src, WEST, MoveSpeed())
+		if (client.Keys["w"] || client.Keys["north"])
+			step(src, NORTH, MoveSpeed())
 
 /mob/Soldier/SlowTick()
 	if(client && stunned) //DEBUG!

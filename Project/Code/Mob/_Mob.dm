@@ -24,7 +24,6 @@ mob
 
 	sight = SEE_TURFS
 
-
 /mob/New()
 	..()
 	hud_flash = new /obj/Runtime/flash()
@@ -84,11 +83,10 @@ mob
 
 /mob/Move()
 	..()
-	if (!SmoothMove)
-		return
-		Destination = null
-	else
+	if (SmoothMove)
 		SmoothMove--
+		return
+	Destination = null
 
 /mob/proc/Health()
 	return 1000
@@ -111,25 +109,20 @@ mob
 /mob/proc/SelectedItem()
 	return Inventory[inv_selected]
 
-
 /mob/proc/MoveSpeed()
 	if(stunned)
 		if(stunned <= 100)
 			return 5-(stunned/30)
 		else
 			return 1
-
 	else
 		return 5
-
 
 /mob/proc/CanAttack()
 	return stunned<5
 
-
 /mob/proc/Stun(var/severity)
 	return
-
 
 /mob/proc/GrabItem(var/obj/Item/NewItem, var/InventorySlot = 0)
 	if(InventorySlot > Inventory.len)
@@ -152,7 +145,6 @@ mob
 	if (client && client.HUD)
 		client.HUD.Update()
 
-
 /mob/proc/Drop_Item(var/InventorySlot)
 	if(InventorySlot > Inventory.len)
 		return
@@ -163,35 +155,27 @@ mob
 	if (client && client.HUD)
 		client.HUD.Update()
 
-
 /mob/proc/SetActiveSlot(var/InventoryIndex)
 	inv_selected = InventoryIndex
 
-
 /mob/proc/GetActiveSlot()
 	return inv_selected
-
 
 /mob/Login()
 	..()
 	client.screen += hud_flash
 
-
 /mob/proc/flash_screen()
 	flick('FlashWhite.dmi',hud_flash)
-
 
 /mob/proc/Respawn()
 	if (Rank == RankUnranked)
 		Rank = Config.Ranks[ckey] || (client ? Config.Ranks[client.address] : null) || RankPlayer
-
 	if (Rank == RankBanned)
 		Team = TeamSpectators
 		Config.Teams[TeamSpectators] += src
-
 	else if (Team == TeamUnknown)
 		Team = Ticker.Mode.GetAssignedTeam(src)
-
 	var/Locs = Config.SpawnZones[Team]
 	var/atom/movable/SpawnSpot = pick(Locs)
 	Move(locate(SpawnSpot.x + rand(0, 9), SpawnSpot.y + rand(0, 6), SpawnSpot.z))
@@ -200,5 +184,4 @@ mob
 	sight = initial(sight)
 	SubStepX = 0
 	SubStepY = 0
-
 	Ticker.Mode.OnPlayerSpawn(src)

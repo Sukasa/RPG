@@ -23,8 +23,9 @@
 	return TRUE
 
 /obj/Container/proc/Absorb()
-	for(var/obj/Item/I in loc)
-		I.loc = src
+	for(var/turf/Turf in locs)
+		for(var/obj/Item/I in Turf)
+			I.loc = src
 
 /obj/Container/New()
 	..()

@@ -10,6 +10,10 @@ var
 		Debug = FALSE
 		#endif
 
+		KeyStateUp = 0
+		KeyStatePressed = 1
+		KeyStateDepressed = 2
+
 		RankUnranked = 0			// Unranked player.  Technically a bug if your Rank is 0 after respawn
 		RankBanned = 1				// Banned player.  Allowed to watch but not interact.
 		RankPlayer = 2				// Regular player

@@ -1,43 +1,16 @@
-macro "macro"
-	elem 
-		name = "CENTER+REP"
-		command = ".center"
-		is-disabled = false
-	elem 
-		name = "NORTHEAST+REP"
-		command = ".northeast"
-		is-disabled = false
-	elem 
-		name = "SOUTHEAST+REP"
-		command = ".southeast"
-		is-disabled = false
-	elem 
-		name = "SOUTHWEST+REP"
-		command = ".southwest"
-		is-disabled = false
-	elem 
-		name = "NORTHWEST+REP"
-		command = ".northwest"
-		is-disabled = false
-	elem 
-		name = "WEST+REP"
-		command = ".west"
-		is-disabled = false
-	elem 
-		name = "NORTH+REP"
-		command = ".north"
-		is-disabled = false
-	elem 
-		name = "EAST+REP"
-		command = ".east"
-		is-disabled = false
-	elem 
-		name = "SOUTH+REP"
-		command = ".south"
-		is-disabled = false
+macro "Macros"
 
 
-menu "menu"
+menu "MainMenu"
+	elem 
+		name = "&File"
+		command = ""
+		category = ""
+		is-checked = false
+		can-check = false
+		group = ""
+		is-disabled = false
+		saved-params = "is-checked"
 	elem 
 		name = "&Quit"
 		command = ".quit"
@@ -219,8 +192,8 @@ window "window_main"
 		keep-aspect = false
 		transparent-color = none
 		alpha = 255
-		macro = "macro"
-		menu = "menu"
+		macro = "Macros"
+		menu = "MainMenu"
 		on-close = ""
 	elem "mainsplitter"
 		type = CHILD

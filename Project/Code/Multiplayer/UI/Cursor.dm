@@ -3,14 +3,14 @@ obj/Runtime/CursorBase
 	icon = null
 	var/list/MobCursors = list( )
 
-obj/Runtime/CursorBase/New()
-	//Prevent infinite loop
-
 atom/var/obj/Runtime/CursorBase/CursorObject
 
 atom/New()
 	..()
 	CursorObject = new/obj/Runtime/CursorBase()
+
+obj/Runtime/CursorBase/New()
+	//Prevent infinite loop
 
 datum/proc/GetCursor(var/Icon)
 	if (isicon(Icon))
@@ -27,6 +27,8 @@ atom/proc/SetMobCursor(var/Ref, var/Icon)
 	CursorObject.MobCursors[Ref] = GetCursor(Icon)
 
 client/proc/UpdateCursor(var/atom/Object)
+	if (!EnableCursor)
+		return
 	if (IsAtom(Object))
 		var/obj/Item/SelectedItem = mob.SelectedItem()
 		mouse_pointer_icon = (SelectedItem && SelectedItem.TargetCursor(Object)) || Object.CursorObject.MobCursors[mob] || Object.CursorObject.icon

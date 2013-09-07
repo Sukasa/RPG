@@ -1,10 +1,9 @@
-var/datum/Ticker/Ticker
+var/datum/Ticker/Ticker = new()
 var/datum/Configuration/Config = new()
 
 world
 	New()
-		Ticker = new()
 		Ticker.Start()
-		Ticker.Mode = new /datum/GameMode/PreGame()
+		Ticker.Mode = new Config.StartMode()
 		spawn(10)
 			Ticker.Mode.Start()

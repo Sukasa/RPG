@@ -2,9 +2,10 @@
 	var/list/Cables = list( )
 	var/list/Devices = list( )
 	var/list/Values = list( )
+
 	var/LastValue = 0
 	var/TickSignal = FALSE
-	var/Type
+	var/Type = null
 
 /datum/Network/proc/GetValue()
 	var/Value = 0
@@ -24,14 +25,13 @@
 
 /datum/Network/proc/Tick()
 	var/Value = GetValue()
-
-	if (TickSignal)
-		for(var/obj/Machinery/Machine in Devices)
-			Machine.OnSignal(src)
-
-	if(Value != LastValue)
-		for(var/obj/Machinery/Machine in Devices)
-			Machine.OnValueChange(Value, src)
-
+	var/DoSignal = TickSignal
+	var/DoValue = (LastValue != Value)
 	LastValue = Value
 	TickSignal = FALSE
+	if(DoValue)
+		for(var/obj/Machinery/Machine in Devices)
+			Machine.OnValueChange(Value, src)
+	if (DoSignal)
+		for(var/obj/Machinery/Machine in Devices)
+			Machine.OnSignal(src)
