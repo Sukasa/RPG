@@ -22,8 +22,6 @@ mob
 
 		Spectate = FALSE // Does the user wish to spectate this round?
 
-	sight = SEE_TURFS
-
 /mob/New()
 	..()
 	hud_flash = new /obj/Runtime/flash()
@@ -116,7 +114,9 @@ mob
 		else
 			return 1
 	else
-		return 5
+		. = 5
+		if (client && client.Keys["shift"])
+			. += 5
 
 /mob/proc/CanAttack()
 	return stunned<5

@@ -1,0 +1,28 @@
+"a" = (/turf,/area)
+"b" = (/obj/Machinery/DebugLight,/turf,/area)
+"c" = (/obj/MapMarker/Network/Signal,/turf,/area)
+"d" = (/obj/Machinery/Trap/PressurePlate,/turf,/area)
+"e" = (/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf,/area)
+"f" = (/obj/UI/Splash1{step_x = 18; step_y = 12},/turf,/area)
+
+(1,1,1) = {"
+aaaaaaaaabaaaaaaaaa
+aaaaaaaaacaaaaaaaaa
+aaaaaaaaadaaaaaaaaa
+aaaaaaabedaaaadaaaa
+aaaaaaaaadebaacaaaa
+aaaaaaaaaaaaaabaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+faaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaa
+"}

@@ -12,4 +12,4 @@
 	return
 
 /datum/GameMode/SplashCards/RunTicker()
-	return FALSE
+	return TRUE

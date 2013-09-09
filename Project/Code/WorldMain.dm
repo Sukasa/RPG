@@ -3,7 +3,6 @@ var/datum/Configuration/Config = new()
 
 world
 	New()
-		Ticker.Start()
 		Ticker.Mode = new Config.StartMode()
-		spawn(10)
-			Ticker.Mode.Start()
+		Ticker.Mode.Start()
+		Ticker.Start()

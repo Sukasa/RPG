@@ -6,13 +6,16 @@ turf/Floor
 	FloorplanIconState = "Floor"
 
 	var
+		NoInit = FALSE
 		VarietyCount = 1
 		BaseState = ""
 
-turf/Floor/New()
-	..()
+turf/Floor/Init()
+	if (NoInit)
+		return
 	var/Rnd = roll(1, VarietyCount) - 1
 	icon_state = "[BaseState][Rnd]"
+	..()
 
 turf/Floor/Generic/Lab
 	icon = 'LabFloor.dmi'
@@ -40,3 +43,10 @@ turf/Floor/DirtRoad
 	VarietyCount = 0
 	BaseState = "DirtRoad"
 	icon_state = "DirtRoad0"
+
+/turf/Floor/Exterior
+	NoInit = TRUE
+	icon = 'Test01.dmi'
+
+/turf/Floor/Exterior/Sand
+	icon = 'OutdoorSand.dmi'

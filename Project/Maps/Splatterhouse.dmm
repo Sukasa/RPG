@@ -46,42 +46,46 @@
 "aT" = (/obj/MapMarker/Network/Power{tag = "icon-6"; icon_state = "6"},/turf/Floor/Generic/Basic,/area)
 "aU" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
 "aV" = (/obj/MapMarker/Network/Power,/turf/Floor/Generic/Basic,/area)
-"aW" = (/obj/MapMarker/Network/Power{tag = "icon-11"; icon_state = "11"},/turf/Floor/Generic/Basic,/area)
-"aX" = (/obj/Furniture/Table/Strong_Table,/obj/Item/tank,/turf/Floor/Generic/Basic,/area)
-"aY" = (/obj/MapMarker/Network/Power{tag = "icon-5"; icon_state = "5"},/turf/Floor/Generic/Basic,/area)
-"aZ" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
-"ba" = (/obj/MapMarker/Network/Power{tag = "icon-14"; icon_state = "14"},/turf/Floor/Generic/Basic,/area)
-"bb" = (/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
-"bc" = (/obj/MapMarker/Network/Power,/mob/Soldier/bot{move = 1},/turf/Floor/Generic/Basic{tag = "A"},/area)
-"bd" = (/obj/Item/medkit,/turf/Floor/Generic/Basic,/area)
-"be" = (/obj/Item/tank,/turf/Floor/Generic/Basic{tag = "B"},/area)
-"bf" = (/obj/Furniture/Table/Strong_Table{step_x = 0; step_y = 0},/turf/Floor/Generic/Basic,/area)
-"bg" = (/obj/MapMarker/Network/Power,/obj/Machinery/Trap/PressurePlate/Stealthed,/turf/Floor/Generic/Basic,/area)
-"bh" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
-"bi" = (/obj/MapMarker/Network/Signal{tag = "icon-7"; icon_state = "7"},/turf/Floor/Generic/Basic,/area)
-"bj" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal,/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
-"bk" = (/obj/Container/WoodCrate,/turf/Floor/Generic/Lab,/area)
-"bl" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Generic/Basic,/area)
-"bm" = (/obj/Machinery/DebugLight,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
-"bn" = (/obj/Container/WoodCrate{step_x = 22; step_y = 20},/turf/Floor/Generic/Lab,/area)
-"bo" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal{tag = "icon-11"; icon_state = "11"},/turf/Floor/Generic/Basic,/area)
-"bp" = (/obj/Container/WoodCrate{step_x = 0; step_y = 10},/turf/Floor/Generic/Lab,/area)
-"bq" = (/obj/Item/medkit,/obj/Container/WoodCrate{step_x = 16; step_y = 0},/turf/Floor/Generic/Lab,/area)
-"br" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/Machinery/Trap/PressurePlate/Stealthed,/turf/Floor/Generic/Basic,/area)
-"bs" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
-"bt" = (/obj/MapMarker/Network/Power{tag = "icon-14"; icon_state = "14"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
-"bu" = (/obj/Container/WoodCrate{step_x = 20; step_y = 16},/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
-"bv" = (/obj/Container/WoodCrate{step_x = 28; step_y = 19},/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
-"bw" = (/obj/MapMarker/Network/Signal{tag = "icon-11"; icon_state = "11"},/obj/MapMarker/Network/Power{tag = "icon-15"; icon_state = "15"},/turf/Floor/Generic/Basic,/area)
-"bx" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Wall/Inner_Wall,/area)
-"by" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Lab,/area)
-"bz" = (/obj/Container/WoodCrate,/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Lab,/area)
-"bA" = (/obj/Container/WoodCrate{step_x = 22; step_y = 0},/turf/Floor/Generic/Lab,/area)
-"bB" = (/obj/Container/WoodCrate{step_x = 12; step_y = 7},/turf/Floor/Generic/Lab,/area)
-"bC" = (/obj/MapMarker/Network/Power,/turf/Wall/Inner_Wall,/area)
-"bD" = (/mob/Soldier/bot{shoot = 1},/turf/Floor/Generic/Basic,/area)
-"bE" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal{tag = "icon-5"; icon_state = "5"},/turf/Floor/Generic/Basic,/area)
-"bF" = (/obj/MapMarker/Network/Power,/mob/Soldier,/turf/Floor/Generic/Basic,/area)
+"aW" = (/obj/Furniture/Rack,/obj/Machinery/DebugLight,/turf/Floor/Generic/Basic,/area)
+"aX" = (/obj/MapMarker/Network/Power{tag = "icon-11"; icon_state = "11"},/turf/Floor/Generic/Basic,/area)
+"aY" = (/obj/Machinery/DebugLight,/turf/Wall/Inner_Wall,/area)
+"aZ" = (/obj/MapMarker/Network/Signal{tag = "icon-15"; icon_state = "15"},/turf/Wall/Inner_Wall,/area)
+"ba" = (/obj/Machinery/Trap/PressurePlate/Stealthed,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
+"bb" = (/obj/Furniture/Table/Strong_Table,/obj/Item/tank,/turf/Floor/Generic/Basic,/area)
+"bc" = (/obj/MapMarker/Network/Power{tag = "icon-5"; icon_state = "5"},/turf/Floor/Generic/Basic,/area)
+"bd" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
+"be" = (/obj/MapMarker/Network/Power{tag = "icon-14"; icon_state = "14"},/turf/Floor/Generic/Basic,/area)
+"bf" = (/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
+"bg" = (/obj/MapMarker/Network/Power,/mob/Soldier/bot{move = 1},/turf/Floor/Generic/Basic{tag = "A"},/area)
+"bh" = (/obj/Item/medkit,/turf/Floor/Generic/Basic,/area)
+"bi" = (/obj/Item/tank,/turf/Floor/Generic/Basic{tag = "B"},/area)
+"bj" = (/obj/Furniture/Table/Strong_Table{step_x = 0; step_y = 0},/turf/Floor/Generic/Basic,/area)
+"bk" = (/obj/MapMarker/Network/Power,/obj/Machinery/Trap/PressurePlate/Stealthed,/turf/Floor/Generic/Basic,/area)
+"bl" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
+"bm" = (/obj/MapMarker/Network/Signal{tag = "icon-7"; icon_state = "7"},/turf/Floor/Generic/Basic,/area)
+"bn" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal,/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
+"bo" = (/obj/Container/WoodCrate,/turf/Floor/Generic/Lab,/area)
+"bp" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Generic/Basic,/area)
+"bq" = (/obj/Machinery/DebugLight,/obj/MapMarker/Network/Signal,/turf/Floor/Generic/Basic,/area)
+"br" = (/obj/Container/WoodCrate{step_x = 22; step_y = 20},/turf/Floor/Generic/Lab,/area)
+"bs" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal{tag = "icon-11"; icon_state = "11"},/turf/Floor/Generic/Basic,/area)
+"bt" = (/obj/Container/WoodCrate{step_x = 0; step_y = 10},/turf/Floor/Generic/Lab,/area)
+"bu" = (/obj/Item/medkit,/obj/Container/WoodCrate{step_x = 16; step_y = 0},/turf/Floor/Generic/Lab,/area)
+"bv" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/Machinery/Trap/PressurePlate/Stealthed,/turf/Floor/Generic/Basic,/area)
+"bw" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
+"bx" = (/obj/MapMarker/Network/Power{tag = "icon-14"; icon_state = "14"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
+"by" = (/obj/Container/WoodCrate{step_x = 20; step_y = 16},/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
+"bz" = (/obj/Container/WoodCrate{step_x = 28; step_y = 19},/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/obj/MapMarker/Network/Signal{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Basic,/area)
+"bA" = (/obj/MapMarker/Network/Signal{tag = "icon-11"; icon_state = "11"},/obj/MapMarker/Network/Power{tag = "icon-15"; icon_state = "15"},/turf/Floor/Generic/Basic,/area)
+"bB" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Wall/Inner_Wall,/area)
+"bC" = (/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Lab,/area)
+"bD" = (/obj/Container/WoodCrate,/obj/MapMarker/Network/Power{tag = "icon-12"; icon_state = "12"},/turf/Floor/Generic/Lab,/area)
+"bE" = (/obj/Container/WoodCrate{step_x = 22; step_y = 0},/turf/Floor/Generic/Lab,/area)
+"bF" = (/obj/Container/WoodCrate{step_x = 12; step_y = 7},/turf/Floor/Generic/Lab,/area)
+"bG" = (/obj/MapMarker/Network/Power,/turf/Wall/Inner_Wall,/area)
+"bH" = (/mob/Soldier/bot{shoot = 1},/turf/Floor/Generic/Basic,/area)
+"bI" = (/obj/MapMarker/Network/Power,/obj/MapMarker/Network/Signal{tag = "icon-5"; icon_state = "5"},/turf/Floor/Generic/Basic,/area)
+"bJ" = (/obj/MapMarker/Network/Power,/mob/Soldier,/turf/Floor/Generic/Basic,/area)
 
 (1,1,1) = {"
 aaababacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacababababababababababababababababababababababababababababababad
@@ -147,29 +151,29 @@ adabadacagagagagagagagagaVagagagagagagagagagagamabagagagagagabagagagagagacadadad
 adabadacagagagagasasasagaVagasasasagagagagasasasabagagagagagabagagagagagacadadadadafafafafafadadadadacacacacacacacacacacacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagagagagasararagaVagasararagagagagararasabalalalagagabalalalagagacadadadadafafafafafadadadadacagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacagagagagasararagaVagasararagagagagararasabagamalagagabagagalagagacadadadadafafafafafadadadadacagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacaragagagasararagaVagasararagagagagararasabagagagagagabagagaCagagacadadadadafafafafafafafafafatagagabagagagabagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacaragaUaUaUaUaUaUaWagagagagagagagagabababababababababababababababacadadadadafafafafafafafafafatagagasagagagasagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacaragagagagagagagaVagagagagagagagagagaGagagagagagagagagagagagagagatafafafafafafafafafafafafafatagagabasasasabagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacaragagagasasaXagaYaUaUaUaUaUaUaUaUaUaZbaaUaUaUaUaUaUaUaUaUaUaUagatafafafafafafafafafafafafafatagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagasararagagagagagagagagagagagbbbcbdagagagagagagagagbeagagatafafafafafafafafafadadadadacagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagbfararagagagagagagagagagagagbbbgagagagagagagagagagagagagatafafafafafafafafafadadadadacacacacatatatatacacacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagaXararagagagagagagagagagagabbbbhagagabababababatatabacacacadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagagagagagagagagagagagagagagabbibjaKaHabbkatatatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagamagagagblagagagagagagagagagabbmbhagagabatbnatatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacabagagabababababababababababababababaHboagagabbkatbpatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagagagagagagagagagagagagagagagagbhagagabbqatatatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagaUaUbrbsbsbtbsbubsbvbsbsbsbsbtbsbsbsbwaUaUbxbybzbybybyatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagamagagagagaVagagagagagagagagaVagagagbhagagabbAatatatatbBatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagagagaVagagagagagagagagaVagagagbhagagabbkatatatatbkatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacababababababaVagabababababababaVagabagbhagabababababatatababacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacagagagagagagaVagabagagagagagagaVagabagbhagagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadafagagagagagagaVagabagagagagagagaVagabagbhagagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacabagagabababbCabababagagabababbCababasbhagagasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacalagagagagagaVagabalagagagagagaVagabasbhagagasasamagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacalagagabbDagaVagabalagagagabagaVagabasbEaKaGasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacalagagabababbCababalagagagababbCababasbFagagasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacaragagagasararagaVagasararagagagagaraWasabagagagagagabagagaCagagacadadadadafafafafafafafafafatagagabagagagabagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacaragaUaUaUaUaUaUaXagagagagagagagagaYaZaYababababababababababababacadadadadafafafafafafafafafatagagasagagagasagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacaragagagagagagagaVagagagagagagagagagbaagagagagagagagagagagagagagatafafafafafafafafafafafafafatagagabasasasabagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacaragagagasasbbagbcaUaUaUaUaUaUaUaUaUbdbeaUaUaUaUaUaUaUaUaUaUaUagatafafafafafafafafafafafafafatagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagasararagagagagagagagagagagagbfbgbhagagagagagagagagbiagagatafafafafafafafafafadadadadacagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagbjararagagagagagagagagagaHaKaIbkagagagagagagagagagagagagatafafafafafafafafafadadadadacacacacatatatatacacacadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagbbararagagagagagagagagagagabbfblagagabababababatatabacacacadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagagagagagagagagagagagagagagabbmbnaKaHabboatatatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagamagagagbpagagagagagagagagagabbqblagagabatbratatatatatacadadadadadadafafafafafadadadadadadadadafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacabagagabababababababababababababababaHbsagagabboatbtatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagagagagagagagagagagagagagagagagblagagabbuatatatatatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagaUaUbvbwbwbxbwbybwbzbwbwbwbwbxbwbwbwbAaUaUbBbCbDbCbCbCatatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagamagagagagaVagagagagagagagagaVagagagblagagabbEatatatatbFatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagagagaVagagagagagagagagaVagagagblagagabboatatatatboatacadadadadadadafafafafafafafafafafafafafafafafafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacababababababaVagabababababababaVagabagblagabababababatatababacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacagagagagagagaVagabagagagagagagaVagabagblagagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadafagagagagagagaVagabagagagagagagaVagabagblagagagagagagagagagagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacabagagabababbGabababagagabababbGababasblagagasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacalagagagagagaVagabalagagagagagaVagabasblagagasasamagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacalagagabbHagaVagabalagagagabagaVagabasbIaKaGasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacalagagabababbGababalagagagababbGababasbJagagasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacalagagabagagaVagabalagagagabagaVagabasaVagagasasagagagasasagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
-adabadacalagagagagagagagabalagagagagagagagabagaYaUaUaUaUaUaUaUaUaUagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
+adabadacalagagagagagagagabalagagagagagagagabagbcaUaUaUaUaUaUaUaUaUagacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadacacacacacacacacacacacacacacacacacacacagagagagagagagagagagagagafadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adabadadadadadadadadadadadadadadadadadadadacacacacacacacacacacacacacacadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadabad
 adababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababad

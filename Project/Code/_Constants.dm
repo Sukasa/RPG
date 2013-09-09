@@ -80,6 +80,19 @@ var
 		CursorInvalid = 4		// Default 'invalid action' marker
 		CursorNone = 5			// Blank / invisible cursor
 
+		ButtonEast = "east"
+		ButtonWest = "west"
+		ButtonNorth = "north"
+		ButtonSouth = "south"
+		ButtonUse = "use"
+		ButtonInteract = "int"
+		ButtonMenu = "menu"
+
+		DefaultLanguage = "en-US"
+
+
+		FadeLayer = 100
+
 	list
 
 		//NOTE: Don't change the order of these!  The Cardinal* and CardinalAngles* value orders match up with code implemented in Utility/Geometry.dm and Atom.dm
@@ -89,10 +102,10 @@ var
 		Cardinal8 = 		list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
 		CardinalAngles8 =	list(45, 90, 135, 180, 225, 270, 315, 360)
 
-		// Text Colours.
-		TextColours = list("\red" =     rgb(255, 0, 0),   "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
-						   "\magenta" = rgb(255, 0, 255), "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
-						   "\white" =   rgb(255, 255, 255) )
+		// Text Colours
+		TextColours = list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
+						   "\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
+						   "\white" =   rgb(255, 255, 255), "\black" = rgb(0, 0, 0) )
 
 		// Rank Titles
 		RankTitles = list("Banned", "Player", "Moderator", "Programmer", "Administrator")

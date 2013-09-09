@@ -1,6 +1,6 @@
 /datum/TileTemplate
 	var/datum/ObjectTemplate/Area
-	var/datum/ObjectTemplate/Turf
+	var/list/datum/ObjectTemplate/Turfs = list( )
 	var/list/Objects = list( )
 
 /datum/ObjectTemplate

@@ -24,6 +24,7 @@
 	for (var/client/C)
 		C.KeyTick()
 
+
 	if (Mode && Mode.RunTicker())
 		// Signalling, etc ticks at 30Hz
 		Config.NetController.Tick()

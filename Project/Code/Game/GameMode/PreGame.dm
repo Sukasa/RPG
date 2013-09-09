@@ -47,7 +47,7 @@
 
 	//TODO other world initialization as needed
 
-	Config.MapCache = new/savefile("World")
+
 
 	AdminText("World initialization complete")
 	Ready = TRUE

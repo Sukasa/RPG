@@ -7,5 +7,6 @@ world
 	map_format = TOPDOWN_MAP
 	fps = 30
 	view = 9
-	turf = /turf/Floor/Sand
+	cache_lifespan = 0
+	turf = /turf
 	mob = /mob/Soldier

@@ -3,38 +3,41 @@
 //Contributed by: Kuraudo
 
 /*
-    replacetext(haystack, needle, replace)
+	replacetext(haystack, needle, replace)
 
-        Replaces all occurrences of needle in haystack (case-insensitive)
-        with replace value.
+		Replaces all occurrences of needle in haystack (case-insensitive)
+		with replace value.
 
-    replaceText(haystack, needle, replace)
+	replaceText(haystack, needle, replace)
 
-        Replaces all occurrences of needle in haystack (case-sensitive)
-        with replace value.
+		Replaces all occurrences of needle in haystack (case-sensitive)
+		with replace value.
 */
 
 
 proc
-    replacetext(haystack, needle, replace)
-        var
-            pos = findtext(haystack, needle)
-            needleLen = length(needle)
-            replaceLen = length(replace)
-        while(pos)
-            haystack = copytext(haystack, 1, pos) + replace + copytext(haystack, pos + needleLen)
-            pos = findtext(haystack, needle, pos + replaceLen + 1)
+	replacetext(haystack, needle, replace)
+		var
+			pos = findtext(haystack, needle)
+			needleLen = length(needle)
+			replaceLen = length(replace)
+		while(pos)
+			haystack = copytext(haystack, 1, pos) + replace + copytext(haystack, pos + needleLen)
+			pos = findtext(haystack, needle, pos + replaceLen + 1)
 
-        return haystack
+		return haystack
 
-    replaceText(haystack, needle, replace)
-        var
-            pos = findtextEx(haystack, needle)
-            needleLen = length(needle)
-            replaceLen = length(replace)
+	replaceText(haystack, needle, replace)
+		var
+			pos = findtextEx(haystack, needle)
+			needleLen = length(needle)
+			replaceLen = length(replace)
 
-        while(pos)
-            haystack = copytext(haystack, 1, pos) + replace + copytext(haystack, pos + needleLen)
-            pos = findtextEx(haystack, needle, pos + replaceLen)
+		while(pos)
+			haystack = copytext(haystack, 1, pos) + replace + copytext(haystack, pos + needleLen)
+			pos = findtextEx(haystack, needle, pos + replaceLen)
 
-        return haystack
+		return haystack
+
+	Capitalize(var/Text)
+		return uppertext(copytext(Text, 1, 2)) + copytext(lowertext(Text), 2)

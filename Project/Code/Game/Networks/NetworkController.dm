@@ -58,17 +58,17 @@
 /datum/NetworkController/proc/GetConnectedCables(var/obj/MapMarker/Network/SourceElement)
 	var/list/Elements = list( )
 	for(var/Dir in Cardinal)
-		if (SourceElement.Dirs & Dir)
+		if (text2num(SourceElement.icon_state) & Dir)
 			var/turf/Container = get_step(SourceElement, Dir)
 			for (var/obj/MapMarker/Network/Element in Container)
-				if (Element.type == SourceElement.type && (Element.Dirs & Reverse(Dir)))
+				if (Element.type == SourceElement.type && (text2num(Element.icon_state) & Reverse(Dir)))
 					Elements += Element
 	return Elements
 
 /datum/NetworkController/proc/GetConnectedMachines(var/obj/MapMarker/Network/SourceElement)
 	var/list/Machines = list( )
 	for(var/Dir in Cardinal)
-		if (SourceElement.Dirs & Dir)
+		if (text2num(SourceElement.icon_state) & Dir)
 			var/turf/Container = get_step(SourceElement, Dir)
 			for (var/obj/Machinery/Machine in Container)
 				Machines += Machine

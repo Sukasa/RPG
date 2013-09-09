@@ -9,6 +9,7 @@ client
 
 		EnableMouse = FALSE
 		EnableCursor = FALSE
+
 		EnableKeyboard = TRUE
 		EnableKeyboardMovement = TRUE
 
@@ -32,6 +33,7 @@ client
 
 	// Init UI
 	screen += Chatbox
+
 	if (EnableKeyboard)
 		InitializeKeyboardMacros()
 
@@ -73,7 +75,15 @@ client
 			Pressed[K] = TRUE
 			Keys[K] |= KeyStateDepressed
 
+
+/client/proc/ButtonPressed(var/Button)
+	return Keys[Config.CommandKeys[Button]]
+
 /client/proc/InitializeKeyboardMacros()
-	for(var/k in list("0","1","2","3","4","5","6","7","8","9","q","w","e","r","t","y","u","i","o","p","a","s","d","f","g","h","j","k","l","z","x","c","v","b","n","m","west","east","north","south","northeast","northwest","southeast","southwest","space","shift","ctrl","alt","escape","return","center","tab","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12",))
+	for(var/k in list("0","1","2","3","4","5","6","7","8","9","q","w","e","r","t","y","u","i","o","p","a","s","d","f",
+					  "g","h","j","k","l","z","x","c","v","b","n","m","west","east","north","south","northeast",
+					  "northwest","southeast","southwest","space","shift","ctrl","alt","escape","return","center",
+					  "tab","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12",))
+
 		winset(src, "[k]", "parent=Macros;name=[k];command=Say+/keydown+[k]")
 		winset(src, "[k]UP", "parent=Macros;name=[k]+UP;command=Say+/keyup+[k]")

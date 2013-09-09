@@ -1,6 +1,6 @@
 
 turf/Wall
-	opacity = 1
+	opacity = 0
 	density = 1
 	icon_state = "0"
 
@@ -9,13 +9,13 @@ turf/Wall
 	var
 		Prefix = ""
 
-turf/Wall/New()
-	..()
+turf/Wall/Init()
 	var/IS = 0
 	for (var/Dir in Cardinal)
 		if (istype(get_step(src, Dir), src.type))
 			IS |= Dir
 	src.icon_state = "[Prefix][IS]"
+	..()
 
 turf/Wall/Outer_Wall
 	icon = 'ExteriorWall.dmi'
