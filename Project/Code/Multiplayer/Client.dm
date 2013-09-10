@@ -1,5 +1,6 @@
 client
 	show_popup_menus = FALSE
+	perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
 		obj/Runtime/HUD/HUDController/HUD

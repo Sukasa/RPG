@@ -185,3 +185,5 @@ mob
 	SubStepX = 0
 	SubStepY = 0
 	Ticker.Mode.OnPlayerSpawn(src)
+	//if (client)
+		//client.edge_limit = "SOUTHWEST to NORTHEAST"

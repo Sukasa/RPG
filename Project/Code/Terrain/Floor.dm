@@ -46,6 +46,7 @@ turf/Floor/DirtRoad
 
 /turf/Floor/Exterior
 	NoInit = TRUE
+	name = "Grass"
 	icon = 'Test01.dmi'
 
 /turf/Floor/Exterior/Sand

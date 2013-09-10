@@ -106,6 +106,7 @@
 #include "Project\Code\Objects\MapMarkers\Networks\Signal.dm"
 #include "Project\Code\Terrain\Floor.dm"
 #include "Project\Code\Terrain\Foliage.dm"
+#include "Project\Code\Terrain\Liquids.dm"
 #include "Project\Code\Terrain\Turf.dm"
 #include "Project\Code\Terrain\Wall.dm"
 #include "Project\Code\Utility\Geometry.dm"

@@ -21,3 +21,8 @@ turf/Floor/Foliage
 		name = "Stump"
 		density = 1
 		icon_state = "Stump"
+
+	Log
+		name = "Log"
+		density = 1
+		icon_state = "LogW"
