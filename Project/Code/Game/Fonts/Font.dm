@@ -2,6 +2,8 @@
 	var
 		list/VWFTable = list( )
 
-		Height = 12
+		list/XOffsets = list( )
+		list/YOffsets = list( )
+
 		LineSpacing = 13
 		icon/IconFile = null

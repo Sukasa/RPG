@@ -21,6 +21,7 @@
 #define FILE_DIR "Project/Icons/Terrain/Wall"
 #define FILE_DIR "Project/Icons/UI"
 #define FILE_DIR "Project/Icons/UI/Cursors"
+#define FILE_DIR "Project/Icons/UI/Fonts"
 #define FILE_DIR "Resources"
 #define FILE_DIR "Resources/Turfs"
 // END_FILE_DIR
@@ -31,7 +32,6 @@
 
 // BEGIN_INCLUDE
 #include "Project\Code\__Patches.dm"
-#include "Project\Code\__TODOS.dm"
 #include "Project\Code\_Constants.dm"
 #include "Project\Code\Atom.dm"
 #include "Project\Code\World.dm"
@@ -39,7 +39,11 @@
 #include "Project\Code\Game\Configuration.dm"
 #include "Project\Code\Game\Teams.dm"
 #include "Project\Code\Game\Ticker.dm"
+#include "Project\Code\Game\Fonts\CandelaBold26.dm"
 #include "Project\Code\Game\Fonts\Font.dm"
+#include "Project\Code\Game\Fonts\FontRenderer.dm"
+#include "Project\Code\Game\Fonts\LaconicShadow48.dm"
+#include "Project\Code\Game\Fonts\MiramonteBold12.dm"
 #include "Project\Code\Game\GameMode\GameMode.dm"
 #include "Project\Code\Game\GameMode\PreGame.dm"
 #include "Project\Code\Game\GameMode\Setup.dm"
@@ -62,7 +66,6 @@
 #include "Project\Code\Mob\Spectator.dm"
 #include "Project\Code\Multiplayer\Client.dm"
 #include "Project\Code\Multiplayer\Chat\Chat.dm"
-#include "Project\Code\Multiplayer\Chat\VWFTable.dm"
 #include "Project\Code\Multiplayer\Chat\Command\Action.dm"
 #include "Project\Code\Multiplayer\Chat\Command\ChatCommand.dm"
 #include "Project\Code\Multiplayer\Chat\Command\CommandController.dm"
@@ -72,6 +75,7 @@
 #include "Project\Code\Multiplayer\Chat\Command\NetDebug.dm"
 #include "Project\Code\Multiplayer\Chat\Command\Rank.dm"
 #include "Project\Code\Multiplayer\Chat\Command\Say.dm"
+#include "Project\Code\Multiplayer\Chat\Command\TestText.dm"
 #include "Project\Code\Multiplayer\HUD\HUD.dm"
 #include "Project\Code\Multiplayer\HUD\SoldierHUD.dm"
 #include "Project\Code\Multiplayer\HUD\HUDObject\HUDObject.dm"

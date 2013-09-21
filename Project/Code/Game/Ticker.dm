@@ -2,8 +2,13 @@
 	var/datum/GameMode/Mode = null
 	var/Ticks = 0
 	var/list/HighSpeedDevices = list( )
+	var/State = TickerNotStarted
 
 /datum/Ticker/proc/Tick()
+
+	while (State != TickerRunning)
+		sleep(1)
+
 	Ticks++
 	if (Ticks % world.fps == 0)
 		//Game Mode, Machinery, etc slowtick at 1Hz
@@ -23,7 +28,6 @@
 	// Handle the player's (players'?) input.
 	for (var/client/C)
 		C.KeyTick()
-
 
 	if (Mode && Mode.RunTicker())
 		// Signalling, etc ticks at 30Hz
@@ -52,7 +56,12 @@
 	return Mode.AllowLateJoin && Config.AllowLateJoin
 
 /datum/Ticker/proc/Start()
-	spawn
-		while(TRUE)
-			Tick()
-			sleep(0.5) // I'm not sure why 0.5 makes the ticker run at (world.fps) specifically, but...
+	if (State == TickerNotStarted)
+		spawn
+			while(TRUE)
+				Tick()
+				sleep(0.5) // I'm not sure why 0.5 makes the ticker run at (world.fps) specifically, but...
+	State = TickerRunning
+
+/datum/Ticker/proc/Suspend()
+	State = TickerSuspended

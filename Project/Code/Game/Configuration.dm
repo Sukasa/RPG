@@ -79,3 +79,6 @@
 
 	// Map Loader
 	var/tmp/datum/MapLoader/MapLoader = new()
+
+	// Font Renderer
+	var/tmp/datum/FontRenderer/Text = new()

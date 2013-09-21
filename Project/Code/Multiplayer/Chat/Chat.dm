@@ -22,20 +22,20 @@
 
 /proc/DebugText(var/Text as text)
 #ifdef DEBUG
-	Broadcast("\green" + Text, ChannelDebug)
+	Broadcast("\green[Text]", ChannelDebug)
 	world.log << Text
 #endif
 
 /proc/InfoText(var/Text as text)
-	Broadcast("\cyan" + Text, ChannelInfo)
+	Broadcast("\cyan[Text]", ChannelInfo)
 	world.log << Text
 
 /proc/AdminText(var/Text as text)
-	Broadcast("\cyan" + Text, ChannelAdmin)
+	Broadcast("\cyan[Text]", ChannelAdmin)
 	world.log << Text
 
 /proc/GameText(var/Text as text)
-	Broadcast("\white" + Text, ChannelGame)
+	Broadcast("\white[Text]", ChannelGame)
 	world.log << Text
 
 proc/SendUser(var/mob/User = usr, var/Text)

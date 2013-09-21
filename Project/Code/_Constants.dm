@@ -90,8 +90,21 @@ var
 
 		DefaultLanguage = "en-US"
 
+		TickerNotStarted = 0
+		TickerRunning = 1
+		TickerSuspended = 2
 
 		FadeLayer = 100
+
+		AlignLeft = 1
+		AlignCenter = 2
+		AlignRight = 3
+
+		ColorWhite = rgb(255, 255, 255)
+		ColorRed = rgb(255, 0, 0)
+		ColorBlack = rgb(255, 0, 0)
+
+		ColorDarkRed = rgb(128, 0, 0)
 
 	list
 

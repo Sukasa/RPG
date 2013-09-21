@@ -42,6 +42,7 @@
 	var/datum/ChatLine/ChatLine = new()
 	var/CurrentLineWidth = ChatboxOffsetX + ChatBoxTextOffsetX
 	var/WordWidth = 0
+	var/datum/Font/Font = new/datum/Font/MiramonteBold12()
 	var/list/WordBuffer = list()
 	var/RenderColor = TextColours["\yellow"]
 	ChatLine.Text += new/obj/Runtime/LetterBG()
@@ -52,13 +53,13 @@
 			LetterASCII = text2ascii(Line, ++X++) // Yes, I did *++X++*
 			RenderColor = TextColours["[ascii2text(255)][ascii2text(LetterASCII)]"] || RenderColor
 			continue
-		var/LetterWidth = VWF[LetterASCII + 1]
+		var/LetterWidth = Font.VWFTable[LetterASCII + 1]
 		if (LetterASCII != 32) //Space
 			Letter.pixel_x = WordWidth
 			var/icon/I = new('Text.dmi', "[LetterASCII]")
 			I.Blend(RenderColor, ICON_MULTIPLY)
 			Letter.icon = I
-			WordWidth += LetterWidth + 1
+			WordWidth += LetterWidth + 5
 			WordBuffer += Letter
 		else
 			if (CurrentLineWidth + WordWidth > 400 + ChatboxOffsetX)

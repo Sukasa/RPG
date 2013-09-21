@@ -1,6 +1,9 @@
-// VWF font size information
+/datum/Font/MiramonteBold12
+	IconFile = 'Text.dmi'
 
-var/list/VWF = list(														//     x0 x1 x2 x3 x4 x5 x6 x7	  x8 x9 xA xB xC xD xE xF
+	LineSpacing = 12
+
+	VWFTable = list(														//     x0 x1 x2 x3 x4 x5 x6 x7	  x8 x9 xA xB xC xD xE xF
 						0, 0, 0, 0, 0, 0, 0, 0, 	0, 0, 0, 0, 0, 0, 0, 0, // 0x0x
 						0, 0, 0, 0, 0, 0, 0, 0, 	0, 0, 0, 0, 0, 0, 0, 0, // 0x1x
 						2, 2, 5, 8, 5, 8, 8, 2, 	3, 3, 5, 6, 5, 3, 2, 5, // 0x2x  , !, ", #, $, %, &, ',	   (, ), *, +, ,, -, ., /
