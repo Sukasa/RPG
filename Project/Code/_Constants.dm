@@ -94,7 +94,7 @@ var
 		TickerRunning = 1
 		TickerSuspended = 2
 
-		FadeLayer = 100
+		FlashLayer = 100
 
 		AlignLeft = 1
 		AlignCenter = 2
@@ -105,6 +105,9 @@ var
 		ColorBlack = rgb(255, 0, 0)
 
 		ColorDarkRed = rgb(128, 0, 0)
+
+		Infinity = 1.#INF
+		NegativeInfinity = -1.#INF
 
 	list
 

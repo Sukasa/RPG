@@ -59,7 +59,7 @@
 			var/icon/I = new('Text.dmi', "[LetterASCII]")
 			I.Blend(RenderColor, ICON_MULTIPLY)
 			Letter.icon = I
-			WordWidth += LetterWidth + 5
+			WordWidth += LetterWidth + 1
 			WordBuffer += Letter
 		else
 			if (CurrentLineWidth + WordWidth > 400 + ChatboxOffsetX)

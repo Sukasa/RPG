@@ -270,10 +270,17 @@
 	var/Y = 0
 	var/X = 0
 
+
+	var/list/PropagationList = list( )
+
 	for (var/list/Line in TemplateMap)
 		X = 0
 		for (var/datum/TileTemplate/Tile in Line)
 			var/turf/NewTurf = locate(BaseX + X, BaseY + Y, Z)
+
+			var/area/NewArea = new Tile.Area.TypePath(NewTurf)
+			for (var/Param in Tile.Area.Params)
+				NewArea.vars[Param] = Tile.Area.Params[Param]
 
 			for (var/datum/ObjectTemplate/Turf in Tile.Turfs)
 				NewTurf = new Turf.TypePath(NewTurf)
@@ -286,6 +293,7 @@
 					continue
 				if (A.loc == NewTurf)
 					del A
+
 			for(var/datum/ObjectTemplate/Object in Tile.Objects)
 				var/atom/Atom = new Object.TypePath(locate(BaseX + X, BaseY + Y, Z))
 				for (var/Param in Object.Params)
@@ -293,22 +301,31 @@
 			X++
 		Y++
 
-	for(var/InitX = BaseX, InitX < BaseX + X, InitX++)
-		for(var/InitY = BaseY, InitY < BaseY + Y, InitY++)
-			var/turf/T = locate(InitX, InitY, Z)
-			T.Init()
 
-	for(var/mob/M in world)
-		if (M.client)
-			M.Respawn()
+	for(var/InitX = BaseX, InitX < (BaseX + X), InitX++)
+		for(var/InitY = BaseY, InitY < (BaseY + Y), InitY++)
+			var/turf/T = locate(InitX, InitY, Z)
+			PropagationList += T.Init()
+
+	// Process camera data
+	for (X = 1, X < PropagationList.len, X++)
+		var/turf/T = PropagationList[X]
+		PropagationList += T.Propagate()
 
 	// Initialize data structures
+
+	// Cameras
+	Config.Cameras.Init()
 
 	// Networks
 	Config.NetController.Init()
 
 	// Done
 
+
+	for(var/mob/M in world)
+		if (M.client)
+			M.Respawn()
 
 
 //

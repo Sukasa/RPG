@@ -1,5 +1,5 @@
 turf/Floor/Foliage
-	NoInit = TRUE
+	NoVariety = TRUE
 	name = "Foliage"
 	icon = 'OutdoorFoliage.dmi'
 

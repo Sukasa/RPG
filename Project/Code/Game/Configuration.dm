@@ -82,3 +82,6 @@
 
 	// Font Renderer
 	var/tmp/datum/FontRenderer/Text = new()
+
+	// Camera Controller
+	var/tmp/datum/CameraController/Cameras = new()

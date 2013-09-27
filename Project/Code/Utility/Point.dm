@@ -15,12 +15,34 @@
 	if (IsMovable(Location))
 		PixelX = Location:step_x
 		PixelY = Location:step_y
+		PixelX += Location:bound_x
+		PixelY += Location:bound_y
 		PixelX += Location:bound_width / 2
 		PixelY += Location:bound_height / 2
 	if (IsTurf(Location))
 		PixelX += 16
 		PixelY += 16
 	FineX = (TileX * 32) + PixelX
+	FineY = (TileY * 32) + PixelY
+
+/datum/Point/proc/SetXOffset(var/X)
+	PixelX = X
+	FineX = (TileX * 32) + PixelX
+
+/datum/Point/proc/SetYOffset(var/Y)
+	PixelY = Y
+	FineY = (TileY * 32) + PixelY
+
+/datum/Point/proc/CopyXOffset(var/atom/movable/AM)
+	PixelX = AM.step_x
+	PixelX += AM:bound_x
+	PixelX += AM.bound_width / 2
+	FineX = (TileX * 32) + PixelX
+
+/datum/Point/proc/CopyYOffset(var/atom/movable/AM)
+	PixelY = AM.step_y
+	PixelY += AM:bound_y
+	PixelY += AM.bound_height / 2
 	FineY = (TileY * 32) + PixelY
 
 /datum/Point/proc/GetDistanceTo(var/datum/Point/To)

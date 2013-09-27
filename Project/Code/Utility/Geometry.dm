@@ -17,6 +17,28 @@ proc/Raytrace(var/atom/Start, var/Angle, var/CollideWith = 0)
 
 	return
 
+
+// Returns a list of all the turfs in a specific direction from Ref, not including Ref, for a specified amount of tiles
+proc/GetOSteps(var/atom/Ref, var/Dir, var/Dist)
+	. = list( )
+	var/atom/A = Ref
+	for(var/X = 1, X <= Dist, X++)
+		A = get_step(A, Dir)
+		if (!A)
+			break
+		. += A
+
+
+// Returns a list of all the turfs in a specific direction from Ref, including but not counting Ref, for a specified amount of tiles
+proc/GetSteps(var/atom/Ref, var/Dir, var/Dist)
+	. = list( get_turf(Ref) )
+	var/atom/A = Ref
+	for(var/X = 1, X <= Dist, X++)
+		A = get_step(A, Dir)
+		if (!A)
+			break
+		. += A
+
 // TODO: Refactor to match coding style
 // Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
 // (Injoke.  Refer to your preferred SS13 branch and check helpers.dm)

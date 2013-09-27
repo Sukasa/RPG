@@ -23,7 +23,10 @@
 
 	// Mobs move at 30Hz (or whatever the value of world.fps is)
 	for (var/mob/M in world)
-		M.MoveTo()
+		if (!istype(M, /mob/Camera))
+			M.MoveTo()
+
+	Config.Cameras.Tick()
 
 	// Handle the player's (players'?) input.
 	for (var/client/C)

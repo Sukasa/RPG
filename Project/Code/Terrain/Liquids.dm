@@ -1,5 +1,5 @@
 turf/Floor/Liquid
-	NoInit = TRUE
+	NoVariety = TRUE
 	name = "Pool"
 	density = 1
 	icon = 'Liquids.dmi'
