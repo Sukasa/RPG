@@ -11,4 +11,4 @@
 		return PanSpeed
 
 	Attached
-		PanSpeed = 12
+		PanSpeed = 32

@@ -24,8 +24,7 @@
 			continue
 		if (T.CameraDensity < CameraDensity - 1)
 			T.CameraDensity = CameraDensity - 1
-			if (T.CameraDensity > 1)
-				. += T
+			. += T
 
 /turf/proc/Init()
 	if (Config.CreateTurfStandIns)
@@ -34,7 +33,7 @@
 		SetCursor(CursorGreen)
 		icon_state = FloorplanIconState ? FloorplanIconState : icon_state
 	if (isarea(loc) && loc:CameraDensity)
-		CameraDensity = world.view
+		CameraDensity = world.view + 1
 		return list(src)
 	return list( )
 

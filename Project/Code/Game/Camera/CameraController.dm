@@ -17,20 +17,20 @@
 		C.Destination = GetBestCameraDestinationCandidate(C, M)
 		if (C.Destination == M.loc)
 			C.Destination = M
-		else
+		else if (C.Destination)
 			C.Destination = new/datum/Point(C.Destination)
 
 			if (C.Destination:TileX == M.x)
 				C.Destination:CopyXOffset(M)
 			else if (C.Destination:TileX > M.x)
-				C.Destination.SetXOffset(0 - (M.bound_width / 2))
+				C.Destination.SetXOffset(M.bound_width / 2)
 			else
 				C.Destination.SetXOffset(31 + (M.bound_width / 2))
 
 			if (C.Destination:TileY == M.y)
 				C.Destination:CopyYOffset(M)
 			else if (C.Destination:TileY > M.y)
-				C.Destination.SetYOffset(0 - (M.bound_height / 2))
+				C.Destination.SetYOffset(M.bound_height / 2)
 			else
 				C.Destination.SetYOffset(31 + (M.bound_height / 2))
 
@@ -61,12 +61,7 @@
 /datum/CameraController/proc/GetBestCameraDestinationCandidate(var/mob/Camera/C, var/mob/M)
 	var/list/Turfs = CameraCross(M)
 	var/Dist = Infinity
-	//world.log << "Player @ [M.x], [M.y]"
-
-	//world.log << "[Turfs.len] tests"
-
 	for(var/turf/T in Turfs)
-		//world.log << "[T.x] [T.y]"
 		if (Dist > C.GetDistanceTo(T))
 			Dist = C.GetDistanceTo(T)
 			. = T
