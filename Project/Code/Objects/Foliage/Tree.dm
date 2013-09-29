@@ -25,7 +25,7 @@
 		world << overlayimage
 		src.overlays += overlayimage
 
-		var/image/shadowimage = image(src.icon, src, "Shadow", 21)
+		var/image/shadowimage = image(src.icon, src, "Shadow", 19)
 		shadowimage.alpha = 128
 		world << shadowimage
 		src.overlays += shadowimage
