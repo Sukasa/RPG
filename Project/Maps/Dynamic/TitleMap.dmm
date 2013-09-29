@@ -35,12 +35,12 @@
 "aI" = (/turf/Floor/Exterior/Sand{tag = "icon-N,W,NWi"; icon_state = "N,W,NWi"},/area)
 "aJ" = (/turf/Floor/Exterior/Sand{tag = "icon-N"; icon_state = "N"},/area)
 "aK" = (/turf/Floor/Exterior/Sand{tag = "icon-N,E,NEi"; icon_state = "N,E,NEi"},/area)
-"aL" = (/obj/Foliage/Tree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aM" = (/turf/Floor/Exterior{tag = "icon-0,3"; icon_state = "0,3"},/area)
-"aN" = (/turf/Floor/Exterior{tag = "icon-1,3"; icon_state = "1,3"},/area)
-"aO" = (/turf/Floor/Exterior/Sand{tag = "icon-S,W,SWi"; icon_state = "S,W,SWi"},/area)
-"aP" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe"; icon_state = "SWe"},/area)
-"aQ" = (/turf/Floor/Exterior/Sand{tag = "icon-E"; icon_state = "E"},/area)
+"aL" = (/turf/Floor/Exterior{tag = "icon-0,3"; icon_state = "0,3"},/area)
+"aM" = (/turf/Floor/Exterior{tag = "icon-1,3"; icon_state = "1,3"},/area)
+"aN" = (/turf/Floor/Exterior/Sand{tag = "icon-S,W,SWi"; icon_state = "S,W,SWi"},/area)
+"aO" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe"; icon_state = "SWe"},/area)
+"aP" = (/turf/Floor/Exterior/Sand{tag = "icon-E"; icon_state = "E"},/area)
+"aQ" = (/obj/Foliage/Tree/OakTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
 "aR" = (/turf/Floor/Exterior/Sand{tag = "icon-W"; icon_state = "W"},/area)
 "aS" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderNWe"; icon_state = "SandBorderNWe"},/area)
 "aT" = (/turf/Floor/Exterior/Sand{tag = "icon-NWe"; icon_state = "NWe"},/area)
@@ -68,20 +68,19 @@
 "bp" = (/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
 "bq" = (/turf/Floor/Exterior{tag = "icon-Bush9"; icon_state = "Bush9"},/area)
 "br" = (/turf/Floor/Exterior/Sand{tag = "icon-NWe,E"; icon_state = "NWe,E"},/area)
-"bs" = (/obj/Environment/Sign,/turf/Floor/Exterior{tag = "icon-0,5"; icon_state = "0,5"},/area)
-"bt" = (/turf/Floor/Foliage/Bush,/area)
-"bu" = (/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
-"bv" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe,E"; icon_state = "SWe,E"},/area)
-"bw" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderSN,E,W,SWi,SEi"; icon_state = "SandBorderSN,E,W,SWi,SEi"},/area)
-"bx" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush3"; icon_state = "Bush3"},/area)
-"by" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bz" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush9"; icon_state = "Bush9"},/area)
-"bA" = (/turf/Floor/Exterior{tag = "icon-Bush5"; icon_state = "Bush5"},/area)
-"bB" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderS,N,W,SWi,NWi"; icon_state = "SandBorderS,N,W,SWi,NWi"},/area)
-"bC" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBaseSWe,NWe,NEe"; icon_state = "SandBaseSWe,NWe,NEe"},/area)
-"bD" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bE" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush2"; icon_state = "Bush2"},/area)
-"bF" = (/turf/Floor/Exterior{tag = "icon-1,8"; icon_state = "1,8"},/area)
+"bs" = (/turf/Floor/Foliage/Bush,/area)
+"bt" = (/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
+"bu" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe,E"; icon_state = "SWe,E"},/area)
+"bv" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderSN,E,W,SWi,SEi"; icon_state = "SandBorderSN,E,W,SWi,SEi"},/area)
+"bw" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush3"; icon_state = "Bush3"},/area)
+"bx" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"by" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush9"; icon_state = "Bush9"},/area)
+"bz" = (/turf/Floor/Exterior{tag = "icon-Bush5"; icon_state = "Bush5"},/area)
+"bA" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderS,N,W,SWi,NWi"; icon_state = "SandBorderS,N,W,SWi,NWi"},/area)
+"bB" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBaseSWe,NWe,NEe"; icon_state = "SandBaseSWe,NWe,NEe"},/area)
+"bC" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"bD" = (/turf/Floor/Foliage/Bush{tag = "icon-Bush2"; icon_state = "Bush2"},/area)
+"bE" = (/turf/Floor/Exterior{tag = "icon-1,8"; icon_state = "1,8"},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaa
@@ -130,8 +129,8 @@ aAazaAazaAazaAazaAazaAazaAazaAazaAazaAazaAazaAazaAazanaaaaaaaaaaaaaaawaaaaafafab
 amanamanamanamanamanamanamanamanamanamanamanamanamanaaaaaaaaaaaaaaaaaaaaaaafafabacacacacacadaaaaaCaDaEaaaaaaaaaaaaaaaaakalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafafabacacacacacadaaawaaafaaaaaaaaaaaaaaatakaBanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaaaaaaaaaFaGaaaHaaaaaaaaaaaaabacacacacacaqararavaaaaaaaaaaaaaaaaaaamanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaIaJaKaaaaaaaaaaaaaaaaaaaLaaaaaaaaaaaaaaaaaaaaaaaMaNaaaaaaaaaaaaaaaeabacacacacacacacacadaaaaauaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaOaPaQaaaaaaaaaaaIaJaJaKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaoacacacacacacacadaeaaaaaaaaaaakalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaIaJaKaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaLaMaaaaaaaaaaaaaaaeabacacacacacacacacadaaaaauaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaNaOaPaaaaaaaaaaaIaJaJaKaaaQaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaoacacacacacacacadaeaaaaaaaaaaakalaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaRaSaJaKaaaaaIaTaUaVaWaaaaaaaaaaaaaXaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacacacacacacacacavaaaaaaaaaaamanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaOaPaUaSaJaJaTaUaYaQaaaaaaaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaakalaaaaaaaaabacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaRaUaYaUaUaUaUaUaQaaaaaLaaaLaaaaaaaaaaaaaaaaaaaaaaaaaaamanaaaaaaaeabacacacacacacacacaqarararavaaaaaaaaaaaaaaaaaaaaaaaaaaaZbaaaaaaaaaaaaaaaaaaaaaaa
@@ -146,22 +145,22 @@ amanaaaaaaafaaaaaaaablaaaaaaaaaaaaamanaaamanaaakalaaakalaaaaaaaaaaaaaaaaaaaaaaaa
 bmakalawaaaaaaaaawbnboaaaDaEaCaaaaaaakalaaaaaaamanaaamanaaaaaaaaaaaaaaaaaaaaafaaaaaaaaabacacacacacacacaiajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bpamanaaaaaaaaaaaablaaaaaaaaaaakalaaamaxalakalakalaaaaaaakalaaaaaaaaaaaaaaaaaaaaaaafaaagahaoacacahaoacadaaafaaaaaCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aabpbqaaaaaeaaaabnboaaaaaaaaaaamanaaaaamanamanamanakalaaamanaaaaaaaaaaaaaaaaaaaaaaaaaaaaaeabacadbcabacaqavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpakalaaaaaaaaaIbrbsaaawaaaaaaakalaaakalbpbtakalakaBaxalakalakalakalakalaaaaaaaaaaaaaaaaaaabacadaaabacacadbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpamanaaaaaaawaRaQaaaaaaakalawamanakaBanbpaaamaxaBaxaBaxaBaxaBaxaBaxaBaxalaaaaaaaaaaaaaaayasacadaeabacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpbpbpaaaaaaaIaTaQafaaaaamanbuakalamanaabpbpakaBaxaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaagahaoadaaabacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bpakalaaaaaaaaaIbraHaaawaaaaaaakalaaakalbpbsakalakaBaxalakalakalakalakalaaaaaaaaaaaaaaaaaaabacadaaabacacadbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bpamanaaaaaaawaRaPaaaaaaakalawamanakaBanbpaaamaxaBaxaBaxaBaxaBaxaBaxaBaxalaaaaaaaaaaaaaaayasacadaeabacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bpbpbpaaaaaaaIaTaPafaaaaamanbtakalamanaabpbpakaBaxaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaagahaoadaaabacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bpbpbpaaaaaIaTaVaWaaaaaaaaaabpamanawakalaabpamaxaBaxaBaxaBaxaBaxaBaxazaxalaaaaaaaaaaaaaaaaaaabaqarasacacadaeaaaaafaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpbpbpaaaIaTaVaWawaaaeaaaabubpaaaaafamanaabpakaBaxaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaaabacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bpbpbpaaaIaTaVaWawaaaeaaaabtbpaaaaafamanaabpakaBaxaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaaabacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bpbpbqaaaRaVaWaaaaaaaaaaakalbqakalaabpbpaaaaamanamaxaBaxaBaxaBaxaBaxazaxalaaaaaaaaaaaaaaaeaaagaoacacacacaqararavaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpbpaaaaaObvaaaaaaaaawbtamanakaBanbubpaaafaaaaafakaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaaaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bpbqaaaaaablaaaaaaaaaaaaaaaaamanbuawaaafaaaaaaawamanamanamaxaBaxaBaxazaxalaaaaaaaaaaaaaaaaawaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-akalaaaaaabwaaawaabtaabxakalaeakalaaaaaaaabpbpaaafaaaaaaakaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaeaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaabyaaaaaaaaaaaaaaaaaa
+bpbpaaaaaNbuaaaaaaaaawbsamanakaBanbtbpaaafaaaaafakaBaxaBaxaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaaaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bpbqaaaaaablaaaaaaaaaaaaaaaaamanbtawaaafaaaaaaawamanamanamaxaBaxaBaxazaxalaaaaaaaaaaaaaaaaawaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+akalaaaaaabvaaawaabsaabwakalaeakalaaaaaaaabpbpaaafaaaaaaakaBaxaBaxaBaAaBanaaaaaaaaaaaaaaaaaeaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaabxaaaaaaaaaaaaaaaaaa
 amanaaaaaaaaaaaaaaaaaaaaamanakaBanaabpaaaaaabpbpaaaCaaaCamanamaxaBaxazaxalaaaaaaaaaaaaaCaaaaaaabacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-bxawawaaaaaabkaaaaaaawaabpakaBanbzaabpaaaaaaaaaaaaaHaaaHaaaaakaBaxaBaAaBanaaaaaaaaaaaaaaaaaaaaabacacacacacacacadaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-alawbcaaaaaabwaaaaaaaaaabpamanbpaeaeawaabpaaafaaaCaaafaaaCaaamaxaBaxazaxalaaaaaaaaaaaaaaayararasacacacacacacacadbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-axalaaaaaaaaaaaabcaaaaaabpakalbpbpakalaabpaaaaaaaaaaaaaaaaaabuamaxaBaAaBanaaaaaaaaaaaaaaabacacacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aBanaaaaaabkaaaaaaaaawbpakaBaxalakaBaxalbpaaaaaaaaaCaaaCaaaabAakaBaxazaxalaaaaaaaaaaaaaeabacacacacacacacacaiahajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-anbxaaaabBbCaKaaaaaabpbpamanamaxaBaxaBanaaaabzaaakalaaaaaabzakaBaxaBaAaBanaaaaaaaaaaaaaaabacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-akalbDaaaaaOaWaaaaaabpbxakalakaBaxaBanbubpbpbmbxamanaaaaakalamaxaBaxazaxalaaaaaaaaaaaaaaabacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-amanaaaaaaaaaaaaaaaabpakaBaxaBaxaBaxalbAbEakalbpbpbpbxakaBanakaBaxaBaAaBanaaaaaaaaaaaaaaagahaoacacacacacacadaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaakalaaaaaIaJaKbFaabpamanamanamanamanbEafamanbpbpbpbpamanafamaxaBaxazaxalaaaaaaaaaaaaaabcaaabacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+bwawawaaaaaabkaaaaaaawaabpakaBanbyaabpaaaaaaaaaaaaaHaaaHaaaaakaBaxaBaAaBanaaaaaaaaaaaaaaaaaaaaabacacacacacacacadaaaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+alawbcaaaaaabvaaaaaaaaaabpamanbpaeaeawaabpaaafaaaCaaafaaaCaaamaxaBaxazaxalaaaaaaaaaaaaaaayararasacacacacacacacadbcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+axalaaaaaaaaaaaabcaaaaaabpakalbpbpakalaabpaaaaaaaaaaaaaaaaaabtamaxaBaAaBanaaaaaaaaaaaaaaabacacacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aBanaaaaaabkaaaaaaaaawbpakaBaxalakaBaxalbpaaaaaaaaaCaaaCaaaabzakaBaxazaxalaaaaaaaaaaaaaeabacacacacacacacacaiahajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+anbwaaaabAbBaKaaaaaabpbpamanamaxaBaxaBanaaaabyaaakalaaaaaabyakaBaxaBaAaBanaaaaaaaaaaaaaaabacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+akalbCaaaaaNaWaaaaaabpbwakalakaBaxaBanbtbpbpbmbwamanaaaaakalamaxaBaxazaxalaaaaaaaaaaaaaaabacacacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+amanaaaaaaaaaaaaaaaabpakaBaxaBaxaBaxalbzbDakalbpbpbpbwakaBanakaBaxaBaAaBanaaaaaaaaaaaaaaagahaoacacacacacacadaeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaakalaaaaaIaJaKbEaabpamanamanamanamanbDafamanbpbpbpbpamanafamaxaBaxazaxalaaaaaaaaaaaaaabcaaabacacacacacacadaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "}
