@@ -1,6 +1,5 @@
 /obj/Foliage/Tree
 	name = "Tree"
-	icon = 'OakTree.dmi'
 	icon_state = "Tree"
 	density = 1
 	bound_width = 16
@@ -8,15 +7,26 @@
 	bound_x = 24
 	bound_y = 0
 
+	OakTree
+		icon = 'OakTree.dmi'
+
 	PalmTree
 		icon = 'PalmTree.dmi'
 
 	PineTree
 		icon = 'PineTree.dmi'
 
-/*	DeadTree
+	DeadTree
 		icon = 'DeadTree.dmi'
-*/
+
+	ThinTree1
+		icon = 'ThinTree1.dmi'
+		bound_x = 8
+
+	ThinTree2
+		icon = 'ThinTree2.dmi'
+		bound_x = 8
+
 /obj/Foliage/Tree/New()
 	..()
 	spawn(1)

@@ -1,12 +1,14 @@
 /obj/Environment/Sign
 	name = "Sign"
-	icon = 'TestSign.dmi'
 	icon_state = "Sign"
 	density = 1
 	bound_width = 32
 	bound_height = 16
 	bound_x = 0
 	bound_y = 0
+
+	TestSign
+		icon = 'TestSign.dmi'
 
 /obj/Environment/Sign/New()
 	..()
