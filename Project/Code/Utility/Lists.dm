@@ -8,3 +8,10 @@
 	for (var/aB in A)
 		. = "[.], [aB]"
 	. = copytext(., 3)
+
+/proc/Pop(var/list/L)
+	. = L[1]
+	L.Cut(1, 2)
+
+/proc/Push(var/list/L, var/Item)
+	L.Insert(1, Item)

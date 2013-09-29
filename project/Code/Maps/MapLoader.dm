@@ -4,34 +4,13 @@
 		MapHeight = 0
 		TileCharacterCount = 0
 		SeekPosition = 1
-		MapFile
+		datum/StreamReader/Reader
 
 		savefile/MapCache
 
 		list
 			Templates = list( )
 			TemplateMap = list( )
-
-		const // ASCII Constants
-			LineFeed = 10
-			CarriageReturn = 13
-			Space = 32
-			DoubleQuote = 34
-			SingleQuote = 39
-			OpenParenthesis = 40
-			EndParenthesis = 41
-			Comma = 44
-			ForwardSlash = 47
-			Semicolon = 59
-			Equals = 61
-			N = 78
-			R = 82
-			SmallN = 110
-			SmallR = 114
-			Backslash = 92
-			OpenBracket = 123
-			EndBracket = 125
-
 
 /datum/MapLoader/proc/Init()
 	MapCache = new/savefile("MDATA")
@@ -52,18 +31,18 @@
 // Load a raw .dmm file, parse it, and create it.  Does not save the map to cache.
 /datum/MapLoader/proc/LoadRawMap(var/Filename)
 	ASSERT(fexists(Filename))
-	MapFile = file2text(file(Filename))
-	StripCarriageReturns()
+	Reader = new(Filename)
+	Reader.StripCarriageReturns()
 	ParseMap()
 	CreateMap()
 
 // Import a map file into the cache
 /datum/MapLoader/proc/ImportMap(var/Filename, var/MapID)
 	ASSERT(fexists(Filename))
-	MapFile = file2text(file(Filename))
-	StripCarriageReturns()
-	MapCache[MapID + "-raw"] << MapFile
-	MapFile = null
+	Reader = new(Filename)
+	Reader.StripCarriageReturns()
+	MapCache[MapID + "-raw"] << Reader.TextFile
+	del Reader
 
 // Save a parsed map to cache
 /datum/MapLoader/proc/SaveMap(var/MapID)
@@ -83,32 +62,33 @@
 
 // Load an imported map for parsing
 /datum/MapLoader/proc/LoadImportedMap(var/MapID)
-	MapCache[MapID + "-raw"] >> MapFile
+	var/T
+	MapCache[MapID + "-raw"] >> T
+	Reader = new(T)
 
 // Parses a loaded map
 /datum/MapLoader/proc/ParseMap()
-	ASSERT(istext(MapFile))
+	ASSERT(Reader)
 	// Variable Init
 	MapWidth = 0
 	MapHeight = 0
-	SeekPosition = 1
 	Templates = list( )
 	TemplateMap = list( )
 
 	// Parse for tile character count
-	TileCharacterCount = findtext(MapFile, "\"") + 1
-	TileCharacterCount = findtext(MapFile, "\"", TileCharacterCount) - TileCharacterCount
+	TileCharacterCount = Reader.Find("\"") + 1
+	TileCharacterCount = Reader.Find("\"", TileCharacterCount) - TileCharacterCount
 
 	// Parse template lines
-	while (Char() == DoubleQuote)
+	while (Reader.Char() == DoubleQuote)
 		ParseTemplateLine()
-		SeekTo(DoubleQuote, OpenParenthesis)
+		Reader.SeekTo(DoubleQuote, OpenParenthesis)
 
 	// Parse Z Level
 	ParseZLevel()
 
 	// Done
-	MapFile = null
+	del Reader
 	return
 
 
@@ -119,53 +99,38 @@
 	// "aa" = (/obj/MapMarker/MapInfo/MapName{name = "Splatterhouse"; tag = "t"},/turf/Floor/Sand,/area)
 	var/TemplateCode = ""
 
-	SeekAfter(DoubleQuote)
+	Reader.SeekAfter(DoubleQuote)
 
-	//world.log << "Parse"
-
-	while (Char() != DoubleQuote)
-		TemplateCode = addtext(TemplateCode, Take(1))
-
-	//world.log << "Template Code is [TemplateCode]"
+	while (Reader.Char() != DoubleQuote)
+		TemplateCode = addtext(TemplateCode, Reader.Take())
 
 	var/datum/TileTemplate/Template = new()
 	Templates[TemplateCode] = Template
 
-	SeekTo(ForwardSlash)
+	Reader.SeekTo(ForwardSlash)
 
-	while (Char() != EndParenthesis)
+	while (Reader.Char() != EndParenthesis)
 		var/datum/ObjectTemplate/Object = new()
 
-		while (Isnt(OpenBracket, Comma, EndParenthesis))
-			Object.TypePath = addtext(Object.TypePath, Take(1))
+		while (Reader.Isnt(OpenBracket, Comma, EndParenthesis))
+			Object.TypePath = addtext(Object.TypePath, Reader.Take())
 
-		if (Is(OpenBracket))
-			SeekPosition++
-			while (Isnt(EndBracket, EndParenthesis))
+		if (Reader.Is(OpenBracket))
+			Reader.Advance()
+			while (Reader.Isnt(EndBracket, EndParenthesis))
 				// Get Param
 
-				//world.log << "Get Param"
-
-				if (Is(OpenBracket, Semicolon, Space))
-					SeekAfter(OpenBracket, Semicolon, Space)
-
+				if (Reader.Is(OpenBracket, Semicolon, Space))
+					Reader.SeekAfter(OpenBracket, Semicolon, Space)
 				var/Param = ""
-
-				while(Isnt(Space, Equals))
-					Param = addtext(Param, Take(1))
-
-				//world.log << "Got ParamName [Param]"
+				while(Reader.Isnt(Space, Equals))
+					Param = addtext(Param, Reader.Take())
 
 				// Get Value
-				SeekAfter(Space, Equals)
-
+				Reader.SeekAfter(Space, Equals)
 				Object.Params[Param] = GetValue()
 
-				//world.log << "Got ParamValue [Object.Params[Param]]"
-
-		SeekTo(Comma, EndParenthesis)
-
-		//world.log << "Adding object {[Object.TypePath]} ([Object.Params.len] Params) to template [TemplateCode]"
+		Reader.SeekTo(Comma, EndParenthesis)
 
 		// Add object to template
 		if (findtext(Object.TypePath, "/area") == 1)
@@ -176,10 +141,10 @@
 			Template.Objects += Object
 
 
-		if (Is(Comma))
-			SeekPosition++
+		if (Reader.Is(Comma))
+			Reader.Advance()
 			continue
-		else if (Is(EndParenthesis))
+		else if (Reader.Is(EndParenthesis))
 			return
 
 
@@ -189,69 +154,66 @@
 	var/InReference = TRUE
 	var/Escaped = FALSE
 
-	while (InString || Isnt(Semicolon, EndParenthesis, Space))
+	while (InString || Reader.Isnt(Semicolon, EndParenthesis, Space))
 
 		if (Escaped)
-			switch(Char())
+			switch(Reader.Char())
 				if (N)
 					Value = addtext(Value, ascii2text(LineFeed))
-					SeekPosition++
+					Reader.Advance()
 				if (SmallN)
 					Value = addtext(Value, ascii2text(LineFeed))
-					SeekPosition++
+					Reader.Advance()
 				if (R)
 					Value = addtext(Value, ascii2text(CarriageReturn))
-					SeekPosition++
+					Reader.Advance()
 				if (SmallR)
 					Value = addtext(Value, ascii2text(CarriageReturn))
-					SeekPosition++
+					Reader.Advance()
 				else
-					Value = addtext(Value, Take(1))
+					Value = addtext(Value, Reader.Take())
 			Escaped = FALSE
 		else
-			switch(Char())
+			switch(Reader.Char())
 				if(DoubleQuote)
-					SeekPosition++
+					Reader.Advance()
 					if (InString)
 						return Value
 					InString = !InString
 				if(SingleQuote)
 					if (InString)
-						Value = addtext(Value, Take(1))
+						Value = addtext(Value, Reader.Take())
 					else
 						InReference = !InReference
 						if (!InReference)
 							return fcopy_rsc(Value) // This is Wrong
-					SeekPosition++
+					Reader.Advance()
 
 				if(Backslash)
 					Escaped = TRUE
-					SeekPosition++
+					Reader.Advance()
 
 				if(Semicolon, Space, EndBracket)
 					if (InString)
-						Value = addtext(Value, Take(1))
+						Value = addtext(Value, Reader.Take())
 					else
 						break
 				else
-					Value = addtext(Value, Take(1))
+					Value = addtext(Value, Reader.Take())
 
 	return text2num(Value)
 
 /datum/MapLoader/proc/ParseZLevel()
-	//world.log << "Parse Map"
-	SeekAfter(LineFeed)
-	while (Isnt(DoubleQuote))
+	Reader.SeekAfter(LineFeed)
+	while (Reader.Isnt(DoubleQuote))
 		MapHeight++
 		var/list/Line = list( )
-		while(Char() != LineFeed)
-			var/A = Take(TileCharacterCount)
+		while(Reader.Char() != LineFeed)
+			var/A = Reader.Take(TileCharacterCount)
 			Line += Templates[A]
 		InsertList(1, TemplateMap, Line)
-		//world.log << "Row, [Line.len]"
 		MapWidth = max(MapWidth, Line.len)
-		SeekAfter(LineFeed)
-	//world.log << "Done Parse.  [TemplateMap.len] Rows ([JoinList(TemplateMap)])"
+		Reader.SeekAfter(LineFeed)
 
 
 
@@ -326,65 +288,3 @@
 	for(var/mob/M in world)
 		if (M.client)
 			M.Respawn()
-
-
-//
-//   UTILITY FUNCTIONS
-//
-
-// Carraige-Return stripper.  Removes all instances of \r from the code.  Used during initial import, not load-from-imported.
-/datum/MapLoader/proc/StripCarriageReturns()
-	var/Pos = 1
-	do
-		Pos = findtext(MapFile, ascii2text(CarriageReturn), Pos)
-		MapFile = copytext(MapFile, 1, Pos) + copytext(MapFile, Pos + 1)
-	while (Pos)
-
-// Simple Seek-Forwards proc.  Stops at the first match.
-/datum/MapLoader/proc/SeekTo()
-	while (Isnt(args))
-		SeekPosition++
-		ASSERT(SeekPosition < lentext(MapFile))
-
-// Simple Seek-Forwards proc, but stops after a contiguous set of matches
-/datum/MapLoader/proc/SeekAfter()
-	SeekThrough(args)
-	SeekPosition++
-
-// Simple Seek-Forwards proc, but stops at the end of a contiguous set of matches
-/datum/MapLoader/proc/SeekThrough()
-
-	while (Isnt(Denest(args)))
-		SeekPosition++
-		ASSERT(SeekPosition < lentext(MapFile))
-
-	do
-		SeekPosition++
-	while (Is(Denest(args)))
-
-	SeekPosition--
-
-// Exclusion list clause
-/datum/MapLoader/proc/Isnt()
-	return !Is(Denest(args))
-
-// Inclusion list clause
-/datum/MapLoader/proc/Is()
-	return Char() in Denest(args)
-
-/datum/MapLoader/proc/Denest(var/list/A)
-	return IsList(A[1]) ? A[1] : A
-
-// Gets the character currently seeked to
-/datum/MapLoader/proc/Char()
-	return text2ascii(MapFile, SeekPosition)
-
-// Gets it as text
-/datum/MapLoader/proc/TChar()
-	return ascii2text(Char())
-
-// Grabs the next three characters from the string as text and advances the seek pointer
-/datum/MapLoader/proc/Take(var/Chars)
-	ASSERT(SeekPosition <= lentext(MapFile))
-	. = copytext(MapFile, SeekPosition, SeekPosition + Chars)
-	SeekPosition += Chars

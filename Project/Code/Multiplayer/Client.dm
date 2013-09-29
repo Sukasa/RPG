@@ -4,6 +4,8 @@ client
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
 		obj/Runtime/HUD/HUDController/HUD
+		obj/Runtime/Flash/Flash = new()
+
 
 		list/Keys = list( )
 		list/Pressed = list( )
@@ -20,12 +22,23 @@ client
 	ASSERT(Chatbox)
 	Chatbox.WriteLine(Text)
 
+/client/Del()
+	Config.Clients -= src
+	..()
+
 /client/New()
+	Config.Clients += src
+	if (!Debug)
+		winset(src, "mainsplitter", "splitter=100;lock=true;show-splitter=false;height=625")
+		winset(src, "input1", "is-visible=0")
+
+	Flash.Init(src)
+
 	if (Ticker.AllowJoin()) // Either late join & allowed, or no round in effect
 		// Either reconnect the client to their mob, or create a new one
 
 		..()  //Standard mob creation: Soldier; name and gender set to BYOND user info
-		HUD = new/obj/Runtime/HUD/HUDController/SoldierHUD(src)
+		//HUD = new/obj/Runtime/HUD/HUDController/SoldierHUD(src)
 	else
 		// Create as spectator - The round is already going and doesn't allow late (re)joins.
 		var/mob/Spectator/S = new()
@@ -61,7 +74,9 @@ client
 //*************************************
 
 /client/proc/GetKeyboardHandler()
-	return KeyboardHandler || src
+	if (KeyboardHandler != null)
+		return KeyboardHandler
+	return src
 
 /client/proc/KeyUp(K)
 	Keys[K] = KeyStateUp

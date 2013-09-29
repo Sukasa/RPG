@@ -1,0 +1,16 @@
+say Running Script...
+
+say ...
+blackout
+loadmap Splash1
+fadein
+sleep 40
+say ...
+fadeout
+loadmap Splash2
+fadein
+sleep 40
+say ...
+fadeout
+sleep 1
+say Script Complete.

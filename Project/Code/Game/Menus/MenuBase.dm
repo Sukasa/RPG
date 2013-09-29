@@ -4,6 +4,7 @@
 
 		list/StaticElements = list( )
 		list/DynamicElements = list( )
+		client/Client = null
 
 		const
 			ControlUp = 1
@@ -19,23 +20,52 @@
 //
 
 /datum/Menu/proc/Init()
-	// Implemented by child classes
+	Show()
 
 /datum/Menu/proc/Tick()
 	// Implemented by child classes
 
 /datum/Menu/proc/DeInit()
-	// Implemented by child classes
+	Hide()
+	ClearDynamicElements()
+	ClearStaticElements()
+
+/datum/Menu/proc/Hide()
+	for(var/atom/A in DynamicElements)
+		A.invisibility = 101
+	for(var/atom/A in StaticElements)
+		A.invisibility = 101
+
+	Client.KeyboardHandler = null
+
+/datum/Menu/proc/Show()
+	for(var/atom/A in DynamicElements)
+		A.invisibility = 0
+		Client.screen |= A
+	for(var/atom/A in StaticElements)
+		A.invisibility = 0
+		Client.screen |= A
+
+	Client.KeyboardHandler = src
+
 
 
 //
 // Utility Functions
 //
 
+/datum/Menu/proc/ShowElementToClients(var/Element)
+	Client.screen += Element
+
 /datum/Menu/proc/ClearDynamicElements()
 	for (var/atom/A in DynamicElements)
 		del A
 	DynamicElements = list( )
+
+/datum/Menu/proc/ClearStaticElements()
+	for (var/atom/A in StaticElements)
+		del A
+	StaticElements = list( )
 
 
 //
@@ -53,18 +83,24 @@
 /datum/Menu/proc/KeyChange(var/Key, var/Modifier = 0)
 
 	// Enforce a standard set of menu controls...
-	if (Key == "north")
+	if (Key == "North")
 		Input(ControlUp + Modifier)
-	if (Key == "south")
+		return
+	if (Key == "South")
 		Input(ControlDown + Modifier)
-	if (Key == "west")
+		return
+	if (Key == "West")
 		Input(ControlLeft + Modifier)
-	if (Key == "east")
+		return
+	if (Key == "East")
 		Input(ControlRight + Modifier)
-	if (Key == "return")
+		return
+	if (Key == "Return")
 		Input(ControlEnter + Modifier)
-	if (Key == "escape")
+		return
+	if (Key == "Escape")
 		Input(ControlEscape + Modifier)
+		return
 
 	// ... before using the customized key set
 	if (Key == Config.CommandKeys[ButtonNorth])

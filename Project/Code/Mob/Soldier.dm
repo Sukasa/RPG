@@ -56,7 +56,7 @@ mob/Soldier
 /mob/Soldier/FastTick()
 	..()
 	stunned = max(stunned-2,0)
-	if (client && client.EnableKeyboardMovement)
+	if (client && client.EnableKeyboardMovement && !Config.InputSuspended)
 		if (client.Keys["S"] || client.Keys["South"])
 			step(src, SOUTH, MoveSpeed())
 		if (client.Keys["D"] || client.Keys["East"])

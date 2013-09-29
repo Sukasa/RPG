@@ -26,6 +26,12 @@
 	world.log << Text
 #endif
 
+/proc/ErrorText(var/Text as text)
+#ifdef DEBUG
+	Broadcast("\red[Text]", ChannelDebug)
+	world.log << Text
+#endif
+
 /proc/InfoText(var/Text as text)
 	Broadcast("\cyan[Text]", ChannelInfo)
 	world.log << Text

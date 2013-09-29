@@ -10,6 +10,7 @@
 		sleep(1)
 
 	Ticks++
+	//world.log << "[Ticks]"
 	if (Ticks % world.fps == 0)
 		//Game Mode, Machinery, etc slowtick at 1Hz
 		if (Mode)

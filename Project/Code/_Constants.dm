@@ -20,6 +20,7 @@ var
 		RankModerator = 3			// Game moderator.  Bans, rule enforcement, etc
 		RankProgrammer = 4			// Game programmer.  Primarily used for debugging purposes
 		RankAdministrator = 5		// Administrator rank, used for game administration
+		RankScriptsOnly = 6			// Nobody can run this command; only event scripts
 
 		ChatboxMaxHeight = 14		// Maximum height (in lines of text) of the chat box
 		ChatboxLifetime = 110		// How long (in 10ths of a second) lines in chat should remain visible
@@ -95,6 +96,7 @@ var
 		TickerSuspended = 2
 
 		FlashLayer = 100
+		UILayer = 101
 
 		AlignLeft = 1
 		AlignCenter = 2
@@ -102,12 +104,30 @@ var
 
 		ColorWhite = rgb(255, 255, 255)
 		ColorRed = rgb(255, 0, 0)
-		ColorBlack = rgb(255, 0, 0)
-
+		ColorBlack = rgb(0, 0, 0)
 		ColorDarkRed = rgb(128, 0, 0)
 
 		Infinity = 1.#INF
 		NegativeInfinity = -1.#INF
+
+		LineFeed = 10
+		CarriageReturn = 13
+		Space = 32
+		DoubleQuote = 34
+		SingleQuote = 39
+		OpenParenthesis = 40
+		EndParenthesis = 41
+		Comma = 44
+		ForwardSlash = 47
+		Semicolon = 59
+		Equals = 61
+		N = 78
+		R = 82
+		SmallN = 110
+		SmallR = 114
+		Backslash = 92
+		OpenBracket = 123
+		EndBracket = 125
 
 	list
 

@@ -9,10 +9,10 @@
 /datum/CommandController/proc/IsValidCommand(var/Command)
 	return AllCommands[Command] != null
 
-/datum/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText)
+/datum/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "")
 	var/datum/ChatCommand/CC = AllCommands[Command]
 	ASSERT(CC)
-	if (Executor.Rank >= CC.MinPowerLevel || Debug)
+	if (!Executor || (Executor.Rank >= CC.MinPowerLevel) || Debug)
 		CC.Execute(Executor, CommandText)
 	else
 		SendUser("\red You do not have permission to do this")

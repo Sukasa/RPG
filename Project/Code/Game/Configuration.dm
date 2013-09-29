@@ -18,6 +18,8 @@
 
 	var/tmp/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
 
+	var/tmp/list/Clients = list( )
+
 	// Chat Piping
 	var/tmp/list/RankChannels = list(ChannelDefault, ChannelDefault, ChannelModDefault, ChannelAdminDefault, ChannelAdminDefault) // By Rank
 	var/tmp/list/RxTeamChannels = list(ChannelAttackers, ChannelDefenders, ChannelAllChat, ChannelSpectators) // By Team
@@ -27,9 +29,8 @@
 
 	var/tmp/CreateTurfStandIns = FALSE
 
-	//TODO load from config file
-	//TODO save to config file?
-
+	var/tmp/MobLayerEnabled = TRUE
+	var/tmp/InputSuspended = FALSE
 
 	// Persisted Options
 
@@ -85,3 +86,6 @@
 
 	// Camera Controller
 	var/tmp/datum/CameraController/Cameras = new()
+
+	// Event Controller
+	var/tmp/datum/EventController/Events = new()

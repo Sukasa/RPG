@@ -36,3 +36,8 @@
 
 /datum/GameMode/proc/Command(var/mob/Executor, var/Command, var/CommandParams[])
 	return
+
+/datum/GameMode/proc/SetMobLayerEnabled(var/Enabled)
+	for(var/mob/M in world)
+		M.invisibility = Enabled ? 0 : 101
+	Config.MobLayerEnabled = Enabled

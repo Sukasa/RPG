@@ -6,7 +6,12 @@
 	return
 
 /datum/GameMode/SplashCards/Start()
-	return
+	SetMobLayerEnabled(FALSE)
+	spawn(5)
+		Config.Events.RunScript("Splashes2")
+
+		Ticker.ChangeGameMode(/datum/GameMode/TitleScreen)
+
 
 /datum/GameMode/SplashCards/End()
 	return

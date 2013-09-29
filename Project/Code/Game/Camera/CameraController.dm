@@ -11,7 +11,6 @@
 	Attachments = list ( )
 
 /datum/CameraController/proc/Tick()
-	// TODO Cinematic camera ticks
 	for(var/mob/M in Attachments)
 		var/mob/Camera/C = Attachments[M]
 		C.Destination = GetBestCameraDestinationCandidate(C, M)
@@ -45,6 +44,14 @@
 	C.loc = M.loc
 	if (M.client)
 		M.client.eye = C
+
+/datum/CameraController/proc/CreateCinematicCamera(var/Location, var/Name)
+	var/mob/Camera/C = new(Location)
+	if (Name)
+		world.log << "Added to store: [Name]"
+		CinematicCameras[Name] = C
+	AllCameras += C
+	return C
 
 /datum/CameraController/proc/CameraCross(var/mob/M)
 	. = list( )

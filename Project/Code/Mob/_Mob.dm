@@ -26,6 +26,8 @@ mob
 	..()
 	hud_flash = new /obj/Runtime/flash()
 	SetCursor(CursorRed)
+	if (!Config.MobLayerEnabled)
+		invisibility = 101
 
 /mob/proc/GetCoverPenalty()
 	return 0
@@ -45,8 +47,8 @@ mob
 	var/Angle = GetAngleTo(Destination)
 	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * 32)
 
-	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x
-	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y
+	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x + SubStepX
+	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y + SubStepY
 
 	var/OffsetX = 0
 	var/OffsetY = 0
@@ -64,9 +66,6 @@ mob
 	else if (NewStepY >= 32)
 		NewStepY -= 32
 		OffsetY++
-
-	NewStepY += SubStepY
-	NewStepX += SubStepX
 
 	SubStepX = NewStepX % 1
 	SubStepY = NewStepY % 1
@@ -176,8 +175,10 @@ mob
 		Config.Teams[TeamSpectators] += src
 	else if (Team == TeamUnknown)
 		Team = Ticker.Mode.GetAssignedTeam(src)
-	var/Locs = Config.SpawnZones[Team]
-	var/atom/movable/SpawnSpot = pick(Locs)
+	var/list/Locs = Config.SpawnZones[Team]
+	var/atom/movable/SpawnSpot = locate(1, 1, 1)
+	if (Locs.len)
+		SpawnSpot = pick(Locs)
 	Move(locate(SpawnSpot.x + rand(0, 9), SpawnSpot.y + rand(0, 6), SpawnSpot.z))
 	Destination = null
 	stunned = initial(stunned)

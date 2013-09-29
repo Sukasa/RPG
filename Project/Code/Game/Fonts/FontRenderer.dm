@@ -2,7 +2,7 @@
 	var/LastTextIndex = -1
 	var/Completed = FALSE
 
-/datum/FontRenderer/proc/Create(var/client/C, var/Text = "", var/Lines = 2, var/Width = 200, var/FontFace = /datum/Font/CandelaBold26, var/Align = AlignLeft, var/X = 0, var/Y = 0, var/Color = ColorWhite, var/StartIndex = 0)
+/datum/FontRenderer/proc/Create(var/Text = "", var/Lines = 2, var/Width = 200, var/FontFace = /datum/Font/CandelaBold26, var/Align = AlignLeft, var/X = 0, var/Y = 0, var/Color = ColorWhite, var/StartIndex = 0)
 
 	// TODO Refactor and implement DRY
 
@@ -38,11 +38,10 @@
 				// Newline
 				NewLine = TRUE
 			else
-				world.log << Char
 				I = image(Font.IconFile, icon_state = Char)
 				I.pixel_x = WordOffset + Font.XOffsets[Char]
 				I.pixel_y = Font.YOffsets[Char]
-				//I.color = Color
+				I.color = Color
 				WordOffset += Font.VWFTable[text2ascii(Char) + 1] + 1
 				LetterBuffer += I
 
@@ -58,9 +57,8 @@
 			switch (Align)
 				if (AlignRight)
 				 CurrentLine.pixel_x = Width - LineWidth
-				 DebugText(CurrentLine.pixel_x)
 				if (AlignCenter)
-				 CurrentLine.pixel_x = Width - (LineWidth / 2)
+				 CurrentLine.pixel_x = (Width / 2) - (LineWidth / 2)
 
 			Base.overlays += CurrentLine
 			CurrentLine = new()
@@ -85,9 +83,8 @@
 		switch (Align)
 			if (AlignRight)
 				CurrentLine.pixel_x = Width - LineWidth
-				DebugText(CurrentLine.pixel_x)
 			if (AlignCenter)
-				CurrentLine.pixel_x = Width - (LineWidth / 2)
+				CurrentLine.pixel_x = (Width / 2) - (LineWidth / 2)
 
 		Base.overlays += CurrentLine
 
@@ -96,3 +93,4 @@
 
 
 /obj/Runtime/Text
+	layer = UILayer

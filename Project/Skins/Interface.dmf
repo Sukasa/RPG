@@ -1,27 +1,6 @@
 macro "Macros"
 
 
-menu "MainMenu"
-	elem 
-		name = "&File"
-		command = ""
-		category = ""
-		is-checked = false
-		can-check = false
-		group = ""
-		is-disabled = false
-		saved-params = "is-checked"
-	elem 
-		name = "&Quit"
-		command = ".quit"
-		category = "&File"
-		is-checked = false
-		can-check = false
-		group = ""
-		is-disabled = false
-		saved-params = "is-checked"
-
-
 window "pane_map"
 	elem "pane_map"
 		type = MAIN
@@ -158,8 +137,8 @@ window "pane_sidebar"
 window "window_main"
 	elem "window_main"
 		type = MAIN
-		pos = 281,0
-		size = 1004x725
+		pos = 900,406
+		size = 1004x723
 		anchor1 = none
 		anchor2 = none
 		font-family = ""
@@ -176,9 +155,9 @@ window "window_main"
 		right-click = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		on-size = ""
-		title = ""
+		title = "Exploration"
 		titlebar = true
-		statusbar = true
+		statusbar = false
 		can-close = true
 		can-minimize = true
 		can-resize = true
@@ -193,12 +172,12 @@ window "window_main"
 		transparent-color = none
 		alpha = 255
 		macro = "Macros"
-		menu = "MainMenu"
+		menu = ""
 		on-close = ""
 	elem "mainsplitter"
 		type = CHILD
 		pos = 0,0
-		size = 1000x695
+		size = 1004x723
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = ""
@@ -223,7 +202,7 @@ window "window_main"
 		lock = right
 	elem "input1"
 		type = INPUT
-		pos = 0,700
+		pos = 0,698
 		size = 1000x21
 		anchor1 = 0,100
 		anchor2 = 100,100
