@@ -1,7 +1,7 @@
 /area
 	icon = 'Flats.dmi'
 	invisibility = 101
-	layer = TURF_LAYER + 1
+	layer = FLY_LAYER
 	icon_state = "Transparent"
 
 	var

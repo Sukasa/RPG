@@ -1,5 +1,3 @@
-//usr << browse(Tile, "window=picture;file=[ImageX]-[ImageY]-[ImageZ].png;display=0")
-
 /datum/ChatCommand/ProcIcon
 	Command = "pc"
 	MinPowerLevel = RankPlayer
