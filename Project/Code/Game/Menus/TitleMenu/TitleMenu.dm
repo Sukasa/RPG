@@ -17,6 +17,8 @@
 	Text.alpha = 0
 	StaticElements += Text
 
+	..()
+
 	spawn
 		animate(TG, alpha = 255, time = 30)
 		sleep(30)
@@ -26,7 +28,6 @@
 		sleep(25)
 		animate(Text, alpha = 128, time = 40, loop = -1)
 		animate(alpha = 192, time = 40)
-	..()
 
 /datum/Menu/TitleScreen/Input(var/Control)
 	if (EnterEnabled && Control == ControlEnter)
@@ -36,9 +37,4 @@
 		animate(Text, alpha = 0, time = 10)
 		spawn(12)
 			Config.Events.FadeOut()
-
-/datum/Menu/TitleScreen/Tick()
-	if (EnterState)
-		EnterState++
-	if (EnterState >= 45)
-		return //TODO: Change to second menu
+			//TODO SwapMenu to game selection
