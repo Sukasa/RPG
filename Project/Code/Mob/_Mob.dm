@@ -40,6 +40,12 @@ mob
 	//TODO Movement cursor?
 	return
 
+/mob/proc/WarpTo(var/datum/Point/Target = Destination)
+	Destination = new/datum/Point(Destination)
+	step_y = Destination.FineY - (bound_height / 2) - bound_y
+	step_x = Destination.FineX - (bound_width / 2) - bound_x
+	Move(locate(Destination.TileX, Destination.TileY, z))
+
 /mob/proc/MoveTo(var/datum/Point/Target = Destination)
 	Destination = Target
 	if (!Target)

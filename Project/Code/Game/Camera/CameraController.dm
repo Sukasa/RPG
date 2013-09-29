@@ -12,30 +12,37 @@
 
 /datum/CameraController/proc/Tick()
 	for(var/mob/M in Attachments)
-		var/mob/Camera/C = Attachments[M]
-		C.Destination = GetBestCameraDestinationCandidate(C, M)
-		if (C.Destination == M.loc)
-			C.Destination = M
-		else if (C.Destination)
-			C.Destination = new/datum/Point(C.Destination)
-
-			if (C.Destination:TileX == M.x)
-				C.Destination:CopyXOffset(M)
-			else if (C.Destination:TileX > M.x)
-				C.Destination.SetXOffset(M.bound_width / 2)
-			else
-				C.Destination.SetXOffset(31 + (M.bound_width / 2))
-
-			if (C.Destination:TileY == M.y)
-				C.Destination:CopyYOffset(M)
-			else if (C.Destination:TileY > M.y)
-				C.Destination.SetYOffset(M.bound_height / 2)
-			else
-				C.Destination.SetYOffset(31 + (M.bound_height / 2))
-
+		CameraTick(Attachments[M], M)
 
 	for(var/mob/Camera/C in AllCameras)
 		C.MoveTo()
+
+/datum/CameraController/proc/CameraTick(var/mob/Camera/C, var/mob/M)
+	C.Destination = GetBestCameraDestinationCandidate(C, M)
+	if (C.Destination == M.loc)
+		C.Destination = M
+	else if (C.Destination)
+		C.Destination = new/datum/Point(C.Destination)
+
+		if (C.Destination:TileX == M.x)
+			C.Destination:CopyXOffset(M)
+		else if (C.Destination:TileX > M.x)
+			C.Destination.SetXOffset(M.bound_width / 2)
+		else
+			C.Destination.SetXOffset(31 + (M.bound_width / 2))
+
+		if (C.Destination:TileY == M.y)
+			C.Destination:CopyYOffset(M)
+		else if (C.Destination:TileY > M.y)
+			C.Destination.SetYOffset(M.bound_height / 2)
+		else
+			C.Destination.SetYOffset(31 + (M.bound_height / 2))
+
+/datum/CameraController/proc/Warp(var/mob/M)
+	if (Attachments[M])
+		var/mob/Camera/C = Attachments[M]
+		CameraTick(C, M)
+		C.WarpTo()
 
 /datum/CameraController/proc/Attach(var/mob/M)
 	var/mob/Camera/Attached/C = new()

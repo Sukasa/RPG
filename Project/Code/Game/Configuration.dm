@@ -13,7 +13,7 @@
 
 	var/tmp/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
-	var/tmp/StartMode   =    /datum/GameMode/Setup
+	var/tmp/StartMode   =    /datum/GameMode/Dummy
 	var/tmp/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
 	var/tmp/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
@@ -32,6 +32,8 @@
 	var/tmp/MobLayerEnabled = TRUE
 	var/tmp/InputSuspended = FALSE
 
+
+	var/tmp/CurrentMapName = ""
 	// Persisted Options
 
 	// Audio
@@ -52,6 +54,9 @@
 	// Data Files
 	var/tmp/savefile/Save
 
+
+	// One-Shot Flags
+	var/list/OneShots = list( )
 
 	// Team memberlists
 	var/tmp/list/Teams = list(list( ), list( ), list( ), list( ))

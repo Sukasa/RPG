@@ -6,3 +6,6 @@
 
 	var
 		CameraDensity = FALSE
+
+	proc
+		OnEntered(var/turf/Turf, var/mob/Player)

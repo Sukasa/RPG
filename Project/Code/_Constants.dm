@@ -95,6 +95,7 @@ var
 		TickerRunning = 1
 		TickerSuspended = 2
 
+		OverlayLayer = 20
 		FlashLayer = 100
 		UILayer = 101
 

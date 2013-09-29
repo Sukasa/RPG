@@ -20,6 +20,8 @@
 	var/datum/CachedMap/Map
 	MapCache[MapID] >> Map
 
+	Config.CurrentMapName = MapID
+
 	Templates = Map.Templates
 	TemplateMap = Map.TemplateMap
 
@@ -35,6 +37,8 @@
 	Reader.StripCarriageReturns()
 	ParseMap()
 	CreateMap()
+
+	Config.CurrentMapName = Filename
 
 // Import a map file into the cache
 /datum/MapLoader/proc/ImportMap(var/Filename, var/MapID)
@@ -97,23 +101,18 @@
 /datum/MapLoader/proc/ParseTemplateLine()
 	// Parses the following data format into a template object
 	// "aa" = (/obj/MapMarker/MapInfo/MapName{name = "Splatterhouse"; tag = "t"},/turf/Floor/Sand,/area)
-	var/TemplateCode = ""
 
 	Reader.SeekAfter(DoubleQuote)
 
-	while (Reader.Char() != DoubleQuote)
-		TemplateCode = addtext(TemplateCode, Reader.Take())
-
 	var/datum/TileTemplate/Template = new()
-	Templates[TemplateCode] = Template
+	Templates[Reader.TakeUntil(DoubleQuote)] = Template
 
 	Reader.SeekTo(ForwardSlash)
 
 	while (Reader.Char() != EndParenthesis)
 		var/datum/ObjectTemplate/Object = new()
 
-		while (Reader.Isnt(OpenBracket, Comma, EndParenthesis))
-			Object.TypePath = addtext(Object.TypePath, Reader.Take())
+		Object.TypePath = Reader.TakeUntil(OpenBracket, Comma, EndParenthesis)
 
 		if (Reader.Is(OpenBracket))
 			Reader.Advance()
@@ -122,9 +121,8 @@
 
 				if (Reader.Is(OpenBracket, Semicolon, Space))
 					Reader.SeekAfter(OpenBracket, Semicolon, Space)
-				var/Param = ""
-				while(Reader.Isnt(Space, Equals))
-					Param = addtext(Param, Reader.Take())
+
+				var/Param = Reader.TakeUntil(Space, Equals)
 
 				// Get Value
 				Reader.SeekAfter(Space, Equals)
@@ -139,7 +137,6 @@
 			Template.Turfs += Object
 		else
 			Template.Objects += Object
-
 
 		if (Reader.Is(Comma))
 			Reader.Advance()
@@ -250,11 +247,11 @@
 					NewTurf.vars[Param] = Turf.Params[Param]
 
 			new Tile.Area.TypePath(NewTurf)
-			for(var/atom/A in NewTurf)
+			for(var/atom/movable/A in NewTurf)
 				if (ismob(A) && A:client)
 					continue
 				if (A.loc == NewTurf)
-					del A
+					A.loc = null
 
 			for(var/datum/ObjectTemplate/Object in Tile.Objects)
 				var/atom/Atom = new Object.TypePath(locate(BaseX + X, BaseY + Y, Z))
@@ -269,10 +266,11 @@
 			var/turf/T = locate(InitX, InitY, Z)
 			PropagationList += T.Init()
 
-	// Process camera data
-	for (X = 1, X < PropagationList.len, X++)
+	// Process camera data?
+	for (X = 1, X <= PropagationList.len, X++)
 		var/turf/T = PropagationList[X]
-		PropagationList += T.Propagate()
+		if (T)
+			PropagationList += T.Propagate()
 
 	// Initialize data structures
 
@@ -283,8 +281,6 @@
 	Config.NetController.Init()
 
 	// Done
-
-
 	for(var/mob/M in world)
 		if (M.client)
 			M.Respawn()
