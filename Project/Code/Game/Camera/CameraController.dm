@@ -19,7 +19,7 @@
 
 /datum/CameraController/proc/CameraTick(var/mob/Camera/C, var/mob/M)
 	C.Destination = GetBestCameraDestinationCandidate(C, M)
-	if (C.Destination == M.loc)
+	if (M in C.Destination)
 		C.Destination = M
 	else if (C.Destination)
 		C.Destination = new/datum/Point(C.Destination)

@@ -46,7 +46,7 @@ mob
 	step_x = Destination.FineX - (bound_width / 2) - bound_x
 	Move(locate(Destination.TileX, Destination.TileY, z))
 
-/mob/proc/MoveTo(var/datum/Point/Target = Destination)
+/mob/proc/MoveTo(var/datum/Target = Destination)
 	Destination = Target
 	if (!Target)
 		return
@@ -82,7 +82,7 @@ mob
 	Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
 	if (GetDistanceTo(Destination) <= (1 / 32))
-		Destination = null
+		Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
 
 /mob/Move()
 	..()
