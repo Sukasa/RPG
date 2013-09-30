@@ -31,12 +31,12 @@
 /obj/Foliage/Tree/New()
 	..()
 	spawn(1)
-		var/image/overlayimage = image(src.icon, src, "Overlay", 20)
+		var/image/overlayimage = image(src.icon, src, "Overlay", OverlayLayer)
 		overlayimage.alpha = 128
 		world << overlayimage
 		src.overlays += overlayimage
 
-		var/image/shadowimage = image(src.icon, src, "Shadow", 19)
+		var/image/shadowimage = image(src.icon, src, "Shadow", ShadowLayer)
 		shadowimage.alpha = 128
 		world << shadowimage
 		src.overlays += shadowimage

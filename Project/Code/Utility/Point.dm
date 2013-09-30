@@ -7,6 +7,9 @@
 		FineX = 0
 		FineY = 0
 
+		step_y
+		step_x
+
 /datum/Point/New(var/atom/Location)
 	if (!Location)
 		return
@@ -15,15 +18,24 @@
 	if (IsMovable(Location))
 		PixelX = Location:step_x
 		PixelY = Location:step_y
+		step_x = PixelX
+		step_y = PixelY
 		PixelX += Location:bound_x
 		PixelY += Location:bound_y
 		PixelX += Location:bound_width / 2
 		PixelY += Location:bound_height / 2
+
 	if (IsTurf(Location))
 		PixelX += 16
 		PixelY += 16
+		step_x = 16
+		step_y = 16
 	FineX = (TileX * 32) + PixelX
 	FineY = (TileY * 32) + PixelY
+
+	if (ismob(Location))
+		FineX += Location:SubStepY
+		FineY += Location:SubStepX
 
 /datum/Point/proc/SetXOffset(var/X)
 	PixelX = X
