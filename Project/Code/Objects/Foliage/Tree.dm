@@ -27,6 +27,7 @@
 	ThinTree2
 		icon = 'ThinTree2.dmi'
 		bound_x = 8
+		bound_y = 4
 
 /obj/Foliage/Tree/New()
 	..()
