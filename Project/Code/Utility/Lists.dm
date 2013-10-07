@@ -4,10 +4,10 @@
 		Container[X] = Container[X - 1]
 	Container[Index] = Insert
 
-/proc/JoinList(var/A)
+/proc/JoinList(var/list/A, var/Separator = ", ")
 	for (var/aB in A)
-		. = "[.], [aB]"
-	. = copytext(., 3)
+		. = "[.][Separator][aB]"
+	. = copytext(., lentext(Separator) + 1)
 
 /proc/Pop(var/list/L)
 	. = L[1]

@@ -3,7 +3,7 @@
 	var/Triggered = list( )
 
 	OnEntered(var/turf/Turf, var/mob/Entree)
-		if (Turf in Triggered || !Entree.client)
+		if ((Turf in Triggered) || !Entree.client)
 			return
 		var/list/Turfs = list(Turf)
 		var/list/Events = list( )
@@ -15,6 +15,19 @@
 		for(var/obj/MapMarker/Event/E in Events)
 			if (!E.PreconditionMet())
 				return
-		Triggered |= Turfs
+		var/Persist = FALSE
+
 		for(var/obj/MapMarker/Event/E in Events)
-			E.Execute(Entree)
+			Persist |= E.Execute(Entree)
+
+		Triggered |= Turfs
+
+		if (Persist)
+			spawn(20)
+				while(TRUE)
+					sleep(10)
+					for(var/turf/T in Turfs)
+						if(Entree in T)
+							continue
+					break
+				Triggered -= Turfs

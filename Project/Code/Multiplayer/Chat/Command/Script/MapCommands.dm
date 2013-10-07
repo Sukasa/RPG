@@ -1,8 +1,8 @@
-/datum/ChatCommand/LoadRaw
+/ChatCommand/LoadRaw
 	Command = "loadraw"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/LoadRaw/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/LoadRaw/Execute(var/mob/Player, var/CommandText)
 	if (!findtext(CommandText, ".dmm", -5))
 		CommandText = "[CommandText].dmm"
 	if (fexists("Project/Maps/[CommandText]"))
@@ -12,20 +12,20 @@
 
 
 
-/datum/ChatCommand/LoadMap
+/ChatCommand/LoadMap
 	Command = "loadmap"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/LoadMap/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/LoadMap/Execute(var/mob/Player, var/CommandText)
 	Config.MapLoader.LoadMap(CommandText)
 
 
 
-/datum/ChatCommand/ParseMap
+/ChatCommand/ParseMap
 	Command = "parsemap"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/ParseMap/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/ParseMap/Execute(var/mob/Player, var/CommandText)
 	var/Filename = copytext(CommandText, 1, findtext(CommandText, " "))
 	var/MapID = copytext(CommandText, findtext(CommandText, " ") + 1)
 	if (!findtext(Filename, ".dmm", -5))

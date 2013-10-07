@@ -6,6 +6,7 @@
 		return TRUE
 
 	proc/Execute()
+		return FALSE
 
 	Event
 		icon_state = "Script"
@@ -34,6 +35,12 @@
 		PreconditionMet()
 			return FALSE
 
+	Persist
+		icon_state = "Persist"
+
+		Execute()
+			return TRUE
+
 	Exit
 		icon_state = "Exit"
 		var/MapName = ""
@@ -50,7 +57,10 @@
 
 				if (lentext(EntranceTag))
 					var/T = locate(EntranceTag)
-					Player.Move(T:loc)
-					Config.Cameras.Warp(Player)
+					if (T)
+						Player.Move(T:loc)
+						Config.Cameras.Warp(Player)
+					else
+						DebugText("\red Unable to find entrance [EntranceTag]!")
 
 				Config.Events.FadeIn()

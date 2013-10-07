@@ -9,6 +9,8 @@
 	var
 		FloorplanIconState = null
 		CameraDensity = FALSE
+		step_x = 0
+		step_y = 0
 
 	icon = 'black.dmi'
 	icon_state = "Black"

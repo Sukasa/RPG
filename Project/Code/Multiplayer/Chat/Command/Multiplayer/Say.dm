@@ -1,8 +1,8 @@
-/datum/ChatCommand/Say
+/ChatCommand/Say
 	Command = "say"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/Say/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/Say/Execute(var/mob/Player, var/CommandText)
 	if (Player)
 		Broadcast("<[Player.name]> [CommandText]")
 	else

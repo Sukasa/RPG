@@ -1,7 +1,7 @@
-/datum/NetworkController/
+/NetworkController/
 	var/list/Networks = list( )
 
-/datum/NetworkController/proc/Init()
+/NetworkController/proc/Init()
 	Networks = list( )
 	for (var/obj/MapMarker/Network/Piece in world)
 		Piece.Network = null
@@ -10,18 +10,18 @@
 		CreateNetwork(Piece)
 		Piece = GetNextEmptyNetworkPiece()
 
-/datum/NetworkController/proc/DeleteNetwork(var/datum/Network/Network)
+/NetworkController/proc/DeleteNetwork(var/datum/Network/Network)
 	for (var/obj/MapMarker/Network/Part in Network.Cables)
 		Part.Network = null
 	for (var/obj/Machinery/Machine in Network.Devices)
 		Machine.Networks -= Network
 	Networks.Remove(Network)
 
-/datum/NetworkController/proc/RegisterDevices(var/datum/Network/Network)
+/NetworkController/proc/RegisterDevices(var/datum/Network/Network)
 	for (var/obj/Machinery/Machine in Network.Devices)
 		Machine.Networks += Network
 
-/datum/NetworkController/proc/CreateNetwork(var/obj/MapMarker/Network/StartElement)
+/NetworkController/proc/CreateNetwork(var/obj/MapMarker/Network/StartElement)
 	var/datum/Network/NewNetwork = new()
 	NewNetwork.Cables = list(StartElement)
 	NewNetwork.Type = StartElement.type
@@ -33,7 +33,7 @@
 	Networks.Add(NewNetwork)
 	RegisterDevices(NewNetwork)
 
-/datum/NetworkController/proc/Split(var/obj/MapMarker/Network/RemoveElement)
+/NetworkController/proc/Split(var/obj/MapMarker/Network/RemoveElement)
 	DeleteNetwork(RemoveElement.Network)
 	var/list/Parts = GetConnectedCables(RemoveElement)
 	RemoveElement.Dirs = 0
@@ -41,7 +41,7 @@
 		if (!Part.Network)
 			CreateNetwork(Part)
 
-/datum/NetworkController/proc/Join(var/obj/MapMarker/Network/AddElement)
+/NetworkController/proc/Join(var/obj/MapMarker/Network/AddElement)
 	var/list/Parts = GetConnectedCables(AddElement)
 	var/datum/Network/NewNetwork = new()
 	for(var/obj/MapMarker/Network/Part in Parts)
@@ -55,7 +55,7 @@
 	Networks.Add(NewNetwork)
 	RegisterDevices(NewNetwork)
 
-/datum/NetworkController/proc/GetConnectedCables(var/obj/MapMarker/Network/SourceElement)
+/NetworkController/proc/GetConnectedCables(var/obj/MapMarker/Network/SourceElement)
 	var/list/Elements = list( )
 	for(var/Dir in Cardinal)
 		if (text2num(SourceElement.icon_state) & Dir)
@@ -65,7 +65,7 @@
 					Elements += Element
 	return Elements
 
-/datum/NetworkController/proc/GetConnectedMachines(var/obj/MapMarker/Network/SourceElement)
+/NetworkController/proc/GetConnectedMachines(var/obj/MapMarker/Network/SourceElement)
 	var/list/Machines = list( )
 	for(var/Dir in Cardinal)
 		if (text2num(SourceElement.icon_state) & Dir)
@@ -74,11 +74,11 @@
 				Machines += Machine
 	return Machines
 
-/datum/NetworkController/proc/GetNextEmptyNetworkPiece()
+/NetworkController/proc/GetNextEmptyNetworkPiece()
 	for (var/obj/MapMarker/Network/Piece in world)
 		if (!Piece.Network)
 			return Piece
 
-/datum/NetworkController/proc/Tick()
+/NetworkController/proc/Tick()
 	for(var/datum/Network/Network in Networks)
 		Network.Tick()

@@ -25,7 +25,7 @@ atom/movable/proc/GetCover()
 
 // Returns the angle to the passed atom, where 0° is due north
 atom/movable/proc/GetAngleTo(var/atom/movable/To)
-	var/datum/Point/P = new(src)
+	var/Point/P = new(src)
 	return P.GetAngleTo(To)
 
 // Returns the Distance to the passed atom
@@ -33,7 +33,7 @@ atom/proc/GetDistanceTo(var/atom/movable/To)
 	var/atom/A = src
 	while (!isturf(A.loc))
 		A = A.loc
-	var/datum/Point/P = new(A)
+	var/Point/P = new(A)
 	return P.GetDistanceTo(To)
 
 atom/proc/SlowTick()

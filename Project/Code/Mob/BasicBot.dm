@@ -19,6 +19,6 @@
 
 	if(move)
 		if(src in range(locate(TagA),2))
-			Destination = new /datum/Point(locate("B"))
+			Destination = new /Point(locate("B"))
 		else if(src in range(locate(TagB),2))
-			Destination = new /datum/Point(locate("A"))
+			Destination = new /Point(locate("A"))

@@ -1,4 +1,4 @@
-/datum/StreamReader
+StreamReader
 	var
 		SeekPosition = 1
 		TextFile
@@ -14,6 +14,9 @@
 			TextFile = file2text(File)
 
 	proc
+		Index()
+			return SeekPosition
+
 		EOF()
 			return SeekPosition > lentext(TextFile)
 
@@ -28,6 +31,9 @@
 			while (Pos)
 				TextFile = copytext(TextFile, 1, Pos) + copytext(TextFile, Pos + 1)
 				Pos = findtext(TextFile, ascii2text(13), Pos)
+
+		Seek(var/Position)
+			SeekPosition = Position
 
 		SeekTo()
 			while (Isnt(args))

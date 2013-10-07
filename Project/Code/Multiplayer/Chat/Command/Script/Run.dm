@@ -1,11 +1,11 @@
-/datum/ChatCommand/Run
+/ChatCommand/Run
 	Command = "run"
 	MinPowerLevel = RankProgrammer
 
-/datum/ChatCommand/Run/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/Run/Execute(var/mob/Player, var/CommandText)
 	// Get script
 
-	var/datum/StreamReader/Reader = new(Config.Events.GetScript(CommandText) || CommandText)
+	var/StreamReader/Reader = new(Config.Events.GetScript(CommandText) || CommandText)
 	Reader.StripCarriageReturns()
 
 	// Loop through each line, executing it as you go
@@ -22,11 +22,11 @@
 			Config.Commands.Execute(Player, ScriptCommand, ScriptCommandText)
 		Reader.Advance()
 
-/datum/ChatCommand/RunAs
+/ChatCommand/RunAs
 	Command = "as"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/RunAs/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/RunAs/Execute(var/mob/Player, var/CommandText)
 	var/Space = findtext(CommandText, " ")
 	var/RunAs = Config.Clients[text2num(copytext(CommandText, 1, Space))]
 	RunAs = RunAs:mob

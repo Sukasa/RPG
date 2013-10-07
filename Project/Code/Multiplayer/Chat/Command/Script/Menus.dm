@@ -1,16 +1,19 @@
-/datum/ChatCommand/ShowMenu
+/ChatCommand/ShowMenu
 	Command = "showmenu"
 	MinPowerLevel = RankUnranked
 
-/datum/ChatCommand/ShowMenu/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/ShowMenu/Execute(var/mob/Player, var/CommandText)
 	// showmenu typepath
-	var/MenuType = text2path(CommandText)
-	if (MenuType)
-		var/Menu = Config.Menus.CreateMenu(Player, MenuType)
+	var/list/Params = ParamList(CommandText)
+	var/MenuType = text2path(Params[1])
+	if (ispath(MenuType, /Menu))
+		var/Menu = Config.Menus.CreateMenu(Player, MenuType, Params)
 		Config.Menus.PushMenu(Player, Menu)
+	else
+		DebugText("\red [Params[1]] is not a known menu type!")
 
-/datum/ChatCommand/WaitNoMenus
+/ChatCommand/WaitNoMenus
 	Command = "waitmenu"
 	MinPowerLevel = RankUnranked
 
-/datum/ChatCommand/WaitNoMenus/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/WaitNoMenus/Execute(var/mob/Player, var/CommandText)

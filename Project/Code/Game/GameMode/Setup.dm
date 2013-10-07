@@ -2,7 +2,6 @@
 	Name = "Setup"
 
 /datum/GameMode/Setup/Start()
-	DebugText("Setup")
 	Config.NetController.Init()
 	Config.Lang.Init()
 	Config.MapLoader.Init()

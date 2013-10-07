@@ -1,8 +1,8 @@
-/datum/ChatCommand/ProcIcon
+/ChatCommand/ProcIcon
 	Command = "pc"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/ProcIcon/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/ProcIcon/Execute(var/mob/Player, var/CommandText)
 	var/icon/Icon = icon('PalmTree.dmi')
 	var/icon/IconY = icon('PalmTree.dmi', "Blank")
 
@@ -28,10 +28,10 @@
 	usr << browse(IconY, "window=picture;file=ICON.png;display=0")
 
 
-/datum/ChatCommand/ProcIcon/proc/Inverse(var/X, var/G, var/A)
+/ChatCommand/ProcIcon/proc/Inverse(var/X, var/G, var/A)
 	return (X - (G * (A / 255))) / (1 - (A / 255))
 
-/datum/ChatCommand/ProcIcon/proc/ParseRGB(var/RGB)
+/ChatCommand/ProcIcon/proc/ParseRGB(var/RGB)
 	var/list/L[4]
 	L[4] = 255
 
@@ -44,7 +44,7 @@
 
 	return L
 
-/datum/ChatCommand/ProcIcon/proc/Hex2Num(var/Hex)
+/ChatCommand/ProcIcon/proc/Hex2Num(var/Hex)
 	var/C = 0
 	Hex = uppertext(Hex)
 	for(var/X = 1, X <= lentext(Hex), X++)

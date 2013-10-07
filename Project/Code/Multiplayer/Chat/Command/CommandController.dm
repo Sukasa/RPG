@@ -1,16 +1,16 @@
-/datum/CommandController
+/CommandController
 	var/list/AllCommands = list( )
 
-/datum/CommandController/New()
-	var/Commands = typesof(/datum/ChatCommand) - /datum/ChatCommand
+/CommandController/New()
+	var/Commands = typesof(/ChatCommand) - /ChatCommand
 	for (var/Command in Commands)
 		new Command(src)
 
-/datum/CommandController/proc/IsValidCommand(var/Command)
+/CommandController/proc/IsValidCommand(var/Command)
 	return AllCommands[Command] != null
 
-/datum/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "")
-	var/datum/ChatCommand/CC = AllCommands[Command]
+/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "")
+	var/ChatCommand/CC = AllCommands[Command]
 	ASSERT(CC)
 	if (!Executor || (Executor.Rank >= CC.MinPowerLevel) || Debug)
 		CC.Execute(Executor, CommandText)

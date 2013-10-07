@@ -19,7 +19,7 @@
 		if (M.client)
 			Camera.SetActiveFor(M)
 	Config.Events.FadeIn()
-	Config.Commands.Execute(null, "as", "1 showmenu /datum/Menu/TitleScreen")
+	Config.Commands.Execute(null, "as", "1 showmenu /Menu/TitleScreen")
 
 /datum/GameMode/TitleScreen/End()
 	return

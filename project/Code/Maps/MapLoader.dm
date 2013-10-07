@@ -1,10 +1,10 @@
-/datum/MapLoader
+/MapLoader
 	var
 		MapWidth = 0
 		MapHeight = 0
 		TileCharacterCount = 0
 		SeekPosition = 1
-		datum/StreamReader/Reader
+		StreamReader/Reader
 
 		savefile/MapCache
 
@@ -12,10 +12,10 @@
 			Templates = list( )
 			TemplateMap = list( )
 
-/datum/MapLoader/proc/Init()
+/MapLoader/proc/Init()
 	MapCache = new/savefile("MDATA")
 
-/datum/MapLoader/proc/LoadMap(var/MapID, var/Loc = locate(1, 1, 1))
+/MapLoader/proc/LoadMap(var/MapID, var/Loc = locate(1, 1, 1))
 	// Load a previously parsed map
 	var/datum/CachedMap/Map
 	MapCache[MapID] >> Map
@@ -31,7 +31,7 @@
 	CreateMap(Loc)
 
 // Load a raw .dmm file, parse it, and create it.  Does not save the map to cache.
-/datum/MapLoader/proc/LoadRawMap(var/Filename)
+/MapLoader/proc/LoadRawMap(var/Filename)
 	ASSERT(fexists(Filename))
 	Reader = new(Filename)
 	Reader.StripCarriageReturns()
@@ -41,7 +41,7 @@
 	Config.CurrentMapName = Filename
 
 // Import a map file into the cache
-/datum/MapLoader/proc/ImportMap(var/Filename, var/MapID)
+/MapLoader/proc/ImportMap(var/Filename, var/MapID)
 	ASSERT(fexists(Filename))
 	Reader = new(Filename)
 	Reader.StripCarriageReturns()
@@ -49,7 +49,7 @@
 	del Reader
 
 // Save a parsed map to cache
-/datum/MapLoader/proc/SaveMap(var/MapID)
+/MapLoader/proc/SaveMap(var/MapID)
 	var/datum/CachedMap/Map = new()
 	Map.Id = MapID
 	Map.Templates = Templates
@@ -61,17 +61,17 @@
 	TemplateMap = list( )
 
 // Delete a raw map file
-/datum/MapLoader/proc/DeleteRawMap(var/MapID)
+/MapLoader/proc/DeleteRawMap(var/MapID)
 	MapCache[MapID + "-raw"] << null
 
 // Load an imported map for parsing
-/datum/MapLoader/proc/LoadImportedMap(var/MapID)
+/MapLoader/proc/LoadImportedMap(var/MapID)
 	var/T
 	MapCache[MapID + "-raw"] >> T
 	Reader = new(T)
 
 // Parses a loaded map
-/datum/MapLoader/proc/ParseMap()
+/MapLoader/proc/ParseMap()
 	ASSERT(Reader)
 	// Variable Init
 	MapWidth = 0
@@ -98,7 +98,7 @@
 
 
 // Parses a template line
-/datum/MapLoader/proc/ParseTemplateLine()
+/MapLoader/proc/ParseTemplateLine()
 	// Parses the following data format into a template object
 	// "aa" = (/obj/MapMarker/MapInfo/MapName{name = "Splatterhouse"; tag = "t"},/turf/Floor/Sand,/area)
 
@@ -145,7 +145,7 @@
 			return
 
 
-/datum/MapLoader/proc/GetValue()
+/MapLoader/proc/GetValue()
 	var/Value = ""
 	var/InString = FALSE
 	var/InReference = TRUE
@@ -200,7 +200,7 @@
 
 	return text2num(Value)
 
-/datum/MapLoader/proc/ParseZLevel()
+/MapLoader/proc/ParseZLevel()
 	Reader.SeekAfter(LineFeed)
 	while (Reader.Isnt(DoubleQuote))
 		MapHeight++
@@ -215,7 +215,7 @@
 
 
 
-/datum/MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
+/MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
 
@@ -229,6 +229,9 @@
 	var/Y = 0
 	var/X = 0
 
+	for(var/mob/M in world)
+		if (M.client)
+			M.loc = locate(1, 1, 1)
 
 	var/list/PropagationList = list( )
 

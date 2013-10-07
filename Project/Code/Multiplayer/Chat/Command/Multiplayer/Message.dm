@@ -1,8 +1,8 @@
-/datum/ChatCommand/Message
+/ChatCommand/Message
 	Command = "msg"
 	MinPowerLevel = RankPlayer
 
-/datum/ChatCommand/Message/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/Message/Execute(var/mob/Player, var/CommandText)
 	var/Space = findtext(CommandText, " ")
 	var/TargetName = copytext(CommandText, 1, Space)
 

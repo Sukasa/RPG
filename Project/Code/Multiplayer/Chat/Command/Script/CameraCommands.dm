@@ -1,8 +1,8 @@
-/datum/ChatCommand/CreateCamera
+/ChatCommand/CreateCamera
 	Command = "camera"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/CreateCamera/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/CreateCamera/Execute(var/mob/Player, var/CommandText)
 	var/list/Params = ParamList(CommandText)
 	world.log << Params.len
 	if (Params.len < 3)
@@ -13,11 +13,11 @@
 
 
 
-/datum/ChatCommand/PanCamera
+/ChatCommand/PanCamera
 	Command = "pan"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/PanCamera/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/PanCamera/Execute(var/mob/Player, var/CommandText)
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 3)
 		ErrorText("Not enough parameters to /pan \[[CommandText]]")
@@ -27,11 +27,11 @@
 
 
 
-/datum/ChatCommand/PanSpeed
+/ChatCommand/PanSpeed
 	Command = "panspeed"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/PanSpeed/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/PanSpeed/Execute(var/mob/Player, var/CommandText)
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 2)
 		ErrorText("Not enough parameters to /panspeed \[[CommandText]]")
@@ -41,11 +41,11 @@
 
 
 
-/datum/ChatCommand/CamAttach
+/ChatCommand/CamAttach
 	Command = "attach"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/CamAttach/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/CamAttach/Execute(var/mob/Player, var/CommandText)
 	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
 	if (C)
 		for(var/mob/M in world)
@@ -53,22 +53,22 @@
 
 
 
-/datum/ChatCommand/CamWait
+/ChatCommand/CamWait
 	Command = "panwait"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/CamWait/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/CamWait/Execute(var/mob/Player, var/CommandText)
 	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
 	while (!C.PanComplete())
 		sleep(1)
 
 
 
-/datum/ChatCommand/CamDetach
+/ChatCommand/CamDetach
 	Command = "detach"
 	MinPowerLevel = RankScriptsOnly
 
-/datum/ChatCommand/CamDetach/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/CamDetach/Execute(var/mob/Player, var/CommandText)
 	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
 	if (C)
 		C.SetInactive()
