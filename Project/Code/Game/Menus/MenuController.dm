@@ -1,4 +1,4 @@
-/datum/MenuController
+/MenuController
 	var
 		list/CurrentMenus = list( )
 		list/MenuStack = list( )
@@ -8,9 +8,9 @@
 //--------------------------------------------------------------
 
 
-/datum/MenuController/proc/Tick()
+/MenuController/proc/Tick()
 	for(var/C in CurrentMenus)
-		var/datum/Menu/M = CurrentMenus[C]
+		var/Menu/M = CurrentMenus[C]
 		if (M)
 			M.Tick()
 
@@ -19,56 +19,56 @@
 
 
 // Creates a new menu for the supplied player and returns it without performing any initialization
-/datum/MenuController/proc/CreateMenu(var/Player, var/MenuType)
-	var/datum/Menu/NewMenu = new MenuType()
+/MenuController/proc/CreateMenu(var/Player, var/MenuType, var/list/Params)
+	var/Menu/NewMenu = new MenuType(Params)
 	if (ismob(Player))
 		Player = Player:client
 	NewMenu.Client = Player
 	return NewMenu
 
 // Changes CurrentMenu to the provided (instantiated) menu, without pushing or popping
-/datum/MenuController/proc/SwapMenu(var/Player, var/Menu)
+/MenuController/proc/SwapMenu(var/Player, var/Menu)
 	DeInitCurrent(Player)
 	CurrentMenus[Player] = Menu
 
 // Changes CurrentMenu to the provided (instantiated) menu, and saves the previous menu
-/datum/MenuController/proc/PushMenu(var/Player, var/datum/Menu/Menu)
-	var/list/Stack = CheckCreateStack(Player)
+/MenuController/proc/PushMenu(var/Player, var/Menu/Menu)
+	var/Stack/Stack = CheckCreateStack(Player)
 	HideCurrent(Player)
-	Push(Stack, CurrentMenus[Player])
+	Stack.Push(CurrentMenus[Player])
 	CurrentMenus[Player] = Menu
 	Menu.Init()
 
 // Terminates the current menu, and pops the previous one
-/datum/MenuController/proc/PopMenu(var/Player)
-	var/list/Stack = CheckCreateStack(Player)
+/MenuController/proc/PopMenu(var/Player)
+	var/Stack/Stack = CheckCreateStack(Player)
 	DeInitCurrent(Player)
-	CurrentMenus[Player] = Pop(Stack)
+	CurrentMenus[Player] = Stack.IsEmpty() ? null :Stack.Pop()
 	ShowCurrent()
 
 
 //--------------------------------------------------------------
 
 
-/datum/MenuController/proc/CheckCreateStack(var/Player)
+/MenuController/proc/CheckCreateStack(var/Player)
 	if (!MenuStack[Player])
-		MenuStack[Player] = list( )
+		MenuStack[Player] = new/Stack()
 	return MenuStack[Player]
 
-/datum/MenuController/proc/DeInitCurrent(var/Player)
-	var/datum/Menu/Menu = CurrentMenus[Player]
+/MenuController/proc/DeInitCurrent(var/Player)
+	var/Menu/Menu = CurrentMenus[Player]
 	if (Menu)
 		Menu.DeInit()
 		del Menu
 
 
-/datum/MenuController/proc/HideCurrent(var/Player)
-	var/datum/Menu/Menu = CurrentMenus[Player]
+/MenuController/proc/HideCurrent(var/Player)
+	var/Menu/Menu = CurrentMenus[Player]
 	if (Menu)
 		Menu.Hide()
 
 
-/datum/MenuController/proc/ShowCurrent(var/Player)
-	var/datum/Menu/Menu = CurrentMenus[Player]
+/MenuController/proc/ShowCurrent(var/Player)
+	var/Menu/Menu = CurrentMenus[Player]
 	if (Menu)
 		Menu.Show()

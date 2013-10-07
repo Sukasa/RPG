@@ -99,6 +99,7 @@ var
 		OverlayLayer = 20
 		FlashLayer = 100
 		UILayer = 101
+		MapMarkerLayer = 10
 
 		AlignLeft = 1
 		AlignCenter = 2
@@ -112,6 +113,10 @@ var
 		Infinity = 1.#INF
 		NegativeInfinity = -1.#INF
 
+		Visible = 0
+		Invisible = 101
+
+		// ASCII Codes
 		LineFeed = 10
 		CarriageReturn = 13
 		Space = 32
@@ -130,6 +135,16 @@ var
 		Backslash = 92
 		OpenBracket = 123
 		EndBracket = 125
+
+		// Menu control codes
+		ControlUp = 1
+		ControlDown = 2
+		ControlLeft = 3
+		ControlRight = 4
+		ControlEnter = 5
+		ControlEscape = 6
+		ControlReleased = 16
+
 
 	list
 

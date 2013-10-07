@@ -1,4 +1,5 @@
 /obj/Foliage/Tree
+	icon = 'OakTree.dmi'
 	name = "Tree"
 	icon_state = "Tree"
 	density = 1

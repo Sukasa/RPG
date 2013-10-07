@@ -1,4 +1,5 @@
 /obj/MapMarker
 	icon = 'MapMarkers.dmi'
-	invisibility = 101
+	invisibility = Invisible
 	mouse_opacity = FALSE
+	layer = MapMarkerLayer

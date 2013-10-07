@@ -8,7 +8,7 @@
 		Right = 0
 		Middle = 0
 
-		datum/Point/Pos = new()
+		Point/Pos = new()
 		atom/Highlighted
 
 /datum/Mouse/proc/Set(var/atom/A, var/list/Params, var/Down = 1)

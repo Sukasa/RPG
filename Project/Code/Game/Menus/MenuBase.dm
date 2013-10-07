@@ -1,4 +1,4 @@
-/datum/Menu
+/Menu
 
 	var
 
@@ -6,44 +6,38 @@
 		list/DynamicElements = list( )
 		client/Client = null
 
-		const
-			ControlUp = 1
-			ControlDown = 2
-			ControlLeft = 3
-			ControlRight = 4
-			ControlEnter = 5
-			ControlEscape = 6
-			ControlReleased = 16
-
 //
 // Processing
 //
 
-/datum/Menu/proc/Init()
+/Menu/New(var/list/Params)
+	..()
+
+/Menu/proc/Init()
 	Show()
 
-/datum/Menu/proc/Tick()
+/Menu/proc/Tick()
 	// Implemented by child classes
 
-/datum/Menu/proc/DeInit()
+/Menu/proc/DeInit()
 	Hide()
 	ClearDynamicElements()
 	ClearStaticElements()
 
-/datum/Menu/proc/Hide()
+/Menu/proc/Hide()
 	for(var/atom/A in DynamicElements)
-		A.invisibility = 101
+		A.invisibility = Invisible
 	for(var/atom/A in StaticElements)
-		A.invisibility = 101
+		A.invisibility = Invisible
 
 	Client.KeyboardHandler = null
 
-/datum/Menu/proc/Show()
+/Menu/proc/Show()
 	for(var/atom/A in DynamicElements)
-		A.invisibility = 0
+		A.invisibility = Visible
 		Client.screen |= A
 	for(var/atom/A in StaticElements)
-		A.invisibility = 0
+		A.invisibility = Visible
 		Client.screen |= A
 
 	Client.KeyboardHandler = src
@@ -54,15 +48,18 @@
 // Utility Functions
 //
 
-/datum/Menu/proc/ShowElementToClients(var/Element)
+/Menu/proc/ExitMenu()
+	Config.Menus.PopMenu(Client)
+
+/Menu/proc/ShowElementToClient(var/Element)
 	Client.screen += Element
 
-/datum/Menu/proc/ClearDynamicElements()
+/Menu/proc/ClearDynamicElements()
 	for (var/atom/A in DynamicElements)
 		del A
 	DynamicElements = list( )
 
-/datum/Menu/proc/ClearStaticElements()
+/Menu/proc/ClearStaticElements()
 	for (var/atom/A in StaticElements)
 		del A
 	StaticElements = list( )
@@ -72,7 +69,7 @@
 // Input Handling
 //
 
-/datum/Menu/proc/Input(var/Input)
+/Menu/proc/Input(var/Input)
 	// Implemented by child classes
 
 
@@ -80,7 +77,7 @@
 // Keyboard Handling
 //
 
-/datum/Menu/proc/KeyChange(var/Key, var/Modifier = 0)
+/Menu/proc/KeyChange(var/Key, var/Modifier = 0)
 
 	// Enforce a standard set of menu controls...
 	if (Key == "North")
@@ -116,8 +113,8 @@
 	if (Key == Config.CommandKeys[ButtonMenu])
 		Input(ControlEscape + Modifier)
 
-/datum/Menu/proc/KeyUp(var/Key)
+/Menu/proc/KeyUp(var/Key)
 	KeyChange(Key, ControlReleased)
 
-/datum/Menu/proc/KeyDown(var/Key)
+/Menu/proc/KeyDown(var/Key)
 	KeyChange(Key)

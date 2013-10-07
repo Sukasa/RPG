@@ -1,21 +1,22 @@
-/datum/Menu/TitleScreen
+/Menu/TitleScreen
 	var
-		EnterState = 0
 		EnterEnabled = FALSE
 		obj/Runtime/TitleGraphic/TG
 		obj/Text
 
-/datum/Menu/TitleScreen/Init()
+/Menu/TitleScreen/Init()
 
 	// Create title graphic
 	TG = new()
 	StaticElements += TG
 
+
 	// Create 'press start' text
-	Text = Config.Text.Create("Press Enter to Begin", FontFace = /datum/Font/LaconicShadow48, Width = 608, Align = AlignCenter)
+	Text = Config.Text.Create("Title.PressEnter", FontFace = /datum/Font/LaconicShadow48, Width = 608, Align = AlignCenter)
 	Text.screen_loc = "1,CENTER-3"
 	Text.alpha = 0
 	StaticElements += Text
+
 
 	..()
 
@@ -29,9 +30,8 @@
 		animate(Text, alpha = 128, time = 40, loop = -1)
 		animate(alpha = 192, time = 40)
 
-/datum/Menu/TitleScreen/Input(var/Control)
+/Menu/TitleScreen/Input(var/Control)
 	if (EnterEnabled && Control == ControlEnter)
-		EnterState = 1
 		EnterEnabled = FALSE
 		animate(TG, alpha = 0, pixel_y = (TG.pixel_y + 90), time = 10)
 		animate(Text, alpha = 0, time = 10)

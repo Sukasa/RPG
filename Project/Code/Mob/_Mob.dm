@@ -1,6 +1,6 @@
 mob
 	var
-		datum/Point/Destination = null
+		Point/Destination = null
 		SubStepX = 0
 		SubStepY = 0
 		SmoothMove = 0
@@ -27,7 +27,7 @@ mob
 	hud_flash = new /obj/Runtime/flash()
 	SetCursor(CursorRed)
 	if (!Config.MobLayerEnabled)
-		invisibility = 101
+		invisibility = Invisible
 
 /mob/proc/GetCoverPenalty()
 	return 0
@@ -41,7 +41,7 @@ mob
 	return
 
 /mob/proc/WarpTo(var/datum/Point/Target = Destination)
-	Destination = new/datum/Point(Destination)
+	Destination = new/Point(Destination)
 	step_y = Destination.FineY - (bound_height / 2) - bound_y
 	step_x = Destination.FineX - (bound_width / 2) - bound_x
 	Move(locate(Destination.TileX, Destination.TileY, z))
@@ -76,13 +76,14 @@ mob
 	SubStepX = NewStepX % 1
 	SubStepY = NewStepY % 1
 
-	//TODO rework this so that if you're trying to hit a wall diagonally, you don't suddenly move at a slower pace.
 	SmoothMove = 2
 	Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
 	Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
 	if (GetDistanceTo(Destination) <= (1 / 32))
-		Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
+		if (IsMovable(Destination))
+			Move(Destination:loc, 0, Destination:step_x/* - (Destination:bound_width / 2)*/, Destination:step_y/* - (Destination:bound_height / 2)*/)
+		Destination = null
 
 /mob/Move()
 	..()

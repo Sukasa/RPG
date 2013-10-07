@@ -4,18 +4,19 @@
 "d" = (/turf/Floor/Exterior/Sand{tag = "icon-N,W,NWi"; icon_state = "N,W,NWi"},/area)
 "e" = (/turf/Floor/Exterior/Sand{tag = "icon-N"; icon_state = "N"},/area)
 "f" = (/turf/Floor/Exterior/Sand{tag = "icon-N,E,NEi"; icon_state = "N,E,NEi"},/area)
-"g" = (/turf/Floor/Exterior/Sand{tag = "icon-W"; icon_state = "W"},/area)
-"h" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBase"; icon_state = "SandBase"},/area)
-"i" = (/turf/Floor/Exterior/Sand{tag = "icon-E"; icon_state = "E"},/area)
-"j" = (/obj/Foliage/Tree/OakTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"k" = (/obj/Foliage/Tree/PalmTree,/turf/Floor/Exterior/Sand{tag = "icon-SandBase"; icon_state = "SandBase"},/area)
-"l" = (/obj/Environment/Sign/TestSign,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"m" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"n" = (/turf/Floor/Exterior/Sand{tag = "icon-S,W,SWi"; icon_state = "S,W,SWi"},/area)
-"o" = (/turf/Floor/Exterior/Sand{tag = "icon-S"; icon_state = "S"},/area)
-"p" = (/turf/Floor/Exterior/Sand{tag = "icon-S,E,SEi"; icon_state = "S,E,SEi"},/area)
-"q" = (/obj/Foliage/Tree/PineTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"r" = (/obj/Foliage/Tree/ThinTree2,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"g" = (/obj/MapMarker/Entrance{tag = "ObjectTest"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"h" = (/turf/Floor/Exterior/Sand{tag = "icon-W"; icon_state = "W"},/area)
+"i" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBase"; icon_state = "SandBase"},/area)
+"j" = (/turf/Floor/Exterior/Sand{tag = "icon-E"; icon_state = "E"},/area)
+"k" = (/obj/Foliage/Tree/OakTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"l" = (/obj/Foliage/Tree/PalmTree,/turf/Floor/Exterior/Sand{tag = "icon-SandBase"; icon_state = "SandBase"},/area)
+"m" = (/obj/Environment/Sign/TestSign,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"n" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"o" = (/turf/Floor/Exterior/Sand{tag = "icon-S,W,SWi"; icon_state = "S,W,SWi"},/area)
+"p" = (/turf/Floor/Exterior/Sand{tag = "icon-S"; icon_state = "S"},/area)
+"q" = (/turf/Floor/Exterior/Sand{tag = "icon-S,E,SEi"; icon_state = "S,E,SEi"},/area)
+"r" = (/obj/Foliage/Tree/PineTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"s" = (/obj/Foliage/Tree/ThinTree2,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -61,23 +62,23 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaababaabbbaaaaacaacacacccaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaababaaabaaabbbaacacacaacaacccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaababaabbbaaaaacaacacacccaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaadeeeeeeeeefaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaghhhhhhhhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajaaaaaaaaaaaaaaaaaghhhhhhhhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaghhhhhkhkhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaghkhhhhkhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajaaaaaaaaaaaaaaaaaghhhhhkhkhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajajaaaaaaaaaaaaaaaaghhhhhhhhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajaaaaaaaaaaaalaaaaghhhhhhhhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaghhhhhhhhhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaghkhhhkkkhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajjjaaaaaaaaaaaaaaaagkhkhhkkkhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajjjaaaaamaaaaaaaaaaghkhhhkkkhiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajjjaaaaaaaaaaaaaaaanooooooooopaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaagaaaaaaaaaaaaahiiiiiiiiijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakaaaaaaaaaaaaaaaaahiiiiiiiiijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahiiiiililijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahiliiiiliijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakaaaaaaaaaaaaaaaaahiiiiililijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakakaaaaaaaaaaaaaaaahiiiiiiiiijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakaaaaaaaaaaaamaaaahiiiiiiiiijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahiiiiiiiiijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahiliiilllijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakkkaaaaaaaaaaaaaaaahliliilllijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakkkaaaaanaaaaaaaaaahiliiilllijaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakkkaaaaaaaaaaaaaaaaopppppppppqaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajajaaaaaaaqaaaqqqaaqaqaaaaaraarararrraaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajaaaaqaaqaqaaqqqaaaqaaarararaaraarrraaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaajajaaaaaaaqaaaqqqaaqaqaaaaaraarararrraaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakakaaaaaaaraaarrraararaaaaasaasasasssaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakaaaaraararaarrraaaraaasasasaasaasssaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakakaaaaaaaraaarrraararaaaaasaasasasssaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

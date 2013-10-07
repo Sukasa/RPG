@@ -1,6 +1,6 @@
 /area
 	icon = 'Flats.dmi'
-	invisibility = 101
+	invisibility = Invisible
 	layer = FLY_LAYER
 	icon_state = "Transparent"
 

@@ -1,6 +1,8 @@
 client
 	show_popup_menus = FALSE
+	control_freak = TRUE
 	perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
+
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
 		obj/Runtime/HUD/HUDController/HUD
@@ -9,6 +11,7 @@ client
 
 		list/Keys = list( )
 		list/Pressed = list( )
+		Queue/QueuedDialogue = new()
 
 		EnableMouse = FALSE
 		EnableCursor = FALSE
@@ -17,6 +20,7 @@ client
 		EnableKeyboardMovement = TRUE
 
 		KeyboardHandler = null
+
 
 /client/proc/Send(var/Text)
 	ASSERT(Chatbox)

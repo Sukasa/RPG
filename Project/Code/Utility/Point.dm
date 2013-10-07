@@ -1,4 +1,4 @@
-/datum/Point
+Point
 	var
 		TileX = 0
 		TileY = 0
@@ -10,11 +10,12 @@
 		step_y
 		step_x
 
-/datum/Point/New(var/atom/Location)
+Point/New(var/atom/Location)
 	if (!Location)
 		return
 	TileX = Location.x
 	TileY = Location.y
+
 	if (IsMovable(Location))
 		PixelX = Location:step_x
 		PixelY = Location:step_y
@@ -22,12 +23,12 @@
 		step_y = PixelY
 		PixelX += Location:bound_x
 		PixelY += Location:bound_y
-		PixelX += Location:bound_width / 2
-		PixelY += Location:bound_height / 2
+		//PixelX += Location:bound_width / 2
+		//PixelY += Location:bound_height / 2
 
 	if (IsTurf(Location))
-		PixelX += 16
-		PixelY += 16
+		//PixelX += 16
+		//PixelY += 16
 		step_x = 16
 		step_y = 16
 	FineX = (TileX * 32) + PixelX
@@ -37,36 +38,36 @@
 		FineX += Location:SubStepY
 		FineY += Location:SubStepX
 
-/datum/Point/proc/SetXOffset(var/X)
+Point/proc/SetXOffset(var/X)
 	PixelX = X
 	FineX = (TileX * 32) + PixelX
 
-/datum/Point/proc/SetYOffset(var/Y)
+Point/proc/SetYOffset(var/Y)
 	PixelY = Y
 	FineY = (TileY * 32) + PixelY
 
-/datum/Point/proc/CopyXOffset(var/atom/movable/AM)
+Point/proc/CopyXOffset(var/atom/movable/AM)
 	PixelX = AM.step_x
-	PixelX += AM:bound_x
-	PixelX += AM.bound_width / 2
+	//PixelX += AM:bound_x
+	//PixelX += AM.bound_width / 2
 	FineX = (TileX * 32) + PixelX
 
-/datum/Point/proc/CopyYOffset(var/atom/movable/AM)
+Point/proc/CopyYOffset(var/atom/movable/AM)
 	PixelY = AM.step_y
-	PixelY += AM:bound_y
-	PixelY += AM.bound_height / 2
+	//PixelY += AM:bound_y
+	//PixelY += AM.bound_height / 2
 	FineY = (TileY * 32) + PixelY
 
-/datum/Point/proc/GetDistanceTo(var/datum/Point/To)
+Point/proc/GetDistanceTo(var/Point/To)
 	if (IsAtom(To))
-		To = new/datum/Point(To)
+		To = new/Point(To)
 	var/dX = (To.FineX - src.FineX) / 32
 	var/dY = (To.FineY - src.FineY) / 32
 	return sqrt((dX * dX) + (dY * dY))
 
-/datum/Point/proc/GetAngleTo(var/datum/Point/To)
+Point/proc/GetAngleTo(var/Point/To)
 	if (IsAtom(To))
-		To = new/datum/Point(To)
+		To = new/Point(To)
 	var/dX = To.FineX - src.FineX
 	var/dY = To.FineY - src.FineY
 	if(!dY)
@@ -77,8 +78,8 @@
 	if (dX < 0)
 		return . + 360
 
-datum/Point/proc/Clone()
-	var/datum/Point/P = new()
+Point/proc/Clone()
+	var/Point/P = new()
 	P.TileX = TileX
 	P.TileY = TileY
 	P.PixelX = PixelX

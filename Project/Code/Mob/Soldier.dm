@@ -5,6 +5,8 @@ mob/Soldier
 
 	bound_width = 12
 	bound_height = 12
+	bound_x = 10
+	bound_y = 10
 
 	// Should probably make these fit the coding style
 	var/dmg_major = 0

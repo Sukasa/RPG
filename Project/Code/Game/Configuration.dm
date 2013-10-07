@@ -13,7 +13,7 @@
 
 	var/tmp/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
-	var/tmp/StartMode   =    /datum/GameMode/Dummy
+	var/tmp/StartMode   =    /datum/GameMode/Setup
 	var/tmp/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
 	var/tmp/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
@@ -72,25 +72,25 @@
 		return length(DefaultCursors)
 
 	// Networks (Signal, Power, etc)
-	var/tmp/datum/NetworkController/NetController = new()
+	var/tmp/NetworkController/NetController = new()
 
 	// Menus
-	var/tmp/datum/MenuController/Menus = new()
+	var/tmp/MenuController/Menus = new()
 
 	// Commands
-	var/tmp/datum/CommandController/Commands = new()
+	var/tmp/CommandController/Commands = new()
 
 	// Translations
-	var/tmp/datum/TranslationController/Lang = new()
+	var/tmp/TranslationController/Lang = new()
 
 	// Map Loader
-	var/tmp/datum/MapLoader/MapLoader = new()
+	var/tmp/MapLoader/MapLoader = new()
 
 	// Font Renderer
-	var/tmp/datum/FontRenderer/Text = new()
+	var/tmp/FontRenderer/Text = new()
 
 	// Camera Controller
-	var/tmp/datum/CameraController/Cameras = new()
+	var/tmp/CameraController/Cameras = new()
 
 	// Event Controller
-	var/tmp/datum/EventController/Events = new()
+	var/tmp/EventController/Events = new()

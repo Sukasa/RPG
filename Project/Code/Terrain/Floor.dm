@@ -49,4 +49,5 @@ turf/Floor/DirtRoad
 	icon = 'Test01.dmi'
 
 /turf/Floor/Exterior/Sand
+	name = "Sand"
 	icon = 'OutdoorSand.dmi'
