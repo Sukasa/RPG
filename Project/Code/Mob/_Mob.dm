@@ -40,6 +40,9 @@ mob
 	//TODO Movement cursor?
 	return
 
+/mob/proc/Use()
+	// See if there is an interactable object ahead in (dir) and if so, interact with it
+
 /mob/proc/WarpTo(var/datum/Point/Target = Destination)
 	Destination = new/Point(Destination)
 	step_y = Destination.FineY - (bound_height / 2) - bound_y

@@ -11,7 +11,9 @@
 
 /CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "")
 	var/ChatCommand/CC = AllCommands[Command]
-	ASSERT(CC)
+	if (!CC)
+		ErrorText("Command [Command] not found!")
+		return
 	if (!Executor || (Executor.Rank >= CC.MinPowerLevel) || Debug)
 		CC.Execute(Executor, CommandText)
 	else

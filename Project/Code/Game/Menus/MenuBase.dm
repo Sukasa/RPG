@@ -41,6 +41,7 @@
 		Client.screen |= A
 
 	Client.KeyboardHandler = src
+	Client.ClearKeys()
 
 
 
@@ -49,7 +50,7 @@
 //
 
 /Menu/proc/ExitMenu()
-	Config.Menus.PopMenu(Client)
+	Config.Menus.PopMenu(Client.mob)
 
 /Menu/proc/ShowElementToClient(var/Element)
 	Client.screen += Element

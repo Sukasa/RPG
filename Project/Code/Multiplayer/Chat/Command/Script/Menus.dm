@@ -10,7 +10,7 @@
 		var/Menu = Config.Menus.CreateMenu(Player, MenuType, Params)
 		Config.Menus.PushMenu(Player, Menu)
 	else
-		DebugText("\red [Params[1]] is not a known menu type!")
+		ErrorText("[Params[1]] is not a known menu type!")
 
 /ChatCommand/WaitNoMenus
 	Command = "waitmenu"

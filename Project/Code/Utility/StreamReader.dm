@@ -4,16 +4,24 @@ StreamReader
 		TextFile
 
 	New(var/File)
-		// If is (Filename or File data as text)
 		if (istext(File))
-			if(fexists(File)) // Is it a filename?
-				TextFile = file2text(file(File)) // Then load it
+			if(Debug && fexists(File))
+				TextFile = file2text(file(File))
 			else
-				TextFile = File // Nope, just the file text.  Use as-is
-		else // Is file object
+				TextFile = File
+		else
 			TextFile = file2text(File)
 
 	proc
+		Replace(var/Needle, var/Replacement)
+			var/Pos = findtextEx(TextFile, Needle)
+			var/NLen = length(Needle)
+			var/RLen = length(Replacement)
+
+			while (Pos)
+				TextFile = copytext(TextFile, 1, Pos) + Replacement + copytext(TextFile, Pos + NLen)
+				Pos = findtextEx(TextFile, Needle, Pos + RLen)
+
 		Index()
 			return SeekPosition
 

@@ -7,7 +7,7 @@
 		DebugText("Usage: importlang \[File] \[LanguageCode]")
 		return
 	if (!fexists(Params[1]))
-		DebugText("\red That file does not exist")
+		ErrorText("That file does not exist")
 		return
 	world.log << "Updating language file: [Params[1]] => [Params[2]]"
 	var/StreamReader/Reader = new(Params[1])
@@ -16,10 +16,11 @@
 	while (!Reader.EOF())
 		var/Key = Reader.TakeUntil(Equals)
 		if (Key in L)
-			DebugText("Key '[Key]' present multiple times in language file!")
+			ErrorText("Key '[Key]' already present in language file!")
 			return
 		Reader.Advance()
-		L[Key] = replacetext(Reader.TakeUntil(LineFeed), "\\\n", "\n")
+		L[Key] = replacetext(Reader.TakeUntil(LineFeed), "\\n", "\n")
+		world.log << "[Key] => [L[Key]]"
 		Reader.Advance()
 
 	Config.Lang.UpdateLanguageFile(Params[2], L)

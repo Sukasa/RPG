@@ -81,13 +81,13 @@ var
 		CursorInvalid = 4		// Default 'invalid action' marker
 		CursorNone = 5			// Blank / invisible cursor
 
-		ButtonEast = "east"
-		ButtonWest = "west"
-		ButtonNorth = "north"
-		ButtonSouth = "south"
-		ButtonUse = "use"
-		ButtonInteract = "int"
-		ButtonMenu = "menu"
+		ButtonEast = "beast"
+		ButtonWest = "bwest"
+		ButtonNorth = "bnorth"
+		ButtonSouth = "bsouth"
+		ButtonUse = "buse"
+		ButtonInteract = "bint"
+		ButtonMenu = "bmenu"
 
 		DefaultLanguage = "en-US"
 
@@ -99,6 +99,7 @@ var
 		OverlayLayer = 20
 		FlashLayer = 100
 		UILayer = 101
+		TextLayer = 102
 		MapMarkerLayer = 10
 
 		AlignLeft = 1

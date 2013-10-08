@@ -77,6 +77,10 @@ client
 //*
 //*************************************
 
+/client/proc/ClearKeys()
+	for (var/K in Keys)
+		Keys[K] = KeyStateUp
+
 /client/proc/GetKeyboardHandler()
 	if (KeyboardHandler != null)
 		return KeyboardHandler

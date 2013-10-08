@@ -4,11 +4,9 @@
 
 /ChatCommand/CreateCamera/Execute(var/mob/Player, var/CommandText)
 	var/list/Params = ParamList(CommandText)
-	world.log << Params.len
 	if (Params.len < 3)
 		ErrorText("Not enough parameters to /camera \[[CommandText]]")
 		return
-	world.log << "Params: [Params[1]], [Params[2]], [Params[3]]"
 	Config.Cameras.CreateCinematicCamera(locate(text2num(Params[2]), text2num(Params[3]), 1), Params[1])
 
 

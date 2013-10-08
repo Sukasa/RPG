@@ -4,20 +4,29 @@
 
 	var/datum/Font/Font
 
-/FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 200, var/FontFace = /datum/Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0)
+/FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 200, var/FontFace = /datum/Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
+	Font = new FontFace()
+
 	var/NumLines  = 0
 
 	var/obj/Runtime/Text/Base = new()
-	Base.layer = UILayer
+	Base.layer = TextLayer
 
 	var/StreamReader/Reader = new(Config.Lang.String(Text))
 	Reader.StripCarriageReturns()
 	Reader.Seek(StartIndex)
 	LastTextIndex = StartIndex
 
-	var/list/LineTextBuffer = list( )
-	Font = new FontFace()
+	if (!isnull(TextParams))
+		if (IsList(TextParams))
+			var/X = 1
+			for(var/K in TextParams)
+				Reader.Replace("\\[X]", "[K]")
+				X++
+		else
+			Reader.Replace("\\1", "[TextParams]")
 
+	var/list/LineTextBuffer = list( )
 	var/LineWidth = 0
 
 	while (!Reader.EOF())
@@ -32,7 +41,7 @@
 
 		if (WordWidth || Reader.Is(LineFeed) || Reader.EOF())
 			var/obj/CurrentLine = RenderLine(JoinList(LineTextBuffer, " "), Color)
-			CurrentLine.pixel_y = -(LinesOffset + NumLines) * Font.LineSpacing
+			CurrentLine.pixel_y = (-(LinesOffset + NumLines) * Font.LineSpacing) + PixelY
 
 			LineWidth -= Font.VWFTable[33]
 			switch (Align)
@@ -41,22 +50,22 @@
 				if (AlignCenter)
 					CurrentLine.pixel_x = (Width / 2) - (LineWidth / 2)
 
+			CurrentLine.pixel_x += PixelX
 
 			Base.overlays += CurrentLine
 			NumLines++
 
-			LineTextBuffer = list( )
-			LineWidth = 0
-
 			if (Reader.EOF() || NumLines >= Lines)
 				break // Exit while loop
 
-			else if (Reader.Is(LineFeed))
-				// Forced newline.  No need to do anything special
+			if (Reader.Is(LineFeed))
+				// Forced newline.
+				LineWidth = 0
+				LineTextBuffer = list( )
 
 			else //Word needs to be added to next line
 				LineWidth = WordWidth + Font.VWFTable[33]
-				LineTextBuffer += Word
+				LineTextBuffer = list(Word)
 				LastTextIndex = Reader.Index() + 1
 
 		Reader.Advance()
@@ -64,7 +73,6 @@
 	Completed = Reader.EOF()
 
 	// Clean up and return Base image here
-
 	return Base
 
 FontRenderer/proc/RenderLine(var/Text, var/Color)
@@ -73,7 +81,7 @@ FontRenderer/proc/RenderLine(var/Text, var/Color)
 	for(var/X = 1, X <= lentext(Text), X++)
 		var/Char = copytext(Text, X, X + 1)
 		if (Char != " ")
-			var/image/I = image(Font.IconFile, icon_state = Char, layer = UILayer)
+			var/image/I = image(Font.IconFile, icon_state = Char, layer = TextLayer)
 			I.pixel_x = XPos + Font.XOffsets[Char]
 			I.pixel_y = Font.YOffsets[Char]
 			I.color = Color
@@ -87,4 +95,4 @@ FontRenderer/proc/GetWordWidth(var/Word)
 		. += Font.VWFTable[text2ascii(Word, X) + 1] + 1
 
 /obj/Runtime/Text
-	layer = UILayer
+	layer = TextLayer

@@ -29,6 +29,8 @@
 
 	Config.Cameras.Tick()
 
+	Config.Menus.Tick()
+
 	// Handle the player's (players'?) input.
 	for (var/client/C)
 		C.KeyTick()

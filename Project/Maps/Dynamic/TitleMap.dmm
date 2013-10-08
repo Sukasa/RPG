@@ -80,10 +80,10 @@
 "bB" = (/turf/Floor/Exterior/Sand{tag = "icon-N"; icon_state = "N"},/area/Event)
 "bC" = (/turf/Floor/Exterior/Sand{tag = "icon-NWe"; icon_state = "NWe"},/area/Event)
 "bD" = (/turf/Floor/Exterior/Sand{tag = "icon-S"; icon_state = "S"},/area/Event)
-"bE" = (/turf/Floor/Exterior{tag = "icon-2,4"; icon_state = "2,4"},/area)
-"bF" = (/turf/Floor/Exterior{tag = "icon-3,4"; icon_state = "3,4"},/area)
-"bG" = (/turf/Floor/Exterior{tag = "icon-2,3"; icon_state = "2,3"},/area)
-"bH" = (/turf/Floor/Exterior{tag = "icon-3,3"; icon_state = "3,3"},/area)
+"bE" = (/turf/Floor/Exterior{tag = "icon-2,4"; icon_state = "2,4"},/area/Event)
+"bF" = (/turf/Floor/Exterior{tag = "icon-3,4"; icon_state = "3,4"},/area/Event)
+"bG" = (/turf/Floor/Exterior{tag = "icon-2,3"; icon_state = "2,3"},/area/Event)
+"bH" = (/turf/Floor/Exterior{tag = "icon-3,3"; icon_state = "3,3"},/area/Event)
 "bI" = (/obj/Foliage/Tree{step_x = -17; step_y = 1},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
 "bJ" = (/obj/Foliage/Tree{step_x = 14; step_y = 7},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
 "bK" = (/obj/Foliage/Tree{step_x = 20; step_y = 21},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
@@ -104,22 +104,23 @@
 "bZ" = (/turf/Floor/Exterior/Sand{tag = "icon-S,E,SEi,NWe"; icon_state = "S,E,SEi,NWe"},/area)
 "ca" = (/obj/Foliage/Tree{step_x = 29; step_y = 5},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
 "cb" = (/obj/Foliage/Tree{step_x = 13; step_y = 19},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
-"cc" = (/turf/Floor/Exterior{tag = "icon-Bush9"; icon_state = "Bush9"},/area)
-"cd" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"ce" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
-"cf" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
-"cg" = (/turf/Floor/Exterior/Sand{tag = "icon-NWe,E"; icon_state = "NWe,E"},/area)
-"ch" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"ci" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
-"cj" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
-"ck" = (/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
-"cl" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe,E"; icon_state = "SWe,E"},/area)
-"cm" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderSN,E,W,SWi,SEi"; icon_state = "SandBorderSN,E,W,SWi,SEi"},/area)
-"cn" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"co" = (/turf/Floor/Exterior{tag = "icon-Bush5"; icon_state = "Bush5"},/area)
-"cp" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderS,N,W,SWi,NWi"; icon_state = "SandBorderS,N,W,SWi,NWi"},/area)
-"cq" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBaseSWe,NWe,NEe"; icon_state = "SandBaseSWe,NWe,NEe"},/area)
-"cr" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"cc" = (/obj/MapMarker/Event/Event{ScriptCommand = "queuedialogue Test.TextboxTest1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
+"cd" = (/turf/Floor/Exterior{tag = "icon-Bush9"; icon_state = "Bush9"},/area)
+"ce" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"cf" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
+"cg" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
+"ch" = (/turf/Floor/Exterior/Sand{tag = "icon-NWe,E"; icon_state = "NWe,E"},/area)
+"ci" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
+"cj" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Floor/Exterior{tag = "icon-Bush"; icon_state = "Bush"},/area)
+"ck" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
+"cl" = (/turf/Floor/Exterior{tag = "icon-Bush6"; icon_state = "Bush6"},/area)
+"cm" = (/turf/Floor/Exterior/Sand{tag = "icon-SWe,E"; icon_state = "SWe,E"},/area)
+"cn" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderSN,E,W,SWi,SEi"; icon_state = "SandBorderSN,E,W,SWi,SEi"},/area)
+"co" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"cp" = (/turf/Floor/Exterior{tag = "icon-Bush5"; icon_state = "Bush5"},/area)
+"cq" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBorderS,N,W,SWi,NWi"; icon_state = "SandBorderS,N,W,SWi,NWi"},/area)
+"cr" = (/turf/Floor/Exterior/Sand{tag = "icon-SandBaseSWe,NWe,NEe"; icon_state = "SandBaseSWe,NWe,NEe"},/area)
+"cs" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadaeacacacacacafagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagahaiacacadacajakalamacac
@@ -182,24 +183,24 @@ abbNabababababababababababaxabababaxaxaxbrbrbrbrbrbObraxbPaxbrabababaAaCabababax
 abababababbQaxaxababbRabababbSabaxaxbTbrbrbrbrbrbsbrbrbrbraxbUabaxaxaAaCabababababauafapagagagagagagagagaqaxabababababababababababababababababababababababababab
 ababababauaxababababbVabababababaxaxaxbrbrbrbsbrbrbrbrbrbrbrbWabaxaxaAaZbaababababababavagagagagagagagagaqabauababababababababababababababababababababababababab
 bXababababababababbYbZabababababbNaxaxbrbrbrbrbrbrbrbrbrcabrbraxaxabbkaBaCabaxababauabavagagagagagagagahaiababababababababababababababababababababababababababab
-brbcabababababababbVabababababababaxaxbrbrbrbrbrbrcbbrbrbrbrbraxaxabbcbkaJababababaxabafaoapagagaoapagaqabaxabababababababababababababababababababababababababab
-abbrccabababababbYbZabababcdabababaxaxaxbrcebrbrbrbrbrbrbrbrbrcfaxababababababababababababavagaqabavagaUbfabauababababababababababababababababababababababababab
-bsabababauababaGcgbwabauababababababchaxbrbrbrbrbrbsbrbrcibrbraxaxababababababababababababavagaqbdavagagaqababababababababababababababababababababababababababab
+brbcabababababababbVabababababababaxaxbrbrbrbrbrbrcbbrbrbrbrbraxaxabbcbkaJababababaxabafaoapagagaoapagaqccaxabababababababababababababababababababababababababab
+abbrcdabababababbYbZabababceabababaxaxaxbrcfbrbrbrbrbrbrbrbrbrcgaxababababababababababababavagaqabavagaUbfabauababababababababababababababababababababababababab
+bsabababauababaGchbwabauababababababciaxbrbrbrbrbrbsbrbrcjbrbraxaxababababababababababababavagaqbdavagagaqababababababababababababababababababababababababababab
 brbcabababababaAaCababababababababababbrbrbrbsbrbsbrbsbrbsbrbsbrbsabbcabababababababaxabayazagaqabavagagaUbfabababababababababababababababababababababababababab
-brbrbrabababaGaHaCaxababababcjababababbcbrbrbrbpaabjaabjaabjaabjaabjaabcababababababababafaoapaqabavagagagaqababauababababababababababababababababababababababab
+brbrbrabababaGaHaCaxababababckababababbcbrbrbrbpaabjaabjaabjaabjaabjaabcababababababababafaoapaqabavagagagaqababauababababababababababababababababababababababab
 brbrbrababaGaHaIaJabababababbrbcabbcabababbrbcaabjaabjaabjaabjaabjaabjbcababababababababababavaUaVazagagagaqababaxababababababababababababababababababababababab
-brbrbrabaGaHaIaJabababababckbsababaxabbcabbrabbcaabjaabjaabjaabjaabjaabcababababababababaxabavagagagagagagaUbfababababababababababababababababababababababababab
-brbrccabaAaIaJababababababbcccbcababbrbrbcabbcabbcaabjaabjaabjaabjaabjabbcabababababababababafapagagagagagagaUbfabababababababababababababababababababababababab
-brbrababbkclabababababababababababckbrabaxababaxabbjaabjaabjaabjaabjaabcababababababababauababavagagagagagagagaqauababababababababababababababababababababababab
-brccabababbVababababababababababckababaxabbcababbcabbcabbcabbjaabjaabjabababaxabababababababaxavagagagagagagagaqabababababababababababababababababababababababab
-abababababcmabauababababbcababbcabbcabababbrbrabaxauabababbcabbjaabjaabcabababababababababababavagagagagagagagaUbfabababababababababababababcnababababababababab
+brbrbrabaGaHaIaJabababababclbsababaxabbcabbrabbcaabjaabjaabjaabjaabjaabcababababababababaxabavagagagagagagaUbfababababababababababababababababababababababababab
+brbrcdabaAaIaJababababababbccdbcababbrbrbcabbcabbcaabjaabjaabjaabjaabjabbcabababababababababafapagagagagagagaUbfabababababababababababababababababababababababab
+brbrababbkcmabababababababababababclbrabaxababaxabbjaabjaabjaabjaabjaabcababababababababauababavagagagagagagagaqauababababababababababababababababababababababab
+brcdabababbVababababababababababclababaxabbcababbcabbcabbcabbjaabjaabjabababaxabababababababaxavagagagagagagagaqabababababababababababababababababababababababab
+abababababcnabauababababbcababbcabbcabababbrbrabaxauabababbcabbjaabjaabcabababababababababababavagagagagagagagaUbfabababababababababababababcoababababababababab
 bcabababababababababababababababababbrbcababbrbrababababbcabbcabbjaabjabbcababababababaxabababavagagagagagagagagaqababababababababababababababababababababababab
-ababababababbRabababababbrabababccbcbrababababababbwabbwabababbcaabjbmbcababababababababababayazagagagagagagagagaqababababauabababababababababababababababababab
-ababababababcmabababababbrbcabbrabababbcbrabaxabababaxabababbcabbjaablababababababababauayaVazagagagagagagagagahaiababababababababababababababababababababababab
-abbcababababababababababbrababbrbrabbcaabrabauabababababababckbcaabjbmbcababaxabababababavagagagagagagagagagagaqabababababababababababababababababababababababab
-bcababababbRabababababbrabababababbcaabjbrabababababababababcobcbjaablababababababababayazagagagagagagagagahaoaiababauababababababababababababababababababababab
-ababababcpcqbaabababbrbrbcabababbcaabjabababccababababababccababbjaablbcabababababaxabafapagagagagagagagagaqabababababababababababababababababababababababababab
-ababcrababbkaJabababbrababababbcaabjabckbrbrbXababababababababbcaabjbmbcababababababababavagagagagagagagagaqabababababababababababababababababababababababababab
-ababababababababababbrabababbcaabjababcoabababbrbrbrabababababbcbjaabmbcabababababababaxafapagagagagagagagaqababauababababababababababababababababababababababab
+ababababababbRabababababbrabababcdbcbrababababababbwabbwabababbcaabjbmbcababababababababababayazagagagagagagagagaqababababauabababababababababababababababababab
+ababababababcnabababababbrbcabbrabababbcbrabaxabababaxabababbcabbjaablababababababababauayaVazagagagagagagagagahaiababababababababababababababababababababababab
+abbcababababababababababbrababbrbrabbcaabrabauabababababababclbcaabjbmbcababaxabababababavagagagagagagagagagagaqabababababababababababababababababababababababab
+bcababababbRabababababbrabababababbcaabjbrabababababababababcpbcbjaablababababababababayazagagagagagagagagahaoaiababauababababababababababababababababababababab
+ababababcqcrbaabababbrbrbcabababbcaabjabababcdababababababcdababbjaablbcabababababaxabafapagagagagagagagagaqabababababababababababababababababababababababababab
+ababcsababbkaJabababbrababababbcaabjabclbrbrbXababababababababbcaabjbmbcababababababababavagagagagagagagagaqabababababababababababababababababababababababababab
+ababababababababababbrabababbcaabjababcpabababbrbrbrabababababbcbjaabmbcabababababababaxafapagagagagagagagaqababauababababababababababababababababababababababab
 abababababaGbgbaauabbrbcababbcaaaabcababaxababbrbrbrbrababaxabbcaabjblabbcababababababababavagagagagagagagaUaVbfabababababababababababababababababababababababab
 "}

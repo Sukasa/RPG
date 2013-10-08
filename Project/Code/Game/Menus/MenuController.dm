@@ -58,6 +58,7 @@
 /MenuController/proc/DeInitCurrent(var/Player)
 	var/Menu/Menu = CurrentMenus[Player]
 	if (Menu)
+		world.log << "Deinit"
 		Menu.DeInit()
 		del Menu
 

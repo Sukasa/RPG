@@ -21,13 +21,28 @@
 				M.client.Flash.FadeOut(Color, Time, FinalAlpha)
 	sleep(Time)
 
-/EventController/proc/Event(var/ScriptName, var/TriggeringEntity)
-
 /EventController/proc/Init()
 	Scripts = new("SDATA")
 	Scripts[".index"] >> CachedScripts
 	if (!CachedScripts)
 		CachedScripts = list( )
+
+/EventController/proc/Dialogue(var/mob/Player, var/Text, var/Name, var/Params)
+	var/QueuedDialogue/QD
+
+	if (istype(Text, /QueuedDialogue))
+		QD = Text
+	else
+		QD = new()
+		QD.Text = Text
+		QD.Name = Name
+		QD.Params = Params
+
+	Player.client.QueuedDialogue.Enqueue(QD)
+
+	if (!istype(Config.Menus.CurrentMenus[Player], /Menu/Dialogue))
+		var/Menu = Config.Menus.CreateMenu(Player, /Menu/Dialogue)
+		Config.Menus.PushMenu(Player, Menu)
 
 /EventController/proc/Cache(var/ScriptName, var/ScriptFilename)
 	world.log << "Caching [ScriptFilename] to [ScriptName]"
@@ -43,5 +58,5 @@
 	else
 		return null
 
-/EventController/proc/RunScript(var/ScriptName)
-	Config.Commands.Execute(null, "run", ScriptName)
+/EventController/proc/RunScript(var/ScriptName, var/mob/Player = null)
+	Config.Commands.Execute(Player, "run", ScriptName)

@@ -14,11 +14,11 @@
 
 		Execute(var/mob/Player)
 			if (Config.Events.GetScript(ScriptCommand) || fexists(ScriptCommand))
-				Config.Commands.Execute(null, "run", ScriptCommand)
+				Config.Commands.Execute(Player, "run", ScriptCommand)
 			else
 				var/Space = findtext(ScriptCommand, " ")
 				var/Command = copytext(ScriptCommand, 1, Space)
-				Config.Commands.Execute(null, Command, copytext(ScriptCommand, Space + 1))
+				Config.Commands.Execute(Player, Command, copytext(ScriptCommand, Space + 1))
 
 	OneShotPermanent
 		icon_state = "OneShot"
@@ -61,6 +61,6 @@
 						Player.Move(T:loc)
 						Config.Cameras.Warp(Player)
 					else
-						DebugText("\red Unable to find entrance [EntranceTag]!")
+						ErrorText("Unable to find entrance [EntranceTag]!")
 
 				Config.Events.FadeIn()

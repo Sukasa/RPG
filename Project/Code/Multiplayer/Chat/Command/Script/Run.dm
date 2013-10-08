@@ -34,3 +34,11 @@
 	Space = findtext(CommandText, " ", Space + 1)
 	var/Command = copytext(CommandText, LSpace + 1, Space)
 	Config.Commands.Execute(RunAs, Command, copytext(CommandText, Space + 1))
+
+/ChatCommand/Spawn
+	Command = "spawn"
+	MinPowerLevel = RankProgrammer
+
+/ChatCommand/Spawn/Execute(var/mob/Player, var/CommandText)
+	spawn
+		Config.Commands.Execute(Player, "run", CommandText)
