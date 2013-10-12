@@ -1,7 +1,4 @@
 /obj/MapMarker/Event
-
-
-
 	proc/PreconditionMet()
 		return TRUE
 

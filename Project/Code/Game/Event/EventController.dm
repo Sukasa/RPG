@@ -30,6 +30,9 @@
 /EventController/proc/Dialogue(var/mob/Player, var/Text, var/Name, var/Params)
 	var/QueuedDialogue/QD
 
+	if (Text == "")
+		return
+
 	if (istype(Text, /QueuedDialogue))
 		QD = Text
 	else

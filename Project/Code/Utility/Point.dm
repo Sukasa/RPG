@@ -23,46 +23,80 @@ Point/New(var/atom/Location)
 		step_y = PixelY
 		PixelX += Location:bound_x
 		PixelY += Location:bound_y
-		//PixelX += Location:bound_width / 2
-		//PixelY += Location:bound_height / 2
 
 	if (IsTurf(Location))
-		//PixelX += 16
-		//PixelY += 16
 		step_x = 16
 		step_y = 16
-	FineX = (TileX * 32) + PixelX
-	FineY = (TileY * 32) + PixelY
+
+	FineX = (TileX * world.icon_size) + PixelX
+	FineY = (TileY * world.icon_size) + PixelY
 
 	if (ismob(Location))
 		FineX += Location:SubStepY
 		FineY += Location:SubStepX
 
+Point/proc/Polar(var/Angle, var/DistPixels)
+	PixelX += fix(sin(Angle) * DistPixels)
+	PixelY += fix(cos(Angle) * DistPixels)
+
+	while (PixelX < 0)
+		PixelX += world.icon_size
+		TileX--
+
+	while (PixelX > world.icon_size)
+		PixelX -= world.icon_size
+		TileX++
+
+	while (PixelY < 0)
+		PixelY += world.icon_size
+		TileY--
+
+	while (PixelY > world.icon_size)
+		PixelY -= world.icon_size
+		TileY++
+
+Point/proc/Intersects(var/atom/A)
+	var/Width = world.icon_size
+	var/Height = world.icon_size
+
+	var/Point/Offset = new(A)
+	if (IsMovable(A))
+		Width = A:bound_width
+		Height = A:bound_height
+
+	.= (FineX in Offset.FineX to Offset.FineX + Width) && (FineY in Offset.FineY to Offset.FineY + Height)
+
+Point/proc/Center(var/atom/movable/X)
+	PixelX = X.step_x
+	PixelY = X.step_y
+	PixelX += X.bound_x
+	PixelY += X.bound_y
+	PixelX += X.bound_width / 2
+	PixelY += X.bound_height / 2
+	FineX = (TileX * world.icon_size) + PixelX
+	FineY = (TileY * world.icon_size) + PixelY
+
 Point/proc/SetXOffset(var/X)
 	PixelX = X
-	FineX = (TileX * 32) + PixelX
+	FineX = (TileX * world.icon_size) + PixelX
 
 Point/proc/SetYOffset(var/Y)
 	PixelY = Y
-	FineY = (TileY * 32) + PixelY
+	FineY = (TileY * world.icon_size) + PixelY
 
 Point/proc/CopyXOffset(var/atom/movable/AM)
 	PixelX = AM.step_x
-	//PixelX += AM:bound_x
-	//PixelX += AM.bound_width / 2
-	FineX = (TileX * 32) + PixelX
+	FineX = (TileX * world.icon_size) + PixelX
 
 Point/proc/CopyYOffset(var/atom/movable/AM)
 	PixelY = AM.step_y
-	//PixelY += AM:bound_y
-	//PixelY += AM.bound_height / 2
-	FineY = (TileY * 32) + PixelY
+	FineY = (TileY * world.icon_size) + PixelY
 
 Point/proc/GetDistanceTo(var/Point/To)
 	if (IsAtom(To))
 		To = new/Point(To)
-	var/dX = (To.FineX - src.FineX) / 32
-	var/dY = (To.FineY - src.FineY) / 32
+	var/dX = (To.FineX - src.FineX) / world.icon_size
+	var/dY = (To.FineY - src.FineY) / world.icon_size
 	return sqrt((dX * dX) + (dY * dY))
 
 Point/proc/GetAngleTo(var/Point/To)

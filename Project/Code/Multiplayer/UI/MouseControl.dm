@@ -19,8 +19,8 @@
 	if (IsMovable(A))
 		Pos.PixelX += A:step_x
 		Pos.PixelY += A:step_y
-	Pos.FineX = (Pos.TileX * 32) + Pos.PixelX
-	Pos.FineY = (Pos.TileY * 32) + Pos.PixelY
+	Pos.FineX = (Pos.TileX * world.icon_size) + Pos.PixelX
+	Pos.FineY = (Pos.TileY * world.icon_size) + Pos.PixelY
 	Highlighted = A
 	Left = Params["left"]
 	Right = Params["right"]

@@ -58,15 +58,29 @@ mob/Soldier
 /mob/Soldier/FastTick()
 	..()
 	stunned = max(stunned-2,0)
+	var/SetDir = 0
 	if (client && !client.KeyboardHandler && client.EnableKeyboardMovement && !Config.InputSuspended)
+
 		if (client.Keys["S"] || client.Keys["South"])
 			step(src, SOUTH, MoveSpeed())
+			SetDir |= SOUTH
+
 		if (client.Keys["D"] || client.Keys["East"])
 			step(src, EAST, MoveSpeed())
+			SetDir |= EAST
+
 		if (client.Keys["A"] || client.Keys["West"])
 			step(src, WEST, MoveSpeed())
+			SetDir |= WEST
+
 		if (client.Keys["W"] || client.Keys["North"])
 			step(src, NORTH, MoveSpeed())
+			SetDir |= NORTH
+
+		dir = SetDir
+
+		if (client.Pressed["Return"])
+			Use()
 
 
 /mob/Soldier/SlowTick()

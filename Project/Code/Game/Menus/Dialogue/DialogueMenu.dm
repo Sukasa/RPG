@@ -59,8 +59,6 @@ Menu/Dialogue/proc/Next()
 		if (Dialogue.Name)
 			DrawName()
 
-		DebugText("Is Prompt: [IsPrompt()]")
-
 		if (IsPrompt())
 			MaxLines = 3
 		else
@@ -114,14 +112,12 @@ Menu/Dialogue/proc/DrawLine()
 			Drawing = FALSE
 		TextIndex = Config.Text.LastTextIndex
 
-	DebugText("Should Prompt? [IsPrompt()]")
 	if (IsPrompt())
 		Selection = initial(Selection)
 		DrawYesNo()
 		PositionMenuCursor()
 
 Menu/Dialogue/proc/DrawYesNo()
-	DebugText("Drawing Yes/No")
 	Text = Config.Text.Create("Prompt.Yes")
 	Text.screen_loc = TextYesLocation
 	DynamicElements += Text

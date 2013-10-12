@@ -22,12 +22,20 @@ mob
 
 		Spectate = FALSE // Does the user wish to spectate this round?
 
+		InteractScript = null
+		list/InteractText = ""
+		InteractName = null
+
 /mob/New()
 	..()
 	hud_flash = new /obj/Runtime/flash()
 	SetCursor(CursorRed)
 	if (!Config.MobLayerEnabled)
 		invisibility = Invisible
+	if (!IsList(InteractText))
+		InteractText = Split(InteractText, ",")
+		if (!InteractName)
+			InteractName = name
 
 /mob/proc/GetCoverPenalty()
 	return 0
@@ -40,8 +48,30 @@ mob
 	//TODO Movement cursor?
 	return
 
+/mob/proc/InteractWith(var/mob/Player)
+	if (InteractScript)
+		// Execute Script
+		Config.Events.RunScript(InteractScript, Player)
+	else
+		// Interact
+		Config.Events.Dialogue(Player, pick(InteractText), InteractName)
+
 /mob/proc/Use()
-	// See if there is an interactable object ahead in (dir) and if so, interact with it
+	var/Point/P = new(src)
+	P.Center(src)
+	P.Polar(DirectionAngles[dir + 1], 24)
+
+	var/turf/T = locate(P.TileX, P.TileY, z)
+
+	var/obj/MapMarker/Interactible/A = locate(/obj/MapMarker/Interactible) in T
+
+	if (A)
+		A.InteractWith(src)
+	else
+		for(var/mob/M in T)
+			if (M != src && P.Intersects(M))
+				return
+
 
 /mob/proc/WarpTo(var/datum/Point/Target = Destination)
 	Destination = new/Point(Destination)
@@ -54,7 +84,7 @@ mob
 	if (!Target)
 		return
 	var/Angle = GetAngleTo(Destination)
-	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * 32)
+	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * world.icon_size)
 
 	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x + SubStepX
 	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y + SubStepY
@@ -63,17 +93,17 @@ mob
 	var/OffsetY = 0
 
 	if (NewStepX < 0)
-		NewStepX += 32
+		NewStepX += world.icon_size
 		OffsetX--
-	else if (NewStepX >= 32)
-		NewStepX -= 32
+	else if (NewStepX >= world.icon_size)
+		NewStepX -= world.icon_size
 		OffsetX++
 
 	if (NewStepY < 0)
-		NewStepY += 32
+		NewStepY += world.icon_size
 		OffsetY--
-	else if (NewStepY >= 32)
-		NewStepY -= 32
+	else if (NewStepY >= world.icon_size)
+		NewStepY -= world.icon_size
 		OffsetY++
 
 	SubStepX = NewStepX % 1
@@ -83,7 +113,7 @@ mob
 	Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
 	Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
-	if (GetDistanceTo(Destination) <= (1 / 32))
+	if (GetDistanceTo(Destination) <= (1 / world.icon_size))
 		if (IsMovable(Destination))
 			Move(Destination:loc, 0, Destination:step_x/* - (Destination:bound_width / 2)*/, Destination:step_y/* - (Destination:bound_height / 2)*/)
 		Destination = null

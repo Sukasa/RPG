@@ -156,6 +156,8 @@ var
 		Cardinal8 = 		list(NORTH, NORTHEAST, EAST, SOUTHEAST, SOUTH, SOUTHWEST, WEST, NORTHWEST)
 		CardinalAngles8 =	list(45, 90, 135, 180, 225, 270, 315, 360)
 
+		DirectionAngles =   list(0, 0, 180, 0, 90, 45, 135, 0, 270, 315, 225, 0, 0, 0, 0, 0)
+
 		// Text Colours
 		TextColours = list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
 						   "\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),

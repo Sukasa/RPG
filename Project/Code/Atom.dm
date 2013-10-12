@@ -8,10 +8,10 @@ atom
 		InteractRange = 1.5
 
 atom/movable/proc/GetFineX()
-	return (src.x * 32) + src.step_x
+	return (src.x * world.icon_size) + src.step_x
 
 atom/movable/proc/GetFineY()
-	return (src.y * 32) + src.step_y
+	return (src.y * world.icon_size) + src.step_y
 
 atom/movable/proc/GetCover()
 	var/list/CoverInfo[9]
