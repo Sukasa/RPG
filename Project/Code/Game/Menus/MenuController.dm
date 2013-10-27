@@ -23,25 +23,42 @@
 	var/Menu/NewMenu = new MenuType(Params)
 	if (ismob(Player))
 		Player = Player:client
+
 	NewMenu.Client = Player
+	NewMenu.Player = NewMenu.Client.mob
 	return NewMenu
 
 // Changes CurrentMenu to the provided (instantiated) menu, without pushing or popping
-/MenuController/proc/SwapMenu(var/Player, var/Menu)
-	DeInitCurrent(Player)
+/MenuController/proc/SwapMenu(var/Player, var/Menu/Menu)
+	if (ismob(Player))
+		Player = Player:client
+
+	PersistMenus(Player, Menu)
+	DeInitCurrent(Player, TRUE)
 	CurrentMenus[Player] = Menu
+	Menu.Init()
 
 // Changes CurrentMenu to the provided (instantiated) menu, and saves the previous menu
-/MenuController/proc/PushMenu(var/Player, var/Menu/Menu)
+/MenuController/proc/PushMenu(var/datum/Player, var/Menu/Menu)
+	if (ismob(Player))
+		Player = Player:client
 	var/Stack/Stack = CheckCreateStack(Player)
+
+	PersistMenus(Player, Menu)
 	HideCurrent(Player)
-	Stack.Push(CurrentMenus[Player])
+
+	if (CurrentMenus[Player])
+		Stack.Push(CurrentMenus[Player])
+
 	CurrentMenus[Player] = Menu
 	Menu.Init()
 
 // Terminates the current menu, and pops the previous one
 /MenuController/proc/PopMenu(var/Player)
+	if (ismob(Player))
+		Player = Player:client
 	var/Stack/Stack = CheckCreateStack(Player)
+
 	DeInitCurrent(Player)
 	CurrentMenus[Player] = Stack.IsEmpty() ? null :Stack.Pop()
 	ShowCurrent()
@@ -50,17 +67,34 @@
 //--------------------------------------------------------------
 
 
+
+/MenuController/proc/PersistMenus(var/Player, var/Menu/ToMenu)
+	var/Menu/Menu = CurrentMenus[Player]
+	if (Menu)
+		ToMenu.PersistentElements = Menu.PersistentElements
+
 /MenuController/proc/CheckCreateStack(var/Player)
 	if (!MenuStack[Player])
 		MenuStack[Player] = new/Stack()
 	return MenuStack[Player]
 
-/MenuController/proc/DeInitCurrent(var/Player)
+/MenuController/proc/DeInitCurrent(var/Player, var/IsSwap = FALSE)
 	var/Menu/Menu = CurrentMenus[Player]
 	if (Menu)
+		DePersist(Player, Menu, IsSwap)
 		Menu.DeInit()
 		del Menu
 
+/MenuController/proc/DePersist(var/Player, var/Menu/Menu, var/IsSwap = FALSE)
+	var/Stack/Stack = CheckCreateStack(Player)
+	if (!Stack.IsEmpty())
+		var/Menu/NextMenu = Stack.Peek()
+		if (NextMenu)
+			Menu.StaticElements |= (Menu.PersistentElements - NextMenu.PersistentElements)
+			Menu.PersistentElements = list( )
+	else if (!IsSwap)
+		Menu.StaticElements |= Menu.PersistentElements
+		Menu.PersistentElements = list( )
 
 /MenuController/proc/HideCurrent(var/Player)
 	var/Menu/Menu = CurrentMenus[Player]

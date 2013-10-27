@@ -1,7 +1,7 @@
-/ChatCommand/CacheScript
+/ChatCommand/ImportLang
 	Command = "importlang"
 
-/ChatCommand/CacheScript/Execute(var/mob/Player, var/CommandText)
+/ChatCommand/ImportLang/Execute(var/mob/Player, var/CommandText)
 	var/list/Params = ParamList(CommandText)
 	if (Params.len != 2)
 		DebugText("Usage: importlang \[File] \[LanguageCode]")

@@ -1,4 +1,4 @@
-/datum/Font/MiramonteBold12
+/Font/MiramonteBold12
 	IconFile = 'Text.dmi'
 
 	LineSpacing = 12

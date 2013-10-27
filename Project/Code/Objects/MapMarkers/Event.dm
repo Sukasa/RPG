@@ -21,10 +21,10 @@
 		icon_state = "OneShot"
 
 		PreconditionMet()
-			return !("[Config.CurrentMapName][x][y]" in Config.OneShots)
+			return !("[Config.CurrentMapName][x][y]" in Config.EventFlags)
 
 		Execute(var/mob/Player)
-			Config.OneShots |= "[Config.CurrentMapName][x][y]"
+			Config.EventFlags |= "[Config.CurrentMapName][x][y]"
 
 	Disable
 		icon_state = "Disable"

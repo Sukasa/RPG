@@ -39,12 +39,10 @@
 
 	proc/FadeOut(var/Color, var/Time, var/Alpha = 255)
 		color = Color
-		alpha = 0
 		animate(src, alpha = Alpha, time = Time)
 		sleep(Time)
 
 	proc/FadeIn(var/Color, var/Time, var/Alpha = 0)
 		color = Color
-		alpha = 255
 		animate(src, alpha = Alpha, time = Time)
 		sleep(Time)

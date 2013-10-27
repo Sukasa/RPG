@@ -13,7 +13,7 @@
 
 	var/tmp/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
-	var/tmp/StartMode   =    /datum/GameMode/Dummy
+	var/tmp/StartMode   =    /datum/GameMode/Setup
 	var/tmp/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
 	var/tmp/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)
@@ -27,6 +27,8 @@
 
 	var/tmp/list/Ranks = list("topkasa" = RankAdministrator, "googolplexed" = RankAdministrator, "raspberryfloof" = RankAdministrator)
 
+
+	var/tmp/list/AutoTile = list( )
 	var/tmp/CreateTurfStandIns = FALSE
 
 	var/tmp/MobLayerEnabled = TRUE
@@ -37,11 +39,11 @@
 	// Persisted Options
 
 	// Audio
-	var/MusicVolume = 15
-	var/SFXVolume = 15
+	var/MusicVolume = DefaultBGMVolume
+	var/SFXVolume = DefaultSFXVolume
 
 	// Controls
-	var/list/CommandKeys = list( ButtonNorth = "W", ButtonSouth = "S", ButtonWest = "A", ButtonEast = "D", ButtonUse = "Space", ButtonInteract = "E", ButtonMenu = "Escape" )
+	var/list/CommandKeys = list( "bnorth" = "W", "bsouth" = "S", "bwest" = "A", "beast" = "D", "buse" = "Space", "bint" = "E", "bmenu" = "Escape" )
 
 	// Graphics
 	var/FancyGraphics = TRUE
@@ -49,14 +51,13 @@
 	// Language
 	var/Language = "en-US"
 
+
 	// Runtime-generated configuration
 
-	// Data Files
-	var/tmp/savefile/Save
-
+	var/SaveSlot
 
 	// One-Shot Flags
-	var/list/OneShots = list( )
+	var/list/EventFlags = list( )
 
 	// Team memberlists
 	var/tmp/list/Teams = list(list( ), list( ), list( ), list( ))

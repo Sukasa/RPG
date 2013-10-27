@@ -90,6 +90,8 @@ var
 		ButtonMenu = "bmenu"
 
 		DefaultLanguage = "en-US"
+		DefaultBGMVolume = 15
+		DefaultSFXVolume = 15
 
 		TickerNotStarted = 0
 		TickerRunning = 1
@@ -116,6 +118,10 @@ var
 
 		Visible = 0
 		Invisible = 101
+
+		AlphaTransparent = 0
+		AlphaOpaque = 255
+		AlphaHalf = 128
 
 		// ASCII Codes
 		LineFeed = 10
@@ -157,6 +163,7 @@ var
 		CardinalAngles8 =	list(45, 90, 135, 180, 225, 270, 315, 360)
 
 		DirectionAngles =   list(0, 0, 180, 0, 90, 45, 135, 0, 270, 315, 225, 0, 0, 0, 0, 0)
+		AutoJoinBits8	=	list(1, 2, 4, 8, 16, 32, 64, 128)
 
 		// Text Colours
 		TextColours = list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),

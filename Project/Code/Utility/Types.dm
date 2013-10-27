@@ -7,6 +7,9 @@ proc/IsAtom(var/A)
 proc/IsObj(var/A)
 	return istype(A, /obj)
 
+proc/IsClient(var/A)
+	return istype(A, /client)
+
 proc/IsMovable(var/A)
 	return istype(A, /atom/movable)
 

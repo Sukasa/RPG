@@ -109,14 +109,17 @@ mob
 	SubStepX = NewStepX % 1
 	SubStepY = NewStepY % 1
 
-	SmoothMove = 2
-	Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
-	Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
-	if (GetDistanceTo(Destination) <= (1 / world.icon_size))
+
+
+	if (GetDistanceTo(Destination) <= 1 / world.icon_size)
 		if (IsMovable(Destination))
-			Move(Destination:loc, 0, Destination:step_x/* - (Destination:bound_width / 2)*/, Destination:step_y/* - (Destination:bound_height / 2)*/)
+			Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
 		Destination = null
+	else
+		SmoothMove = 2
+		Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
+		Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
 
 /mob/Move()
 	..()

@@ -1,4 +1,4 @@
-/datum/Font
+/Font
 	var
 		list/VWFTable = list( )
 

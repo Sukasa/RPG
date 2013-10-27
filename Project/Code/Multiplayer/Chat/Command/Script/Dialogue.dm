@@ -37,5 +37,5 @@
 	MinPowerLevel = RankScriptsOnly
 
 /ChatCommand/WaitDialogue/Execute(var/mob/Player, var/CommandText)
-	while (istype(Config.Menus.CurrentMenus[Player], /Menu/Dialogue))
+	while (istype(Config.Menus.CurrentMenus[Player.client], /Menu/Dialogue))
 		sleep(1)

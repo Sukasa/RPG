@@ -1,4 +1,4 @@
-/datum/Font/SakkalMajalla24
+/Font/SakkalMajalla24
 	IconFile = 'CandelaBold26.dmi'
 
 	LineSpacing = 24

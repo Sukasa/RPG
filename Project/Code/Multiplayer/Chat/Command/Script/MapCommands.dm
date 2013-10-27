@@ -8,9 +8,7 @@
 	if (fexists("Project/Maps/[CommandText]"))
 		Config.MapLoader.LoadRawMap("Project/Maps/[CommandText]")
 	else
-		Player.client.Send("\ref Cannot load file Project/Maps/[CommandText]!")
-
-
+		ErrorText("Cannot load file Project/Maps/[CommandText]!")
 
 /ChatCommand/LoadMap
 	Command = "loadmap"
@@ -18,8 +16,6 @@
 
 /ChatCommand/LoadMap/Execute(var/mob/Player, var/CommandText)
 	Config.MapLoader.LoadMap(CommandText)
-
-
 
 /ChatCommand/ParseMap
 	Command = "parsemap"
@@ -36,5 +32,4 @@
 		Config.MapLoader.ParseMap()
 		Config.MapLoader.SaveMap(MapID)
 	else
-		Player.client.Send("\ref Cannot load file Project/Maps/[Filename]!")
-
+		ErrorText("Cannot load file Project/Maps/[Filename]!")

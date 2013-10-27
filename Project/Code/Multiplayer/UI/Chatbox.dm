@@ -42,7 +42,7 @@
 	var/datum/ChatLine/ChatLine = new()
 	var/CurrentLineWidth = ChatboxOffsetX + ChatBoxTextOffsetX
 	var/WordWidth = 0
-	var/datum/Font/Font = new/datum/Font/MiramonteBold12()
+	var/Font/Font = new/Font/MiramonteBold12()
 	var/list/WordBuffer = list()
 	var/RenderColor = TextColours["\yellow"]
 	ChatLine.Text += new/obj/Runtime/LetterBG()

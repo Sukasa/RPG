@@ -6,6 +6,11 @@
 	// Get script
 
 	var/StreamReader/Reader = new(Config.Events.GetScript(CommandText) || CommandText)
+
+	if (Reader.EOF())
+		ErrorText("NULL SCRIPT!")
+		return
+
 	Reader.StripCarriageReturns()
 
 	// Loop through each line, executing it as you go

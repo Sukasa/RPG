@@ -5,6 +5,7 @@
 		TileCharacterCount = 0
 		SeekPosition = 1
 		StreamReader/Reader
+		CurrentMap
 
 		savefile/MapCache
 
@@ -27,6 +28,8 @@
 
 	MapHeight = Map.Height
 	MapWidth = Map.Width
+
+	CurrentMap = MapID
 
 	CreateMap(Loc)
 
@@ -218,6 +221,8 @@
 /MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
+
+	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
 
 	world.maxx = MapWidth
 	world.maxy = MapHeight

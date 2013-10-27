@@ -1,4 +1,4 @@
-/datum/Font/LaconicShadow48
+/Font/LaconicShadow48
 	IconFile = 'LaconicShadow48.dmi'
 
 	LineSpacing = 45

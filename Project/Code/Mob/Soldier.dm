@@ -5,8 +5,6 @@ mob/Soldier
 
 	bound_width = 12
 	bound_height = 12
-	bound_x = 10
-	bound_y = 10
 
 	// Should probably make these fit the coding style
 	var/dmg_major = 0
@@ -61,25 +59,25 @@ mob/Soldier
 	var/SetDir = 0
 	if (client && !client.KeyboardHandler && client.EnableKeyboardMovement && !Config.InputSuspended)
 
-		if (client.Keys["S"] || client.Keys["South"])
+		if (client.Keys[Config.CommandKeys[ButtonSouth]] || client.Keys["South"])
 			step(src, SOUTH, MoveSpeed())
 			SetDir |= SOUTH
 
-		if (client.Keys["D"] || client.Keys["East"])
+		if (client.Keys[Config.CommandKeys[ButtonEast]] || client.Keys["East"])
 			step(src, EAST, MoveSpeed())
 			SetDir |= EAST
 
-		if (client.Keys["A"] || client.Keys["West"])
+		if (client.Keys[Config.CommandKeys[ButtonWest]] || client.Keys["West"])
 			step(src, WEST, MoveSpeed())
 			SetDir |= WEST
 
-		if (client.Keys["W"] || client.Keys["North"])
+		if (client.Keys[Config.CommandKeys[ButtonNorth]] || client.Keys["North"])
 			step(src, NORTH, MoveSpeed())
 			SetDir |= NORTH
 
 		dir = SetDir
 
-		if (client.Pressed["Return"])
+		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()
 
 

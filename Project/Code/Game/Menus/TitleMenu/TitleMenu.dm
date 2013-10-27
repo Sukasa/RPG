@@ -8,15 +8,14 @@
 
 	// Create title graphic
 	TG = new()
-	StaticElements += TG
+	PersistentElements += TG
 
 
 	// Create 'press start' text
-	Text = Config.Text.Create("Title.PressEnter", FontFace = /datum/Font/LaconicShadow48, Width = 608, Align = AlignCenter)
+	Text = Config.Text.Create("Title.PressEnter", FontFace = /Font/LaconicShadow48, Width = 608, Align = AlignCenter)
 	Text.screen_loc = "1,CENTER-3"
 	Text.alpha = 0
 	StaticElements += Text
-
 
 	..()
 
@@ -33,8 +32,13 @@
 /Menu/TitleScreen/Input(var/Control)
 	if (EnterEnabled && Control == ControlEnter)
 		EnterEnabled = FALSE
-		animate(TG, alpha = 0, pixel_y = (TG.pixel_y + 90), time = 10)
-		animate(Text, alpha = 0, time = 10)
-		spawn(12)
-			Config.Events.FadeOut()
-			//TODO SwapMenu to game selection
+		animate(TG, pixel_y = 64, time = 14, easing = SINE_EASING)
+		animate(Text, alpha = 0, time = 6)
+		spawn(14)
+			sleep(0.3)
+			TG.pixel_y = 0
+			TG.screen_loc = "3, 12"
+		spawn(15)
+			var/Menu/M = Config.Menus.CreateMenu(Client, /Menu/GameMenu)
+			Config.Menus.SwapMenu(Client, M)
+		Config.Events.FadeOut(Time = 13, FinalAlpha = 128)

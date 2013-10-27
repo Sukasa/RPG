@@ -5,7 +5,7 @@ StreamReader
 
 	New(var/File)
 		if (istext(File))
-			if(Debug && fexists(File))
+			if(Debug && lentext(File) < 64 && fexists(File))
 				TextFile = file2text(file(File))
 			else
 				TextFile = File

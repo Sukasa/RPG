@@ -21,8 +21,6 @@ Point/New(var/atom/Location)
 		PixelY = Location:step_y
 		step_x = PixelX
 		step_y = PixelY
-		PixelX += Location:bound_x
-		PixelY += Location:bound_y
 
 	if (IsTurf(Location))
 		step_x = 16

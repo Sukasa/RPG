@@ -22,17 +22,18 @@
 	if (M in C.Destination)
 		C.Destination = M
 	else if (C.Destination)
+
 		C.Destination = new/Point(C.Destination)
 
 		if (C.Destination:TileX == M.x)
 			C.Destination:CopyXOffset(M)
 		else if (C.Destination:TileX < M.x)
-			C.Destination.SetXOffset(31 - (M.bound_width / 2))
+			C.Destination.SetXOffset(31)
 
 		if (C.Destination:TileY == M.y)
 			C.Destination:CopyYOffset(M)
 		else if (C.Destination:TileY < M.y)
-			C.Destination.SetYOffset(31 - (M.bound_height / 2))
+			C.Destination.SetYOffset(31)
 
 /CameraController/proc/Warp(var/mob/M)
 	if (Attachments[M])

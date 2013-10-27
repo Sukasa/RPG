@@ -2,9 +2,9 @@
 	var/LastTextIndex = -1
 	var/Completed = FALSE
 
-	var/datum/Font/Font
+	var/Font/Font
 
-/FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 200, var/FontFace = /datum/Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
+/FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 608, var/FontFace = /Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
 	Font = new FontFace()
 
 	var/NumLines  = 0
@@ -46,7 +46,7 @@
 			LineWidth -= Font.VWFTable[33]
 			switch (Align)
 				if (AlignRight)
-					CurrentLine.pixel_x = Width - (LineWidth)
+					CurrentLine.pixel_x = Width - LineWidth
 				if (AlignCenter)
 					CurrentLine.pixel_x = (Width / 2) - (LineWidth / 2)
 

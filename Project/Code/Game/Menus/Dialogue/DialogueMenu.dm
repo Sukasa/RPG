@@ -50,9 +50,9 @@ Menu/Dialogue/proc/Next()
 		ClearDynamicElements()
 		Dialogue = Client.QueuedDialogue.Dequeue()
 		Drawing = TRUE
-		Delay = 0
 		LineNum = initial(LineNum)
 		TextIndex = initial(TextIndex)
+		Delay = initial(Delay)
 		Advance.screen_loc = initial(Advance.screen_loc)
 
 		NB.invisibility = Dialogue.Name ? Visible : Invisible
@@ -79,6 +79,7 @@ Menu/Dialogue/Input(var/Control)
 			Drawing = TRUE
 			LineNum = 0
 			ClearDynamicElements()
+			Delay = initial(Delay)
 		else
 			if (IsPrompt())
 				Config.Events.RunScript(Selection ? Dialogue.ScriptYes : Dialogue.ScriptNo, Client.mob)

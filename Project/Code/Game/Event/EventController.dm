@@ -48,9 +48,12 @@
 		Config.Menus.PushMenu(Player, Menu)
 
 /EventController/proc/Cache(var/ScriptName, var/ScriptFilename)
+
 	world.log << "Caching [ScriptFilename] to [ScriptName]"
 	var/StreamReader/Reader = new(ScriptFilename)
+
 	Scripts[ScriptName] << Reader.TextFile
+
 	CachedScripts |= ScriptName
 	Scripts[".index"] << CachedScripts
 	del Reader
@@ -61,5 +64,11 @@
 	else
 		return null
 
+/EventController/proc/RunScriptDetached(var/ScriptName, var/mob/Player = null)
+	spawn
+		RunScript(ScriptName, Player)
+
 /EventController/proc/RunScript(var/ScriptName, var/mob/Player = null)
+	if (IsClient(Player))
+		Player = Player:mob
 	Config.Commands.Execute(Player, "run", ScriptName)

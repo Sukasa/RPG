@@ -4,7 +4,9 @@
 
 		list/StaticElements = list( )
 		list/DynamicElements = list( )
+		list/PersistentElements = list( )
 		client/Client = null
+		mob/Player = null
 
 //
 // Processing
@@ -25,32 +27,30 @@
 	ClearStaticElements()
 
 /Menu/proc/Hide()
-	for(var/atom/A in DynamicElements)
-		A.invisibility = Invisible
-	for(var/atom/A in StaticElements)
+	for(var/atom/A in DynamicElements | StaticElements | PersistentElements)
 		A.invisibility = Invisible
 
 	Client.KeyboardHandler = null
 
 /Menu/proc/Show()
-	for(var/atom/A in DynamicElements)
-		A.invisibility = Visible
-		Client.screen |= A
-	for(var/atom/A in StaticElements)
+	for(var/atom/A in DynamicElements | StaticElements | PersistentElements)
 		A.invisibility = Visible
 		Client.screen |= A
 
 	Client.KeyboardHandler = src
 	Client.ClearKeys()
 
-
+/Menu/proc/FadeOut(var/Time = 8)
+	for(var/atom/A in DynamicElements | StaticElements | PersistentElements)
+		animate(A, color = ColorBlack, time = Time)
+	sleep(Time)
 
 //
 // Utility Functions
 //
 
 /Menu/proc/ExitMenu()
-	Config.Menus.PopMenu(Client.mob)
+	Config.Menus.PopMenu(Client)
 
 /Menu/proc/ShowElementToClient(var/Element)
 	Client.screen += Element
