@@ -16,9 +16,3 @@ turf/Wall/Init()
 			IS |= Dir
 	src.icon_state = "[Prefix][IS]"
 	..()
-
-turf/Wall/Outer_Wall
-	icon = 'ExteriorWall.dmi'
-
-turf/Wall/Inner_Wall
-	icon = 'InteriorWall.dmi'

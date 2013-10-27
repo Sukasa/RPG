@@ -166,43 +166,6 @@ mob
 /mob/proc/Stun(var/severity)
 	return
 
-/mob/proc/GrabItem(var/obj/Item/NewItem, var/InventorySlot = 0)
-	if(InventorySlot > Inventory.len)
-		DebugText("GrabItem Out of range: \icon [src] [src] [InventorySlot]")
-		return
-
-	if (InventorySlot == 0)
-		InventorySlot = Inventory.Find(null)
-		if (!InventorySlot)
-			SendUser(src, "\red Your inventory is full")
-			return
-
-	if(Inventory[InventorySlot])
-		Drop_Item(InventorySlot)
-
-	SendUser(src, "You pick up \the [NewItem]")
-
-	NewItem.loc = src
-	Inventory[InventorySlot] = NewItem
-	if (client && client.HUD)
-		client.HUD.Update()
-
-/mob/proc/Drop_Item(var/InventorySlot)
-	if(InventorySlot > Inventory.len)
-		return
-	var/obj/Item/item = Inventory[InventorySlot]
-	if(!item)
-		return
-	item.loc = src.loc
-	if (client && client.HUD)
-		client.HUD.Update()
-
-/mob/proc/SetActiveSlot(var/InventoryIndex)
-	inv_selected = InventoryIndex
-
-/mob/proc/GetActiveSlot()
-	return inv_selected
-
 /mob/Login()
 	..()
 	client.screen += hud_flash

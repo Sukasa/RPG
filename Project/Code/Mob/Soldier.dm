@@ -17,28 +17,6 @@ mob/Soldier
 	dmg_minor = initial(dmg_minor)
 	dmg_blood = initial(dmg_blood)
 
-
-/mob/Soldier/Interact(var/datum/Mouse/Mouse, var/ForceAttack)
-	if (!ForceAttack && IsObj(Mouse.Highlighted) && Mouse.Highlighted.UserInRange())
-		var/obj/A = Mouse.Highlighted
-		if (!A.Interact(src))
-			UseItem(Mouse)
-	else
-		UseItem(Mouse)
-
-
-/mob/Soldier/proc/UseItem(var/datum/Mouse/Mouse)
-	var/obj/Item/SelectedItem = src.SelectedItem()
-
-	if(!SelectedItem)
-		return
-
-	if (!SelectedItem.CanTarget(Mouse.Highlighted))
-		return
-
-	SelectedItem.AttackTarget(Mouse.Highlighted)
-
-
 /mob/Soldier/Stun(var/severity)
 	stunned = min(1000,stunned+severity)
 	world << "[src] got hit by a stunner and is now stunned for [stunned]"
@@ -47,8 +25,6 @@ mob/Soldier
 
 /mob/Soldier/New()
 	..()
-	var/obj/Item/Ranged/Stunner/stungun = new(src)
-	GrabItem(stungun, 1)
 	spawn(0)
 		if (client && client.HUD)
 			client.HUD.Update()

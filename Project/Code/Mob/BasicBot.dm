@@ -9,14 +9,6 @@
 /mob/Soldier/bot/SlowTick()
 	..()
 
-	if(shoot)
-		if(prob(3))
-			for(var/mob/Soldier/S in view(src))
-				if(S.client)
-					var/obj/Item/Ranged/gun = SelectedItem()
-					gun.Shoot(S)
-
-
 	if(move)
 		if(src in range(locate(TagA),2))
 			Destination = new /Point(locate("B"))

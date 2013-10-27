@@ -33,17 +33,11 @@
 
 /turf/proc/Init()
 	. = list( )
-	if (Config.CreateTurfStandIns)
-		CreateStandIn()
-		icon = 'Green.dmi'
-		SetCursor(CursorGreen)
-		icon_state = FloorplanIconState ? FloorplanIconState : icon_state
 	if (isarea(loc))
 		if(loc:CameraDensity)
 			CameraDensity = world.view + 1
 			. += src
 		density |= loc.density
-
 
 /turf/proc/CreateStandIn()
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)

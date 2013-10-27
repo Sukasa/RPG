@@ -10,3 +10,4 @@ world
 	cache_lifespan = 0
 	turf = /turf
 	mob = /mob/Soldier
+	loop_checks = 0

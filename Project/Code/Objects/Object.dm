@@ -1,7 +1,5 @@
 /obj/New()
 	..()
-	if (!istype(src, /obj/Item))
-		SetCursor(CursorYellow)
 	if (!findtext(src, "\improper") && !findtext(src, "\proper"))
 		name = "\improper [name]"
 

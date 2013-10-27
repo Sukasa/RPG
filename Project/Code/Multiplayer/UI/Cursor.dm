@@ -30,8 +30,7 @@ client/proc/UpdateCursor(var/atom/Object)
 	if (!EnableCursor)
 		return
 	if (IsAtom(Object))
-		var/obj/Item/SelectedItem = mob.SelectedItem()
-		mouse_pointer_icon = (SelectedItem && SelectedItem.TargetCursor(Object)) || Object.CursorObject.MobCursors[mob] || Object.CursorObject.icon
+		mouse_pointer_icon = Object.CursorObject.MobCursors[mob] || Object.CursorObject.icon
 
 client/MouseEntered(var/atom/Object, var/Location, var/Control, var/Params)
 	UpdateCursor(Object)
