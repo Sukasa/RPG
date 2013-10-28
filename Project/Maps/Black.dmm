@@ -1,4 +1,4 @@
-"a" = (/turf/Floor/Exterior{icon = 'Project/Icons/UI/Black.dmi'; icon_state = "Black"},/area)
+"a" = (/turf{icon = 'black.dmi'; icon_state = "Black"},/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaa

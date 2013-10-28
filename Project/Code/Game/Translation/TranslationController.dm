@@ -20,6 +20,7 @@
 		LoadLanguageFile(DefaultLanguage)
 
 /TranslationController/proc/UpdateLanguageFile(var/Code, var/list/Table)
+	world.log << "[Translations] [Translations == null]"
 	Translations[Code] << Table
 	Languages |= Code
 	Translations[".index"] << Languages

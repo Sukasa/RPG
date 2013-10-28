@@ -17,3 +17,12 @@
 /turf/Autojoin/TallGrass
 	name = "TallGrass"
 	icon = 'TallGrass.dmi'
+
+/turf/Autojoin/BigWater
+	name = "Water"
+	icon = 'WaterOnGrass.dmi'
+	density = TRUE
+
+/turf/Autojoin/BigSand
+	name = "Sand"
+	icon = 'BigSand.dmi'

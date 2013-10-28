@@ -3,6 +3,6 @@ queuedialogue Newgame.Demo
 sleep 5
 waitdialogue
 sleep 2
-loadraw Dynamic/ObjectTest
+loadraw dynamic/objecttest
 sleep 2
 fadein

@@ -18,5 +18,4 @@
 		if (((X & 65) == 65) && (X & 128))
 			B |= 128
 		Config.AutoTile += B
-
 	Ticker.ChangeGameMode(/datum/GameMode/SplashCards)

@@ -8,4 +8,4 @@
 	Config.MapLoader.Init()
 	Config.Events.Init()
 	for(var/X = 0; X < 256, X++)
-		Config.AutoTile += 0
+		Config.AutoTile += 255

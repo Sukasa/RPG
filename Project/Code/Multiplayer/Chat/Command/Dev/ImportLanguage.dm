@@ -20,7 +20,7 @@
 			return
 		Reader.Advance()
 		L[Key] = replacetext(Reader.TakeUntil(LineFeed), "\\n", "\n")
-		world.log << "[Key] => [L[Key]]"
+		//world.log << "[Key] => [L[Key]]"
 		Reader.Advance()
 
 	Config.Lang.UpdateLanguageFile(Params[2], L)
