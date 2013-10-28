@@ -38,6 +38,13 @@
 		Execute()
 			return TRUE
 
+	Dialogue
+		icon_state = "Interact"
+		var/DialogueText = ""
+		var/DialogueName = ""
+		Execute(var/mob/Player)
+			Config.Events.Dialogue(Player, DialogueText, DialogueName)
+
 	Exit
 		icon_state = "Exit"
 		var/MapName = ""

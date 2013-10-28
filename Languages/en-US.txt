@@ -75,4 +75,4 @@ Bakitty3=It's a Bakitty!  Its wings are too cute~!
 Bakitty4=The Bakitty ignores you
 Prompt.Yes=Yes
 Prompt.No=No
-Newgame.Demo=You've started a new game.  Use WASD to control your character, and Space to interact with objects in the environment.  More functionality will likely follow as the game continues to be improved.  Right now, there isn't much of any actual stuff you\ncan *do* in this game; you're looking at a very simple tech demo.  There isn't even game saving yet!  There is game loading, but without saving that isn't going to do you much good~ :)
+Newgame.Demo=You've started a new game.  Use WASD to control your character, and E to interact with objects in the environment.  More functionality will likely follow as the game continues to be improved.  Right now, there isn't much of any actual stuff you\ncan *do* in this game; you're looking at a very simple tech demo.  There isn't even game saving yet!  There is game loading, but without saving that isn't going to do you much good~ :)

@@ -215,12 +215,11 @@
 		MapWidth = max(MapWidth, Line.len)
 		Reader.SeekAfter(LineFeed)
 
-
-
-
 /MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
+
+	Ticker.Suspend()
 
 	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
 
@@ -266,6 +265,7 @@
 				for (var/Param in Object.Params)
 					Atom.vars[Param] = Object.Params[Param]
 			X++
+			sleep(-1)
 		Y++
 
 
@@ -292,3 +292,5 @@
 	for(var/mob/M in world)
 		if (M.client)
 			M.Respawn()
+
+	Ticker.Start()

@@ -39,3 +39,4 @@
 /ChatCommand/WaitDialogue/Execute(var/mob/Player, var/CommandText)
 	while (istype(Config.Menus.CurrentMenus[Player.client], /Menu/Dialogue))
 		sleep(1)
+	sleep(1)
