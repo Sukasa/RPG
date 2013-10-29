@@ -1,28 +1,19 @@
-/turf/Autojoin/DarkGrass
-	name = "Grass"
-	icon = 'DarkGrass.dmi'
-
-/turf/Autojoin/Sand
-	MatchTypes = list( /turf/Autojoin/Shallows )
-	name = "Sand"
-	icon = 'Sand.dmi'
-
-/turf/Autojoin/Shallows
-	MatchTypes = list( /turf/Autojoin/DeepWater )
-	name = "Shallow Water"
-
-/turf/Autojoin/DeepWater
-	name = "Deep Water"
-
-/turf/Autojoin/TallGrass
-	name = "TallGrass"
-	icon = 'TallGrass.dmi'
-
 /turf/Autojoin/BigWater
+	MatchTypes = list( /turf/Basic/Water )
 	name = "Water"
 	icon = 'WaterOnGrass.dmi'
 	density = TRUE
 
 /turf/Autojoin/BigSand
+	MatchTypes = list( /turf/Basic/Sand )
 	name = "Sand"
 	icon = 'BigSand.dmi'
+
+/turf/Autojoin/BigDarkGrass
+	MatchTypes = list( /turf/Decorative/DarkGrass )
+	name = "Grass"
+	icon = 'BigDarkGrass.dmi'
+
+/turf/Autojoin/Farmland
+	name = "Farmland"
+	icon = 'Farmland.dmi'

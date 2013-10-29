@@ -38,6 +38,8 @@
 			CameraDensity = world.view + 1
 			. += src
 		density |= loc.density
+	for(var/obj/Autojoin/AJ in src)
+		AJ.Init()
 
 /turf/proc/CreateStandIn()
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)

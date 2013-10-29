@@ -97,6 +97,9 @@ var
 		TickerRunning = 1
 		TickerSuspended = 2
 
+		CliffFaceOffset = 0.5
+
+		MobLayer = 10
 		ShadowLayer = 19
 		OverlayLayer = 20
 		FlashLayer = 100
@@ -172,3 +175,5 @@ var
 
 		// Rank Titles
 		RankTitles = list("Banned", "Player", "Moderator", "Programmer", "Administrator")
+
+		CliffFaceStates = list( "7", "199", "193", "247", "223" )

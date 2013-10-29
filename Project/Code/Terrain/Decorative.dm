@@ -9,4 +9,4 @@ turf/Decorative/Init()
 	. = ..()
 
 turf/Decorative/proc/LocRoll(var/NumSides)
-	. = max(round((x + y) * (tan((7 * x) * y))), 0) % NumSides
+	. = max(round((x + y) * 3 * (tan((7 * x) * y))), 0) % NumSides

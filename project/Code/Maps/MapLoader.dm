@@ -220,8 +220,11 @@
 	ASSERT(TemplateMap)
 
 	Ticker.Suspend()
-
 	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
+
+	for(var/mob/M in world)
+		if (M.client)
+			M.loc = locate(1, 1, 1)
 
 	world.maxx = MapWidth
 	world.maxy = MapHeight
@@ -233,10 +236,6 @@
 	var/Y = 0
 	var/X = 0
 
-	for(var/mob/M in world)
-		if (M.client)
-			M.loc = locate(1, 1, 1)
-
 	var/list/PropagationList = list( )
 
 	for (var/list/Line in TemplateMap)
@@ -244,16 +243,18 @@
 		for (var/datum/TileTemplate/Tile in Line)
 			var/turf/NewTurf = locate(BaseX + X, BaseY + Y, Z)
 
+			for (var/datum/ObjectTemplate/Turf in Tile.Turfs)
+				var/OldTurf = NewTurf
+				NewTurf = new Turf.TypePath(NewTurf)
+				NewTurf.underlays += OldTurf
+
+				for (var/Param in Turf.Params)
+					NewTurf.vars[Param] = Turf.Params[Param]
+
 			var/area/NewArea = new Tile.Area.TypePath(NewTurf)
 			for (var/Param in Tile.Area.Params)
 				NewArea.vars[Param] = Tile.Area.Params[Param]
 
-			for (var/datum/ObjectTemplate/Turf in Tile.Turfs)
-				NewTurf = new Turf.TypePath(NewTurf)
-				for (var/Param in Turf.Params)
-					NewTurf.vars[Param] = Turf.Params[Param]
-
-			new Tile.Area.TypePath(NewTurf)
 			for(var/atom/movable/A in NewTurf)
 				if (ismob(A) && A:client)
 					continue
@@ -264,6 +265,7 @@
 				var/atom/Atom = new Object.TypePath(locate(BaseX + X, BaseY + Y, Z))
 				for (var/Param in Object.Params)
 					Atom.vars[Param] = Object.Params[Param]
+
 			X++
 			sleep(-1)
 		Y++
@@ -273,12 +275,14 @@
 		for(var/InitY = BaseY, InitY < (BaseY + Y), InitY++)
 			var/turf/T = locate(InitX, InitY, Z)
 			PropagationList += T.Init()
+		sleep(-1)
 
 	// Process camera data?
 	for (X = 1, X <= PropagationList.len, X++)
 		var/turf/T = PropagationList[X]
 		if (T)
 			PropagationList += T.Propagate()
+	sleep(-1)
 
 	// Initialize data structures
 

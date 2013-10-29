@@ -25,6 +25,7 @@ mob
 		InteractScript = null
 		list/InteractText = ""
 		InteractName = null
+	layer = MobLayer
 
 /mob/New()
 	..()
