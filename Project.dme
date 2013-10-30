@@ -128,6 +128,7 @@
 #include "Project\Code\Objects\Foliage\AutoJoining.dm"
 #include "Project\Code\Objects\Foliage\Bushes.dm"
 #include "Project\Code\Objects\Foliage\Cacti.dm"
+#include "Project\Code\Objects\Foliage\CliffFace.dm"
 #include "Project\Code\Objects\Foliage\Flowers.dm"
 #include "Project\Code\Objects\Foliage\PlantLife.dm"
 #include "Project\Code\Objects\Foliage\Tree.dm"

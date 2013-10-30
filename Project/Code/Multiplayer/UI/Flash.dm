@@ -9,7 +9,7 @@
 		..()
 		transform *= (world.view * 2) + 1
 
-	proc/Init(var/client/C)
+	Init(var/client/C)
 		C.screen += src
 		screen_loc = "CENTER"
 

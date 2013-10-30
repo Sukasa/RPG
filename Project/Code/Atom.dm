@@ -60,10 +60,14 @@ atom/proc/UserInRange(var/User = 0, var/Range = 0)
 	return GetDistanceTo(User) <= Range
 
 atom/var/list/MatchTypes = list( )
+
 atom/proc/AutoJoin()
 	var/B = 0
 	for(var/X = 1, X <= 8, X++)
 		var/turf/T = get_step(src, Cardinal8[X])
-		if (!T || (T.type in (MatchTypes + type)) || locate(type) in T)
+		if (!T || (T.type == type) || locate(type) in T)
 			B |= 1 << X
+		for (var/Type in MatchTypes)
+			if (istype(T, Type))
+				B |= 1 << X
 	icon_state = "[Config.AutoTile[(B >> 1) + 1]]"

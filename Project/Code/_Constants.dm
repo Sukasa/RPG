@@ -169,11 +169,30 @@ var
 		AutoJoinBits8	=	list(1, 2, 4, 8, 16, 32, 64, 128)
 
 		// Text Colours
-		TextColours = list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
-						   "\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
-						   "\white" =   rgb(255, 255, 255), "\black" = rgb(0, 0, 0) )
+		TextColours 	= list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
+							   "\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
+							   "\white" =   rgb(255, 255, 255), "\black" = rgb(0, 0, 0) )
 
 		// Rank Titles
-		RankTitles = list("Banned", "Player", "Moderator", "Programmer", "Administrator")
+		RankTitles 		= list("Banned", "Player", "Moderator", "Programmer", "Administrator")
 
-		CliffFaceStates = list( "7", "199", "193", "247", "223" )
+		CliffFaceStates = list("7", "199", "193", "247", "223")
+		CliffBounds 	= list(
+            					"31"  = list("bound_x" = 15, "bound_width" = 10),
+            					"241" = list("bound_x" = 8, "bound_width" = 6),
+            					"124" = list("bound_y" = 11, "bound_height" = 4),
+            					"199" = list("bound_y" = 23, "bound_height" = 2),
+				            	"7"   = list("bound_x" = 15, "bound_width" = 10),
+				            	"28"  = list("bound_x" = 15, "bound_width" = 10, "bound_y" = 11, "bound_height" = 4),
+				            	"112" = list("bound_x" = 8, "bound_width" = 6, "bound_y" = 11, "bound_height" = 4),
+				            	"193" = list("bound_x" = 8, "bound_width" = 6),
+				            	"223" = list("bound_width" = 19, "bound_height" = 19),
+				            	"127" = list("bound_width" = 19, "bound_y" = 15, "bound_height" = 13),
+				            	"247" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 7, "bound_height" = 11),
+				            	"253" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 15, "bound_height" = 13),
+            				  )
+		BoundsOverrides = list(
+            					"31" = list("bound_width" = 15),
+            					"241" = list("bound_x" = 10, "bound_width" = 22),
+            					"124" = list("bound_y" = 12)
+            				  )

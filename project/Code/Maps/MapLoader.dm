@@ -236,7 +236,7 @@
 	var/Y = 0
 	var/X = 0
 
-	var/list/PropagationList = list( )
+	var/list/ProcessList = list( )
 
 	for (var/list/Line in TemplateMap)
 		X = 0
@@ -274,14 +274,16 @@
 	for(var/InitX = BaseX, InitX < (BaseX + X), InitX++)
 		for(var/InitY = BaseY, InitY < (BaseY + Y), InitY++)
 			var/turf/T = locate(InitX, InitY, Z)
-			PropagationList += T.Init()
+			ProcessList += T.Init()
 		sleep(-1)
 
-	// Process camera data?
-	for (X = 1, X <= PropagationList.len, X++)
-		var/turf/T = PropagationList[X]
-		if (T)
-			PropagationList += T.Propagate()
+	// Process map data
+	for (X = 1, X <= ProcessList.len, X++)
+		var/atom/A = ProcessList[X]
+		if (isturf(A))
+			ProcessList += A:Propagate()
+		else if (isobj(A))
+			A:PostProcess()
 	sleep(-1)
 
 	// Initialize data structures
