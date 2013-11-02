@@ -5,9 +5,8 @@
 	var/State = TickerNotStarted
 
 /datum/Ticker/proc/Tick()
-
-	while (State != TickerRunning)
-		sleep(1)
+	if (State != TickerRunning)
+		return
 
 	Ticks++
 	//world.log << "[Ticks]"

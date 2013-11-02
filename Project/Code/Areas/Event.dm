@@ -1,17 +1,21 @@
 /area/Event
 	icon_state = "Orange"
-	var/Triggered = list( )
+	var/global/list/Triggered = list( )
 
 	OnEntered(var/turf/Turf, var/mob/Entree)
-		if ((Turf in Triggered) || !Entree.client)
+		if ((Turf in Triggered) || !Entree.client || Ticker.State != TickerRunning)
 			return
 		var/list/Turfs = list(Turf)
 		var/list/Events = list( )
+
 		for(var/X = 1, X <= Turfs.len, X++)
 			var/turf/T = Turfs[X]
 			if (T && T.loc == src)
 				Turfs |= T.Neighbors()
 				Events |= locate(/obj/MapMarker/Event) in T
+
+		Triggered |= Turfs
+
 		for(var/obj/MapMarker/Event/E in Events)
 			if (!E.PreconditionMet())
 				return
@@ -20,12 +24,10 @@
 		for(var/obj/MapMarker/Event/E in Events)
 			Persist |= E.Execute(Entree)
 
-		Triggered |= Turfs
-
 		if (Persist)
-			spawn(20)
+			spawn(2)
 				while(TRUE)
-					sleep(10)
+					sleep(1)
 					for(var/turf/T in Turfs)
 						if(Entree in T)
 							continue

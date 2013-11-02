@@ -12,7 +12,10 @@
 
 /CameraController/proc/Tick()
 	for(var/mob/M in Attachments)
-		CameraTick(Attachments[M], M)
+		if (!Attachments[M])
+			Attachments -= M
+		else
+			CameraTick(Attachments[M], M)
 
 	for(var/mob/Camera/C in AllCameras)
 		C.MoveTo()

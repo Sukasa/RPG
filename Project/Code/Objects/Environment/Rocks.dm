@@ -6,3 +6,4 @@
 
 	Small
 		icon_state = "EveryoneDies"
+

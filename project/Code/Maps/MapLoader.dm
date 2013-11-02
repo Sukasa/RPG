@@ -18,6 +18,7 @@
 
 /MapLoader/proc/LoadMap(var/MapID, var/Loc = locate(1, 1, 1))
 	// Load a previously parsed map
+	var/StartTime = world.timeofday
 	var/datum/CachedMap/Map
 	MapCache[MapID] >> Map
 
@@ -32,9 +33,11 @@
 	CurrentMap = MapID
 
 	CreateMap(Loc)
+	return world.timeofday - StartTime
 
 // Load a raw .dmm file, parse it, and create it.  Does not save the map to cache.
 /MapLoader/proc/LoadRawMap(var/Filename)
+	var/StartTime = world.timeofday
 	ASSERT(fexists(Filename))
 	Reader = new(Filename)
 	Reader.StripCarriageReturns()
@@ -42,6 +45,7 @@
 	CreateMap()
 
 	Config.CurrentMapName = Filename
+	return world.timeofday - StartTime
 
 // Import a map file into the cache
 /MapLoader/proc/ImportMap(var/Filename, var/MapID)
@@ -75,6 +79,7 @@
 
 // Parses a loaded map
 /MapLoader/proc/ParseMap()
+	set background = TRUE
 	ASSERT(Reader)
 	// Variable Init
 	MapWidth = 0
@@ -102,6 +107,7 @@
 
 // Parses a template line
 /MapLoader/proc/ParseTemplateLine()
+	set background = TRUE
 	// Parses the following data format into a template object
 	// "aa" = (/obj/MapMarker/MapInfo/MapName{name = "Splatterhouse"; tag = "t"},/turf/Floor/Sand,/area)
 
@@ -149,6 +155,7 @@
 
 
 /MapLoader/proc/GetValue()
+	set background = TRUE
 	var/Value = ""
 	var/InString = FALSE
 	var/InReference = TRUE
@@ -204,6 +211,7 @@
 	return text2num(Value)
 
 /MapLoader/proc/ParseZLevel()
+	set background = TRUE
 	Reader.SeekAfter(LineFeed)
 	while (Reader.Isnt(DoubleQuote))
 		MapHeight++
@@ -216,10 +224,10 @@
 		Reader.SeekAfter(LineFeed)
 
 /MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
+	set background = TRUE
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
 
-	Ticker.Suspend()
 	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
 
 	for(var/mob/M in world)
@@ -259,7 +267,7 @@
 				if (ismob(A) && A:client)
 					continue
 				if (A.loc == NewTurf)
-					A.loc = null
+					del A
 
 			for(var/datum/ObjectTemplate/Object in Tile.Objects)
 				var/atom/Atom = new Object.TypePath(locate(BaseX + X, BaseY + Y, Z))
@@ -267,7 +275,6 @@
 					Atom.vars[Param] = Object.Params[Param]
 
 			X++
-			sleep(-1)
 		Y++
 
 
@@ -275,7 +282,6 @@
 		for(var/InitY = BaseY, InitY < (BaseY + Y), InitY++)
 			var/turf/T = locate(InitX, InitY, Z)
 			ProcessList += T.Init()
-		sleep(-1)
 
 	// Process map data
 	for (X = 1, X <= ProcessList.len, X++)
@@ -284,7 +290,7 @@
 			ProcessList += A:Propagate()
 		else if (isobj(A))
 			A:PostProcess()
-	sleep(-1)
+
 
 	// Initialize data structures
 
@@ -299,4 +305,9 @@
 		if (M.client)
 			M.Respawn()
 
-	Ticker.Start()
+	// Events Data
+	var/area/Event/A
+	A.Triggered = list( ) // Triggered is a global (read: static / shared) var
+	A = A // Suppress a compile warning.
+
+	sleep(-1)

@@ -12,6 +12,7 @@
 		MatchTypes = list( /turf/Basic/Lava )
 		name = "Lava Pool"
 		icon = 'LavaPool.dmi'
+		density = TRUE
 
 	Dirt
 		MatchTypes = list( /turf/Basic/Dirt, /turf/Basic/Clifftop )
@@ -34,25 +35,25 @@
 
 		Low
 			MatchTypes = list( /turf/Basic/Clifftop/Low )
-			layer = 4
+			layer = 5
 			icon_state = "Top1"
 
 		Med
 			MatchTypes = list( /turf/Basic/Clifftop/Med )
 			Height = 2
-			layer = 5
+			layer = 6
 			icon_state = "Top2"
 
 		High
 			MatchTypes = list( /turf/Basic/Clifftop/High )
 			Height = 3
-			layer = 6
+			layer = 7
 			icon_state = "Top3"
 
 		Cavewall
 			Height = 3
-			layer = 6
-			icon_state = "255"
+			layer = 7
+			icon_state = "Editor"
 			icon = 'CaveWalls.dmi'
 
 		Init()

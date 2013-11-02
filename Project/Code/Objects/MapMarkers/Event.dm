@@ -49,22 +49,6 @@
 		icon_state = "Exit"
 		var/MapName = ""
 		var/EntranceTag = ""
+
 		Execute(var/mob/Player)
-			spawn
-				Config.Events.FadeOut()
-				sleep(1)
-				if (lentext(MapName))
-					if (fexists("Project/Maps/[MapName]"))
-						Config.MapLoader.LoadRawMap("Project/Maps/[MapName]")
-					else
-						Config.MapLoader.LoadMap(MapName)
-
-				if (lentext(EntranceTag))
-					var/T = locate(EntranceTag)
-					if (T)
-						Player.Move(T:loc)
-						Config.Cameras.Warp(Player)
-					else
-						ErrorText("Unable to find entrance [EntranceTag]!")
-
-				Config.Events.FadeIn()
+			Config.Events.TakeExit(MapName, EntranceTag, Player)

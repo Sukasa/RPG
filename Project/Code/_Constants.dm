@@ -189,7 +189,7 @@ var
 				            	"223" = list("bound_width" = 19, "bound_height" = 19),
 				            	"127" = list("bound_width" = 19, "bound_y" = 15, "bound_height" = 13),
 				            	"247" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 7, "bound_height" = 11),
-				            	"253" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 15, "bound_height" = 13),
+				            	"253" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 15, "bound_height" = 14),
             				  )
 		BoundsOverrides = list(
             					"31" = list("bound_width" = 15),
