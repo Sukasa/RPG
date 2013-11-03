@@ -7,8 +7,7 @@
 	if (!findtext(CommandText, ".dmm", -5))
 		CommandText = "[CommandText].dmm"
 	if (fexists("Project/Maps/[CommandText]"))
-		var/S = Config.MapLoader.LoadRawMap("Project/Maps/[CommandText]")
-		sleep(S) // I don't know why I need this, but w/o the fade-in doesn't work.
+		Config.MapLoader.LoadRawMap("Project/Maps/[CommandText]")
 	else
 		ErrorText("Cannot load file Project/Maps/[CommandText]!")
 	Ticker.Start()
@@ -19,8 +18,7 @@
 
 /ChatCommand/LoadMap/Execute(var/mob/Player, var/CommandText)
 	Ticker.Suspend()
-	var/S = Config.MapLoader.LoadMap(CommandText)
-	sleep(S) // I don't know why I need this, but w/o the fade-in doesn't work.
+	Config.MapLoader.LoadMap(CommandText)
 	Ticker.Start()
 
 /ChatCommand/ParseMap

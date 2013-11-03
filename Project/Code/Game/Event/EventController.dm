@@ -11,14 +11,14 @@
 	for(var/mob/M in world)
 		if (M.client)
 			M.client.Flash.FadeIn(Color, Time, FinalAlpha)
-	sleep(Time)
+	sleep(Time + 1)
 
 /EventController/proc/FadeOut(var/Color = ColorBlack, var/Time = 8, var/FinalAlpha = 255)
 	for(var/mob/M in world)
 		if (M.client)
 			spawn
 				M.client.Flash.FadeOut(Color, Time, FinalAlpha)
-	sleep(Time)
+	sleep(Time + 1)
 
 /EventController/proc/Init()
 	Scripts = new("SDATA")
@@ -74,20 +74,16 @@
 
 /EventController/proc/TakeExit(var/MapName, var/EntranceTag, var/mob/Player)
 	spawn
-		Ticker.Suspend()
 
 		FadeOut()
 
-		sleep(1)
-		var/SleepTime = 0
-
 		if (lentext(MapName))
 			if (fexists("Project/Maps/[MapName]"))
-				SleepTime = Config.MapLoader.LoadRawMap("Project/Maps/[MapName]")
+				Config.MapLoader.LoadRawMap("Project/Maps/[MapName]")
 			else if (fexists("Project/Maps/[MapName].dmm"))
-				SleepTime = Config.MapLoader.LoadRawMap("Project/Maps/[MapName].dmm")
+				Config.MapLoader.LoadRawMap("Project/Maps/[MapName].dmm")
 			else
-				SleepTime = Config.MapLoader.LoadMap(MapName)
+				Config.MapLoader.LoadMap(MapName)
 
 		if (lentext(EntranceTag))
 			var/T = locate(EntranceTag)
@@ -100,6 +96,4 @@
 			else
 				ErrorText("Unable to find entrance [EntranceTag]!")
 
-		sleep(SleepTime) // I don't know why I need this, but w/o the fade-in doesn't work.
-		Ticker.Start()
 		FadeIn()

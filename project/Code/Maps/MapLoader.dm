@@ -18,11 +18,11 @@
 
 /MapLoader/proc/LoadMap(var/MapID, var/Loc = locate(1, 1, 1))
 	// Load a previously parsed map
-	var/StartTime = world.timeofday
 	var/datum/CachedMap/Map
 	MapCache[MapID] >> Map
 
 	Config.CurrentMapName = MapID
+	CurrentMap = MapID
 
 	Templates = Map.Templates
 	TemplateMap = Map.TemplateMap
@@ -30,22 +30,19 @@
 	MapHeight = Map.Height
 	MapWidth = Map.Width
 
-	CurrentMap = MapID
 
 	CreateMap(Loc)
-	return world.timeofday - StartTime
 
 // Load a raw .dmm file, parse it, and create it.  Does not save the map to cache.
 /MapLoader/proc/LoadRawMap(var/Filename)
-	var/StartTime = world.timeofday
+	Config.CurrentMapName = Filename
+	CurrentMap = Filename
 	ASSERT(fexists(Filename))
 	Reader = new(Filename)
 	Reader.StripCarriageReturns()
 	ParseMap()
 	CreateMap()
 
-	Config.CurrentMapName = Filename
-	return world.timeofday - StartTime
 
 // Import a map file into the cache
 /MapLoader/proc/ImportMap(var/Filename, var/MapID)
@@ -187,6 +184,7 @@
 					if (InString)
 						return Value
 					InString = !InString
+
 				if(SingleQuote)
 					if (InString)
 						Value = addtext(Value, Reader.Take())
@@ -194,7 +192,7 @@
 						InReference = !InReference
 						if (!InReference)
 							return fcopy_rsc(Value) // This is Wrong
-					Reader.Advance()
+						Reader.Advance()
 
 				if(Backslash)
 					Escaped = TRUE
@@ -227,6 +225,9 @@
 	set background = TRUE
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
+
+	var/StartTime = world.timeofday
+	Ticker.Suspend()
 
 	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
 
@@ -310,4 +311,5 @@
 	A.Triggered = list( ) // Triggered is a global (read: static / shared) var
 	A = A // Suppress a compile warning.
 
-	sleep(-1)
+	Ticker.Start()
+	sleep(world.timeofday - StartTime)

@@ -4,7 +4,7 @@
 		icon = 'Grass.dmi'
 		icon_state = "Grass1"
 		BaseState = "Grass"
-		VarietyCount = 5
+		VarietyCount = 8
 
 	DarkGrass
 		name = "Grass"

@@ -13,6 +13,7 @@
 	Base.layer = TextLayer
 
 	var/StreamReader/Reader = new(Config.Lang.String(Text))
+
 	Reader.StripCarriageReturns()
 	Reader.Seek(StartIndex)
 	LastTextIndex = StartIndex

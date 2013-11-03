@@ -38,6 +38,16 @@
 		New()
 			icon_state = "255"
 
+	Pit
+		name = "Pit"
+		icon = 'BigPit.dmi'
+		icon_state = "255"
+
+	ObsidianPit
+		name = "Obsidian Pit"
+		icon = 'ObsidianPit.dmi'
+		icon_state = "255"
+
 	Clifftop
 		name = "Dirt"
 		icon = 'BigCliff.dmi'

@@ -14,6 +14,24 @@
 		icon = 'LavaPool.dmi'
 		density = TRUE
 
+	Pool
+		MatchTypes = list( /turf/Basic/Water )
+		name = "Pool"
+		icon = 'BigWater.dmi'
+		density = TRUE
+
+	Pit
+		MatchTypes = list( /turf/Basic/Pit )
+		name = "Pit"
+		icon = 'BigPit.dmi'
+		density = TRUE
+
+	ObsidianPit
+		MatchTypes = list( /turf/Basic/ObsidianPit )
+		name = "Obsidian Pit"
+		icon = 'ObsidianPit.dmi'
+		density = TRUE
+
 	Dirt
 		MatchTypes = list( /turf/Basic/Dirt, /turf/Basic/Clifftop )
 		name = "Dirt"

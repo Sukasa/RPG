@@ -64,10 +64,13 @@ mob
 
 	var/turf/T = locate(P.TileX, P.TileY, z)
 
-	var/obj/MapMarker/Interactible/A = locate(/obj/MapMarker/Interactible) in T
+	var/obj/MapMarker/Interactible/A = locate() in T
+	var/obj/Interactive/B = locate() in T
 
 	if (A)
 		A.InteractWith(src)
+	else if (B)
+		B.InteractWith(src)
 	else
 		for(var/mob/M in T)
 			if (M != src && P.Intersects(M))
