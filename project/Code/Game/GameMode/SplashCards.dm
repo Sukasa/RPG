@@ -12,6 +12,8 @@
 
 		Ticker.ChangeGameMode(/datum/GameMode/TitleScreen)
 
+/datum/GameMode/SplashCards/ShowHUD()
+	return FALSE
 
 /datum/GameMode/SplashCards/End()
 	return

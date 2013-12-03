@@ -63,6 +63,8 @@ window "pane_map"
 		on-size = ""
 		icon-size = 32
 		text-mode = false
+		letterbox = true
+		zoom = 0
 		on-show = ""
 		on-hide = ""
 		style = ""
@@ -137,7 +139,7 @@ window "pane_sidebar"
 window "window_main"
 	elem "window_main"
 		type = MAIN
-		pos = 900,406
+		pos = 2043,111
 		size = 1004x723
 		anchor1 = none
 		anchor2 = none
@@ -203,7 +205,7 @@ window "window_main"
 	elem "input1"
 		type = INPUT
 		pos = 0,698
-		size = 1000x21
+		size = 688x21
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = ""

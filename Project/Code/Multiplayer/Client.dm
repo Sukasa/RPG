@@ -5,7 +5,7 @@ client
 
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
-		obj/Runtime/HUD/HUDController/HUD
+		HUD/HUD
 		obj/Runtime/Flash/Flash = new()
 
 
@@ -55,14 +55,14 @@ client
 	if (EnableKeyboard)
 		InitializeKeyboardMacros()
 
-	if (HUD)
-		HUD.Initialize()
-
 	// Set Mob team, if appropriate
 	if (istype(usr, /mob/Spectator))
 		Config.Teams[TeamSpectators] += usr
 
 	Ticker.Mode.OnPlayerJoin(mob)
+
+	HUD = new/HUD()
+	HUD.AttachedMob = mob
 
 	// Set mob position
 	mob.Respawn()

@@ -1,5 +1,6 @@
 /Savegame
 	var/list/EventFlags = list( )
+	var/list/GlobalVariables = list( )
 
 	var/Point/Location = null
 
@@ -18,6 +19,7 @@
 
 	var/IsNewGame = TRUE
 	var/SaveSlot = 0
+	var/MobStats/PlayerStats = new/MobStats/PlayerStats
 
 	proc
 		ImportCurrentState()
@@ -33,6 +35,7 @@
 
 			// Progress
 			EventFlags = Config.EventFlags
+			GlobalVariables = Config.Globals
 
 			// Options
 			MusicVolume = Config.MusicVolume
@@ -47,6 +50,7 @@
 			Inventory = Config.Inventory
 			Equipped = Config.Equipped
 			*/
+			PlayerStats = C.mob.Stats
 
 			SaveSlot = Config.SaveSlot
 			IsNewGame = FALSE
@@ -55,6 +59,8 @@
 			if (IsNewGame)
 				return
 			// Load from save
+			var/client/C = Config.Clients[1]
+			var/mob/M = C.mob
 
 			// Set Options
 			Config.Lang.LoadLanguageFile(Language)
@@ -66,6 +72,7 @@
 
 			// Load player state
 			Config.EventFlags = EventFlags
+			Config.Globals = GlobalVariables
 
 			/*
 
@@ -76,8 +83,12 @@
 			*/
 
 			// Load Map
+			M.Stats = PlayerStats
 
-			Config.MapLoader.LoadMap(CurrentMap)
+			if (findtext(CurrentMap, ".dmm"))
+				Config.MapLoader.LoadRawMap(CurrentMap)
+			else
+				Config.MapLoader.LoadMap(CurrentMap)
 
 			/*
 
@@ -85,10 +96,14 @@
 
 			*/
 
-			// Set position
-			var/client/C = Config.Clients[1]
-			var/mob/M = C.mob
+			// Cleanup & Positioning
+
+			Config.Menus.PopMenu(M)
+			Ticker.ChangeGameMode(/datum/GameMode)
+
 			M.WarpTo(Location)
+			Config.Cameras.Warp(M)
+			Config.Events.FadeIn()
 
 		Save()
 			if (!SaveSlot)

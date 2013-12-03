@@ -9,12 +9,14 @@
 /CommandController/proc/IsValidCommand(var/Command)
 	return AllCommands[Command] != null
 
-/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "")
+/CommandController/proc/Execute(var/mob/Executor, var/Command, var/CommandText = "", var/Context)
 	var/ChatCommand/CC = AllCommands[Command]
 	if (!CC)
 		ErrorText("Command [Command] not found!")
 		return
 	if (!Executor || (Executor.Rank >= CC.MinPowerLevel) || Debug)
-		CC.Execute(Executor, CommandText)
+		if (!CC.ShouldExecute(Context))
+			return
+		CC.Execute(Executor, CommandText, Context)
 	else
 		SendUser("\red You do not have permission to do this")

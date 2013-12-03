@@ -23,3 +23,6 @@
 
 /datum/GameMode/TitleScreen/End()
 	return
+
+/datum/GameMode/TitleScreen/ShowHUD()
+	return FALSE

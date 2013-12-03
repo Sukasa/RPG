@@ -78,7 +78,7 @@
 /MapLoader/proc/ParseMap()
 	set background = TRUE
 	ASSERT(Reader)
-	// Variable Init
+
 	MapWidth = 0
 	MapHeight = 0
 	Templates = list( )
@@ -238,9 +238,9 @@
 	world.maxx = MapWidth
 	world.maxy = MapHeight
 
-	var/BaseX = Loc.x
-	var/BaseY = Loc.y
-	var/Z = Loc.z
+	var/BaseX = Loc ? Loc.x : 1
+	var/BaseY = Loc ? Loc.y : 1
+	var/Z = Loc ? Loc.z : 1
 
 	var/Y = 0
 	var/X = 0

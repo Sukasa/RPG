@@ -51,19 +51,12 @@
 		return
 	UpdateCursor(Object)
 	Mouse.Set(Object, params2list(P))
-	if (IsMovable(Mouse.Highlighted) && istype(Mouse.Highlighted, /obj/Runtime/HUD))
-		var/obj/Runtime/HUD/HUDObject/HO = Mouse.Highlighted
-		if (Mouse.Left)
-			HO.Master.LeftClick(HO, Mouse)
-		if (Mouse.Right)
-			HO.Master.RightClick(HO, Mouse)
-	else
-		if (Mouse.Left)
-			mob.SetMoveTarget(Mouse)
-		if (Mouse.Right)
-			mob.Interact(Mouse)
-		if (Mouse.Middle)
-			mob.Interact(Mouse, TRUE)
+	if (Mouse.Left)
+		mob.SetMoveTarget(Mouse)
+	if (Mouse.Right)
+		mob.Interact(Mouse)
+	if (Mouse.Middle)
+		mob.Interact(Mouse, TRUE)
 
 /client/MouseUp(var/Object, var/Location, var/Control, var/P)
 	..()

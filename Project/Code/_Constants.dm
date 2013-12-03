@@ -102,6 +102,7 @@ var
 		MobLayer = 10
 		ShadowLayer = 19
 		OverlayLayer = 20
+		HUDLayer = 99
 		FlashLayer = 100
 		UILayer = 101
 		TextLayer = 102
@@ -112,6 +113,7 @@ var
 		AlignRight = 3
 
 		ColorWhite = rgb(255, 255, 255)
+		ColorGrey = rgb(128, 128, 128)
 		ColorRed = rgb(255, 0, 0)
 		ColorBlack = rgb(0, 0, 0)
 		ColorDarkRed = rgb(128, 0, 0)

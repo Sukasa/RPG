@@ -3,7 +3,7 @@ Stack
 
 	proc
 		Push(var/Item)
-			Items.Insert(1, Item)
+			Items.InsertList(1, list(Item))
 
 		Pop()
 			. = Peek()

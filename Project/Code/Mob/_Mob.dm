@@ -5,20 +5,15 @@ mob
 		SubStepY = 0
 		SmoothMove = 0
 
+		MobStats/Stats = new()
+
 		Team = TeamUnknown
 
 		// These are OR'd with team and rank-based channel config
 		BroadcastChannels = Debug ? ChannelAll : ChannelNone
 		SubscribedChannels = Debug ? ChannelAll : ChannelNone
 
-		list/Inventory[9]
-		inv_selected = 1
-		stunned = 0
-
-		obj/Runtime/flash/hud_flash
 		Rank = RankUnranked
-
-		list/Damage[7]
 
 		Spectate = FALSE // Does the user wish to spectate this round?
 
@@ -29,7 +24,6 @@ mob
 
 /mob/New()
 	..()
-	hud_flash = new /obj/Runtime/flash()
 	SetCursor(CursorRed)
 	if (!Config.MobLayerEnabled)
 		invisibility = Invisible
@@ -46,7 +40,6 @@ mob
 
 /mob/proc/SetMoveTarget(var/datum/Mouse/Mouse)
 	Destination = Mouse.Pos.Clone()
-	//TODO Movement cursor?
 	return
 
 /mob/proc/InteractWith(var/mob/Player)
@@ -77,16 +70,18 @@ mob
 				return
 
 
-/mob/proc/WarpTo(var/datum/Point/Target = Destination)
-	Destination = new/Point(Destination)
-	step_y = Destination.FineY - (bound_height / 2) - bound_y
-	step_x = Destination.FineX - (bound_width / 2) - bound_x
-	Move(locate(Destination.TileX, Destination.TileY, z))
+/mob/proc/WarpTo(var/Point/Target = Destination)
+	if (!istype(Target, /Point))
+		Target = new/Point(Target)
+	step_y = Target.FineY - (bound_height / 2) - bound_y
+	step_x = Target.FineX - (bound_width / 2) - bound_x
+	Move(locate(Target.TileX, Target.TileY, z))
 
 /mob/proc/MoveTo(var/datum/Target = Destination)
 	Destination = Target
 	if (!Target)
 		return
+
 	var/Angle = GetAngleTo(Destination)
 	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * world.icon_size)
 
@@ -113,9 +108,6 @@ mob
 	SubStepX = NewStepX % 1
 	SubStepY = NewStepY % 1
 
-
-
-
 	if (GetDistanceTo(Destination) <= 1 / world.icon_size)
 		if (IsMovable(Destination))
 			Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
@@ -129,53 +121,14 @@ mob
 	..()
 	if (SmoothMove)
 		SmoothMove--
-		return
-	Destination = null
-
-/mob/proc/Health()
-	return 1000
-
-/mob/proc/Accuracy()
-	return 100
-
-/mob/proc/Dead()
-	return FALSE
-
-/mob/proc/Stunned()
-	return stunned
-
-/mob/proc/Stutter()
-	return FALSE
-
-/mob/proc/Blurred()
-	return FALSE
-
-/mob/proc/SelectedItem()
-	return Inventory[inv_selected]
+	else
+		Destination = null
 
 /mob/proc/MoveSpeed()
-	if(stunned)
-		if(stunned <= 100)
-			return 5-(stunned/30)
-		else
-			return 1
-	else
-		. = 5
-		if (client && client.Keys["shift"])
-			. += 5
+	. = Stats.MovementSpeed
+	if (client && client.Keys["Shift"] && Stats.Stamina)
+		. += Stats.MovementSpeed
 
-/mob/proc/CanAttack()
-	return stunned<5
-
-/mob/proc/Stun(var/severity)
-	return
-
-/mob/Login()
-	..()
-	client.screen += hud_flash
-
-/mob/proc/flash_screen()
-	flick('FlashWhite.dmi',hud_flash)
 
 /mob/proc/Respawn()
 	if (Rank == RankUnranked)
@@ -191,10 +144,19 @@ mob
 		SpawnSpot = pick(Locs)
 	Move(locate(SpawnSpot.x + rand(0, 9), SpawnSpot.y + rand(0, 6), SpawnSpot.z))
 	Destination = null
-	stunned = initial(stunned)
 	sight = initial(sight)
 	SubStepX = 0
 	SubStepY = 0
 	Ticker.Mode.OnPlayerSpawn(src)
 	if (client)
 		Config.Cameras.Attach(src)
+		if (client.HUD)
+			if(!client.HUD.Initialized)
+				client.HUD.Initialize()
+			else
+				client.HUD.Update()
+
+/mob/FastTick()
+	..()
+	if (client && client.HUD)
+		client.HUD.Tick()

@@ -5,4 +5,5 @@
 	var/Savegame/S = new()
 	S.ImportCurrentState()
 	S.Save()
-	del S
+
+	Config.Events.Dialogue(Player, "Saved")

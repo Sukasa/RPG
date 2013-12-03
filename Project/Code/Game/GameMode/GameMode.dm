@@ -31,6 +31,9 @@
 /datum/GameMode/proc/OnPlayerDeath(var/mob/Player)
 	return
 
+/datum/GameMode/proc/ShowHUD()
+	return TRUE
+
 /datum/GameMode/proc/GetAssignedTeam(var/mob/Player)
 	return LateAssign(Player)
 

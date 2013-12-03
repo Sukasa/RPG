@@ -17,4 +17,4 @@ proc/Subtypes(var/Type)
 	return typesof(Type) - Type
 
 proc/IsList(var/L)
-	return "[L]" == "/list"
+	return istype(L, /list)

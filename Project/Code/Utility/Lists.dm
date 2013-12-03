@@ -1,8 +1,9 @@
 /proc/InsertList(var/Index, var/list/Container, var/Insert)
-	Container.len++
-	for(var/X = Container.len, X > Index, X--)
-		Container[X] = Container[X - 1]
-	Container[Index] = Insert
+	Container.Insert(Index, list(Insert))
+//	Container.len++
+//	for(var/X = Container.len, X > Index, X--)
+//		Container[X] = Container[X - 1]
+//	Container[Index] = Insert
 
 /proc/JoinList(var/list/A, var/Separator = ", ")
 	for (var/aB in A)

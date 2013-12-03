@@ -10,6 +10,11 @@ mob/Soldier
 	var/dmg_major = 0
 	var/dmg_minor = 0
 	var/dmg_blood = 100
+	var/RecoveryTimeout = 120
+
+/mob/Soldier/New()
+	..()
+	Stats = new/MobStats/PlayerStats()
 
 /mob/Soldier/Respawn()
 	..()
@@ -17,21 +22,8 @@ mob/Soldier
 	dmg_minor = initial(dmg_minor)
 	dmg_blood = initial(dmg_blood)
 
-/mob/Soldier/Stun(var/severity)
-	stunned = min(1000,stunned+severity)
-	world << "[src] got hit by a stunner and is now stunned for [stunned]"
-	flash_screen()
-
-
-/mob/Soldier/New()
-	..()
-	spawn(0)
-		if (client && client.HUD)
-			client.HUD.Update()
-
 /mob/Soldier/FastTick()
 	..()
-	stunned = max(stunned-2,0)
 	var/SetDir = 0
 	if (client && !client.KeyboardHandler && client.EnableKeyboardMovement && !Config.InputSuspended)
 
@@ -51,14 +43,13 @@ mob/Soldier
 			step(src, NORTH, MoveSpeed())
 			SetDir |= NORTH
 
+		if (SetDir && client.Keys["Shift"] && Stats.Stamina > 0)
+			Stats.Stamina--
+			RecoveryTimeout = initial(RecoveryTimeout)
+		else if (!client.Keys["Shift"] && Stats.Stamina < Stats.MaxStamina && (RecoveryTimeout-- <= 0))
+			Stats.Stamina++
+
 		dir = SetDir
 
 		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()
-
-
-/mob/Soldier/SlowTick()
-	if(client && stunned) //DEBUG!
-		client << "Stunned for [stunned]"
-
-	..()

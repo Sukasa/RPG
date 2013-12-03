@@ -12,7 +12,6 @@
 	Init()
 		if ("[Config.CurrentMapName][x][y]" in Config.EventFlags)
 			Opened()
-		world.log << InteractText
 
 	proc
 		Opened()

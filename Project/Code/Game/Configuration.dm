@@ -59,6 +59,9 @@
 	// One-Shot Flags
 	var/list/EventFlags = list( )
 
+	// Global Variables
+	var/list/Globals = list()
+
 	// Team memberlists
 	var/tmp/list/Teams = list(list( ), list( ), list( ), list( ))
 

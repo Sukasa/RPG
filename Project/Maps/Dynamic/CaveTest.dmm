@@ -27,8 +27,8 @@
 "aA" = (/obj/Environment/Cave/Rocks/Spikes/Dirt,/turf/Basic/Dirt,/area)
 "aB" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/Spikes/DarkDirt,/turf/Basic/DarkDirt,/area)
 "aC" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Pit,/area)
-"aD" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Pit,/turf/Basic/DarkDirt,/area)
-"aE" = (/obj/Autojoin/Pit,/turf/Basic/DarkDirt,/area)
+"aD" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/DirtPit,/turf/Basic/DarkDirt,/area)
+"aE" = (/obj/Autojoin/DirtPit,/turf/Basic/DarkDirt,/area)
 "aF" = (/turf/Basic/Pit,/area)
 "aG" = (/obj/Autojoin/LavaPool,/turf/Basic/DarkDirt,/area)
 "aH" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/LavaPool,/turf/Basic/DarkDirt,/area)
@@ -50,31 +50,32 @@
 "aX" = (/obj/Environment/Cave/Rocks/TallRocks/Med{step_x = 4},/turf/Basic/DarkDirt,/area)
 "aY" = (/obj/Environment/Cave/Rocks/SmallRocks/Dark/Single{step_x = 3; step_y = 1},/turf/Basic/DarkDirt,/area)
 "aZ" = (/obj/Environment/Cave/Rocks/TallRocks/Med{step_x = 22},/turf/Basic/Clifftop/High,/area)
-"ba" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Dirt,/turf/Basic/DarkDirt,/area)
-"bb" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/DarkDirt,/area)
-"bc" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/LargeRocks/Alt,/turf/Basic/DarkDirt,/area)
-"bd" = (/obj/Autojoin/Pool,/turf/Basic/DarkDirt,/area)
-"be" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Clifftop/Med,/area)
-"bf" = (/turf/Basic/Clifftop/Med,/area)
-"bg" = (/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/Clifftop/Med,/area)
-"bh" = (/obj/Environment/Cave/Rocks/LargeRocks/Single,/turf/Basic/Clifftop/Med,/area)
-"bi" = (/obj/Environment/Cave/Rocks/Spikes/Dirt,/turf/Basic/Clifftop/Med,/area)
-"bj" = (/turf/Basic/Water,/area)
-"bk" = (/obj/Autojoin/Clifftop/Med,/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Lava,/area)
-"bl" = (/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
-"bm" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
-"bn" = (/obj/Environment/Cave/Rocks/LargeRocks/Single,/turf/Basic/DarkDirt,/area)
-"bo" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Environment/Cave/Mushrooms/Brown,/turf/Basic/DarkDirt,/area)
-"bp" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/TallRocks/Med,/turf/Basic/DarkDirt,/area)
-"bq" = (/obj/Autojoin/Clifftop/Med,/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
-"br" = (/obj/Autojoin/Clifftop/Med,/obj/Environment/Cave/Rocks/SmallRocks/Med/Single,/turf/Basic/Lava,/area)
-"bs" = (/obj/Autojoin/Clifftop/Med,/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/Lava,/area)
-"bt" = (/obj/Environment/Cave/Rocks/SmallRocks/Med/Single,/turf/Basic/Clifftop/Med,/area)
-"bu" = (/obj/Autojoin/Dirt,/obj/MapMarker/Entrance{tag = "Entrance"},/turf/Basic/DarkDirt,/area)
-"bv" = (/obj/Environment/Cave/Rocks/TallRocks/Med,/turf/Basic/Dirt,/area)
-"bw" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Dirt,/area/Event)
-"bx" = (/turf/Basic/Dirt,/area/Event)
-"by" = (/obj/MapMarker/Event/Exit{EntranceTag = "FromCaveTest"; MapName = "dynamic/objecttest"},/turf/Basic/Dirt,/area/Event)
+"ba" = (/obj/Autojoin/Clifftop/High,/obj/Autojoin/ObsidianPit,/turf/Basic/Obsidian,/area)
+"bb" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Dirt,/turf/Basic/DarkDirt,/area)
+"bc" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/DarkDirt,/area)
+"bd" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/LargeRocks/Alt,/turf/Basic/DarkDirt,/area)
+"be" = (/obj/Autojoin/CavePool,/turf/Basic/DarkDirt,/area)
+"bf" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Clifftop/Med,/area)
+"bg" = (/turf/Basic/Clifftop/Med,/area)
+"bh" = (/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/Clifftop/Med,/area)
+"bi" = (/obj/Environment/Cave/Rocks/LargeRocks/Single,/turf/Basic/Clifftop/Med,/area)
+"bj" = (/obj/Environment/Cave/Rocks/Spikes/Dirt,/turf/Basic/Clifftop/Med,/area)
+"bk" = (/turf/Basic/Water,/area)
+"bl" = (/obj/Autojoin/Clifftop/Med,/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Lava,/area)
+"bm" = (/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
+"bn" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
+"bo" = (/obj/Environment/Cave/Rocks/LargeRocks/Single,/turf/Basic/DarkDirt,/area)
+"bp" = (/obj/Autojoin/Clifftop/Cavewall,/obj/Environment/Cave/Mushrooms/Brown,/turf/Basic/DarkDirt,/area)
+"bq" = (/obj/Autojoin/Dirt,/obj/Environment/Cave/Rocks/TallRocks/Med,/turf/Basic/DarkDirt,/area)
+"br" = (/obj/Autojoin/Clifftop/Med,/obj/Autojoin/Clifftop/Cavewall,/obj/Autojoin/Clifftop/Med,/turf/Basic/Lava,/area)
+"bs" = (/obj/Autojoin/Clifftop/Med,/obj/Environment/Cave/Rocks/SmallRocks/Med/Single,/turf/Basic/Lava,/area)
+"bt" = (/obj/Autojoin/Clifftop/Med,/obj/Environment/Cave/Rocks/SmallRocks/Med/SingleAlt,/turf/Basic/Lava,/area)
+"bu" = (/obj/Environment/Cave/Rocks/SmallRocks/Med/Single,/turf/Basic/Clifftop/Med,/area)
+"bv" = (/obj/Autojoin/Dirt,/obj/MapMarker/Entrance{tag = "Entrance"},/turf/Basic/DarkDirt,/area)
+"bw" = (/obj/Environment/Cave/Rocks/TallRocks/Med,/turf/Basic/Dirt,/area)
+"bx" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Dirt,/area/Event)
+"by" = (/turf/Basic/Dirt,/area/Event)
+"bz" = (/obj/MapMarker/Event/Exit{EntranceTag = "FromCaveTest"; MapName = "dynamic/objecttest"},/turf/Basic/Dirt,/area/Event)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababababababababababababababababababababababababababababababab
@@ -157,14 +158,14 @@ ababababababababaeaeaeamamamaJaJaJaJaJaJaJaKaJaLaJaJaJaJaJaJaJaJaJaJamamaeaeaeae
 abababababababababaeamamaJaJaJaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaNaJaJamaeaeaeaeaeaeaeababababaeaOaeazaeaeaeaeaeaeaeaeamaoaoaoaoaoaoaAaoamamaeaeaeaeaeaeabababab
 abababababababababaPamaJaJaNaNaNadadadadadadadaQaQaQaQaQaQaQaQaQaRaSaJamamamamaeaeaeaeabababaTaeaqaOaeaeaqaeaeaeaeaeaeamamamamamamaoamamamaeaeaeaeaeaeababababab
 ababababababababaPaPaJaJaNaNadadadadadadadadadaQaQaQaQaQaQaQaQaQaUaSaJaJaJaJamaeaeaeababababababaeaeaVaeaeaeabababaeaeaeaeaeaeaeamamamaeaeaeaeaeaeaeaeababababab
-ababababababababaPaWaJaNaNadadadadadadadadadadaQaQaQaQaQaQaQaQaQaRaRaNaNaNaJamaeaeabababababababaeaeaeaXaYababababababababaeaeaeaeaeaeaeaeaeaeaeaeaeabababababab
-abababababababaeamaJaNaNadadadaiaiaiaiaiadadadadadadadadadadadadaNaNaNaNaNaJamaeaeababababababababaeaeaeaeabababababababababababaeaeaeaeaeaeaeaeaeababababababab
-ababababababaeaeamaZaNadadaiaiaiajajajaiaiadanadadadadadadadadadadadadadaNaJamaeaeababababababababaeaeaeaeabababababababababababababaeaeaeaeaeaeabababababababab
-abababababaeaeaeamaJaNadadaiaiaiajajajaiaiaiaiaiaiaiaiaiaiaiadadadadadadaNaJamaeaeababababababababaeaeaeaeaeabababababababababababababababababababababababababab
-ababababaeaeaeaeamaJaNadadadanaiaiaiajajajajajajajajajajaiaiadadadadadaNaNaJamaeaeaeabababababababaeaeaeaeaeaeababababababababababababababababababababababababab
-ababababaeaeaeaeamaJaNaNadadadadadaiaiaiajaiaiaiajajajaiaianadadadadadaNaJaJamaeaeaeaeabababababaeaeaeaeaeaeaeaeaeababababababababababababababababababababababab
-ababababaqaeaeaeamaJaJaNaNaNaNaNadadadaiaiaiadaiaiaiaiaiadadadadadaNaNaNaJamamaeamamamababababaeaeamamamaeaeaeaeaeaeaeaeabababababababababababababababababababab
-abababaeaeaeaeaeamamaJaJaJaJaJaNaNaNaNaNaNaNaNaNaNaNadadadadaNaNaNaNaJaJaJamaeaeamaoamamaeaeaeaeamamaoamaeaeaeaeaeaeaeaeabababababababababababababababababababab
+ababababababababaPaWaJaNaNadasasasasasasasadadaQaQaQaQaQaQaQaQaQaRaRaNaNaNaJamaeaeabababababababaeaeaeaXaYababababababababaeaeaeaeaeaeaeaeaeaeaeaeaeabababababab
+abababababababaeamaJaNaNasasasauauauauauasasanadadadadadadadadadaNaNaNaNaNaJamaeaeababababababababaeaeaeaeabababababababababababaeaeaeaeaeaeaeaeaeababababababab
+ababababababaeaeamaZaNadasauauauajajajauauasasasasasasasasasasadadadadadaNaJamaeaeababababababababaeaeaeaeabababababababababababababaeaeaeaeaeaeabababababababab
+abababababaeaeaeamaJaNadasauauauajajajauauauauauauauauauauauasadadadadadaNaJamaeaeababababababababaeaeaeaeaeabababababababababababababababababababababababababab
+ababababaeaeaeaeamaJaNadasasasauauauajajajajajajajajajajauauasadadadadaNaNaJamaeaeaeabababababababaeaeaeaeaeaeababababababababababababababababababababababababab
+ababababaeaeaeaeamaJaNaNadanasasasauauauajauauauajajajauauasasadadadadaNaJaJamaeaeaeaeabababababaeaeaeaeaeaeaeaeaeababababababababababababababababababababababab
+ababababaqaeaeaeamaJaJaNaNaNaNaNasasasauauauatauauauauauasasanadadaNaNaNaJamamaeamamamababababaeaeamamamaeaeaeaeaeaeaeaeabababababababababababababababababababab
+abababaeaeaeaeaeamamaJaJaJaJaJaNaNaNbabababababababaasasasadaNaNaNaNaJaJaJamaeaeamaoamamaeaeaeaeamamaoamaeaeaeaeaeaeaeaeabababababababababababababababababababab
 ababaeaeaeaeaeaeaeamamamamamaJaJaJaJaJaJaJaJaJaJaJaNaNaNaNaNaNaJaJaJaJamamamaeaeamaoaoamaeaeamamamaoaoamaeaeaeaeaeaeaeababababababababaeaeaeaeaeaeababababababab
 ababaeaeaeaeaeaeaeaeaeaeaeamamamamamamamamamamamaJaJaJaJaJaJaJaJamamamamaeaeaeaeamaoaoamamamamaoaoaoamamaeaeaeaeaeaeaeababababababaeaeaeaeaeaeaeaeaeaeababababab
 ababaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamamamamamamamamaeaeaeaeaeaeaeamaoaoaoaoaoaoaoaoamamaeaeaeaeaeaeabababababababaeaeaeaeazaeaeaeaeaeaeababababab
@@ -173,28 +174,28 @@ ababaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamam
 ababaeaeaeaeaeaeaeabababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamaoaoaoaoamamamamamaeaeaeaeaeaeaeababababababababaeaeaeaqaeaeaeaeaeaeaeaeaeazaeaeababab
 ababaqaeaeaeaeaeabababababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamamamamaeaeaeaeaeaeaeaeaeaeababababababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababababab
 ababaeaeaeaeaeaeabababababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeabababababab
-ababaeaeaeaeaeaeaeaeaeababababaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeabababbaamamamamamambbambcamamamambbambababaabababaeaeazaeaeaeaebdbdbdbdbdbdaeaeaeaeabababababab
-ababaeaeaeaeaeaeaeaeaeaeaeaeaeaOaeaeaeaeaeaeaeaeaeaeaeaeabababababababbebebebfbgbfbhbfbfbibfbgbfbibfbgbebeabababaeaeaeaeaeaeaeaebdbjbjbjbjbdaeaeaeaeabababababab
-ababaeaeaeaeaeaeaeaeaOaeaeaeaeaeaeaeamamamamaeaeaeaeaeababababababababbkbkbkbkblblblblblblblblblblblblbkbmabababaeaqaeaeaeaeaeaebdbjbjbjbdbdaeaeaeaeaeaeabababab
-abababaeaeaeaeaebnaeaeaeaeaeaeaeaeamamaoaoamaeaeaeababababababababababbkaIaIaIaIajajajajajajajajajajajaIaIabababaeaeaeaeaeaeaebdbdbjbjbdbdaeaeaeaeaeaeaeabababab
-abababbnaeaeaeaeaeakaeaeaeaeaeaeamamaoaoaoamaeaqaeababababababababababbkaIaIaIaIajajajajajajajajajajajaIbeabaPabababaeaeaeaeaebdbjbjbjbdaeaeaeazaeaeaeaeabababab
-abababaeaeaeaeaeaOaeaeaeaeaeaeaeamaoaoaoamamaeaeagaeabababababababababbkaIaIaIaIajajajajajajajajajajajaIbeabaPababababaeaeaeaebdbjbjbdbdaeaeaeaeaeaeabababababab
-abababaeaeaeaeaeabboaeaeaeaeaeambpaoaoamamaeaeaeaeaeabababababababababbkbkbkbkbqbqblblbrblblblbsblblbrbkbkbeaPababababavaeaeaebdbdbjbdaeaeaeaeaeabababababababab
-abababaeaeaeaeaeabababaeaeaeaeamaoaoaoamaeaeaeaeaeaeababababababababababababbebebebtbfbfbtbgbtbfbfbtbfbebebeaPababababaeaeaeaeaebdbdbdaeaeaeaeababababababababab
-abababaeaeaeaeaeabababaeaeaqaeamaoaoamamaeaeaeaeaqaeabababababababababababababbabaamamamamamamambcamamamaPaPaPabababababaeaeaeaebdbdaeaeaeazaeababababababababab
-abababaeaeaeaeaeabababagaeaeaeamaoaoamaeaeaeaeaeaeababababababababababababababababaeaVaeaeaeaeaeaeaeaeaeababababababababavaeaeaebdbdaeaeaeaeaeaeaeaeabababababab
+ababaeaeaeaeaeaeaeaeaeababababaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeaeabababbbamamamamamambcambdamamamambcambbbbbbabababaeaeazaeaeaeaebebebebebebeaeaeaeaeabababababab
+ababaeaeaeaeaeaeaeaeaeaeaeaeaeaOaeaeaeaeaeaeaeaeaeaeaeaeabababababababbfbfbfbgbhbgbibgbgbjbgbhbgbjbgbhbfbfabababaeaeaeaeaeaeaeaebebkbkbkbkbeaeaeaeaeabababababab
+ababaeaeaeaeaeaeaeaeaOaeaeaeaeaeaeaeamamamamaeaeaeaeaeababababababababblblblblbmbmbmbmbmbmbmbmbmbmbmbmblbnabababaeaqaeaeaeaeaeaebebkbkbkbebeaeaeaeaeaeaeabababab
+abababaeaeaeaeaeboaeaeaeaeaeaeaeaeamamaoaoamaeaeaeababababababababababblaIaIaIaIajajajajajajajajajajajaIaIabababaeaeaeaeaeaeaebebebkbkbebeaeaeaeaeaeaeaeabababab
+abababboaeaeaeaeaeakaeaeaeaeaeaeamamaoaoaoamaeaqaeababababababababababblaIaIaIaIajajajajajajajajajajajaIbfabaPabababaeaeaeaeaebebkbkbkbeaeaeaeazaeaeaeaeabababab
+abababaeaeaeaeaeaOaeaeaeaeaeaeaeamaoaoaoamamaeaeagaeabababababababababblaIaIaIaIajajajajajajajajajajajaIbfabaPababababaeaeaeaebebkbkbebeaeaeaeaeaeaeabababababab
+abababaeaeaeaeaeabbpaeaeaeaeaeambqaoaoamamaeaeaeaeaeabababababababababblblblblbrbrbmbmbsbmbmbmbtbmbmbsblblbfaPababababavaeaeaebebebkbeaeaeaeaeaeabababababababab
+abababaeaeaeaeaeabababaeaeaeaeamaoaoaoamaeaeaeaeaeaeababababababababababababbfbfbfbubgbgbubhbubgbgbubgbfbfbfaPababababaeaeaeaeaebebebeaeaeaeaeababababababababab
+abababaeaeaeaeaeabababaeaeaqaeamaoaoamamaeaeaeaeaqaeabababababababababababababbbbbamamamamamamambdamamamaPaPaPabababababaeaeaeaebebeaeaeaeazaeababababababababab
+abababaeaeaeaeaeabababagaeaeaeamaoaoamaeaeaeaeaeaeababababababababababababababababaeaVaeaeaeaeaeaeaeaeaeababababababababavaeaeaebebeaeaeaeaeaeaeaeaeabababababab
 abababaeaeaeaeababababaeaeaeaeamaoaoamaeaeaeaeaeabababababababababababababababababaeaeaeaeaeaeaeaeaeaeaeaeabababababababaeazaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababab
 abababaeaeababababababaqaeaeaeamaoaoamaeaeaeaeabababababababababababababababababaeaeaeaeaeaeaeaeaeaeaeaeaeabababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababab
 abababababababababababaeaeaeaeamaoaoamamaeaeaeababababababababababababababababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababab
 abababababababababababaeaeaeaeamaoaoaoamaeaeaeaeababababababababababaeaeaeaeaeaeaeaeaeaeamamamamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaqaeaeaeababab
-ababababababababababababaeaeaebbamaoaoamaeaeaeaeabababababababababaeaeaeaeaeaeaeamamamamamaoaoaoaoamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeabababab
+ababababababababababababaeaeaebcamaoaoamaeaeaeaeabababababababababaeaeaeaeaeaeaeamamamamamaoaoaoaoamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeabababab
 ababababaeaeaeabababababaeaeaeaeamaoamamaeaeaeaeaeaeaeabababababaeaeaeaeamamamamamaoaoaoaoaoamamamamamaeaeaeaeaeaeaeaeaeaeaeaeavaeaeaeaeaeaeaeaeaeaeaeaeabababab
 ababababaeaeaeaeababababaeaeaeaeamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamaoaoaoaoaoaoamamamamaeaeaeaeaeaeaeaeaeaeaeaeababababavaeaeaeaeaeaeaeaeaeaeaeababababab
-abababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamamamamamamamaeaeaeaeaeaeaeaeaeaeaeboabababababababaeaeaeaeaeaeaeaeaeaeaeaeababababab
+abababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamamamamamamamaeaeaeaeaeaeaeaeaeaeaebpabababababababaeaeaeaeaeaeaeaeaeaeaeaeababababab
 ababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeababababababababababababaeaeaeaeaeaeaeaeaeabababababab
-ababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamambuamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeboababababababababababababababaeaeaeaeaeaeababababababab
-ababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamaoaoaobvamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeagaeaeaeaeaeaeaeababababababababababababababababababababababababababababab
+ababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamambvamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaebpababababababababababababababaeaeaeaeaeaeababababababab
+ababaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeamamamaoaoaobwamamamaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeagaeaeaeaeaeaeaeababababababababababababababababababababababababababababab
 abababaeaeaeaeaeaeaeaeabababababaeaeamaoaoaoaoaoaoaoaoamaeaeaeaeaeaeaeaeaeaeagaeaeabababababababababaeababababababababababababababababababababababababababababab
-abababababaeaeaeaeaeababababababababbaaoaoaoaoaoaoaoaobaabababababababababababababababababababababababababababababababababababababababababababababababababababab
-ababababababababababababababababababbabwbxbxbxbybxbxbwbaabababababababababababababababababababababababababababababababababababababababababababababababababababab
+abababababaeaeaeaeaeababababababababbbaoaoaoaoaoaoaoaobbabababababababababababababababababababababababababababababababababababababababababababababababababababab
+ababababababababababababababababababbbbxbybybybzbybybxbbabababababababababababababababababababababababababababababababababababababababababababababababababababab
 "}
