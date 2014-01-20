@@ -1,17 +1,18 @@
 /obj/Foliage/Tree
 	icon = 'OakTree.dmi'
 	name = "Tree"
-	icon_state = "Blank"
-	density = 0
-	bound_width = 80
-	bound_height = 80
-	bound_x = 8
-	bound_y = 32
-	var/Crosses = 0
-	var/image/LeafOverlay
-
-	OakTree
-		icon = 'OakTree.dmi'
+	icon_state = "Tree"
+	density = 1
+	bound_width = 24
+	bound_height = 18
+	bound_x = 36
+	bound_y = 16
+	var
+		image/LeafOverlay
+		FoliageBoundX = 8
+		FoliageBoundY = 32
+		FoliageBoundWidth = 80
+		FoliageBoundHeight = 80
 
 	PalmTree
 		icon = 'PalmTree.dmi'
@@ -33,26 +34,10 @@
 
 /obj/Foliage/Tree/New()
 	..()
-	layer -= ((x + y) / 500)
+	layer -= ((x + y) / 1000)
+	icon_state = "Blank"
 	spawn(1)
-		var/image/overlayimage = image(src.icon, src, "Trunk", OBJ_LAYER - 0.5 - ((x + y) / 500))
+		var/image/overlayimage = image(src.icon, src, "Trunk", OBJ_LAYER - 0.5 - ((x + y) / 1000))
 		world << overlayimage
 		src.overlays += overlayimage
-		LeafOverlay = image(src.icon, src, "Overlay", OverlayLayer - 0.5 - ((x + y) / 500))
-		world << LeafOverlay
-		src.overlays += LeafOverlay
-
-/obj/Foliage/Tree/Crossed(var/atom/movable/O)
-	if (ismob(O))
-		Crosses++
-	src.overlays -= LeafOverlay
-	LeafOverlay.alpha = 96
-	src.overlays += LeafOverlay
-
-/obj/Foliage/Tree/Uncrossed(var/atom/movable/O)
-	if (ismob(O))
-		Crosses--
-	if (!Crosses)
-		src.overlays -= LeafOverlay
-		LeafOverlay.alpha = 255
-		src.overlays += LeafOverlay
+		new/obj/Runtime/TreeLeaves(loc, src)

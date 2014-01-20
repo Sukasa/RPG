@@ -309,6 +309,7 @@
 #include "Project\Code\Objects\Foliage\Flowers.dm"
 #include "Project\Code\Objects\Foliage\PlantLife.dm"
 #include "Project\Code\Objects\Foliage\Tree.dm"
+#include "Project\Code\Objects\Foliage\TreeLeaves.dm"
 #include "Project\Code\Objects\Interactive\Chest.dm"
 #include "Project\Code\Objects\Interactive\Interactive.dm"
 #include "Project\Code\Objects\Machinery\Machine.dm"
