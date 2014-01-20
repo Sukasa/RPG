@@ -18,13 +18,13 @@
 #define FILE_DIR "Project/Icons/Terrain/Placeholders"
 #define FILE_DIR "Project/Icons/Terrain/Tilesets"
 #define FILE_DIR "Project/Icons/Tilesets"
+#define FILE_DIR "Project/Icons/Tilesets/Temp"
 #define FILE_DIR "Project/Icons/UI"
 #define FILE_DIR "Project/Icons/UI/Cursors"
 #define FILE_DIR "Project/Icons/UI/Fonts"
 #define FILE_DIR "Resources"
 #define FILE_DIR "Resources/FreeToUse"
 #define FILE_DIR "Resources/Turfs"
-#define FILE_DIR "Resources/UI"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES

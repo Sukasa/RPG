@@ -26,6 +26,7 @@ mob/Soldier
 /mob/Soldier/New()
 	..()
 	spawn(0)
+		layer += TOPDOWN_LAYER
 		if (client && client.HUD)
 			client.HUD.Update()
 

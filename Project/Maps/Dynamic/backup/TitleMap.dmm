@@ -1,189 +1,169 @@
-"aa" = (/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"ab" = (/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"ac" = (/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
-"ad" = (/obj/MapMarker/Event/Persist,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
-"ae" = (/obj/MapMarker/Event/Exit{EntranceTag = "TitleNE"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
-"af" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA7"; icon_state = "GrassA7"},/area)
-"ag" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA5"; icon_state = "GrassA5"},/area)
-"ah" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA11"; icon_state = "GrassA11"},/area)
-"ai" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA9"; icon_state = "GrassA9"},/area)
-"aj" = (/obj/MapMarker/Event/Exit{EntranceTag = "TitleNW"},/turf/Autojoin/Sand,/area/Event)
-"ak" = (/turf/Autojoin/Sand,/area/Event)
-"al" = (/turf/Autojoin/TallGrass,/area/Event)
-"am" = (/obj/Foliage/Tree/OakTree{step_x = 26; step_y = 6},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"an" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA8"; icon_state = "GrassA8"},/area)
-"ao" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA10"; icon_state = "GrassA10"},/area)
-"ap" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA6"; icon_state = "GrassA6"},/area)
-"aq" = (/obj/Foliage/Tree/OakTree{step_x = 9; step_y = 16},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"ar" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA4"; icon_state = "GrassA4"},/area)
-"as" = (/obj/Foliage/Tree/OakTree{step_x = 3; step_y = 17},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"at" = (/turf/Autojoin/TallGrass,/area)
-"au" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA1"; icon_state = "GrassA1"},/area)
-"av" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA12"; icon_state = "GrassA12"},/area)
-"aw" = (/turf/Autojoin/Sand,/area)
-"ax" = (/obj/Foliage/Tree/OakTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"ay" = (/obj/Foliage/Tree/OakTree{step_x = 0; step_y = 31},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"az" = (/obj/MapMarker/Entrance{tag = "TitleNW"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aA" = (/obj/Foliage/PlantLife/Flowers/Weeds,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aB" = (/obj/Foliage/Tree/OakTree{step_x = -21; step_y = 3},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aC" = (/obj/MapMarker/Entrance{tag = "TitleNE"},/turf/Autojoin/Sand,/area)
-"aD" = (/obj/Foliage/Tree/OakTree{step_x = -17; step_y = 19},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"aE" = (/obj/Foliage/Tree/OakTree{step_x = 2; step_y = 21},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aF" = (/obj/Foliage/Tree/OakTree{step_x = -9; step_y = 10},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aG" = (/obj/Foliage/Tree/OakTree{step_x = 30; step_y = 19},/obj/Foliage/Tree/OakTree,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"aH" = (/obj/Foliage/PlantLife/Bush/LongGrass,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aI" = (/obj/Foliage/Tree/OakTree{step_x = -18; step_y = 3},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aJ" = (/obj/MapMarker/MapInfo/Info{tag = "PanStart"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aK" = (/obj/Foliage/Tree{step_x = -18; step_y = 7},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aL" = (/obj/Foliage/Tree/OakTree{step_x = -23; step_y = 29},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aM" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA13"; icon_state = "GrassA13"},/area)
-"aN" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA2"; icon_state = "GrassA2"},/area)
-"aO" = (/obj/Foliage/Tree/OakTree{step_x = -8; step_y = 2},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aP" = (/obj/Foliage/Tree/OakTree{step_x = 1; step_y = 7},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aQ" = (/obj/Foliage/Tree/OakTree{step_x = 30; step_y = 25},/obj/Foliage/Tree/OakTree{step_x = -7; step_y = 30},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aR" = (/obj/Foliage/Tree/OakTree{step_x = 2; step_y = 9},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aS" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aT" = (/obj/Foliage/PlantLife/Flowers/White,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"aU" = (/turf/Floor/Liquid/Water{tag = "icon-GrassA3"; icon_state = "GrassA3"},/area)
-"aV" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Boundary)
-"aW" = (/turf/Autojoin/DarkGrass,/area)
-"aX" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/NoScroll)
-"aY" = (/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/NoScroll)
-"aZ" = (/obj/Environment/Stump,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"ba" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Liquid/Water{tag = "icon-GrassA9"; icon_state = "GrassA9"},/area)
-"bb" = (/obj/Foliage/Tree/OakTree,/turf/Autojoin/TallGrass,/area)
-"bc" = (/obj/Environment/Stump/Axe,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bd" = (/obj/Environment/Log,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"be" = (/obj/Foliage/PlantLife/Bush/LongGrass,/turf/Autojoin/TallGrass,/area)
-"bf" = (/obj/MapMarker/Interactible{InteractText = "What is a bed doing here?"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bg" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bh" = (/obj/Foliage/Tree{step_x = 7; step_y = 28},/turf/Autojoin/Sand,/area)
-"bi" = (/obj/Foliage/Tree{step_x = 0},/turf/Autojoin/TallGrass,/area/Boundary)
-"bj" = (/turf/Autojoin/TallGrass,/area/Boundary)
-"bk" = (/obj/Foliage/Tree{step_x = 0},/turf/Autojoin/TallGrass,/area)
-"bl" = (/obj/MapMarker/Event/Exit{EntranceTag = "ObjectTest"; MapName = "dynamic/ObjectTest.dmm"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
-"bm" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Autojoin/TallGrass,/area)
-"bn" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bo" = (/obj/Foliage/Tree{step_x = 6; step_y = 11},/turf/Autojoin/TallGrass,/area)
-"bp" = (/turf/Floor/Liquid/Water,/area)
-"bq" = (/turf/Floor/Exterior{tag = "icon-2,4"; icon_state = "2,4"},/area/Event)
-"br" = (/turf/Floor/Exterior{tag = "icon-3,4"; icon_state = "3,4"},/area/Event)
-"bs" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Autojoin/DarkGrass,/area)
-"bt" = (/turf/Floor/Exterior{tag = "icon-2,3"; icon_state = "2,3"},/area/Event)
-"bu" = (/turf/Floor/Exterior{tag = "icon-3,3"; icon_state = "3,3"},/area/Event)
-"bv" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bw" = (/obj/Foliage/Tree{step_x = -17; step_y = 1},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bx" = (/obj/Foliage/Tree{step_x = 14; step_y = 7},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"by" = (/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bz" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bA" = (/obj/Foliage/Tree{step_x = 20; step_y = 21},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bB" = (/obj/Foliage/Tree{step_x = 6; step_y = 6},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bC" = (/obj/Foliage/Tree{step_x = 26; step_y = 4},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bD" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Autojoin/TallGrass,/area)
-"bE" = (/obj/Foliage/Tree{step_x = 29; step_y = 29},/turf/Autojoin/TallGrass,/area)
-"bF" = (/obj/Foliage/Tree{step_x = 29; step_y = 13},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bG" = (/obj/Foliage/Tree{step_x = 25; step_y = 14},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bH" = (/obj/Foliage/Tree{step_x = 6; step_y = 15},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bI" = (/obj/Foliage/Tree{step_x = 10; step_y = 13},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bJ" = (/obj/Foliage/Tree{step_x = 0; step_y = 16},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bK" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bL" = (/obj/Foliage/Tree{step_x = 7; step_y = 1},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bM" = (/obj/Foliage/Tree{step_x = 0},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bN" = (/obj/Foliage/Tree{step_x = 29; step_y = 5},/turf/Autojoin/TallGrass,/area)
-"bO" = (/obj/Foliage/PlantLife/Bush/Fern,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bP" = (/obj/Foliage/Tree{step_x = 13; step_y = 19},/turf/Autojoin/TallGrass,/area)
-"bQ" = (/obj/Foliage/Tree{step_x = 0},/turf/Autojoin/DarkGrass,/area)
-"bR" = (/obj/MapMarker/Event/Event{ScriptCommand = "queuedialogue Test.TextboxTest1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area/Event)
-"bS" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Autojoin/DarkGrass,/area)
-"bT" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Autojoin/TallGrass,/area)
-"bU" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bV" = (/obj/Foliage/PlantLife/Bush/Fern,/turf/Autojoin/DarkGrass,/area)
-"bW" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Floor/Exterior{tag = "icon-Bush0"; icon_state = "Bush0"},/area)
-"bX" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Autojoin/TallGrass,/area)
-"bY" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"bZ" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Bush/Bush,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
-"ca" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Autojoin/DarkGrass,/area)
-"cb" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Floor/Exterior{tag = "icon-1,10"; icon_state = "1,10"},/area)
+"aa" = (/turf/Basic/Grass,/area/Boundary)
+"ab" = (/turf/Basic/Grass,/area)
+"ac" = (/turf/Basic/Grass,/area/Event)
+"ad" = (/obj/MapMarker/Event/Persist,/turf/Basic/Grass,/area/Event)
+"ae" = (/obj/MapMarker/Event/Exit{EntranceTag = "TitleNE"},/turf/Basic/Grass,/area/Event)
+"af" = (/turf/Autojoin/BigSand,/area/Event)
+"ag" = (/turf/Autojoin/BigWater,/area)
+"ah" = (/obj/MapMarker/Event/Exit{EntranceTag = "TitleNW"},/turf/Autojoin/BigSand,/area/Event)
+"ai" = (/obj/Foliage/Tree/Tree{step_x = 26; step_y = 6},/turf/Basic/Grass,/area/Boundary)
+"aj" = (/obj/Foliage/Tree/Tree{step_x = 9; step_y = 16},/turf/Basic/Grass,/area/Boundary)
+"ak" = (/obj/Foliage/Tree/Tree{step_x = 3; step_y = 17},/turf/Basic/Grass,/area)
+"al" = (/turf/Autojoin/BigSand,/area)
+"am" = (/turf/Decorative/Grass,/area)
+"an" = (/obj/Foliage/Tree/Tree,/turf/Basic/Grass,/area)
+"ao" = (/obj/Foliage/Tree/Tree{step_x = 0; step_y = 31},/turf/Basic/Grass,/area)
+"ap" = (/obj/MapMarker/Entrance{tag = "TitleNW"},/turf/Autojoin/BigSand,/area)
+"aq" = (/obj/Foliage/PlantLife/Flowers/Weeds,/turf/Decorative/Grass,/area)
+"ar" = (/obj/Foliage/Tree/Tree{step_x = -21; step_y = 3},/turf/Basic/Grass,/area)
+"as" = (/obj/MapMarker/Entrance{tag = "TitleNE"},/turf/Autojoin/BigSand,/area)
+"at" = (/obj/Foliage/Tree/Tree{step_x = -17; step_y = 19},/turf/Basic/Grass,/area/Boundary)
+"au" = (/obj/Foliage/Tree/Tree{step_x = 2; step_y = 21},/turf/Basic/Grass,/area)
+"av" = (/obj/Foliage/Tree/Tree{step_x = -9; step_y = 10},/turf/Basic/Grass,/area)
+"aw" = (/obj/Foliage/Tree/Tree{step_x = 30; step_y = 19},/obj/Foliage/Tree/Tree,/turf/Basic/Grass,/area/Boundary)
+"ax" = (/obj/Foliage/PlantLife/Bush/LongGrass,/turf/Basic/Grass,/area)
+"ay" = (/obj/Foliage/Tree/Tree{step_x = -18; step_y = 3},/turf/Basic/Grass,/area)
+"az" = (/obj/MapMarker/MapInfo/Info{tag = "PanStart"},/turf/Basic/Grass,/area)
+"aA" = (/obj/Foliage/Tree{step_x = -18; step_y = 7},/turf/Basic/Grass,/area)
+"aB" = (/obj/Foliage/PlantLife/Flowers/Weeds,/turf/Basic/Grass,/area)
+"aC" = (/obj/Foliage/Tree/Tree{step_x = -23; step_y = 29},/turf/Basic/Grass,/area)
+"aD" = (/obj/Foliage/Tree/Tree{step_x = -8; step_y = 2},/turf/Basic/Grass,/area)
+"aE" = (/obj/Foliage/Tree/Tree{step_x = 1; step_y = 7},/turf/Basic/Grass,/area)
+"aF" = (/obj/Foliage/Tree/Tree{step_x = 30; step_y = 25},/obj/Foliage/Tree/Tree{step_x = -7; step_y = 30},/turf/Basic/Grass,/area)
+"aG" = (/obj/Foliage/Tree/Tree{step_x = 2; step_y = 9},/turf/Basic/Grass,/area)
+"aH" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area)
+"aI" = (/obj/Foliage/PlantLife/Flowers/White,/turf/Basic/Grass,/area)
+"aJ" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area/Boundary)
+"aK" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area/NoScroll)
+"aL" = (/turf/Basic/Grass,/area/NoScroll)
+"aM" = (/obj/Environment/Stump,/turf/Basic/Grass,/area)
+"aN" = (/obj/Foliage/Tree{step_x = 0},/turf/Autojoin/BigWater,/area)
+"aO" = (/obj/Environment/Stump,/turf/Decorative/Grass,/area)
+"aP" = (/obj/Environment/Stump/Axe,/turf/Basic/Grass,/area)
+"aQ" = (/obj/Environment/Log,/turf/Basic/Grass,/area)
+"aR" = (/obj/Foliage/PlantLife/Bush/LongGrass,/turf/Decorative/Grass,/area)
+"aS" = (/obj/MapMarker/Interactible{InteractText = "What is a bed doing here?"},/turf/Basic/Grass,/area)
+"aT" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Basic/Grass,/area)
+"aU" = (/obj/Foliage/Tree{step_x = 7; step_y = 28},/turf/Autojoin/BigSand,/area)
+"aV" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area/Boundary)
+"aW" = (/turf/Decorative/Grass,/area/Boundary)
+"aX" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area)
+"aY" = (/obj/MapMarker/Event/Exit{EntranceTag = "ObjectTest"; MapName = "dynamic/ObjectTest.dmm"},/turf/Basic/Grass,/area/Event)
+"aZ" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
+"ba" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Basic/Grass,/area)
+"bb" = (/obj/Foliage/Tree{step_x = 6; step_y = 11},/turf/Decorative/Grass,/area)
+"bc" = (/obj/Foliage/PlantLife/Flowers/Weeds,/turf/Autojoin/BigSand,/area)
+"bd" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Decorative/Grass,/area)
+"be" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Basic/Grass,/area)
+"bf" = (/obj/Foliage/Tree{step_x = -17; step_y = 1},/turf/Basic/Grass,/area)
+"bg" = (/obj/Foliage/Tree{step_x = 14; step_y = 7},/turf/Basic/Grass,/area)
+"bh" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Basic/Grass,/area)
+"bi" = (/obj/Foliage/Tree{step_x = 20; step_y = 21},/turf/Basic/Grass,/area)
+"bj" = (/obj/Foliage/Tree{step_x = 6; step_y = 6},/turf/Basic/Grass,/area)
+"bk" = (/obj/Foliage/Tree{step_x = 26; step_y = 4},/turf/Basic/Grass,/area)
+"bl" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Decorative/Grass,/area)
+"bm" = (/obj/Foliage/Tree{step_x = 29; step_y = 29},/turf/Decorative/Grass,/area)
+"bn" = (/obj/Foliage/Tree{step_x = 29; step_y = 13},/turf/Basic/Grass,/area)
+"bo" = (/obj/Foliage/Tree{step_x = 25; step_y = 14},/turf/Decorative/Grass,/area)
+"bp" = (/obj/Foliage/Tree{step_x = 6; step_y = 15},/turf/Decorative/Grass,/area)
+"bq" = (/obj/Foliage/Tree{step_x = 10; step_y = 13},/turf/Basic/Grass,/area)
+"br" = (/obj/Foliage/Tree{step_x = 0; step_y = 16},/turf/Basic/Grass,/area)
+"bs" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Decorative/Grass,/area)
+"bt" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Basic/Grass,/area)
+"bu" = (/obj/Foliage/Tree{step_x = 7; step_y = 1},/turf/Basic/Grass,/area)
+"bv" = (/obj/Foliage/Tree{step_x = 29; step_y = 5},/turf/Decorative/Grass,/area)
+"bw" = (/obj/Foliage/PlantLife/Bush/Fern,/turf/Decorative/Grass,/area)
+"bx" = (/obj/Foliage/Tree{step_x = 13; step_y = 19},/turf/Decorative/Grass,/area)
+"by" = (/obj/MapMarker/Event/Event{ScriptCommand = "queuedialogue Test.TextboxTest1"},/turf/Basic/Grass,/area/Event)
+"bz" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Decorative/Grass,/area)
+"bA" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Decorative/Grass,/area)
+"bB" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Basic/Grass,/area)
+"bC" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Basic/Grass,/area)
+"bD" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Decorative/Grass,/area)
+"bE" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Decorative/Grass,/area)
+"bF" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Basic/Grass,/area)
+"bG" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
+"bH" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Decorative/Grass,/area)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadaeacacacacacafagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagahaiacacadacajakakalacac
-aaaaaaaaaaaaaaaaaaaaaaaaaaamaaabacacacacacacacacabafanaoagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagapacacacacacakakakacacac
-aaaaaaaaaaaaaaaaaaaaaaaaaaaqaaabacacacacacacacacabababaragagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagahaiacacacacacakakakacacac
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaasababatababababababababauavagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagapababababababawawawababab
-aaaaaaaaaaaaaaaaaaaaaaaaaxayababababababazabababababafaoagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagapabababaAabawawawawababab
-aaaaaaaaaaaaaaaaaaaaaaabaBababababababababababatabababarahananaoagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagahanananaiabababababawaCawabababab
-aaaaaaaaaaaDaaaaaaaaaxabaxababababababababababababababafaiatabaragagagagagagagagagagagagagagagagagagagagahananananaoagagagahanaiabababababababatabawawawabababab
-aaaaaaaaaaaaaaaaaaaEabaFabababatabababababababababababababababafaoagagagagagagagagagagagagagagagagagahanaiababatabaragagagapababababababababababawawawawabababab
-aaaaaaaaaaaaaaaGabababababababababababatabababababababaHababababaragagagagagagagagagagagagagagagagagapababababababafanaoagapababababababababababawawawababababab
-aaaaaaaaaaaaaaaIababababababababababababababababababababababababafaoagagagagagagagahanaoagagagagagagaiabababaHababababafanaiababababababababababawawawababababab
-aaaaaaaaaaaaababababaJabababababababababababababababababababababaHaragagagagagagagapaKaragagagagahaiababababababababababababababababababababababawawababaAababab
-aaaaaaaaababaLababababababababababababababababababababababababababafaoagagagagagagaMaNavagagagagapabababababababababababababababababababababatabawawabababatabab
-axabaOaPaQabababababatabababababababababababababababababababababababafanaoagagagagagagagagagagagapababaHababababababababababababababababababababawawawababababab
-abaRababababababababababababababababababababababababababababababababababafanaoagagagagagagagagagapabababababababababababababababababababababababawawawawabababab
-ababababababababababababababababababababababababababababababababaSababatabaHafaoagagagagagagahanaiababababababababababababababababababababababawawawawawabababab
-ababababababababababababababababababababababababababatababababababababababababafaoagagagagagapababababababababababababababababababababababababawawawawababababab
-ababababababababababababababababababababababababababababababababababababaAabaTabaragagagagagaMaNaUaHababababababababababababababababababababawawawawawababababab
-ababababababababababababababababababababababababababababababababababababababababafaoagagagagagagaMaNaNaUabababababababababababababababaAawawawawawawabatabababab
-abababatababababababababababababababababababababababababababababababababababababaHaragagagagagagagagagapababababababababababababatababawawawawawawababababababab
-ababababababababababababababababababababababababababaHababababababababababaAababataragagagagagagagagagapababababababababababababawawawawawawawawawababababababab
-ababababababababababababababababababababababababababababababababababababababababauavagagagagagagagagagapababababababababawawawawawawawawawawawawabababababababab
-ababababababababababababababababababababababababaVaaaVaWaHababababababababaHauaNavagagagagagagagahananaiababababababatawawawawawawawabababawawababatabababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababababababaTataragagagagagagahananaiabababababatabababawawawawawawawawabaAabababababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababababababaragagagagagagapabababababababababababawawawawababababababababababababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWababababaZaAababauavagagagagagagapatabababababababababawawawawabatabaAababababaWaWaWababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWababababababaTabaragagagagahananaiababababababababababawawawawawababababaWaWaWaWababababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababababababauavagagagahbaabababababababababababatawawawabawawababababaWababababatatabababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababababaragagagagapabababababababababababababawawawabawawabababaWaWabaxabatatababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababababababaragagagagapabababababababababababaAawawawatabawawabababaWatatababatatababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababaAabaragagagagaMaUababababababababababawawawawababawabababaWaWatatababatatababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababababababafaoagagagagaMaNaUabatababababababawawawawabatawabababaWbbatatatabababaxatababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababaZababaragagagagagagaMaNaUabababababababawawawawatawababaWatatatatababatatabatababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWababababababababaragagagagagagagagapababababababababawawawawawababaWatatatatababbbatatatababababababab
-ababababababbcabababababababababababababababababaVaYaVaWaWabababababababatafanaoagagagagagagapababababababababawawawawatababaWaWbbatatabatatatababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWababababababababaSabaragagagagagagaMaNaUababababababatawawawawabababaWatababababatatababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWbdabbcabababaAabababaragagagagagagagagapabatabababababawawawawabababaWatababababababababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababababababababbearagagagagagagagagapabababababababawawawawawababababababababababababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababbdabaZababaragagagagagagagagapababababababababawawawawawabababababababababababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWatabababababababababafanaoagagagagagagapababababababababawawawawawabababababababababababababababababab
-ababababababababababababababababababababababababaVaYaVaWaWabababababababababababbfaragagagagagagapababababababababawawawawawabababababababababababababababababab
-abababababababababababababababababababababababaSaaaXaaaWaWabababawawababababaAatauavagagagagahanaiabababababababababawawawawabababababababababababababababababab
-aVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaaaVaYaVaWaWabababawawabababatatauagagagagagahaiabababababababababababawawawawabababababababababababababababababab
-aYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaYaXaaaWaWbgatabawbhawababatataragagagagagapabababababababababababababawawababababababababababababababababababab
-bibjbibjbibjbibjbibjbibjbibjbibjbibjbibjbibjbibjbibjaVaWababababawawawawabatataragagagagagapabababababababababababababababababababababababababababababababababab
-atbkatbkatbkabbkatbkatbkatbkatbkatbkatbkatbkatbkatbkatababababababawawawabatataragagagagagaMaUababatabababababababababababababababababababababababababababababab
-blacabababababbmatatatbmatabatabatababbmatatatatatatbnabataWaWabaWabawawawababaragagagagagagaMaNaUababababababababababababababababababababababababababababababab
-acacawawawawawawabatabatatabababaAabababboabababaWaWabababaWaWababawawawawatabaragagagagagagagagapababbpabababababababababababababababababababababababababababab
-acakawawawawawawabababababawawawawababababataWaWaWababababababababaAawawawababafaoagagagagagagagapababababababababababababababababababababababababababababababab
-akakawawawawawawawawababawawawawawabababababaWabawawawawawawabaSabawawawawabababaragagagagagagagaMaUabababababababababababababababababababababababababababababab
-akakawawawawawawawawawawawawawawabababaWaWabababawawawawawawawawawawawawababababaragagagagagagagagaMaNaUabababababababababababababababababababababababababababab
-acacabawawawawawawawawawawawawawababatabaWaWatababababawawawawawawawawaSababababaragagagagagagagagagagaMaNaUabababababababababababababbqbrababababababababababab
-acacababatababawawawawawawawawawabababababaWbsababababababaAabawawawawababababauavagagagagagagagagagagagagapabababababababababababababbtbuababababababababababab
-ababbvababababawawawawawawawaAababababbwabababbxabbyatababababababawawawabababaragagagagagagagagagagagagagapabababababababababababababababababababababababababab
-aSababababababababawawawawababababababbybybyatatbybyatatbnababababawawawabaTabafaoagagagagagagagagagagagagapatababababababababababababababababababababababababab
-abababatatabababatababababababataSabbzbybybybybybybybybybAatabaSababawawabatataHaragagagagagagagagagagagagapabababababababababababababababababababababababababab
-abababatatbvabababababababababbvababbybBbybCatatatatbybybyatabababaAawawaWabababafanaoagagagagagagagagagahaiabababababababababababababababababababababababababab
-abbkabababababababababababatabababbybybyatatatbDatbEatbybFbyababababawawaWaWabatabaHaragagagagagagagagagapatabababababababababababababababababababababababababab
-abababababbGatatababawabababbHabatatbIatatatatatbkatatatatbybJabbyatawawabaWababababafaoagagagagagagagagapatabababababababababababababababababababababababababab
-abababababatbnabababawababbKbvabbyatbyatatatbkatatatatbDatatbLabatatawawawababababababaragagagagagagagagapababababababababababababababababababababababababababab
-atababbvabababababawawabababababbMbybyatatatatatatatatatbNatatbyataWawawawaAatababababaragagagagagagagahaiababababababababababababababababababababababababababab
-ataSababaWaWabaAabawababababababbObybyatatatatatatbPatatatatatbybyaWbQawawababababatabafanaoagaganaoagapbRatabababababababababababababababababababababababababab
-abatataWaWabababawawabababbSabababbybybyatbTatatbDatatatatatatbUbyaWaWabababababababbvaHabaragapabaragaMaUababababababababababababababababababababababababababab
-bkababbVababaAawawaWababaWaWababababbWbyatatatatatbkatatbXatatbybyaWaWaWabababababababababaragapabaragagapababababababababababababababababababababababababababab
-ataSabaWbKaWabawawabababaWababababababatatatbkatbkatbkatbkatbkatbkabaSaWababababababatabauavagapabaragagaMaUabababababababababababababababababababababababababab
-atatataWababawawawatababaWabbkababababaSatatatbiaaaVaaaVaaaVaaaVaaaVaabQaWababababababaHafanaoapabaragagagapabababababababababababababababababababababababababab
-atatatbvabawawawawababaWaWbOataSabaSabababataSaaaVaaaVaaaVaaaVaaaVaaaVbQaWaWababababababaHabaraMaNavagagagapababatababababababababababababababababababababababab
-atatatabawawawawabababaWabatbkababatabaSabatabaSaaaVaaaVaaaVaaaVaaaVaabQaWaWbvabababababatabaragagagagagagaMaUababababababababababababababababababababababababab
-atatatabawawawaAababaWaWabaSataSababatataSabaSabaSaaaVaaaVaaaVaaaVaaaVaWbQaWaWabababababaWaWafaoagagagagagagaMaUabababababababababababababababababababababababab
-atatababawawababababaWababababababatatabatababatabaVaaaVaaaVaaaVaaaVaabQaWaWaWababababababaWabaragagagagagagagapabababababababababababababababababababababababab
-atatabababawabababababbOabbvababatababatabaSababaSabaSabaSabaVaaaVaaaVaWaWaWatababababababaWataragagagagagagagapabababababababababababababababababababababababab
-ababababaAawawabababababaSababaSabaSabababatatabatababababaSabaVaaaVaabQaWaWaWababababababaWaHaragagagagagagagaMaUabababababababababababababbYababababababababab
-bZabababababababababababababababababataSababatatababababaSabaSabaVaaaVaWbQaWaWababababatabababaragagagagagagagagapababababababababababababababababababababababab
-abbKababababawabababababatabababataSatababababababaWabaWabababaSaaaVaYbQaWaWaWabababababaHabauavagagagagagagagagapababababababababababababababababababababababab
-ababababababawabababababataSabatabababaSatabatababaZataZababaSabaVaaaXaWaWaWaWbvababababauaNavagagagagagagagagahaiababababababababababababababababababababababab
-abaSababababababababababbmababatatabaSaaatabababababababababataSaaaVaYbQaWaWatabababababaragagagagagagagagagagapabababababababababababababababababababababababab
-aSababababawabababababatabababababaSaaaVatabababaZabababaZabataSaVaaaXaWaWaWababababbvauavagagagagagagagagahanaiabababababababababababababababababababababababab
-ababababawawawabababatataSabababaSaaaVabababatababababababatababaVaaaXbQaWcaabababatabafaoagagagagagagagagapabababababababababababababababababababababababababab
-aWabcbababawawabababatababababaSaaaVabatatatatababaZabaZabababaSaaaVaYbQaWaWababababababaragagagagagagagagapabababababababababababababababababababababababababab
-aWaWababababababababatabababaSaaaVababatabababatatatabababababaSaVaaaYbQaWaWaWababababatafaoagagagagagagagapabababababababababababababababababababababababababab
-aWaWaWababawawawababataSababaSaaaaaSababatababatatatatababatabaSaaaVaXaWbQaWaWababababababaragagagagagagagaMaNaUabababababababababababababababababababababababab
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadaeafafacacacagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagacacadacahafafacacac
+aaaaaaaaaaaaaaaaaaaaaaaaaaaiaaabacacacafafacacacabagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagacacacacacafafafacacac
+aaaaaaaaaaaaaaaaaaaaaaaaaaajaaabacacacafafacacacabababagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagacacacacacafafafacacac
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaakababababalalabababababagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagababamamababalalalababab
+aaaaaaaaaaaaaaaaaaaaaaaaanaoabababababalapabababababagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagababamaqabalalalalababab
+aaaaaaaaaaaaaaaaaaaaaaabarababababababalalalabababababagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagabamamababalasalabababab
+aaaaaaaaaaataaaaaaaaanabanababababababalalalabababababagagababagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagagabababababamabababalalalabababab
+aaaaaaaaaaaaaaaaaaauabavamababababababalalalalababababababababagagagagagagagagagagagagagagagagagagagagagagababababagagagagagababababababamamababalalalalabababab
+aaaaaaaaaaaaaaawababababamamamabababababalalalababababaxababababagagagagagagagagagagagagagagagagagagagababababababagagagagagababababababamamababalalalababababab
+aaaaaaaaaaaaaaayababamamamamabamamabababalalalalalabababababababagagagagagagagagagagagagagagagagagagagabababaxababababagagagabababababamamabababalalalababababab
+aaaaaaaaaaaaababababazamamamamamamamabababalalalalalalabababababaxagagagagagagagagagaAagagagagagagagabababababababababababababababamabamamabababalalababaBababab
+aaaaaaaaababaCababababamamabamamamamababababalalalalalalabababababagagagagagagagagagagagagagagagagabababamamamamababababababababamamamabamabababalalabababababab
+anabaDaEaFabababababababamamamamamamamamababababalalalalalabababababagagagagagagagagagagagagagagagababaxamamamabamamabababamamamamababamamabababalalalababababab
+abaGababababababababababababamamamabamamamabababababalalalabababababababagagagagagagagagagagagagagababamamamabababamabababamamamamabamamababababalalalalabababab
+abababababababababababababababamamamamamamamababababalalalalababaHababababaxagagagagagagagagagagagababamamamamababamababamamamamamamabababababalalalalalabababab
+ababababababababababababababababamamamamamamamababababalalalababababababamababagagagagagagagagabababababamamabamamamababamamamababababababababalalalalababababab
+abababababababababababababababababababamamamamababababalalalalababababamaqabaIabagagagagagagagagagaxabababababamamamababababababababababababalalalalalababababab
+abababababababababababababababababababamamamamabababababalalalababababamamabababagagagagagagagagagagagagabababamamababababababababababaBalalalalalalabababababab
+abababababababababababababababababababamamamamamabababababalalalabababamamabababaxagagagagagagagagagagagabababamabababababababababababalalalalalalababababababab
+ababababababababababababababababababababababamamababaxababalalalabababamamaBabababagagagagagagagagagagagabababamababababababababalalalalalalalalalababababababab
+ababababababababababababababababababababababababababababababalalabababamamabababagagagagagagagagagagagagabababamababababalalalalalalalalalalalalabababababababab
+ababababababababababababababababababababababababaJaaaJamaxababababababamamaxagagagagagagagagagagagagagagababamababababalalalalalalalabababalalababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababababamaIabagagagagagagagagagagagababababamamabababalalalalalalalalabaBabababababababababababab
+ababababababababababababababababababababababababaJaLaJamamabababababamamababagagagagagagagagababamamamababababababalalalalababababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababaMaqamabagagagagagagagagagabamamababamamamababalalalalalababaBabababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamababababamamaIabagagagagagagagagagabamabababamamabababalalalalalababababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababamababagagagagagagaNababababamamamamamamababalalalabalalababababababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamababababamamabagagagagagagabababamabamamamamababababalalalabalalababababababanabababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababamamabagagagagagagababamamamamamamabababaBalalalababalalababababababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamababababamaqabagagagagagagagabababamabamamabababalalalalababalalababababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababamamabagagagagagagagagagabamamamamamamabalalalalababalalabababanababababababanabababababababab
+ababababababababababababababababababababababababaJaLaJamamababababamaOababagagagagagagagagagagababababamababalalalalabalalababababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababamamababagagagagagagagagagagababababamabababalalalalalalababababababababanabababababababababab
+ababababababaPabababababababababababababababababaJaLaJamamabababababababamagagagagagagagagagagababababamabababalalalalalalabababanababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababababababaHabagagagagagagagagagagababamababababalalalalabababababababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamaQabaPabababaBabababagagagagagagagagagagababamababababalalalalabababababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamababababababababamaRagagagagagagagagagagabababababababalalalalalababababababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamabababababaQabaMabamagagagagagagagagagagabababamamabababalalalalalabababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamamababababababababamagagagagagagagagagagababababamabababalalalalalabababababababababababababababababab
+ababababababababababababababababababababababababaJaLaJamamamababababababababamabaSagagagagagagagagababababamabababalalalalalabababababababababababababababababab
+abababababababababababababababababababababababaHaaaKaaamamamamabalalababababaqamagagagagagagagagagababamamabababababalalalalabababababababababababababababababab
+aJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaaaJaLaJamamabamabalalabababamamagagagagagagagagabababamabamamababababalalalalabababababababababababababababababab
+aLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaLaKaaamamaTamabalaUalababamamagagagagagagagababababamamabamabababababalalababababababababababababababababababab
+aVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaVaWaJamababamabalalalalabamamagagagagagagagababababamamamamamababababababababababababababababababababababababab
+amaXamaXamaXabaXamaXamaXamaXamaXamaXamaXamaXamaXamaXamabababamababalalalabamamagagagagagagagagababababamamamamamabababababababababababababababababababababababab
+aYacabababababaZamamamaZamabamabamababaZamamamamamambaabamamamamamalalalalamamagagagagagagagagagagababamabamababamababababababababababababababababababababababab
+acacalalalalalalabamabamamabababaBabababbbabababamamabababamamamabalalalalamabagagagagagagagagagagabamamamabamamamamabababababababababababababababababababababab
+acafalalalalalalabababababalalalalababababamamamamababababababababbcalalalababagagagagagagagagagagabababababamamamamamamabababababababababababababababababababab
+afafalalalalalalalalababalalalalalabababababamabalalalalalalabaHabalalalalabababagagagagagagagagagagabababababababababamabababababababababababababababababababab
+afafalalalalalalalalalalalalalalabababamamabamabalalalalalalalalalalalalababababagagagagagagagagagagagagababababababamababababababababababababababababababababab
+acacabalalalalalalalalalalalalalababamabamamamababababalalalalalalalalaHababababagagagagagagagagagagagagagagabababamamababababababababacacababababababababababab
+acacababamababalalalalalalalalalabababababambdababababababaBabalalalalababababagagagagagagagagagagagagagagagabababamamamamamabababababacacababababababababababab
+ababbeababababalalalalalalalaBababababbfabababbgababamababababababalalalabababagagagagagagagagagagagagagagagabababamamababamabababababababababababababababababab
+aHababababababababalalalalabababababababababamamababamambaababababalalalabaIabagagagagagagagagagagagagagagagababamabamamabamabababababababababababababababababab
+ababamamamamababamababababababamaXabbhabababababababababbiamabaHababalalabamamaxagagagagagagagagagagagagagagabamabababamamamabababababababababababababababababab
+ababamamamaZamabamamamamamamamaZabababbjabbkamamamamabababamabababaBalalamamababagagagagagagagagagagagagagagabamabamamamamababababababababababababababababababab
+abaXamamamamamamabababababamamabababababamamamblambmamabbnabababababalalamamamamabaxagagagagagagagagagagagababamamamababamababababababababababababababababababab
+amamamamamboamamabalalababambpamamambqamamamamamaXamamamamabbrababamalalabamamamababagagagagagagagagagagagababamamababamamababababababababababababababababababab
+abamabamamambsababalalababbtbeabamamabamamamaXamamamamblamambuabamamalalalabamamabamabagagagagagagagagagagabababamabamamamababababababababababababababababababab
+amamabaZamamabababalalabababababaHamabamamamamamamamamambvamamabamamalalalaBamamamamabagagagagagagagagagagabababamamamamamababababababababababababababababababab
+amaXamamamamabaBabalalabamamababbwamabamamamamamambxamamamamamababamaXalalabamamamamabagagagagagagagagagbyabababamamababamababababababababababababababababababab
+amamamamamamababalalalabambzababamabababambAamamblamamamamamambBabamamababababamamambeaxabagagagabagagagagabababamamabamabababababababababababababababababababab
+aXabambwamamaBalalalalabamamabamababbCabamamamamamaXamambDamamamabamamamababababamamamababagagagabagagagagabababamamamamabababababababababababababababababababab
+amaXamambEamabalalalababamamamamabababamamamaXamaXamaXamaXamaXamaXabaHamababababamamamabagagagagabagagagagagabababababababababababababababababababababababababab
+amamamamababalalalamababamamaXababababaHamamamaVaaaJaaaJaaaJaaaJaaaJaaaXamababababamabaxagagagagabagagagagagababamamabababababababababababababababababababababab
+amamambeabalalalalababamambwamaHabaXamamabamaXaaaJaaaJaaaJaaaJaaaJaaaJaXamamababababababaxabagagagagagagagagabamamamamamabababababababababababababababababababab
+amamamabalalalalabababamamamaXamamamamaXamamamaHaaaJaaaJaaaJaaaJaaaJaaaXamambeabababamamamabagagagagagagagagagabamamamamabababababababababababababababababababab
+amamamabalalalaBababamamamaXamaXamamamamaXamaXamaHaaaJaaaJaaaJaaaJaaaJamaXamamabababamamamamagagagagagagagagagagababamababababababababababababababababababababab
+amamababalalalabababamabababamabamamamamamamamamabaJaaaJaaaJaaaJaaaJaaaXamamamabababamamamamabagagagagagagagagagababamababamamababababababababababababababababab
+amamamababalalabababambwambeabababababababaXamamaXabaHabaHabaJaaaJaaaJamamamamabababamamamamamagagagagagagagagagababamamabamabababababababababababababababababab
+amamamabaBalalabababamamaXamamaXamaXamamababamabamamabababaHabaJaaaJaaaXamamamababamamamamamaRagagagagagagagagagagabababababababababababababbFababababababababab
+bGamamabababababababamamamamabamabamamaXamababamamamababaHabaHabaJaaaJamaXamamababamamamamababagagagagagagagagagagababababababababababababababababababababababab
+ambEamababalalabababamamamamabamamaHamamamamabamamamamamamababaHaaaJaLaXamamamabamamamamaxabagagagagagagagagagagagababamabamamamabababababababababababababababab
+amamamababalalabababamamamaHamamamamamaXamamamamabaMamaMamamaHabaJaaaKamamamambeamamamabagagagagagagagagagagagagagababamamababamabababababababababababababababab
+amaXamabababababababamamaZamabamamamaHaaamamamamamamamamabamamaXaaaJaLaXamamamabamamababagagagagagagagagagagagagababababababamababababababababababababababababab
+aXamamabalalalabababamamamababababaHaaaJamamamamaMamamamaMamamaHaJaaaKamamamababababbeagagagagagagagagagagagagagababababababamababababababababababababababababab
+amamamabalalalabababamamaXabababaHaaaJabamamamamamamamababamamabaJaaaKaXamaZabababamabagagagagagagagagagagagababababababamababababababababababababababababababab
+amambHababalalabababamamabababaHaaaJabamamamamamamaMabaMamamamaHaaaJaLaXamamababababababagagagagagagagagagagabababababamamamamababababababababababababababababab
+amamamabababababababamamababaHaaaJababamamamamamamamabamamamabaHaJaaaLaXamamamababababamagagagagagagagagagagabababababamamamabababababababababababababababababab
+amamamababalalalababamaXababaHaaaaaHabamamamabamamamamamamamabaHaaaJaKamaXamamababababababagagagagagagagagagagagabababababababababababababababababababababababab
 "}
