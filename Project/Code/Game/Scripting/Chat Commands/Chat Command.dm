@@ -1,10 +1,12 @@
 ChatCommand
-	var/Command = ""
-	var/MinPowerLevel = RankModerator
+	var
+		Command = ""
+		MinPowerLevel = RankModerator
+		ScriptExecutionContext/Context = null
 
 ChatCommand/New(var/CommandController/Master)
-	ASSERT(Command != "")
-	Master.AllCommands[Command] = src
+	if (Command != "")
+		Master.AllCommands[Command] = src
 
 ChatCommand/proc/Execute(var/mob/Player, var/CommandText)
 	return
@@ -25,13 +27,33 @@ ChatCommand/proc/ParamList(var/CommandText)
 		Pos = findtext(CommandText, " ", LastPos)
 	. += copytext(CommandText, LastPos)
 
-ChatCommand/proc/ShouldExecute(var/datum/ScriptExecutionContext/Context)
-	return !Context || Context.Conditionals.IsEmpty() || Context.Conditionals.Peek()
+ChatCommand/proc/ShouldExecute(var/ScriptExecutionContext/Context)
+	return !Context || Context.AllConditionals()
 
-ChatCommand/proc/Parse(var/StringComponent, var/datum/ScriptExecutionContext/Context)
-	if (text2ascii(StringComponent) == 36) // 36 == $
+ChatCommand/proc/Parse(var/StringComponent)
+	if (text2ascii(StringComponent) == 36 && Context) // 36 == $
 		. = Context.Variables[copytext(StringComponent, 2)] // Context variable
-	else if (text2ascii(StringComponent) == 37) // 37 == $
+	else if (text2ascii(StringComponent) == 37) // 37 == %
 		. = Config.Globals[copytext(StringComponent, 2)] // Global variable
 	else
-		. = text2num(StringComponent) || StringComponent // Literal
+		. = StringComponent // Literal
+	. = text2num(.) || (. == "0" ? 0 : .) // Now process for if it's a number or not
+
+	var/T = copytext(., 1, 3)
+	if (T == "\\$" || T == "\\%")
+		. = copytext(., 2)
+
+ChatCommand/proc/RequireContext()
+	if (!Context)
+		ErrorText("Cannot execute [Command] without context")
+		return TRUE
+	return FALSE
+
+ChatCommand/proc/RequireConditional()
+	if (!Context)
+		return TRUE
+	if (Context.Conditionals.IsEmpty())
+		ErrorText("Cannot execute [Command] on empty conditional stack")
+		Context.PrintStackTrace(Context)
+		return TRUE
+	return FALSE

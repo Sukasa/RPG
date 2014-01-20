@@ -16,7 +16,13 @@
 /MapLoader/proc/Init()
 	MapCache = new/savefile("MDATA")
 
-/MapLoader/proc/LoadMap(var/MapID, var/Loc = locate(1, 1, 1))
+/MapLoader/proc/IsValidMap(var/MapID)
+	var/datum/CachedMap/Map
+	MapCache[MapID] >> Map
+
+	return (Map && Map.Templates && Map.TemplateMap)
+
+/MapLoader/proc/LoadMap(var/MapID, var/Loc = null)
 	// Load a previously parsed map
 	var/datum/CachedMap/Map
 	MapCache[MapID] >> Map
@@ -29,7 +35,6 @@
 
 	MapHeight = Map.Height
 	MapWidth = Map.Width
-
 
 	CreateMap(Loc)
 
@@ -221,7 +226,7 @@
 		MapWidth = max(MapWidth, Line.len)
 		Reader.SeekAfter(LineFeed)
 
-/MapLoader/proc/CreateMap(var/turf/Loc = locate(1, 1, 1))
+/MapLoader/proc/CreateMap(var/turf/Loc = null)
 	set background = TRUE
 	ASSERT(Templates)
 	ASSERT(TemplateMap)
@@ -229,14 +234,22 @@
 	var/StartTime = world.timeofday
 	Ticker.Suspend()
 
-	Config.SpawnZones = list(list( ), list( ), list( ), list( ))
+	var/IsChunk = !!Loc
 
-	for(var/mob/M in world)
-		if (M.client)
-			M.loc = locate(1, 1, 1)
+	if (!IsChunk)
+		Config.SpawnZones = list(list( ), list( ), list( ), list( ))
+		Config.Locations = list( )
 
-	world.maxx = MapWidth
-	world.maxy = MapHeight
+		for(var/mob/M in world)
+			if (M.client)
+				M.loc = locate(1, 1, 1)
+
+		world.maxx = MapWidth
+		world.maxy = MapHeight
+
+	else
+		world.maxx = max(world.maxx, Loc.x + MapWidth - 1)
+		world.maxy = max(world.maxy, Loc.y + MapHeight - 1)
 
 	var/BaseX = Loc ? Loc.x : 1
 	var/BaseY = Loc ? Loc.y : 1
@@ -265,7 +278,7 @@
 				NewArea.vars[Param] = Tile.Area.Params[Param]
 
 			for(var/atom/movable/A in NewTurf)
-				if (ismob(A) && A:client)
+				if (ismob(A) && (A:client || IsChunk)) // Don't clobber the player, or mobs getting chunkloaded
 					continue
 				if (A.loc == NewTurf)
 					del A
@@ -295,21 +308,24 @@
 
 	// Initialize data structures
 
-	// Cameras
-	Config.Cameras.Init()
-
 	// Networks
-	Config.NetController.Init()
+	Config.NetController.Init() // TODO - don't wipe state for chunk loads
 
-	// Done
-	for(var/mob/M in world)
-		if (M.client)
-			M.Respawn()
+	// Initialize these only if not chunkloading
+	if (!IsChunk)
 
-	// Events Data
-	var/area/Event/A
-	A.Triggered = list( ) // Triggered is a global (read: static / shared) var
-	A = A // Suppress a compile warning.
+		// Cameras
+		Config.Cameras.Init()
+
+		// Done
+		for(var/mob/M in world)
+			if (M.client)
+				M.Respawn()
+
+		// Events Data
+		var/area/Event/A
+		A.Triggered = list( ) // Triggered is a global (read: static / shared) var
+		A = A // Suppress a compile warning.
 
 	Ticker.Start()
 	sleep(world.timeofday - StartTime)

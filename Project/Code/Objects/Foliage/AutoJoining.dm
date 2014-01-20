@@ -104,6 +104,8 @@
 							O.bound_y = 24
 						. += O
 		PostProcess()
+			if (icon_state in TopCliffs)
+				layer += 0.1
 			for (var/obj/Autojoin/Clifftop/C in loc)
 				if (C.layer > layer)
 					if(C.icon_state == "255")

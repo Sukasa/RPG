@@ -1,12 +1,14 @@
 /obj/Foliage/Tree
 	icon = 'OakTree.dmi'
 	name = "Tree"
-	icon_state = "Tree"
-	density = 1
-	bound_width = 16
-	bound_height = 16
-	bound_x = 24
-	bound_y = 0
+	icon_state = "Blank"
+	density = 0
+	bound_width = 80
+	bound_height = 80
+	bound_x = 8
+	bound_y = 32
+	var/Crosses = 0
+	var/image/LeafOverlay
 
 	OakTree
 		icon = 'OakTree.dmi'
@@ -31,13 +33,26 @@
 
 /obj/Foliage/Tree/New()
 	..()
+	layer -= ((x + y) / 500)
 	spawn(1)
-		var/image/overlayimage = image(src.icon, src, "Overlay", OverlayLayer)
-		overlayimage.alpha = 128
+		var/image/overlayimage = image(src.icon, src, "Trunk", OBJ_LAYER - 0.5 - ((x + y) / 500))
 		world << overlayimage
 		src.overlays += overlayimage
+		LeafOverlay = image(src.icon, src, "Overlay", OverlayLayer - 0.5 - ((x + y) / 500))
+		world << LeafOverlay
+		src.overlays += LeafOverlay
 
-		var/image/shadowimage = image(src.icon, src, "Shadow", ShadowLayer)
-		shadowimage.alpha = 128
-		world << shadowimage
-		src.overlays += shadowimage
+/obj/Foliage/Tree/Crossed(var/atom/movable/O)
+	if (ismob(O))
+		Crosses++
+	src.overlays -= LeafOverlay
+	LeafOverlay.alpha = 96
+	src.overlays += LeafOverlay
+
+/obj/Foliage/Tree/Uncrossed(var/atom/movable/O)
+	if (ismob(O))
+		Crosses--
+	if (!Crosses)
+		src.overlays -= LeafOverlay
+		LeafOverlay.alpha = 255
+		src.overlays += LeafOverlay

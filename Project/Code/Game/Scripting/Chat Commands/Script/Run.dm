@@ -2,34 +2,47 @@
 	Command = "run"
 	MinPowerLevel = RankProgrammer
 
-/ChatCommand/Run/Execute(var/mob/Player, var/CommandText, var/datum/ScriptExecutionContext/Context)
+/ChatCommand/Run/Execute(var/mob/Player, var/CommandText)
 	// Get script
 
 	CommandText = Parse(CommandText)
 
-	var/StreamReader/Reader = new(Config.Events.GetScript(CommandText) || CommandText)
+	var/ScriptName = CommandText
+	var/StreamReader/Reader = new(Config.Events.GetScript(ScriptName) || ScriptName)
 
 	if (Reader.EOF())
-		ErrorText("NULL SCRIPT!")
+		ErrorText("Null script error loading [ScriptName]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
 
 	Reader.StripCarriageReturns()
 
 	if (isnull(Context))
 		Context = new()
+	else
+		var/ScriptExecutionContext/NewContext = new()
+		NewContext.Variables = Context.Variables
+		NewContext.Parent = Context
+		Context = NewContext
+	Context.ScriptName = ScriptName
 
 	// Loop through each line, executing it as you go
 	while (!Reader.EOF())
+		Context.ScriptLine++
+		Reader.Skip(Space, Tab)
 		var/ScriptCommand = Reader.TakeUntil(Space, LineFeed)
 		if (!lentext(ScriptCommand))
 			Reader.Advance()
 			continue
 		if (Reader.EOF() || Reader.Char() == LineFeed)
-			Config.Commands.Execute(Player, ScriptCommand)
+			Config.Commands.Execute(Player, ScriptCommand, "", Context)
 		else
 			Reader.Advance()
 			var/ScriptCommandText = Reader.TakeUntil(LineFeed)
 			Config.Commands.Execute(Player, ScriptCommand, ScriptCommandText, Context)
+		if (Context.AbortScriptExecution)
+			break
 		Reader.Advance()
 
 
@@ -38,16 +51,22 @@
 	Command = "spawn"
 	MinPowerLevel = RankProgrammer
 
-/ChatCommand/Spawn/Execute(var/mob/Player, var/CommandText, var/datum/ScriptExecutionContext/Context)
+/ChatCommand/Spawn/Execute(var/mob/Player, var/CommandText)
 	spawn
-		Config.Commands.Execute(Player, "run", Parse(CommandText))
+		var/ScriptExecutionContext/NewContext = new()
+		NewContext.StopAbortPropagation = TRUE
+		NewContext.ScriptName = "<Spawned Thread>"
+		NewContext.ScriptLine = "N/A"
+		NewContext.Variables = Context.Variables
+		NewContext.Parent = Context
+		Config.Commands.Execute(Player, "run", Parse(CommandText), NewContext)
 
 
 /ChatCommand/RunAs
 	Command = "as"
 	MinPowerLevel = RankScriptsOnly
 
-/ChatCommand/RunAs/Execute(var/mob/Player, var/CommandText, var/datum/ScriptExecutionContext/Context)
+/ChatCommand/RunAs/Execute(var/mob/Player, var/CommandText)
 	var/Space = findtext(CommandText, " ")
 	var/RunAs = Config.Clients[Parse(copytext(CommandText, 1, Space))]
 	RunAs = RunAs:mob

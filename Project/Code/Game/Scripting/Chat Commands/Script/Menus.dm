@@ -11,6 +11,8 @@
 		Config.Menus.PushMenu(Player, Menu)
 	else
 		ErrorText("[Params[1]] is not a known menu type!")
+		if (Context)
+			Context.PrintStackTrace(Context)
 
 /ChatCommand/WaitNoMenus
 	Command = "waitmenu"

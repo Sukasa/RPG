@@ -3,7 +3,7 @@ Stack
 
 	proc
 		Push(var/Item)
-			Items.InsertList(1, list(Item))
+			Items.Insert(1, list(Item))
 
 		Pop()
 			. = Peek()
@@ -14,10 +14,10 @@ Stack
 			. = Items[1]
 
 		IsEmpty()
-			return Items.len == 0
+			. = Items.len == 0
 
 		Count()
-			return Items.len
+			. = Items.len
 
 		Clear()
 			Items = list( )

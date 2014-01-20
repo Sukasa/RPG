@@ -68,6 +68,9 @@
 	// Spawns
 	var/tmp/list/SpawnZones = list(list( ), list( ), list( ), list( ))
 
+	// Locations
+	var/tmp/list/Locations = list( )
+
 	// Cursors
 	var/tmp/list/DefaultCursors = list(icon('TargetGreen.dmi'), icon('TargetYellow.dmi'), icon('TargetRed.dmi'), icon('TargetInvalid.dmi'), icon('Blank.dmi'))
 

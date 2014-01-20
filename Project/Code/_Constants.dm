@@ -129,6 +129,7 @@ var
 		AlphaHalf = 128
 
 		// ASCII Codes
+		Tab = 9
 		LineFeed = 10
 		CarriageReturn = 13
 		Space = 32
@@ -178,6 +179,7 @@ var
 		// Rank Titles
 		RankTitles 		= list("Banned", "Player", "Moderator", "Programmer", "Administrator")
 
+		// Cliff stuff
 		CliffFaceStates = list("7", "199", "193", "247", "223")
 		CliffBounds 	= list(
             					"31"  = list("bound_x" = 15, "bound_width" = 10),
@@ -198,3 +200,7 @@ var
             					"241" = list("bound_x" = 10, "bound_width" = 22),
             					"124" = list("bound_y" = 12)
             				  )
+
+		TopCliffs       = list(
+        						"127", "253"
+        					  )

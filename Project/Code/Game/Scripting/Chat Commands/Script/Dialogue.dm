@@ -6,6 +6,8 @@
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 1)
 		ErrorText("Not enough parameters to /queuedialogue \[[CommandText]]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
 	var/QueuedDialogue/QD = new()
 	QD.Text = Params[1]
@@ -22,6 +24,8 @@
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 3)
 		ErrorText("Not enough parameters to /queueprompt \[[CommandText]]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
 	var/QueuedDialogue/QD = new()
 	QD.Text = Params[1]

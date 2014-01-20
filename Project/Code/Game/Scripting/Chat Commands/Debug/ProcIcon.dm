@@ -11,9 +11,6 @@
 			var/PixelX = Icon.GetPixel(X, Y, "Trunk")
 			var/PixelG = Icon.GetPixel(X, Y, "Shadow")
 
-			world.log << "X: [PixelX]"
-			world.log << "G: [PixelG]"
-
 			if (PixelG && PixelX)
 				var/list/RGBX = ParseRGB(PixelX)
 				var/list/RGBG = ParseRGB(PixelG)

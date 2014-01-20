@@ -6,8 +6,10 @@
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 3)
 		ErrorText("Not enough parameters to /camera \[[CommandText]]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
-	Config.Cameras.CreateCinematicCamera(locate(text2num(Params[2]), text2num(Params[3]), 1), Params[1])
+	Config.Cameras.CreateCinematicCamera(locate(Parse(Params[2]), Parse(Params[3]), 1), Parse(Params[1]))
 
 
 
@@ -19,9 +21,11 @@
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 3)
 		ErrorText("Not enough parameters to /pan \[[CommandText]]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
-	var/mob/Camera/C = Config.Cameras.CinematicCameras[Params[1]]
-	C.PanTo(locate(text2num(Params[2]), text2num(Params[3]), 1))
+	var/mob/Camera/C = Config.Cameras.CinematicCameras[Parse(Params[1])]
+	C.PanTo(locate(Parse(Params[2]), Parse(Params[3]), 1))
 
 
 
@@ -33,8 +37,10 @@
 	var/list/Params = ParamList(CommandText)
 	if (Params.len < 2)
 		ErrorText("Not enough parameters to /panspeed \[[CommandText]]")
+		if (Context)
+			Context.PrintStackTrace(Context)
 		return
-	var/mob/Camera/C = Config.Cameras.CinematicCameras[Params[1]]
+	var/mob/Camera/C = Config.Cameras.CinematicCameras[Parse(Params[1])]
 	C.PanSpeed = text2num(Params[2])
 
 
@@ -44,7 +50,7 @@
 	MinPowerLevel = RankScriptsOnly
 
 /ChatCommand/CamAttach/Execute(var/mob/Player, var/CommandText)
-	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
+	var/mob/Camera/C = Config.Cameras.CinematicCameras[Parse(CommandText)]
 	if (C)
 		for(var/mob/M in world)
 			C.SetActiveFor(M)
@@ -56,7 +62,7 @@
 	MinPowerLevel = RankScriptsOnly
 
 /ChatCommand/CamWait/Execute(var/mob/Player, var/CommandText)
-	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
+	var/mob/Camera/C = Config.Cameras.CinematicCameras[Parse(CommandText)]
 	while (!C.PanComplete())
 		sleep(1)
 
@@ -67,6 +73,6 @@
 	MinPowerLevel = RankScriptsOnly
 
 /ChatCommand/CamDetach/Execute(var/mob/Player, var/CommandText)
-	var/mob/Camera/C = Config.Cameras.CinematicCameras[CommandText]
+	var/mob/Camera/C = Config.Cameras.CinematicCameras[Parse(CommandText)]
 	if (C)
 		C.SetInactive()
