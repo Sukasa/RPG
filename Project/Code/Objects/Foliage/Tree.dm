@@ -40,4 +40,9 @@
 		var/image/overlayimage = image(src.icon, src, "Trunk", OBJ_LAYER - 0.5 - ((x + y) / 1000))
 		world << overlayimage
 		src.overlays += overlayimage
+
+		overlayimage = image(src.icon, src, "Shadow", ShadowLayer - 0.4 - ((x + y) / 1000))
+		world << overlayimage
+		src.overlays += overlayimage
+
 		new/obj/Runtime/TreeLeaves(loc, src)
