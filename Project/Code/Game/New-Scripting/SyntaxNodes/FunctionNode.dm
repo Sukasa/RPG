@@ -13,3 +13,8 @@
 			. = call(L[1], L[2])(.)
 		else
 			. = call(FunctionRef)(.)
+
+	Output()
+		world.log << "Function Node: [FunctionRef] with [SubNodes.len] params:"
+		for(var/ASTNode/Node in SubNodes)
+			Node.Output()

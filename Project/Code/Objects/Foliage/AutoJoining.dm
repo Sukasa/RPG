@@ -14,6 +14,17 @@
 		icon = 'LavaPool.dmi'
 		density = TRUE
 
+	DarkGrass
+		MatchTypes = list( /turf/Basic/DarkGrass, /turf/Decorative/DarkGrass )
+		name = "Dark Grass"
+		icon = 'BigDarkGrass.dmi'
+
+	Water
+		MatchTypes = list( /turf/Basic/Water )
+		name = "Water"
+		icon = 'WaterOnGrass.dmi'
+		density = TRUE
+
 	CavePool
 		MatchTypes = list( /turf/Basic/Water )
 		name = "Pool"
@@ -36,6 +47,16 @@
 		MatchTypes = list( /turf/Basic/Dirt, /turf/Basic/Clifftop )
 		name = "Dirt"
 		icon = 'BigDirt.dmi'
+
+	Sand
+		MatchTypes = list( /turf/Basic/Sand )
+		name = "Sand"
+		icon = 'BigSand.dmi'
+
+	Farmland
+		MatchTypes = list( /turf/Basic/Farmland )
+		name = "Farmland"
+		icon = 'Farmland.dmi'
 
 	DarkDirt
 		MatchTypes = list( /turf/Basic/DarkDirt )

@@ -29,8 +29,7 @@
 			EqualityOp = "=="
 
 			Numeric = "0123456789."
-			Identifier = "abcdefghijklmnopqrstuvwxyz0123456789"
-			Alphanumeric = "abcdefghijklmnopqrstuvwxyz0123456789"
+			Identifier = "abcdefghijklmnopqrstuvwxyz0123456789_"
 
 		list/Groups
 		list/Terminals
@@ -45,7 +44,7 @@
 	New(var/UseStream)
 		Stream = UseStream
 		Stream.StripCarriageReturns()
-		Groups = list(Semicolon, Parentheses, Colon, Operator, Numeric, Identifier, Alphanumeric, Newline)
+		Groups = list(Semicolon, Parentheses, Colon, Operator, Numeric, Identifier, Newline)
 		Terminals = list(Parentheses, Equals)
 		Token = Get()
 
@@ -80,7 +79,8 @@
 				while (!Stream.EOF())
 					if (Escaped)
 						var/C = TakeChar()
-						. += Escapes[C] || C
+						. += (Escapes[C] ? Escapes[C] : C)
+						Escaped = FALSE
 					else if (Stream.Is(EscapeCharacter))
 						Stream.Advance()
 						Escaped = TRUE

@@ -31,6 +31,8 @@
 
 			Newline = "\n"
 
+			ParameterMarker = "."
+
 		list
 			Binary6 = list("*", "/", "%")
 			Binary5 = list("+", "-")
@@ -63,7 +65,7 @@
 	// ----------------------------
 
 	proc/ParseScript(var/ScriptName)
-		Tokens = new/Lexer(new/StreamReader(Config.Events.GetScript(ScriptName)))
+		Tokens = new/Lexer(new/StreamReader(Config.Events.GetScript(ScriptName) || ScriptName))
 		. = Block()
 		if (!.)
 			ErrorText("Failed to parse script [ScriptName]!")
@@ -88,11 +90,15 @@
 	proc/Block()
 		var/ASTNode/BlockNode/Node = new()
 		. = Node
+		SkipEOLs()
 		while(!(Tokens.Current() in FollowsBlock))
 			var/B = SubBlock()
 			if (!B)
 				return null
 			Node.SubNodes += B
+			SkipEOLs()
+		if(Node.SubNodes.len == 1)
+			return Node.SubNodes[1]
 
 
 	proc/SubBlock()
@@ -117,7 +123,7 @@
 	proc/Statement()
 		SkipEOLs()
 		switch(Tokens.Current())
-			if(EndStatement)
+			if(EndStatement, Newline)
 				Tokens.Consume()
 				return list() // list(), so that no nodes are added to whatever called Statement()
 			if("if")
@@ -130,9 +136,13 @@
 				Tokens.Consume()
 				. = Do()
 			else
-				. = Expression()
+				// Expression() will incidentally consume all EOLs after it trying to see if a statement crosses the newline
+				// This is a problem if you tried to use a newline to terminate.  Since EOLs and semicolons after that
+				// will get parsed out as empty statements, just return Expression().
+				return Expression()
 
-		if (!Expect(EndStatement, Newline))
+
+		if (!(Tokens.Current() in list("}", null)) && !Expect(EndStatement, Newline))
 			. = null
 
 
@@ -161,27 +171,37 @@
 
 		else if (Tokens.Current() in BinaryAll)
 			var/ASTNode/Binary/Node = new()
-			. = Node
+
+
 
 			// This is the fun part.  Apply rules for operator precedence
 
 			// Handle Binary
-			while (Level <= 6 && Level >= 1 && (Tokens.Current() in Binaries[Level]))
-				Node.Op = Tokens.Consume()
-				Node.SubNodes += S
-				S = Expression(Level + 1)
-				if (!S)
-					return null
-				Node.SubNodes += S
+			for (var/TestLevel = 6; TestLevel > Level; TestLevel--)
+				while (Tokens.Current() in Binaries[TestLevel])
+					if (Node.SubNodes.len == 2)
+						Node = new()
+					Node.Op = Tokens.Consume()
+					Node.SubNodes += .
+					. = Node
+					S = Expression(TestLevel)
+					if (!S)
+						return null
+					Node.SubNodes += S
+
 
 			// Assignment operators are right-associative instead of left-associative
 			while (Level <= 0 && (Tokens.Current() in Binary0))
+				if (Node.SubNodes.len == 2)
+					Node = new()
 				Node.Op = Tokens.Consume()
-				Node.SubNodes += S
+				Node.SubNodes += .
+				. = Node
 				S = Expression(Level)
 				if (!S)
 					return null
 				Node.SubNodes += S
+
 
 	proc/SubExpression()
 		if (Tokens.Current() == BeginParenthesis)
@@ -208,11 +228,11 @@
 
 	proc/Value()
 		if (findtext(Numeric, copytext(Tokens.Current(), 1, 2)))
-			. = new/ASTNode/ValueLeaf(text2num(Tokens.Consume()))
+			. = new/ASTNode/ValueLeaf(Tokens.Consume())
 
 		else if (Tokens.Current() == StringCap)
 			Tokens.Consume()
-			. = new/ASTNode/ValueLeaf(text2num(Tokens.Consume()))
+			. = new/ASTNode/ValueLeaf(Tokens.Consume())
 			if (!Expect(StringCap))
 				return null
 
@@ -220,41 +240,53 @@
 			var/VarType = Tokens.Consume()
 			var/ASTNode/VariableNode/Node = new(Tokens.Consume(), VarType)
 			. = Node
-			if (Tokens.Current() == BeginIndexer)
-				Tokens.Consume()
+			if (Expect(BeginIndexer))
 				var/E = Expression()
 				if (!E)
 					return null
 				Node.SubNodes += E
-			if (!Expect(EndIndexer))
-				return null
+				if (!Expect(EndIndexer))
+					return null
+			else if (Tokens.Current() == ParameterMarker)
+				while (Expect(ParameterMarker))
+					Node.Members += Tokens.Consume()
+				if (Tokens.Current() == BeginParenthesis)
+					Node.Arguments = ArgumentList()
+					if (!Node.Arguments)
+						return null
 
 		else if (Is(Functions))
 			var/ASTNode/FunctionNode/Node = new(Functions[Tokens.Consume()])
 			. = Node
 
-			if (!Expect(BeginParenthesis))
-				return null
+			Node.SubNodes = ArgumentList()
 
-			while (Tokens.Current() && Tokens.Current() != EndParenthesis)
-				if (Tokens.Current() == ArgumentSeparator)
-					return null
-
-				var/E = Expression()
-				if (!E)
-					return null
-				Node.SubNodes += E
-
-				if (!Expect(ArgumentSeparator))
-					return null
-
-			if (!Expect(EndParenthesis))
+			if(!Node.SubNodes)
 				return null
 
 		else if (Is(Constants))
 			. = new/ASTNode/ValueLeaf(Constants[Tokens.Consume()])
 
-		else
+	proc/ArgumentList()
+		. = list()
+		if (!Expect(BeginParenthesis))
+			return null
+
+		while (Tokens.Current() && Tokens.Current() != EndParenthesis)
+			if (Tokens.Current() == ArgumentSeparator)
+				return null
+
+			var/E = Expression()
+			if (!E)
+				return null
+			. += E
+
+			if (!Expect(ArgumentSeparator))
+				if (Tokens.Current() == EndParenthesis)
+					break
+				return null
+
+		if (!Expect(EndParenthesis))
 			return null
 
 	proc/If()
@@ -284,16 +316,20 @@
 			Node.SubNodes += E
 
 
+
 	proc/Clause()
+
 		if (!Expect(BeginParenthesis))
 			return null
 
+
 		var/E = Expression()
+
 
 		if (!E)
 			return null
 
-	 	. = E
+		. = E
 
 		if (!Expect(EndParenthesis))
 			. = null
@@ -353,11 +389,14 @@
 			Tokens.Consume()
 
 	proc/Expect()
-		SkipEOLs()
+		if (!(Newline in args))
+			SkipEOLs()
 		if (Tokens.Current() in args)
 			. = Tokens.Consume()
 
 	proc/Is(var/list/L)
+		if (!(Newline in args | L))
+			SkipEOLs()
 		SkipEOLs()
 		var/T = Tokens.Current()
 		. = (T in L) || (T in args)

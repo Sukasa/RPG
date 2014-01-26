@@ -83,6 +83,9 @@ Menu/Dialogue/Input(var/Control)
 		else
 			if (IsPrompt())
 				Config.Events.RunScript(Selection ? Dialogue.ScriptYes : Dialogue.ScriptNo, Client.mob)
+				Dialogue.Result = Selection ? DialogueResultYes : DialogueResultNo
+			else
+				Dialogue.Result = DialogueResultViewed
 			Next()
 			if (!Dialogue)
 				ExitMenu()

@@ -15,6 +15,7 @@ mob/Soldier
 /mob/Soldier/New()
 	..()
 	Stats = new/MobStats/PlayerStats()
+	ScriptVariables["player"] = src
 
 /mob/Soldier/Respawn()
 	..()

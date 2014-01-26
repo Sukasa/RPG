@@ -1,6 +1,7 @@
 /EventController
 	var/savefile/Scripts
 	var/list/CachedScripts
+	var/list/CacheTimestamps
 
 /EventController/proc/Set(var/Color = ColorBlack, var/Alpha = 255)
 	for(var/mob/M in world)
@@ -25,14 +26,21 @@
 	Scripts[".index"] >> CachedScripts
 	if (!CachedScripts)
 		CachedScripts = list( )
+	Scripts[".stamp"] >> CacheTimestamps
+	if (!CacheTimestamps)
+		CacheTimestamps = list( )
 
-/EventController/proc/Dialogue(var/mob/Player, var/Text, var/Name, var/Params)
+/EventController/proc/Dialogue(var/mob/Player, var/QueuedDialogue/Text, var/Name, var/Params)
+	if (istype(Player, /QueuedDialogue))
+		Text = Player
+		Player = Text.Player
+
 	var/QueuedDialogue/QD
 
 	if (Text == "")
 		return
 
-	if (istype(Text, /QueuedDialogue))
+	if (istype(Text))
 		QD = Text
 	else
 		QD = new()
@@ -54,7 +62,9 @@
 	Scripts[ScriptName] << Reader.TextFile
 
 	CachedScripts |= ScriptName
+	CacheTimestamps[ScriptName] = 0
 	Scripts[".index"] << CachedScripts
+	Scripts[".stamp"] << CacheTimestamps
 	del Reader
 
 /EventController/proc/GetScript(var/ScriptName)

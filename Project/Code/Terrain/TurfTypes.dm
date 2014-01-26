@@ -9,9 +9,21 @@
 		icon = 'Dirt.dmi'
 		icon_state = "Dirt0"
 
+
+	DarkGrass
+		MatchTypes = list( /turf/Decorative/DarkGrass )
+		name = "Grass"
+		icon = 'BigDarkGrass.dmi'
+		icon_state = "255"
+
 	DarkDirt
 		name = "Dirt"
 		icon = 'BigDarkDirt.dmi'
+		icon_state = "255"
+
+	Farmland
+		name = "Farmland"
+		icon = 'Farmland.dmi'
 		icon_state = "255"
 
 	Obsidian

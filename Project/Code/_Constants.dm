@@ -89,6 +89,11 @@ var
 		ButtonInteract = "bint"
 		ButtonMenu = "bmenu"
 
+		DialogueResultPending = 0
+		DialogueResultViewed = 1
+		DialogueResultYes = 2
+		DialogueResultNo = 3
+
 		DefaultLanguage = "en-US"
 		DefaultBGMVolume = 15
 		DefaultSFXVolume = 15
@@ -156,7 +161,7 @@ var
 		ControlRight = 4
 		ControlEnter = 5
 		ControlEscape = 6
-		ControlReleased = 16
+		ControlReleased = 32
 
 
 	list
@@ -172,15 +177,47 @@ var
 		AutoJoinBits8	=	list(1, 2, 4, 8, 16, 32, 64, 128)
 
 		// Text Colours
-		TextColours 	= list("\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
-							   "\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
-							   "\white" =   rgb(255, 255, 255), "\black" = rgb(0, 0, 0) )
+		TextColours 	= list(
+								"\red" =     rgb(255, 0, 0),     "\green" = rgb(0, 255, 0),   "\blue" =   rgb(32, 64, 255),
+								"\magenta" = rgb(255, 0, 255),   "\cyan" =  rgb(0, 255, 255), "\yellow" = rgb(255, 255, 0),
+								"\white" =   rgb(255, 255, 255), "\black" = rgb(0, 0, 0)
+							  )
 
-		// Rank Titles
+		// Rank Titles (old MP code)
 		RankTitles 		= list("Banned", "Player", "Moderator", "Programmer", "Administrator")
 
+
+		// Scripting stuff
+		ScriptConstants = list(
+								"true" = TRUE,		"false" = FALSE,				"oneFrame" = 1 / world.fps,
+								"isDebug" = Debug, 	"tileSize" = world.icon_size
+							  )
+
+		ScriptFunctions = list(
+								"min" 			= /proc/ProxyMin,				"sign" 		= /proc/sign, 					"max" 			= /proc/ProxyMax,
+								"sin" 			= /proc/ProxySin,				"cos" 		= /proc/ProxyCos,				"tan" 			= /proc/tan,
+								"atan" 			= /proc/arctan,					"abs" 		= /proc/ProxyAbs,				"fix" 			= /proc/fix,
+								"floor" 		= /proc/ProxyFloor, 			"ceil" 		= /proc/ceil,					"array" 		= /proc/ProxyList,
+								"locate" 		= /proc/ProxyLocate,			"isAtom" 	= /proc/IsAtom,					"isObj" 		= /proc/IsObj,
+								"subTypes" 		= /proc/Subtypes,				"isList" 	= /proc/IsList,					"sleep" 		= /proc/ProxySleep,
+								"debug" 		= /proc/DebugText,				"error" 	= /proc/ErrorText,				"newDialogue" 	= /proc/CreateDialogue,
+								"queueDialogue" = /proc/ScriptQueueDialogue,	"makeCamera"= /proc/ScriptCreateCamera,		"camera" 		= /proc/ScriptGetCamera,
+								"fadeOut"		= /proc/ScriptFadeOut,			"fadeIn" 	= /proc/ScriptFadeIn,			"saveGame"		= /proc/ScriptSaveGame,
+								"loadMap"		= /proc/ScriptLoadMap,			"loadChunk" = /proc/ScriptLoadChunk,		"menu"			= /proc/ScriptShowMenu,
+								"run"			= /proc/ScriptRun,				"spawn"		= /proc/ScriptSpawn,			"kill"			= /proc/ScriptKill,
+								"isType"		= /proc/ScriptIsType
+							  )
+
+		// Config/Player variables are set later
+		ScriptVariables = list(
+							    "world" = world, "config" = null, "player" = null
+							  )
+
 		// Cliff stuff
-		CliffFaceStates = list("7", "199", "193", "247", "223")
+		CliffFaceStates = list(
+							    "7", "199", "193", "247", "223"
+							  )
+
 		CliffBounds 	= list(
             					"31"  = list("bound_x" = 15, "bound_width" = 10),
             					"241" = list("bound_x" = 8, "bound_width" = 6),
@@ -195,6 +232,7 @@ var
 				            	"247" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 7, "bound_height" = 11),
 				            	"253" = list("bound_x" = 13, "bound_width" = 16, "bound_y" = 15, "bound_height" = 14),
             				  )
+
 		BoundsOverrides = list(
             					"31" = list("bound_width" = 15),
             					"241" = list("bound_x" = 10, "bound_width" = 22),

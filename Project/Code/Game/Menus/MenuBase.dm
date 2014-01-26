@@ -8,6 +8,8 @@
 		client/Client = null
 		mob/Player = null
 
+		Terminated = FALSE
+
 //
 // Processing
 //

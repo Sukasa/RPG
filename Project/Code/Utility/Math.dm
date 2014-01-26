@@ -12,3 +12,8 @@ proc/sign(x)
 
 proc/fix(x)
 	. = x ? round(abs(x)) * sign(x) : 0
+
+proc/ceil(x)
+	. = round(x)
+	if (x != .)
+		. += 1

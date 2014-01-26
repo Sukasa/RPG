@@ -34,6 +34,8 @@
 	var/tmp/MobLayerEnabled = TRUE
 	var/tmp/InputSuspended = FALSE
 
+	// IsDevMode, when enabled, activates various dev functions
+	var/tmp/IsDevMode = FALSE
 
 	var/tmp/CurrentMapName = ""
 	// Persisted Options
@@ -101,3 +103,7 @@
 
 	// Event Controller
 	var/tmp/EventController/Events = new()
+
+	New()
+		. = ..()
+		ScriptVariables["config"] = src
