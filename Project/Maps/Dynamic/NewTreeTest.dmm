@@ -1,0 +1,53 @@
+"a" = (/turf/Basic/Grass,/area)
+"b" = (/turf/Decorative/Grass,/area)
+"c" = (/obj/Autojoin/Water,/turf/Basic/Grass,/area)
+"d" = (/turf/Basic/Water,/area)
+"e" = (/obj/Autojoin/Water,/turf/Decorative/Grass,/area)
+"f" = (/obj/Foliage/Tree/BigTree,/turf/Basic/Grass,/area)
+"g" = (/obj/Foliage/Tree/BigTree,/turf/Decorative/Grass,/area)
+"h" = (/obj/Environment/Sign/TestSign,/turf/Basic/Grass,/area)
+"i" = (/obj/Autojoin/Sand,/turf/Basic/Grass,/area)
+"j" = (/turf/Basic/Sand,/area)
+"k" = (/obj/Foliage/Tree/JapTree,/turf/Decorative/Grass,/area)
+"l" = (/obj/Foliage/Tree/JapTree,/turf/Basic/Grass,/area)
+"m" = (/obj/Foliage/Tree/SakuraTree,/turf/Decorative/Grass,/area)
+"n" = (/obj/Foliage/Tree/SakuraTree,/turf/Basic/Grass,/area)
+"o" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Basic/Grass,/area)
+"p" = (/obj/Autojoin/DarkGrass,/turf/Basic/Grass,/area)
+"q" = (/turf/Decorative/DarkGrass,/area)
+"r" = (/turf/Basic/DarkGrass,/area)
+
+(1,1,1) = {"
+aabbbaaaaabbbbbabbcddddddddddddd
+abbbbbbbaabaaabbbbccecddddddeedd
+ababbaaabbbbbbbbbbaeeeeedddddddd
+abaabbaaabbbbbbbbbecddddddedddde
+aaabbbbbaabfbbbgbbedddddddccccee
+afbgbbbbbaaabbaabbedddddddcbbbbb
+abgbbbbbbbbbbfabbeedddddddeabbaa
+agbgbbbfabbbbbbbbcdddddddecabaaa
+bbbbbbaabbbbaaaaecdddeeeecaabbaa
+bbbbaaaaabbbbbbbedddeebaaaabbaba
+bbbaaaaabbbbaaabcdccebbbbbbbbbba
+bbaaaaaabbbbbbbbcccaabbaaaabbbba
+ababbbbbaabbaaaaaaaahabaaabbaaba
+abbbbbbbbbaaaiiiiiiaaaababbbaaba
+bbbbabbbbbbaaijjjjiaaaabbbbbbaba
+akbkbbbbaabbaijjjjiaabbbbbbbbbba
+aakbbbbaaaabbiiiiiiaabbbbabbbbba
+akblbbbblababbaaaaaaabmabbnabaaa
+abaaabbbabboabbbbbbaabbaabbbbaaa
+abbaaabbbbbaaabbbbaaaabbmbbabaaa
+abbaaabbbbbbaabbbaaaaaaabbbbbaaa
+abbabbbbbbabbbaaaaaabbaabbaaaaaa
+akbbbkabaaaabbbaaabbbbbbbaaaaaaa
+abbabaaaaaaabbbnanbbbbmbbaaaaaaa
+abalabbcccaabbbanbbabbbbbbbapppp
+abbaabccdcccaabmambbaaabbaappqqp
+aababccddcdcaaabbbbbaabbaapprqqr
+aabbbcdddddcabbbbbaabbbappprqqqq
+aaacccdddddcbbaaaaaapppppqqqqqrq
+aaccdddddddcccaaaaappqqqrrqqqqqq
+accddddddddddccaapppqqqqqqrqqrqq
+acddddddddddddcaapqqqqrrqqqqqqqr
+"}

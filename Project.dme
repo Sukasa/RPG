@@ -7,7 +7,6 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
-#define FILE_DIR "ConceptArt"
 #define FILE_DIR "Project"
 #define FILE_DIR "Project/Icons"
 #define FILE_DIR "Project/Icons/Map"
@@ -353,6 +352,7 @@
 #include "Project\Code\Utility\TurfHelpers.dm"
 #include "Project\Code\Utility\Types.dm"
 #include "Project\Maps\Black.dmm"
+#include "Project\Maps\Dynamic\NewTreeTest.dmm"
 #include "Project\Skins\Interface.dmf"
 // END_INCLUDE
 

@@ -34,6 +34,22 @@
 		bound_x = 8
 		bound_y = 4
 
+	BigTree
+		icon = 'BigTree.dmi'
+		bound_x = 50
+		bound_y = 12
+
+	JapTree
+		icon = 'JapTree.dmi'
+		bound_x = 56
+		bound_y = 28
+		bound_width = 16
+
+	SakuraTree
+		icon = 'SakuraTree.dmi'
+		bound_x = 50
+		bound_y = 12
+
 /obj/Foliage/Tree/Init()
 	. = list()
 	layer -= ((x + y) / 1000)
