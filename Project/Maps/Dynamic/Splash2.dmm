@@ -1,5 +1,5 @@
 "a" = (/turf,/area)
-"b" = (/obj/UI/Splash2{step_x = -2; step_y = 17},/turf,/area)
+"b" = (/obj/UI/Splash2{step_x = 0; step_y = 0},/turf,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaa
@@ -12,8 +12,8 @@ aaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
+aaaaaabaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
-baaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaa

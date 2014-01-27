@@ -13,6 +13,9 @@
 		icon = Source.icon
 		icon_state = "Overlay"
 
+		step_x = Source.step_x
+		step_y = Source.step_y
+
 	Crossed(var/atom/movable/O)
 		if (ismob(O) && !istype(O, /mob/Camera))
 			if (!Crosses)
