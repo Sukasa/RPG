@@ -18,9 +18,6 @@
 	Entered(var/Entree)
 		loc:OnEntered(src, Entree)
 
-/turf/New()
-	..()
-
 /turf/proc/Propagate()
 	. = list( )
 	for(var/Dir in Cardinal8)
@@ -45,7 +42,6 @@
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)
 	StandIn.icon = icon
 	StandIn.icon_state = icon_state
-	StandIn.SetCursor(CursorGreen)
 
 /turf/proc/Neighbors()
 	. = list( )

@@ -82,7 +82,6 @@ Menu/Dialogue/Input(var/Control)
 			Delay = initial(Delay)
 		else
 			if (IsPrompt())
-				Config.Events.RunScript(Selection ? Dialogue.ScriptYes : Dialogue.ScriptNo, Client.mob)
 				Dialogue.Result = Selection ? DialogueResultYes : DialogueResultNo
 			else
 				Dialogue.Result = DialogueResultViewed

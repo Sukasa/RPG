@@ -9,6 +9,11 @@ ScriptExecutionContext
 		ScriptName = ""
 		ScriptLine = 0
 
+	New()
+		Variables |= ScriptVariables
+
+	// TODO remove the below
+
 	proc/PrintStackTrace()
 		var/ScriptExecutionContext/Context = src
 		while (Context)

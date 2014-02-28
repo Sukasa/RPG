@@ -12,9 +12,13 @@
 		list
 			Templates = list( )
 			TemplateMap = list( )
+			MapTimestamps = list( )
 
 /MapLoader/proc/Init()
 	MapCache = new/savefile("MDATA")
+	MapCache[".stamps"] >> MapTimestamps
+	if (!MapTimestamps)
+		MapTimestamps = list( )
 
 /MapLoader/proc/IsValidMap(var/MapID)
 	var/datum/CachedMap/Map
@@ -25,6 +29,20 @@
 /MapLoader/proc/LoadMap(var/MapID, var/Loc = null)
 	// Load a previously parsed map
 	var/datum/CachedMap/Map
+
+	if (Config.IsDevMode)
+		var/FileInfo/Info = new("Project/Maps/[MapID].dmm")
+		if (Info.LastWriteTimestamp > MapTimestamps[MapID])
+			ImportMap("Project/Maps/[MapID].dmm", MapID)
+			LoadImportedMap(MapID)
+			ParseMap()
+			SaveMap(MapID)
+			MapTimestamps[MapID] = Info.LastWriteTimestamp
+			MapCache[".stamps"] << MapTimestamps
+			DeleteRawMap(MapID)
+			DebugText("Automatically cached map [MapID]")
+
+
 	MapCache[MapID] >> Map
 
 	Config.CurrentMapName = MapID
@@ -94,7 +112,7 @@
 	TileCharacterCount = Reader.Find("\"", TileCharacterCount) - TileCharacterCount
 
 	// Parse template lines
-	while (Reader.Char() == DoubleQuote)
+	while (Reader.ASCII() == DoubleQuote)
 		ParseTemplateLine()
 		Reader.SeekTo(DoubleQuote, OpenParenthesis)
 
@@ -120,7 +138,7 @@
 
 	Reader.SeekTo(ForwardSlash)
 
-	while (Reader.Char() != EndParenthesis)
+	while (Reader.ASCII() != EndParenthesis)
 		var/datum/ObjectTemplate/Object = new()
 
 		Object.TypePath = Reader.TakeUntil(OpenBracket, Comma, EndParenthesis)
@@ -166,7 +184,7 @@
 	while (InString || Reader.Isnt(Semicolon, EndParenthesis, Space))
 
 		if (Escaped)
-			switch(Reader.Char())
+			switch(Reader.ASCII())
 				if (N)
 					Value = addtext(Value, ascii2text(LineFeed))
 					Reader.Advance()
@@ -183,7 +201,7 @@
 					Value = addtext(Value, Reader.Take())
 			Escaped = FALSE
 		else
-			switch(Reader.Char())
+			switch(Reader.ASCII())
 				if(DoubleQuote)
 					Reader.Advance()
 					if (InString)
@@ -219,7 +237,7 @@
 	while (Reader.Isnt(DoubleQuote))
 		MapHeight++
 		var/list/Line = list( )
-		while(Reader.Char() != LineFeed)
+		while(Reader.ASCII() != LineFeed)
 			var/A = Reader.Take(TileCharacterCount)
 			Line += Templates[A]
 		InsertList(1, TemplateMap, Line)
@@ -257,6 +275,7 @@
 
 	var/Y = 0
 	var/X = 0
+	var/SleepCounter = 0
 
 	var/list/ProcessList = list( )
 
@@ -278,7 +297,7 @@
 				NewArea.vars[Param] = Tile.Area.Params[Param]
 
 			for(var/atom/movable/A in NewTurf)
-				if (ismob(A) && (A:client || IsChunk)) // Don't clobber the player, or mobs getting chunkloaded
+				if (ismob(A) && (A:client || IsChunk)) // Don't clobber the player or mobs getting chunkloaded
 					continue
 				if (A.loc == NewTurf)
 					del A
@@ -289,6 +308,10 @@
 					Atom.vars[Param] = Object.Params[Param]
 
 			X++
+			SleepCounter++
+			if (SleepCounter == 30)
+				sleep(0)
+				SleepCounter = 0
 		Y++
 
 

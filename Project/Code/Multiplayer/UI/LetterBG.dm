@@ -4,3 +4,4 @@
 	mouse_opacity = FALSE
 	pixel_x = ChatboxOffsetX
 	pixel_y = ChatboxOffsetY
+	layer = UILayer

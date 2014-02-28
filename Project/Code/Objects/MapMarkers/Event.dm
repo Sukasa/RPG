@@ -10,12 +10,7 @@
 		var/ScriptCommand = ""
 
 		Execute(var/mob/Player)
-			if (Config.Events.GetScript(ScriptCommand) || fexists(ScriptCommand))
-				Config.Commands.Execute(Player, "run", ScriptCommand)
-			else
-				var/Space = findtext(ScriptCommand, " ")
-				var/Command = copytext(ScriptCommand, 1, Space)
-				Config.Commands.Execute(Player, Command, copytext(ScriptCommand, Space + 1))
+			Config.Events.RunScript(ScriptCommand, Player)
 
 	OneShotPermanent
 		icon_state = "OneShot"

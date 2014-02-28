@@ -1,15 +1,19 @@
 /mob/verb/Say(var/Text as text)
 	if (findtext(Text, "/", 1, 2))
-		var/Space = findtext(Text, " ", 2)
-		var/Command = lowertext(copytext(Text, 2, Space))
-		if (Config.Commands.IsValidCommand(Command))
-			Config.Commands.Execute(src, Command, copytext(Text, Space + 1))
-		else if (Command in Ticker.Mode.Commands)
-			Ticker.Mode.Command(src, Command, copytext(Text, Space + 1))
-		else
-			SendUser("\red Command [Command] not found")
+		return // TODO Parse
 	else
-		Say("/say " + Text)
+		Broadcast(Text)
+
+
+/mob/verb/KeyDown(var/Key as text)
+	var/Handler = client.GetKeyboardHandler()
+	Handler:KeyDown(Key, src)
+
+
+/mob/verb/KeyUp(var/Key as text)
+	var/Handler = client.GetKeyboardHandler()
+	Handler:KeyUp(Key, src)
+
 
 /proc/Broadcast(var/Text as text, var/Channel = -1)
 	if (Channel == -1)
@@ -20,11 +24,13 @@
 		if ((M.SubscribedChannels | Config.RankChannels[M.Rank] | Config.RxTeamChannels[M.Team]) & Channel)
 			M.client.Send(Text)
 
+
 /proc/DebugText(var/Text as text)
 #ifdef DEBUG
 	Broadcast("\green[Text]", ChannelDebug)
 	world.log << Text
 #endif
+
 
 /proc/ErrorText(var/Text as text)
 #ifdef DEBUG
@@ -32,17 +38,21 @@
 	world.log << Text
 #endif
 
+
 /proc/InfoText(var/Text as text)
 	Broadcast("\cyan[Text]", ChannelInfo)
 	world.log << Text
+
 
 /proc/AdminText(var/Text as text)
 	Broadcast("\cyan[Text]", ChannelAdmin)
 	world.log << Text
 
+
 /proc/GameText(var/Text as text)
 	Broadcast("\white[Text]", ChannelGame)
 	world.log << Text
+
 
 proc/SendUser(var/mob/User = usr, var/Text)
 	if (istext(User))

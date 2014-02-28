@@ -58,7 +58,7 @@
 			Constants = list( )
 
 	New()
-
+		DebugText("Parser New")
 		BinaryAll = Binary6 | Binary5 | Binary4 | Binary3 | Binary2 | Binary1 | Binary0
 		Binaries = list(Binary1, Binary2, Binary3, Binary4, Binary5, Binary6)
 

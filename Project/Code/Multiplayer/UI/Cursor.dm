@@ -5,10 +5,6 @@ obj/Runtime/CursorBase
 
 atom/var/obj/Runtime/CursorBase/CursorObject
 
-atom/New()
-	..()
-	CursorObject = new/obj/Runtime/CursorBase()
-
 obj/Runtime/CursorBase/New()
 	//Prevent infinite loop
 

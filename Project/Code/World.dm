@@ -6,7 +6,7 @@ world
 	icon_size = 32
 	map_format = TOPDOWN_MAP
 	fps = 30
-	view = 9
+	view = DefaultWorldView
 	cache_lifespan = 0
 	turf = /turf
 	mob = /mob/Soldier

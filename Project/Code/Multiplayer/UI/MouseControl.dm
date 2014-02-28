@@ -49,7 +49,6 @@
 		Object = Location
 	if (!IsAtom(Object))
 		return
-	UpdateCursor(Object)
 	Mouse.Set(Object, params2list(P))
 	if (Mouse.Left)
 		mob.SetMoveTarget(Mouse)
@@ -64,7 +63,6 @@
 		return
 	if (!Object)
 		Object = Location
-	UpdateCursor(Object)
 	if (!IsAtom(Object))
 		return
 	Mouse.Set(Object, params2list(P), 0)
@@ -77,7 +75,6 @@
 		Over = ToLocation
 	if (!IsAtom(Over))
 		return
-	UpdateCursor(Over)
 	Mouse.Set(Over, params2list(P), 2)
 	if (Mouse.Left)
 		mob.SetMoveTarget(Mouse)

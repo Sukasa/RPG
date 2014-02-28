@@ -1,6 +1,6 @@
 client
 	show_popup_menus = FALSE
-	control_freak = TRUE
+	control_freak = CONTROL_FREAK_ALL
 	perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 
 	var
@@ -23,8 +23,9 @@ client
 
 
 /client/proc/Send(var/Text)
-	ASSERT(Chatbox)
-	Chatbox.WriteLine(Text)
+	//ASSERT(Chatbox)
+	if (Chatbox)
+		Chatbox.WriteLine(Text)
 
 /client/Del()
 	Config.Clients -= src
@@ -112,5 +113,5 @@ client
 					  "Numpad3","Numpad4","Numpad5","Numpad6","Numpad7","Numpad8","Numpad9","Decimal","Insert",
 					  "Delete","Back","Apps","Pause"))
 
-		winset(src, "[k]", "parent=Macros;name=\"[k]\";command=\"Say /keydown [k]\"")
-		winset(src, "[k]UP", "parent=Macros;name=\"[k]+UP\";command=\"Say /keyup [k]\"")
+		winset(src, "[k]", "parent=Macros;name=\"[k]\";command=\"KeyDown [k]\"")
+		winset(src, "[k]UP", "parent=Macros;name=\"[k]+UP\";command=\"KeyUp [k]\"")

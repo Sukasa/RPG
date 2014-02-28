@@ -65,7 +65,7 @@
 		spawn
 			while(TRUE)
 				Tick()
-				sleep(0.5) // I'm not sure why 0.5 makes the ticker run at (world.fps) specifically, but...
+				sleep(world.tick_lag)
 	State = TickerRunning
 
 /datum/Ticker/proc/Suspend()

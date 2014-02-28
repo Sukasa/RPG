@@ -45,7 +45,10 @@
 	var/Font/Font = new/Font/MiramonteBold12()
 	var/list/WordBuffer = list()
 	var/RenderColor = TextColours["\yellow"]
+
 	ChatLine.Text += new/obj/Runtime/LetterBG()
+
+	return ChatLine
 	for(var/X = 1, X <= length(Line), X++)
 		var/obj/Runtime/HUD/Letter/Letter = new()
 		var/LetterASCII = text2ascii(Line, X)

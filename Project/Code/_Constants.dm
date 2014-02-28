@@ -105,13 +105,13 @@ var
 		CliffFaceOffset = 0.5
 
 		MobLayer = 10
+		MapMarkerLayer = 10
 		ShadowLayer = 19
 		OverlayLayer = 20
 		HUDLayer = 99
 		FlashLayer = 100
 		UILayer = 101
 		TextLayer = 102
-		MapMarkerLayer = 10
 
 		AlignLeft = 1
 		AlignCenter = 2
@@ -122,6 +122,8 @@ var
 		ColorRed = rgb(255, 0, 0)
 		ColorBlack = rgb(0, 0, 0)
 		ColorDarkRed = rgb(128, 0, 0)
+		ColorBlue = rgb(0, 0, 255)
+		ColorDarkBlue = rgb(0, 0, 128)
 
 		Infinity = 1.#INF
 		NegativeInfinity = -1.#INF
@@ -163,6 +165,7 @@ var
 		ControlEscape = 6
 		ControlReleased = 32
 
+		DefaultWorldView = 9
 
 	list
 
@@ -189,8 +192,12 @@ var
 
 		// Scripting stuff
 		ScriptConstants = list(
-								"true" = TRUE,		"false" = FALSE,				"oneFrame" = 1 / world.fps,
-								"isDebug" = Debug, 	"tileSize" = world.icon_size
+								"true"			= TRUE,						"false"			= FALSE,				"oneFrame"	= 1 / world.fps,
+								"isDebug"		= Debug, 					"tileSize"		= world.icon_size,		"Black"		= ColorBlack,
+								"White"			= ColorWhite,				"Grey"			= ColorGrey,			"Red"		= ColorRed,
+								"DarkRed"		= ColorDarkRed,				"Blue"			= ColorBlue,			"DarkBlue"	= ColorDarkBlue,
+								"AlphaFull"		= 255,						"AlphaHalf"		= 128,					"AlphaNone" = 0,
+								"ResultPending"	= DialogueResultPending,	"ResultViewed"	= DialogueResultViewed
 							  )
 
 		ScriptFunctions = list(
@@ -205,7 +212,7 @@ var
 								"fadeOut"		= /proc/ScriptFadeOut,			"fadeIn" 	= /proc/ScriptFadeIn,			"saveGame"		= /proc/ScriptSaveGame,
 								"loadMap"		= /proc/ScriptLoadMap,			"loadChunk" = /proc/ScriptLoadChunk,		"menu"			= /proc/ScriptShowMenu,
 								"run"			= /proc/ScriptRun,				"spawn"		= /proc/ScriptSpawn,			"kill"			= /proc/ScriptKill,
-								"isType"		= /proc/ScriptIsType
+								"isType"		= /proc/ScriptIsType,			"setFade"	= /proc/ScriptSetFade
 							  )
 
 		// Config/Player variables are set later

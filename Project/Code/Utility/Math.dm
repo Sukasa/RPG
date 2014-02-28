@@ -17,3 +17,6 @@ proc/ceil(x)
 	. = round(x)
 	if (x != .)
 		. += 1
+
+proc/lerp(var/From, var/To, var/Amount)
+	. = From + min(max(Amount, 0), 1) * (To - From)

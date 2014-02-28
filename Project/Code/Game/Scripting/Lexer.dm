@@ -13,7 +13,6 @@
 			Semicolon = ";"
 			Colon = ":"
 			Operator = "!-+*/%^&|=<>"
-			Parentheses = "()\[]{}"
 			Newline = "\n"
 			StringCap = "\""
 			Space = " "
@@ -44,8 +43,8 @@
 	New(var/UseStream)
 		Stream = UseStream
 		Stream.StripCarriageReturns()
-		Groups = list(Semicolon, Parentheses, Colon, Operator, Numeric, Identifier, Newline)
-		Terminals = list(Parentheses, Equals)
+		Groups = list(Semicolon, Colon, Operator, Numeric, Identifier)
+		Terminals = list(Equals)
 		Token = Get()
 
 
@@ -72,7 +71,7 @@
 			if (Stream.Is(StringCap))
 				RetrieveAsString = FALSE
 				Stream.Advance()
-				return "\""
+				return StringCap
 			else
 				var/Escaped = FALSE
 
@@ -93,16 +92,16 @@
 		if (Stream.Is(StringCap))
 			RetrieveAsString = TRUE
 			Stream.Advance()
-			return "\""
+			return StringCap
 
-		var/Group = GetGroup(Stream.TChar())
+		var/Group = GetGroup(Stream.Char())
 
 		do
 			var/Char = TakeChar()
 			. += Char
 
 			if (IsTerminal(Char))
-				if (. == Equals && Stream.TChar() == Equals)
+				if (. == Equals && Stream.Char() == Equals)
 					Stream.Advance()
 					return EqualityOp
 				return .
@@ -131,7 +130,7 @@
 				. = TakeChar()
 				Group = GetGroup(.)
 
-		while (!Stream.EOF() && Group && GetGroup(Stream.TChar()) == Group)
+		while (!Stream.EOF() && Group && GetGroup(Stream.Char()) == Group)
 
 	proc/TakeChar()
 		. = Stream.Take()

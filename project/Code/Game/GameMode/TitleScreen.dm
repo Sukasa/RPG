@@ -19,7 +19,10 @@
 		if (M.client)
 			Camera.SetActiveFor(M)
 	Config.Events.FadeIn()
-	Config.Commands.Execute(null, "as", "1 showmenu /Menu/TitleScreen")
+	var/Player = ScriptVariables["player"]
+	var/Menu =  Config.Menus.CreateMenu(Player, /Menu/TitleScreen)
+	Config.Menus.PushMenu(Player, Menu)
+
 
 /datum/GameMode/TitleScreen/End()
 	return

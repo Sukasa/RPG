@@ -76,10 +76,6 @@
 	// Cursors
 	var/tmp/list/DefaultCursors = list(icon('TargetGreen.dmi'), icon('TargetYellow.dmi'), icon('TargetRed.dmi'), icon('TargetInvalid.dmi'), icon('Blank.dmi'))
 
-	proc/RegisterCursor(var/Icon)
-		DefaultCursors += GetCursor(Icon)
-		return length(DefaultCursors)
-
 	// Networks (Signal, Power, etc)
 	var/tmp/NetworkController/NetController = new()
 
@@ -87,7 +83,7 @@
 	var/tmp/MenuController/Menus = new()
 
 	// Commands
-	var/tmp/CommandController/Commands = new()
+	// var/tmp/CommandController/Commands = new()
 
 	// Translations
 	var/tmp/TranslationController/Lang = new()
@@ -103,6 +99,9 @@
 
 	// Event Controller
 	var/tmp/EventController/Events = new()
+
+	// Audio Controller
+	var/tmp/SoundController/Audio = new()
 
 	New()
 		. = ..()

@@ -34,6 +34,8 @@
 				. = Side1 | Side2
 			if ("&")
 				. = Side1 & Side2
+			if ("**")
+				. = Side1 ** Side2
 			if ("||")
 				. = Side1 || Side2
 			if ("&&")

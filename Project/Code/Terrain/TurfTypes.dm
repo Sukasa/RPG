@@ -39,16 +39,12 @@
 	Sand
 		name = "Sand"
 		icon = 'BigSand.dmi'
-		icon_state = "Basic"
-		New()
-			icon_state = "255"
+		icon_state = "255"
 
 	Water
 		name = "Water"
 		icon = 'WaterOnGrass.dmi'
-		icon_state = "Basic"
-		New()
-			icon_state = "255"
+		icon_state = "255"
 
 	Pit
 		name = "Pit"

@@ -24,7 +24,6 @@ mob
 
 /mob/New()
 	..()
-	SetCursor(CursorRed)
 	if (!Config.MobLayerEnabled)
 		invisibility = Invisible
 	if (!IsList(InteractText))

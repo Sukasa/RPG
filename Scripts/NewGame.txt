@@ -1,8 +1,11 @@
-sleep 10
-queuedialogue Newgame.Demo
-sleep 5
-waitdialogue
-sleep 2
-loadraw dynamic/objecttest
-sleep 2
-fadein
+$Dialogue = newDialogue();
+
+$Dialogue.Text = "Newgame.Demo"
+
+queueDialogue($Dialogue);
+
+while ($Dialogue.Result == ResultPending)
+	sleep(1);
+	
+loadMap("ObjectTest");
+fadeIn();

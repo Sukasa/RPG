@@ -8,7 +8,9 @@
 /datum/GameMode/SplashCards/Start()
 	SetMobLayerEnabled(FALSE)
 	spawn(5)
-		Config.Events.RunScript("Splashes2")
+		if (Config.IsDevMode)
+			DebugText("\yellow Development tools enabled")
+		Config.Events.RunScript("Splashes")
 
 		Ticker.ChangeGameMode(/datum/GameMode/TitleScreen)
 

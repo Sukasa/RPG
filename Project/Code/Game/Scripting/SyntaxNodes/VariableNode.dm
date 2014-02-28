@@ -19,6 +19,10 @@
 		var/datum/D = Container[VariableName]
 		. = D
 
+		if (!D && (Members.len || SubNodes.len))
+			ErrorText("Attempt to use null reference [VariableName]")
+			return
+
 		var/X = 0
 		var/Member
 
@@ -35,13 +39,13 @@
 				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
 				return null
 
-		if (X)
+		if (Members.len)
 			Member = Members[X]
 			if(!(Member in D.vars))
 				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
 				return null
 
-		if (X && Member in D.vars)
+		if (D && Members.len && (Member in D.vars))
 			D = D.vars[Member]
 			. = D
 		else if (X && hascall(D, Member))
@@ -49,7 +53,7 @@
 				var/list/L = list()
 				for(var/ASTNode/Node in Arguments)
 					L += Node.Execute()
-				return call(D, Member)(L)
+				return call(D, Member)(arglist(L))
 			else
 				ErrorText("Attempt to use function ref [Member] as variable in script [Context.ScriptName]")
 				return null
@@ -63,6 +67,8 @@
 				return null
 
 
+
+
 	proc/Set(var/NewValue)
 		if (Arguments)
 			ErrorText("Attempt to assign to function in script [Context.ScriptName]")
@@ -72,11 +78,12 @@
 			Container = Context.Variables
 
 		var/datum/D = Container[VariableName]
+		var/Original = D
 
 		var/X = 0
 		var/Member
 
-		for(X =1; X < Members.len; X++)
+		for(X = 1; X < Members.len; X++)
 			if (!istype(D, /datum)) // Lists are apparently not datums.
 				ErrorText("Attempt to index member [Members[X]] of non-object '[D]' in script [Context.ScriptName]")
 				return null
@@ -89,13 +96,15 @@
 				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
 				return null
 
-		if (X)
+		if (Members.len)
 			Member = Members[X]
 			if(!(Member in D.vars))
 				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
 				return null
+		else
+			Original = NewValue
 
-		if (X && Member in D.vars)
+		if (Members.len && (Member in D.vars))
 			if (SubNodes.len == 1)
 				var/list/L = D.vars[Member]
 				if (istype(L))
@@ -106,9 +115,19 @@
 			else
 				D.vars[Member] = NewValue
 
+		Container[VariableName] = Original
+
 	Output()
 		world.log << "Variable node: [VariableName]"
 		if (SubNodes.len == 1)
 			var/ASTNode/Node = SubNodes[1]
 			world.log << "Has indexer node:"
 			Node.Output()
+		if (Members.len)
+			world.log << "Has members:"
+			for(var/M in Members)
+				world.log << M
+			if (Arguments)
+				world.log << "Args ([Arguments.len]):"
+				for(var/ASTNode/Node in Arguments)
+					Node.Output()

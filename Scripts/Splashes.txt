@@ -1,16 +1,10 @@
-say Running Script...
-
-say ...
-blackout
-loadmap Splash1
-fadein
-sleep 40
-say ...
-fadeout
-loadmap Splash2
-fadein
-sleep 40
-say ...
-fadeout
-sleep 1
-say Script Complete.
+setFade(Black, AlphaFull);
+loadMap("Splash1");
+fadeIn();
+sleep(40);
+fadeOut();
+loadMap("Splash2");
+fadeIn();
+sleep(40);
+fadeOut();
+sleep(1);

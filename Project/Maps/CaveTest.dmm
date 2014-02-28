@@ -75,7 +75,7 @@
 "bw" = (/obj/Environment/Cave/Rocks/TallRocks/Med,/turf/Basic/Dirt,/area)
 "bx" = (/obj/Autojoin/Clifftop/Cavewall,/turf/Basic/Dirt,/area/Event)
 "by" = (/turf/Basic/Dirt,/area/Event)
-"bz" = (/obj/MapMarker/Event/Exit{EntranceTag = "FromCaveTest"; MapName = "dynamic/objecttest"},/turf/Basic/Dirt,/area/Event)
+"bz" = (/obj/MapMarker/Event/Exit{EntranceTag = "FromCaveTest"; MapName = "ObjectTest"},/turf/Basic/Dirt,/area/Event)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababababababababababababababababababababababababababababababababababababab
