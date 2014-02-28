@@ -89,14 +89,49 @@ var
 		ButtonInteract = "bint"
 		ButtonMenu = "bmenu"
 
+		EnvironmentGeneric = 0
+		EnvironmentPaddedCell = 1
+		EnvironmentRoom = 2
+		EnvironmentBathroom = 3
+		EnvironmentLivingRoom = 4
+		EnvironmentStoneRoom = 5
+		EnvironmentAuditorium = 6
+		EnvironmentConcertHall = 7
+		EnvironmentCave = 8
+		EnvironmentArena = 9
+		EnvironmentHangar = 10
+		EnvironmentCarpetedHallway = 11
+		EnvironmentHallway = 12
+		EnvironmentStoneCorridor = 13
+		EnvironmentAlley = 15
+		EnvironmentForest = 16
+		EnvironmentCity = 16
+		EnvironmentMountains = 17
+		EnvironmentQuarry = 18
+		EnvironmentPlain = 19
+		EnvironmentParkingLot = 20
+		EnvironmentSewer = 21
+		EnvironmentUnderwater = 22
+		EnvironmentDrugged = 23
+		EnvironmentDizzy = 24
+		EnvironmentPsychotic = 25
+
+		SoundTypeOneOff = 0
+		SoundTypeAmbience = 1
+		SoundTypeBGM = 2
+		SoundModeExclusive = 32
+
 		DialogueResultPending = 0
 		DialogueResultViewed = 1
 		DialogueResultYes = 2
 		DialogueResultNo = 3
 
 		DefaultLanguage = "en-US"
-		DefaultBGMVolume = 15
-		DefaultSFXVolume = 15
+
+		MaxVolume = 16
+		DefaultBGMVolume = MaxVolume
+		DefaultSFXVolume = MaxVolume
+
 
 		TickerNotStarted = 0
 		TickerRunning = 1

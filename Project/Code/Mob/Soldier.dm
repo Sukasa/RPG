@@ -11,6 +11,7 @@ mob/Soldier
 	var/dmg_minor = 0
 	var/dmg_blood = 100
 	var/RecoveryTimeout = 120
+	var/sound/PlayingSound
 
 /mob/Soldier/New()
 	..()
@@ -54,3 +55,21 @@ mob/Soldier
 
 		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()
+		if (client.Pressed["Insert"])
+			DebugText("Playing")
+			PlayingSound = sound('clouds.s3m', 0, 0, 4, 100)
+			PlayingSound.status = SOUND_STREAM
+			world << PlayingSound
+
+		if (client.Pressed["Delete"])
+			DebugText("Fading out")
+			spawn
+				PlayingSound.volume = 100
+				PlayingSound.status = SOUND_UPDATE
+				while (PlayingSound.volume)
+					PlayingSound.volume -= 5
+					world << PlayingSound
+					sleep(1)
+				PlayingSound.status = SOUND_PAUSED | SOUND_UPDATE
+				world << PlayingSound
+				DebugText("Fadeout complete")

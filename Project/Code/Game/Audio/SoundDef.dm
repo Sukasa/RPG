@@ -1,0 +1,10 @@
+/SoundDef
+	var
+		Name
+		Environment
+		SoundFile
+		Frequency
+		Falloff
+		Repeat
+		VolumeMultiplier
+		SoundType
