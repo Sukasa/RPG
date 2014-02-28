@@ -61,6 +61,7 @@
 		icon = 'BigCliff.dmi'
 
 		New()
+			. = ..()
 			icon_state = "255"
 
 		Low

@@ -55,6 +55,7 @@ mob/Soldier
 
 		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()
+
 		if (client.Pressed["Insert"])
 			DebugText("Playing")
 			PlayingSound = sound('clouds.s3m', 0, 0, 4, 100)

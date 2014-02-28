@@ -2,13 +2,10 @@
 
 #Shows up odd in Windows explorer.
 
-Project.dmb
-Project.lk
-Project.rsc
-Project.rsc.lk
-Project.int
-IconCutter.dmb
-IconCutter.dyn.rsc
+*.dmb
+*.lk
+*.rsc
+*.int
 MDATA
 SDATA
 LDATA

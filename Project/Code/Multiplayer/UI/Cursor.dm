@@ -6,7 +6,6 @@ obj/Runtime/CursorBase
 atom/var/obj/Runtime/CursorBase/CursorObject
 
 obj/Runtime/CursorBase/New()
-	//Prevent infinite loop
 
 datum/proc/GetCursor(var/Icon)
 	if (isicon(Icon))
