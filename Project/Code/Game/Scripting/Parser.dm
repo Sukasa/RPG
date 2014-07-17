@@ -1,6 +1,7 @@
 /*
 
 	Script parser.  Uses the lexer to build an Abstract Syntax Tree out of a script, so taht it can be interpreted later.  (Or compiled down, whatever).
+	Really messy because it has to "bubble up" errors.  If Lummox/Tom ever get around to implementing exceptions this code would be so much better.
 
 */
 
@@ -58,7 +59,6 @@
 			Constants = list( )
 
 	New()
-		DebugText("Parser New")
 		BinaryAll = Binary6 | Binary5 | Binary4 | Binary3 | Binary2 | Binary1 | Binary0
 		Binaries = list(Binary1, Binary2, Binary3, Binary4, Binary5, Binary6)
 
@@ -136,7 +136,7 @@
 				Tokens.Consume()
 				. = Do()
 			else
-				// Expression() will incidentally consume all EOLs after it trying to see if a statement crosses the newline
+				// Expression() will incidentally consume all EOLs trying to see if a statement crosses the newline
 				// This is a problem if you tried to use a newline to terminate.  Since EOLs and semicolons after that
 				// will get parsed out as empty statements, just return Expression().
 				return Expression()
@@ -397,6 +397,5 @@
 	proc/Is(var/list/L)
 		if (!(Newline in args | L))
 			SkipEOLs()
-		SkipEOLs()
 		var/T = Tokens.Current()
 		. = (T in L) || (T in args)

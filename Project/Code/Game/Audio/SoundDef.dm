@@ -1,10 +1,10 @@
 /SoundDef
 	var
 		Name
-		Environment
+		Environment = EnvironmentGeneric
 		SoundFile
-		Frequency
-		Falloff
-		Repeat
-		VolumeMultiplier
-		SoundType
+		Frequency = 1
+		Falloff = 1
+		Repeat = 0
+		VolumeMultiplier = 1
+		SoundType = SoundTypeOneOff

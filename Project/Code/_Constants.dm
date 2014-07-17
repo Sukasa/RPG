@@ -119,7 +119,13 @@ var
 		SoundTypeOneOff = 0
 		SoundTypeAmbience = 1
 		SoundTypeBGM = 2
+		SoundTypeMask = 3
 		SoundModeExclusive = 32
+		SoundModeNo3D = 64
+
+		MaxVoices = 512
+		DynamicChannelOffset = 16
+		SoundChannelBGM = 1
 
 		DialogueResultPending = 0
 		DialogueResultViewed = 1

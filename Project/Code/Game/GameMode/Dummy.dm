@@ -7,6 +7,8 @@
 	Config.Lang.Init()
 	Config.MapLoader.Init()
 	Config.Events.Init()
+	Config.Audio.Init()
+
 	for(var/X = 0; X < 256, X++)
 		var/B = X & 85
 		if (((X & 5) == 5) && (X & 2))

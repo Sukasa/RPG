@@ -7,6 +7,7 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
+#define FILE_DIR "ConceptArt"
 #define FILE_DIR "Project"
 #define FILE_DIR "Project/Icons"
 #define FILE_DIR "Project/Icons/Map"
@@ -173,6 +174,7 @@
 #define FILE_DIR "Resources/FreeToUse/Universal-LPC-spritesheet-master/weapons/right hand/male"
 #define FILE_DIR "Resources/Turfs"
 #define FILE_DIR "Resources/UI"
+#define FILE_DIR "Sounds"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -198,6 +200,7 @@
 #include "Project\Code\Game\Audio\SoundDef.dm"
 #include "Project\Code\Game\Audio\SoundEffect.dm"
 #include "Project\Code\Game\Camera\CameraController.dm"
+#include "Project\Code\Game\DevTools\DevFunctions.dm"
 #include "Project\Code\Game\DevTools\FileInfo.dm"
 #include "Project\Code\Game\Event\EventController.dm"
 #include "Project\Code\Game\Fonts\CandelaBold26.dm"
@@ -318,7 +321,6 @@
 #include "Project\Code\Utility\TurfHelpers.dm"
 #include "Project\Code\Utility\Types.dm"
 #include "Project\Maps\Black.dmm"
-#include "Project\Maps\Dynamic\NewTreeTest.dmm"
 #include "Project\Skins\Interface.dmf"
 // END_INCLUDE
 

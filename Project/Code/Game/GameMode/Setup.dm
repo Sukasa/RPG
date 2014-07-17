@@ -6,6 +6,7 @@
 	Config.Lang.Init()
 	Config.MapLoader.Init()
 	Config.Events.Init()
+	Config.Audio.Init()
 
 	for(var/X = 0; X < 256, X++)
 		var/B = X & 85
@@ -18,4 +19,5 @@
 		if (((X & 65) == 65) && (X & 128))
 			B |= 128
 		Config.AutoTile += B
+
 	Ticker.ChangeGameMode(/datum/GameMode/SplashCards)
