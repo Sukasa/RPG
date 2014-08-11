@@ -8,6 +8,7 @@
 	Config.Events.Init()
 	Config.Audio.Init()
 
+	// Autotile setup
 	for(var/X = 0; X < 256, X++)
 		var/B = X & 85
 		if (((X & 5) == 5) && (X & 2))

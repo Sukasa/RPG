@@ -1,28 +1,30 @@
 /SoundEffect
 	var
-		mob/Owner
-		Volume = 100
 		SoundDef/Definition
+		list/AmbienceEmitters = list( )
+		atom/PositionRef
+
+		Volume = 100
+		LastStatus = -1
 		sound/Sound
 		Paused
 		Stopped
+		Rewind
 		ExclusiveMode
-		list/AmbienceEmitters = list( )
 
 		FadeStart
 		FadeTime
 		FadeTo
 		FadeFrom
 		FadeDone
+
 		X
 		Y
-		Z
 
 
-/SoundEffect/New(var/SoundDef/Def, var/mob/Attach, var/atom/PositionRef)
+/SoundEffect/New(var/SoundDef/Def, var/atom/PositionRef)
 	Definition = Def
 	Paused = FALSE
-	Owner = Attach
 
 	Sound = sound(Definition.SoundFile)
 	Sound.environment = Definition.Environment || Config.Audio.Environment
@@ -30,13 +32,11 @@
 	Sound.repeat = Definition.Repeat
 	Sound.frequency = Definition.Frequency
 
-	X = PositionRef.x
-	Y = PositionRef.y
 
-	if (Owner && !(Definition.SoundType & SoundModeNo3D))
-		Sound.z = 1
-		Sound.x = X - Owner.x
-		Sound.y = Y - Owner.y
+/SoundEffect/Del()
+	Sound.status = SOUND_UPDATE | SOUND_PAUSED
+	world << Sound
+	..()
 
 
 /SoundEffect/proc/SetFade(var/Time, NewVolume)
@@ -60,38 +60,64 @@
 /SoundEffect/proc/Tick()
 	// Tick the sound effect to handle pan/falloff/etc
 
+	Sound.volume = Config.Audio.GameVolume * Volume * Definition.VolumeMultiplier
+
+	if (Stopped)
+		if (Paused)
+			Sound.status = SOUND_UPDATE | SOUND_PAUSED
+		else
+			Sound.status = 0
+			Stopped = FALSE
+	else
+		if (Paused)
+			Sound.status = SOUND_UPDATE | SOUND_PAUSED
+		else
+			Sound.status = SOUND_UPDATE
+
 	if ((Definition.SoundType & SoundModeNo3D))
-		return
+		if (Sound.status != LastStatus)
+			world << Sound
+			LastStatus = Sound.status
+	else
+		X = PositionRef.x
+		Y = PositionRef.y
+		for(var/client/Client in Config.Clients)
+			var/mob/Microphone = Client.eye
+			if (Definition.SoundType & SoundTypeAmbience)
+				var/atom/Emitter = Microphone.Closest(AmbienceEmitters)
+				X = Emitter.x
+				Y = Emitter.y
 
-	Sound.x = X - Owner.x
-	Sound.y = Y - Owner.y
+			Sound.x = X - Microphone.x
+			Sound.y = Y - Microphone.y
 
-	Sound.status = Paused ? SOUND_UPDATE | SOUND_PAUSED : SOUND_UPDATE
-	world << Sound
+			Client << Sound
 
 
 /SoundEffect/proc/Pause(var/Emitter)
 	if (!ExclusiveMode)
 		return
-	Sound.status |= SOUND_UPDATE
-	Sound.status ^= SOUND_PAUSED
-	world << Sound
+
 	Paused = !Paused
 
 
 /SoundEffect/proc/Stop()
 	if (!ExclusiveMode)
 		return
-	Sound.status |= SOUND_UPDATE | SOUND_PAUSED
-	world << Sound
+
 	Stopped = TRUE
+	Paused = TRUE
 
 
 /SoundEffect/proc/Play(var/Emitter)
-	if (!ExclusiveMode || Stopped)
-		Sound.status = 0
-		Sound.volume = Config.Audio.GameVolume * Volume * Definition.VolumeMultiplier
-		world << Sound
-	else if (Emitter && (Definition.SoundType & SoundTypeAmbience))
-		AmbienceEmitters += Emitter
+	if (Config.Audio.IsChannelAllocated(Sound.channel) && !(Definition.SoundType & SoundTypeAmbience))
+		Config.Audio.PreserveChannelAllocation(src)
+	else if (!Config.Audio.IsChannelAllocated(Sound.channel))
+		Sound.channel = Config.Audio.AllocateChannel(src)
+
+	if (Emitter && (Definition.SoundType & SoundTypeAmbience))
+		AmbienceEmitters |= Emitter
+	else if (Emitter && ExclusiveMode)
+		PositionRef = Emitter
+
 	Paused = FALSE

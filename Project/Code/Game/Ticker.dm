@@ -46,6 +46,8 @@
 		for (var/obj/O in HighSpeedDevices)
 			O.FastTick()
 
+	Config.Audio.Tick()
+
 /datum/Ticker/proc/ChangeGameMode(var/NewMode)
 	Mode.End()
 	Mode = new NewMode()

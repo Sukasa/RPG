@@ -1,6 +1,6 @@
 /*
 
-	Script parser.  Uses the lexer to build an Abstract Syntax Tree out of a script, so taht it can be interpreted later.  (Or compiled down, whatever).
+	Script parser.  Uses the lexer to build an Abstract Syntax Tree out of a script, so that it can be interpreted later.  (Or compiled down, whatever).
 	Really messy because it has to "bubble up" errors.  If Lummox/Tom ever get around to implementing exceptions this code would be so much better.
 
 */
@@ -25,7 +25,7 @@
 
 			EndStatement = ";"
 
-			Numeric = "0123456789"
+			Numeric = "0123456789."
 			StringCap = "\""
 
 			ArgumentSeparator = ","

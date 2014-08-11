@@ -1,7 +1,7 @@
 /* TODOs:
 
 A) When in devmode, store sound defs individually in files
-B) when in devmode, if an unknown sound is created, check to see if a matching-named file exists.  Create an entry instead of failing and generate a warning notice.
+B) When in devmode, if an unknown sound is created, check to see if a matching-named file exists.  Create an entry instead of failing and generate a warning notice.
 
 */
 /SoundController
@@ -18,6 +18,7 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 
 
 		list/AllocatedChannels = list(MaxVoices)
+		list/AllocationEffects = list(MaxVoices)
 		list/Ambiences = list( )
 		list/DefinitionIndex = list( )
 
@@ -31,11 +32,28 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 		Definitions[".index"] >> DefinitionIndex
 	else
 		Definitions = new/savefile("ADATA")
+	ResetSounds()
+
+
+/SoundController/proc/Tick()
+	for(var/SoundEffect/Effect in AllocationEffects)
+		if (!Effect)
+			continue
+		Effect.Tick()
 
 
 /SoundController/proc/ResetSounds()
 	AllocatedChannels = list(MaxVoices)
+	AllocationEffects = list(MaxVoices)
+
 	FreeChannelCount = MaxVoices
+	for(var/x = 1, x <= MaxVoices, x++)
+		AllocatedChannels[x] = 0
+
+	var/sound/StopAll = sound(null, channel=0)
+	StopAll.status = SOUND_PAUSED | SOUND_UPDATE
+	StopAll.volume = 0
+	world << StopAll
 
 
 /SoundController/proc/SetEnvironment(var/NewEnvironment)
@@ -71,20 +89,37 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 		CurrentBGM.TickFade()
 		sleep(world.tick_lag)
 
-/SoundController/proc/FreeChannel(Channel)
-	AllocatedChannels[Channel - DynamicChannelOffset + 1] = FALSE
-	FreeChannelCount++
+/SoundController/proc/CheckFreeChannel(Channel)
+	AllocatedChannels[Channel]--
+	if (!AllocatedChannels[Channel])
+		FreeChannelCount++
+		AllocationEffects[Channel] = null
 
 
-/SoundController/proc/AllocateChannel()
+/SoundController/proc/PreserveChannelAllocation(var/SoundEffect/SoundEffect)
+	var/Channel = SoundEffect.Sound.channel - DynamicChannelOffset + 1
+	AllocatedChannels[Channel]++
+	if (SoundEffect.Definition.Duration != -1)
+		spawn(SoundEffect.Definition.Duration)
+			CheckFreeChannel(Channel)
+
+
+/SoundController/proc/IsChannelAllocated(var/Channel)
+	. = AllocatedChannels[Channel - DynamicChannelOffset + 1]
+
+
+/SoundController/proc/AllocateChannel(var/SoundEffect/SoundEffect)
 	if (FreeChannelCount == 0)
 		return 0
 	do
 		ChannelCounter++
-		ChannelCounter %= 512
-		. = ChannelCounter
-	while ((!AllocatedChannels[ChannelCounter + DynamicChannelOffset]))
-	AllocatedChannels[ChannelCounter + 1] = TRUE
+		ChannelCounter %= MaxVoices
+		. = ChannelCounter + DynamicChannelOffset
+	while ((!AllocatedChannels[ChannelCounter + 1]))
+	AllocatedChannels[ChannelCounter + 1]++
+	if (SoundEffect.Definition.Duration != -1)
+		spawn(SoundEffect.Definition.Duration)
+			CheckFreeChannel(ChannelCounter + 1)
 	FreeChannelCount--
 
 
@@ -98,7 +133,7 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 		CurrentBGM.Play()
 
 
-/SoundController/proc/CreateSound(var/SoundName, var/Attach, var/EmissionPos)
+/SoundController/proc/CreateSound(var/SoundName, var/EmissionPos)
 	// See if the sound has been instantiated and cached.  If so, return it
 	if (Ambiences[SoundName])
 		return Ambiences[SoundName]
@@ -115,6 +150,7 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 
 		if (Files["Count"] == 0)
 			ErrorText("Unable to find matching sound for [SoundName]")
+			return null
 		else
 			if (Files["Count"] > 1)
 				ErrorText("Multiple matches for [SoundName].  Using first match [Files[1]]")
@@ -123,25 +159,19 @@ B) when in devmode, if an unknown sound is created, check to see if a matching-n
 			Definition = new()
 			Definition.Name = FileName
 			Definition.SoundFile = file(FileName)
+
+			Definitions[SoundName] = Definition
+
 	else
 		Definition = Definitions[SoundName]
 
 	if (!Definition)
 		return null
 
-	var/SoundEffect/Effect = new(Definition, Attach, EmissionPos)
+	var/SoundEffect/Effect = new(Definition, EmissionPos)
 
 	if ((Effect.Definition.SoundType & SoundTypeMask) == SoundTypeAmbience)
 		Ambiences[SoundName] = Effect
 
 	return Effect
 	// And return
-
-
-/SoundController/proc/PlaySoundEffect(var/atom/Source, var/SoundEffect/Sound)
-	// Get sound effect type
-
-	// If ambience, create if necessary else add to list of emitters for sound
-
-
-/SoundController/proc/StopSoundEffect(var/atom/Source, var/SoundEffect/Sound)

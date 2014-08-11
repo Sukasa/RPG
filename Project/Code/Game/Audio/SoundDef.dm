@@ -8,3 +8,4 @@
 		Repeat = 0
 		VolumeMultiplier = 1
 		SoundType = SoundTypeOneOff
+		Duration = 100

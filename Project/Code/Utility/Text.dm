@@ -41,3 +41,29 @@ proc
 
 	Capitalize(var/Text)
 		return uppertext(copytext(Text, 1, 2)) + copytext(lowertext(Text), 2)
+
+	split(var/Text, var/Delimiter)
+		var/DelimiterLen = length(Delimiter)
+		var/Pos = 1
+		var/Pos2 = 1
+		. = list()
+
+		while (Pos2 > 0)
+			Pos2 = findtext(Text, Delimiter, Pos)
+			. += copytext(Text, Pos, Pos2 > 0 ? Pos2 : 0)
+			Pos = Pos2 + DelimiterLen
+
+		. += copytext(Text, Pos)
+
+	Split(var/Text, var/Delimiter)
+		var/DelimiterLen = length(Delimiter)
+		var/Pos = 1
+		var/Pos2 = 1
+		. = list()
+
+		while (Pos2 > 0)
+			Pos2 = findtextEx(Text, Delimiter, Pos)
+			. += copytext(Text, Pos, Pos2 > 0 ? Pos2 : 0)
+			Pos = Pos2 + DelimiterLen
+
+		. += copytext(Text, Pos)

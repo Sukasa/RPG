@@ -54,8 +54,8 @@
 			for(var/X = 1, X <= BarsNeedingAdded, X++)
 				var/obj/Runtime/HUD/HPBar/Bar = new()
 
-				var/BarNum = HealthBars.len * 8 // 8px per bar
-				Bar.screen_loc = "NORTH-1,WEST+[round(BarNum / world.icon_size) + 4]:[BarNum % world.icon_size]"
+				var/BarPos = HealthBars.len * 8 // 8px per bar
+				Bar.screen_loc = "NORTH-1,WEST+[round(BarPos / world.icon_size) + 4]:[BarPos % world.icon_size]"
 
 				AttachedMob.client.screen += Bar
 				HealthBars += Bar
@@ -72,14 +72,11 @@
 				del O
 
 			// Place Caps
-
-
-
-			var/obj/Cap = Caps[1] // Health Cap
+			var/obj/Cap = Caps[1] // Health Bar Cap
 			var/BarSize = HealthBars.len * 8
 			Cap.screen_loc = "NORTH-1,WEST+[round(BarSize / world.icon_size) + 4]:[BarSize % world.icon_size]"
 
-			Cap = Caps[2] // Health Cap
+			Cap = Caps[2] // Power/Ammo Bar Cap
 			BarSize = 0
 			Cap.screen_loc = "NORTH-2:12,WEST+[round(BarSize / world.icon_size) + 4]:[BarSize % world.icon_size]"
 
@@ -105,7 +102,9 @@
 				var/obj/Bar = HealthBars[X]
 				if (AttachedMob.Stats.Health >= (X + HealthBars.len))
 					Bar.color = ColorWhite
+					Bar.alpha = 255
 				else if (AttachedMob.Stats.Health >= X)
 					Bar.color = ColorGrey
+					Bar.alpha = 255
 				else
 					Bar.alpha = 0

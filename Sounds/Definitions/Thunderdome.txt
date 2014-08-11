@@ -1,0 +1,10 @@
+[BGM_Thunderdome]
+Name=Thunderdome
+Environment=EnvironmentGeneric
+SoundFile=THUNDERDOME.ogg
+Frequency=1
+Falloff=1
+Repeat=1
+VolumeMultiplier=0.8
+SoundType=SoundTypeBGM
+Duration=-1

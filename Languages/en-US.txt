@@ -1,3 +1,4 @@
+en-US
 Language.Name=English (US)
 Title.PressEnter=Press Enter to Begin
 Menu.NewGame=New Game

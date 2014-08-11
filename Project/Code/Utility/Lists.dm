@@ -16,12 +16,3 @@
 
 /proc/Push(var/list/L, var/Item)
 	L.Insert(1, Item)
-
-proc/Split(var/Haystack, var/Delimiter)
-	. = list( )
-	var/Pos = findtextEx(Haystack, Delimiter)
-	while (Pos)
-		. += copytext(Haystack, 1, Pos)
-		Haystack = copytext(Haystack, Pos + lentext(Delimiter))
-		Pos = findtextEx(Haystack, Delimiter)
-	. += Haystack
