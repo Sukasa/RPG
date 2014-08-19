@@ -6,9 +6,9 @@
 		LanguageTable = Config.Lang.Translations[LanguageTable]
 		while (!Stream.EOF())
 			var/Line = Stream.TakeLine()
-			if(Line == "" || findtext(Line, "#") == 1)
+			if(findtextEx(Line, "=") == 0 || findtextEx(Line, "#") == 1)
 				continue
-			var/KeySep = findtext(Line, "=")
+			var/KeySep = findtextEx(Line, "=")
 			LanguageTable[copytext(1, KeySep)] = copytext(Line, KeySep + 1)
 
 /proc/LoadSoundDefinitions()

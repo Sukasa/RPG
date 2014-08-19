@@ -4,6 +4,8 @@
 var
 	const
 
+		Pi = 3.1415926535
+
 		#ifdef DEBUG
 		Debug = TRUE
 		#else

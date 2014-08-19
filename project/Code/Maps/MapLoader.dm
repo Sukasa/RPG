@@ -269,9 +269,13 @@
 		world.maxx = max(world.maxx, Loc.x + MapWidth - 1)
 		world.maxy = max(world.maxy, Loc.y + MapHeight - 1)
 
+
+
 	var/BaseX = Loc ? Loc.x : 1
 	var/BaseY = Loc ? Loc.y : 1
 	var/Z = Loc ? Loc.z : 1
+
+	var/list/AllTurfs = block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
 
 	var/Y = 0
 	var/X = 0
@@ -282,7 +286,8 @@
 	for (var/list/Line in TemplateMap)
 		X = 0
 		for (var/datum/TileTemplate/Tile in Line)
-			var/turf/NewTurf = locate(BaseX + X, BaseY + Y, Z)
+
+			var/turf/NewTurf = AllTurfs[(BaseY + Y - 1) * world.maxx + BaseX + X]
 
 			for (var/datum/ObjectTemplate/Turf in Tile.Turfs)
 				var/OldTurf = NewTurf
@@ -303,7 +308,7 @@
 					del A
 
 			for(var/datum/ObjectTemplate/Object in Tile.Objects)
-				var/atom/Atom = new Object.TypePath(locate(BaseX + X, BaseY + Y, Z))
+				var/atom/Atom = new Object.TypePath(NewTurf)
 				for (var/Param in Object.Params)
 					Atom.vars[Param] = Object.Params[Param]
 
@@ -317,7 +322,7 @@
 
 	for(var/InitX = BaseX, InitX < (BaseX + X), InitX++)
 		for(var/InitY = BaseY, InitY < (BaseY + Y), InitY++)
-			var/turf/T = locate(InitX, InitY, Z)
+			var/turf/T = AllTurfs[(InitY - 1) * world.maxx + InitX]
 			ProcessList += T.Init()
 
 	// Process map data

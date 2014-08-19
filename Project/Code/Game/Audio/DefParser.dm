@@ -5,16 +5,18 @@
 		DefinitionKey
 
 		list/Constants = list(
-			"EnvironmentGeneric" = EnvironmentGeneric, 			"EnvironmentPaddedCell" = EnvironmentPaddedCell,		"EnvironmentRoom" = EnvironmentRoom,				"EnvironmentBathroom" = EnvironmentBathroom,
-			"EnvironmentLivingRoom" = EnvironmentLivingRoom,	"EnvironmentStoneRoom" = EnvironmentStoneRoom,			"EnvironmentAuditorium" = EnvironmentAuditorium,	"EnvironmentConcertHall" = EnvironmentConcertHall,
-			"EnvironmentCave" = EnvironmentCave, 				"EnvironmentArena" = EnvironmentArena, 					"EnvironmentHangar" = EnvironmentHangar, 			"EnvironmentCarpetedHallway" = EnvironmentCarpetedHallway,
-			"EnvironmentHallway" = EnvironmentHallway, 			"EnvironmentStoneCorridor" = EnvironmentStoneCorridor,	"EnvironmentAlley" = EnvironmentAlley,				"EnvironmentForest" = EnvironmentForest,
-			"EnvironmentCity" = EnvironmentCity, 				"EnvironmentMountains" = EnvironmentMountains,			"EnvironmentQuarry" = EnvironmentQuarry,			"EnvironmentPlain" = EnvironmentPlain,
-			"EnvironmentParkingLot" = EnvironmentParkingLot, 	"EnvironmentSewer" = EnvironmentSewer,				"EnvironmentUnderwater" = EnvironmentUnderwater,		"EnvironmentDrugged" = EnvironmentDrugged,
-			"EnvironmentDizzy" = EnvironmentDizzy, 				"EnvironmentPsychotic" = EnvironmentPsychotic,
+								"EnvironmentGeneric" = EnvironmentGeneric, 			"EnvironmentPaddedCell" = EnvironmentPaddedCell,		"EnvironmentRoom" = EnvironmentRoom,
+								"EnvironmentBathroom" = EnvironmentBathroom,		"EnvironmentLivingRoom" = EnvironmentLivingRoom,		"EnvironmentStoneRoom" = EnvironmentStoneRoom,
+								"EnvironmentAuditorium" = EnvironmentAuditorium,	"EnvironmentConcertHall" = EnvironmentConcertHall,		"EnvironmentCave" = EnvironmentCave,
+								"EnvironmentArena" = EnvironmentArena, 				"EnvironmentHangar" = EnvironmentHangar, 				"EnvironmentCarpetedHallway" = EnvironmentCarpetedHallway,
+								"EnvironmentHallway" = EnvironmentHallway, 			"EnvironmentStoneCorridor" = EnvironmentStoneCorridor,	"EnvironmentAlley" = EnvironmentAlley,
+								"EnvironmentForest" = EnvironmentForest,			"EnvironmentCity" = EnvironmentCity, 					"EnvironmentMountains" = EnvironmentMountains,
+								"EnvironmentQuarry" = EnvironmentQuarry,			"EnvironmentPlain" = EnvironmentPlain,					"EnvironmentParkingLot" = EnvironmentParkingLot,
+								"EnvironmentSewer" = EnvironmentSewer,				"EnvironmentUnderwater" = EnvironmentUnderwater,		"EnvironmentDrugged" = EnvironmentDrugged,
+								"EnvironmentDizzy" = EnvironmentDizzy, 				"EnvironmentPsychotic" = EnvironmentPsychotic,
 
-			"SoundTypeOneOff" = SoundTypeOneOff, 	"SoundTypeAmbience" = SoundTypeAmbience,	"SoundTypeBGM" = SoundTypeBGM,
-			"SoundTypeMask" = SoundTypeMask,		"SoundModeExclusive" = SoundModeExclusive, 	"SoundModeNo3D" = SoundModeNo3D
+								"SoundTypeOneOff" = SoundTypeOneOff, 				"SoundTypeAmbience" = SoundTypeAmbience,				"SoundTypeBGM" = SoundTypeBGM,
+								"SoundTypeMask" = SoundTypeMask,					"SoundModeExclusive" = SoundModeExclusive, 				"SoundModeNo3D" = SoundModeNo3D
 							 )
 
 	proc
