@@ -395,7 +395,7 @@
 			. = Tokens.Consume()
 
 	proc/Is(var/list/L)
-		if (!(Newline in args | L))
+		if (!(Newline in args) && (!IsList(L) || !(Newline in L)))
 			SkipEOLs()
 		var/T = Tokens.Current()
 		. = (T in L) || (T in args)
