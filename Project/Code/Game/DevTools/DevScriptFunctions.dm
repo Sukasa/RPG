@@ -8,8 +8,9 @@
 			var/Line = Stream.TakeLine()
 			if(findtextEx(Line, "=") == 0 || findtextEx(Line, "#") == 1)
 				continue
+			world.log << Line
 			var/KeySep = findtextEx(Line, "=")
-			LanguageTable[copytext(1, KeySep)] = copytext(Line, KeySep + 1)
+			LanguageTable[copytext(Line, 1, KeySep)] = copytext(Line, KeySep + 1)
 
 /proc/LoadSoundDefinitions()
 	var/list/Files = GetMatchingFiles("Sounds/Definitions", ".txt")
