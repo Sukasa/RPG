@@ -27,6 +27,7 @@
 
 			EqualityOp = "=="
 
+ 			Context = "."
 			Numeric = "0123456789."
 			Identifier = "abcdefghijklmnopqrstuvwxyz0123456789_"
 
@@ -43,7 +44,7 @@
 	New(var/UseStream)
 		Stream = UseStream
 		Stream.StripCarriageReturns()
-		Groups = list(Semicolon, Colon, Operator, Numeric, Identifier)
+		Groups = list(Semicolon, Colon, Operator, Context, Numeric, Identifier)
 		Terminals = list(Equals)
 		Token = Get()
 
@@ -130,14 +131,16 @@
 				. = TakeChar()
 				Group = GetGroup(.)
 
-		while (!Stream.EOF() && Group && GetGroup(Stream.Char()) == Group)
+		while (!Stream.EOF() && Group && GetGroup(Stream.Char(), Group) == Group)
 
 	proc/TakeChar()
 		. = Stream.Take()
 		if (. == Newline)
 			Line++
 
-	proc/GetGroup(var/Character)
+	proc/GetGroup(var/Character, var/CurrentGroup)
+		if (CurrentGroup && findtext(CurrentGroup, Character))
+			return CurrentGroup
 		for(var/S in Groups)
 			if (findtext(S, Character))
 				. = S
