@@ -8,6 +8,7 @@
 *.int
 MDATA
 SDATA
+ADATA
 LDATA
 DLANG
 Grammar Reduced.txt

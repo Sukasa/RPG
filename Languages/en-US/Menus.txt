@@ -1,0 +1,43 @@
+en-US
+
+# New/Load Game menu
+Menu.NewGame=New Game
+Menu.Game1=Game A
+Menu.Game2=Game B
+Menu.Game3=Game C
+Menu.Erase=Erase
+Menu.CancelErase=Cancel
+
+# Random stuff
+Menu.NoSave=No Save
+Quit.Quit=Quit?
+Quit.Yes=Yes
+Quit.No=No
+Saved=Game saved.
+
+# Controls menu assignment labels
+Controls.Controls=Controls
+Controls.Left=Move Left
+Controls.Right=Move Right
+Controls.Up=Move Up
+Controls.Down=Move Down
+Controls.Use=Use Equipment
+Controls.Interact=Interact
+Controls.Menu=Menu
+Controls.Back=Back
+
+# Options menu labels
+Options.Options=Options
+Options.Controls=Controls
+Options.Language=Language
+Options.Graphics=Graphics
+Options.Music=Music Volume
+Options.Sound=SFX Volume
+Options.Return=Return
+Options.Configure=Configure...
+Options.Fast=Fast
+Options.Fancy=Fancy
+
+# Yes/No Prompts
+Prompt.Yes=Yes
+Prompt.No=No
