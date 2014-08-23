@@ -4,6 +4,7 @@
 
 	var/Font/Font
 
+//Render text to a Runtime/Text object
 /FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 608, var/FontFace = /Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
 	Font = new FontFace()
 
@@ -12,12 +13,13 @@
 	var/obj/Runtime/Text/Base = new()
 	Base.layer = TextLayer
 
-	var/StreamReader/Reader = new(Config.Lang.String(Text))
+	var/StreamReader/Reader = new(Config.Lang.String(Text), TRUE)
 
 	Reader.StripCarriageReturns()
 	Reader.Seek(StartIndex)
 	LastTextIndex = StartIndex
 
+	// If we have been passed in text params, then inject them here
 	if (!isnull(TextParams))
 		if (IsList(TextParams))
 			var/X = 1
@@ -44,7 +46,7 @@
 			var/obj/CurrentLine = RenderLine(JoinList(LineTextBuffer, " "), Color)
 			CurrentLine.pixel_y = (-(LinesOffset + NumLines) * Font.LineSpacing) + PixelY
 
-			LineWidth -= Font.VWFTable[33]
+			LineWidth -= Font.VWFTable[33] // 33 = Space character
 			switch (Align)
 				if (AlignRight)
 					CurrentLine.pixel_x = Width - LineWidth
@@ -78,11 +80,12 @@
 
 FontRenderer/proc/RenderLine(var/Text, var/Color)
 	var/obj/Line = new()
+	var/image/I = image(Font.IconFile, layer = TextLayer)
 	var/XPos = 0
 	for(var/X = 1, X <= lentext(Text), X++)
 		var/Char = copytext(Text, X, X + 1)
 		if (Char != " ")
-			var/image/I = image(Font.IconFile, icon_state = Char, layer = TextLayer)
+			I.icon_state = Char
 			I.pixel_x = XPos + Font.XOffsets[Char]
 			I.pixel_y = Font.YOffsets[Char]
 			I.color = Color
