@@ -41,7 +41,7 @@ proc/GetSteps(var/atom/Ref, var/Dir, var/Dist)
 
 // TODO: Refactor to match coding style
 // Bresenham line-drawing algorithm from Space Station 13.  No idea who the original implementor was, but we can probably assume it wasn't Kelson.
-// (Injoke.  Refer to your preferred SS13 branch and check helpers.dm)
+// (Refer to your preferred SS13 branch and check helpers.dm)
 proc/GetTilesInLine(var/atom/Start,var/atom/End)
 	var/px=Start.x		//starting x
 	var/py=Start.y
