@@ -27,7 +27,7 @@
 
 			EqualityOp = "=="
 
- 			Context = "."
+			VariableContext = "."
 			Numeric = "0123456789."
 			Identifier = "abcdefghijklmnopqrstuvwxyz0123456789_"
 
@@ -44,7 +44,7 @@
 	New(var/UseStream)
 		Stream = UseStream
 		Stream.StripCarriageReturns()
-		Groups = list(Semicolon, Colon, Operator, Context, Numeric, Identifier)
+		Groups = list(Semicolon, Colon, Operator, VariableContext, Numeric, Identifier)
 		Terminals = list(Equals)
 		Token = Get()
 
