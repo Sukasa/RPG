@@ -1,6 +1,7 @@
 /ASTNode
 	var
 		list/SubNodes = list()
+		ScriptLine = 0
 		global
 			ScriptExecutionContext/Context
 

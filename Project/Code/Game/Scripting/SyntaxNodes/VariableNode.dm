@@ -28,7 +28,7 @@
 
 		for(X = 1; X < Members.len; X++)
 			if (!istype(D, /datum)) // Lists are apparently not datums.
-				ErrorText("Attempt to index member [Members[X]] of non-object '[D]' in script [Context.ScriptName]")
+				ErrorText("Attempt to index member [Members[X]] of non-object '[D]' in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 			Member = Members[X]
@@ -36,13 +36,13 @@
 			if(Member in D.vars)
 				D = D.vars[Member]
 			else
-				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
+				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 		if (Members.len)
 			Member = Members[X]
 			if(!(Member in D.vars))
-				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
+				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 		if (D && Members.len && (Member in D.vars))
@@ -55,7 +55,7 @@
 					L += Node.Execute()
 				return call(D, Member)(arglist(L))
 			else
-				ErrorText("Attempt to use function ref [Member] as variable in script [Context.ScriptName]")
+				ErrorText("Attempt to use function ref [Member] as variable in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 		if (SubNodes.len == 1)
@@ -63,7 +63,7 @@
 				var/ASTNode/Node = SubNodes[1]
 				. = D[Node.Execute()]
 			else
-				ErrorText("Attempt to index non-list as list in script [Context.ScriptName]")
+				ErrorText("Attempt to index non-list as list in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 
@@ -71,7 +71,7 @@
 
 	proc/Set(var/NewValue)
 		if (Arguments)
-			ErrorText("Attempt to assign to function in script [Context.ScriptName]")
+			ErrorText("Attempt to assign to function in script [Context.ScriptName]:[ScriptLine]")
 
 		var/list/Container = Ref
 		if (Container != Config.Globals)
@@ -85,7 +85,7 @@
 
 		for(X = 1; X < Members.len; X++)
 			if (!istype(D, /datum)) // Lists are apparently not datums.
-				ErrorText("Attempt to index member [Members[X]] of non-object '[D]' in script [Context.ScriptName]")
+				ErrorText("Attempt to index member [Members[X]] of non-object '[D]' in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 			Member = Members[X]
@@ -93,13 +93,13 @@
 			if(Member in D.vars)
 				D = D.vars[Member]
 			else
-				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
+				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]:[ScriptLine]")
 				return null
 
 		if (Members.len)
 			Member = Members[X]
 			if(!(Member in D.vars))
-				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]")
+				ErrorText("Unknown member [Member] of [D] in script [Context.ScriptName]:[ScriptLine]")
 				return null
 		else
 			Original = NewValue
@@ -111,7 +111,7 @@
 					var/ASTNode/Node = SubNodes[1]
 					L[Node.Execute()] = NewValue
 				else
-					ErrorText("Attempt to index non-list as list in script [Context.ScriptName]")
+					ErrorText("Attempt to index non-list as list in script [Context.ScriptName]:[ScriptLine]")
 			else
 				D.vars[Member] = NewValue
 

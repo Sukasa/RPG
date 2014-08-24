@@ -1,6 +1,14 @@
 /mob/verb/Say(var/Text as text)
 	if (findtext(Text, "/", 1, 2))
-		return // TODO Parse
+		var/Parser/Parser = new()
+
+		Parser.Functions = ScriptFunctions
+		Parser.Constants = ScriptConstants
+
+		var/ASTNode/Node = Parser.ParseLine(Text)
+		if (Node)
+			Node.Context = new /ScriptExecutionContext()
+			Node.Execute()
 	else
 		Broadcast(Text)
 
