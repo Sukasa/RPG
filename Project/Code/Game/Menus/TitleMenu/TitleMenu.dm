@@ -11,6 +11,18 @@
 	PersistentElements += TitleGraphic
 
 
+	Text = Config.Text.Create("Development Copy\nThis software is not authorized for distribution", FontFace = /Font/SakkalMajalla24, Width = 608, Align = AlignCenter, MaxLines = 9)
+	Text.screen_loc = "1,CENTER-5"
+	Text.alpha = AlphaOpaque
+	StaticElements += Text
+
+	if (Config.IsDevMode)
+		Text = Config.Text.Create("DevMode", FontFace = /Font/SakkalMajalla24, Width = 608, Align = AlignCenter, Color = ColorYellow)
+		Text.screen_loc = "1,1:16"
+		Text.alpha = AlphaOpaque
+		StaticElements += Text
+
+
 	// Create 'press start' text
 	Text = Config.Text.Create("Title.PressEnter", FontFace = /Font/LaconicShadow48, Width = 608, Align = AlignCenter)
 	Text.screen_loc = "1,CENTER-3"
@@ -34,14 +46,13 @@
 		EnterEnabled = FALSE
 		animate(Text, alpha = 0, time = 6)
 
-		// You can't animate the pixel_* of screen objects anymore (it was a bug), so recreate the original effect here (Sinusoidal easing, etc)
-		// E: ter13 suggested animating the transform() property.  I should probably do that instead.
+		// You can't animate the pixel_* of screen objects anymore (it was a bug), so recreate the original effect here (Sinusoidal easing, etc).
+		// E: ter13 suggested animate()'ing the transform property.  I should probably do that instead.
 		spawn
 			var/RiseTime = 20
-			var/Increment = 10 / world.fps
-			for(var/n = 0, n <= RiseTime, n += Increment)
+			for(var/n = 0, n <= RiseTime, n += world.tick_lag)
 				TitleGraphic.screen_loc = "3, 10:[round(-48 * (cos(180 * n / RiseTime) - 1))]"
-				sleep(Increment)
+				sleep(world.tick_lag)
 			TitleGraphic.screen_loc = "3, 12"
 
 		spawn(15)
