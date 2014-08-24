@@ -9,7 +9,6 @@
 		return
 
 	Ticks++
-	//world.log << "[Ticks]"
 	if (Ticks % world.fps == 0)
 		//Game Mode, Machinery, etc slowtick at 1Hz
 		if (Mode)
@@ -27,10 +26,9 @@
 			M.MoveTo()
 
 	Config.Cameras.Tick()
-
 	Config.Menus.Tick()
 
-	// Handle the player's (players'?) input.
+	// Handle the player's (or players') input.
 	for (var/client/C)
 		C.KeyTick()
 
@@ -57,7 +55,7 @@
 
 //Whether to allow a NEW player to join in
 /datum/Ticker/proc/AllowJoin()
-	return TRUE
+	return TRUE // Stubbed out: this isn't a multiplayer engine anymore
 	if (!Mode || !Mode.RunTicker())
 		return TRUE
 	return Mode.AllowLateJoin && Config.AllowLateJoin

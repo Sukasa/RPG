@@ -3,6 +3,7 @@ en-US
 # Misc stuff
 Language.Name=English (US)
 Title.PressEnter=Press Enter to Begin
+DevMode=Development Mode Enabled
 
 
 Test.TextboxTest1=This is a test of the textbox code.\nI want to see if it handled that line break properly, as well as a longer line break caused by long text.  Time to see how well it works, eh?
