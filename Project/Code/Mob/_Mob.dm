@@ -76,7 +76,7 @@ mob
 	step_x = Target.FineX - (bound_width / 2) - bound_x
 	Move(locate(Target.TileX, Target.TileY, z))
 
-/mob/proc/MoveTo(var/datum/Target = Destination)
+/mob/proc/MoveTo(var/Target = Destination)
 	Destination = Target
 	if (!Target)
 		return
@@ -84,28 +84,11 @@ mob
 	var/Angle = GetAngleTo(Destination)
 	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * world.icon_size)
 
-	var/NewStepX = (MoveSpeed * sin(Angle)) + step_x + SubStepX
-	var/NewStepY = (MoveSpeed * cos(Angle)) + step_y + SubStepY
+	var/NewX = ((MoveSpeed * sin(Angle)) + step_x + SubStepX) + (x * world.icon_size)
+	var/NewY = ((MoveSpeed * cos(Angle)) + step_y + SubStepY) + (y * world.icon_size)
 
-	var/OffsetX = 0
-	var/OffsetY = 0
-
-	if (NewStepX < 0)
-		NewStepX += world.icon_size
-		OffsetX--
-	else if (NewStepX >= world.icon_size)
-		NewStepX -= world.icon_size
-		OffsetX++
-
-	if (NewStepY < 0)
-		NewStepY += world.icon_size
-		OffsetY--
-	else if (NewStepY >= world.icon_size)
-		NewStepY -= world.icon_size
-		OffsetY++
-
-	SubStepX = NewStepX % 1
-	SubStepY = NewStepY % 1
+	SubStepX = NewX - round(NewX)
+	SubStepY = NewY - round(NewY)
 
 	if (GetDistanceTo(Destination) <= 1 / world.icon_size)
 		if (IsMovable(Destination))
@@ -113,8 +96,8 @@ mob
 		Destination = null
 	else
 		SmoothMove = 2
-		Move(locate(x + OffsetX, y, z), 0, round(NewStepX), step_y)
-		Move(locate(x, y + OffsetY, z), 0, step_x, round(NewStepY))
+		Move(locate(round(NewX / world.icon_size), y, z), 0, round(NewX % world.icon_size), step_y)
+		Move(locate(x, round(NewY / world.icon_size), z), 0, step_x, round(NewY % world.icon_size))
 
 /mob/Move()
 	..()
