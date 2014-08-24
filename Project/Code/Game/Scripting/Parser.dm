@@ -71,8 +71,8 @@
 			ErrorText("Failed to parse script [ScriptName]!")
 			ErrorText("Unrecognized or unexpected token \"[Tokens.Current()]\" on line [Tokens.Line]")
 
-	proc/ParseDialogLine(var/Script)
-		Tokens = new/Lexer(new/StreamReader(Script))
+	proc/ParseLine(var/Script)
+		Tokens = new/Lexer(new/StreamReader(Script, TRUE))
 		. = Line()
 		if (!.)
 			ErrorText("Error - Incorrect or malformed command")
@@ -80,6 +80,8 @@
 	// -----------------------------
 
 	proc/Line()
+		if (Expect("/"))
+			return Statement()
 		if (Expect("/") && Is(Functions))
 			var/ASTNode/FunctionNode/Node = new(Tokens.Consume())
 			. = Node
@@ -89,6 +91,7 @@
 
 	proc/Block()
 		var/ASTNode/BlockNode/Node = new()
+		Node.ScriptLine = Tokens.Line
 		. = Node
 		SkipEOLs()
 		while(!(Tokens.Current() in FollowsBlock))
@@ -157,6 +160,7 @@
 		if (Expect(TrinaryStart))
 			// Handle trinary
 			var/ASTNode/Trinary/Node = new()
+			Node.ScriptLine = Tokens.Line
 			. = Node
 			Node.SubNodes += S
 			S = Expression()
@@ -171,6 +175,7 @@
 
 		else if (Tokens.Current() in BinaryAll)
 			var/ASTNode/Binary/Node = new()
+			Node.ScriptLine = Tokens.Line
 
 
 
@@ -181,6 +186,7 @@
 				while (Tokens.Current() in Binaries[TestLevel])
 					if (Node.SubNodes.len == 2)
 						Node = new()
+						Node.ScriptLine = Tokens.Line
 					Node.Op = Tokens.Consume()
 					Node.SubNodes += .
 					. = Node
@@ -194,6 +200,7 @@
 			while (Level <= 0 && (Tokens.Current() in Binary0))
 				if (Node.SubNodes.len == 2)
 					Node = new()
+					Node.ScriptLine = Tokens.Line
 				Node.Op = Tokens.Consume()
 				Node.SubNodes += .
 				. = Node
@@ -219,6 +226,7 @@
 
 	proc/Unary()
 		var/ASTNode/Unary/Node = new()
+		Node.ScriptLine = Tokens.Line
 		. = Node
 		Node.UnaryType = Tokens.Consume()
 		Node.SubNodes += Expression()
@@ -239,6 +247,7 @@
 		else if (Is(VariableStarts))
 			var/VarType = Tokens.Consume()
 			var/ASTNode/VariableNode/Node = new(Tokens.Consume(), VarType)
+			Node.ScriptLine = Tokens.Line
 			. = Node
 			if (Expect(BeginIndexer))
 				var/E = Expression()
@@ -257,6 +266,7 @@
 
 		else if (Is(Functions))
 			var/ASTNode/FunctionNode/Node = new(Functions[Tokens.Consume()])
+			Node.ScriptLine = Tokens.Line
 			. = Node
 
 			Node.SubNodes = ArgumentList()
@@ -296,6 +306,7 @@
 			return null
 
 		var/ASTNode/IfThen/Node = new()
+		Node.ScriptLine = Tokens.Line
 		. = Node
 
 		Node.SubNodes += E
@@ -346,6 +357,7 @@
 			return null
 
 		var/ASTNode/While/Node = new()
+		Node.ScriptLine = Tokens.Line
 		. = Node
 
 		Node.SubNodes += E
@@ -373,6 +385,7 @@
 			return null
 
 		var/ASTNode/Do/Node = new(S)
+		Node.ScriptLine = Tokens.Line
 		. = Node
 		Node.SubNodes += E
 
