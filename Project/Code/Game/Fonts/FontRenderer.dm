@@ -5,7 +5,7 @@
 	var/Font/Font
 
 //Render text to a Runtime/Text object
-/FontRenderer/proc/Create(var/Text = "", var/Lines = 1, var/Width = 608, var/FontFace = /Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
+/FontRenderer/proc/Create(var/Text = "", var/MaxLines = 1, var/Width = 608, var/FontFace = /Font/CandelaBold26, var/Align = AlignLeft, var/Color = ColorWhite, var/StartIndex = 1, var/LinesOffset = 0, var/PixelX = 0, var/PixelY = 0, var/TextParams = null)
 	Font = new FontFace()
 
 	var/NumLines  = 0
@@ -58,7 +58,7 @@
 			Base.overlays += CurrentLine
 			NumLines++
 
-			if (Reader.EOF() || NumLines >= Lines)
+			if (Reader.EOF() || NumLines >= MaxLines)
 				break // Exit while loop
 
 			if (Reader.Is(LineFeed))
