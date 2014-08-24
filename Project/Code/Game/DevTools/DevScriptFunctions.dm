@@ -1,9 +1,13 @@
 /proc/LoadLanguages()
-	var/list/Files = GetMatchingFiles("Languages", ".txt")
-	for(var/File in Files)
+	world.log << "Loading Languages"
+	var/list/Files = GetMatchingFiles("Languages", "*.txt")
+	world.log << "Found [Files["Count"]] language files"
+	for(var/File in Files - "Count")
+		File = Files[File]
+		world.log << "<b>[File]</b>:"
 		var/StreamReader/Stream = new(File)
-		var/list/LanguageTable = Stream.TakeLine()
-		LanguageTable = Config.Lang.Translations[LanguageTable]
+		var/LanguageCode = Stream.TakeLine()
+		var/list/LanguageTable = Config.Lang.Translations[LanguageCode]
 		while (!Stream.EOF())
 			var/Line = Stream.TakeLine()
 			if(findtextEx(Line, "=") == 0 || findtextEx(Line, "#") == 1)
@@ -11,6 +15,7 @@
 			world.log << Line
 			var/KeySep = findtextEx(Line, "=")
 			LanguageTable[copytext(Line, 1, KeySep)] = copytext(Line, KeySep + 1)
+		Config.Lang.UpdateLanguageFile(LanguageCode, LanguageTable)
 
 /proc/LoadSoundDefinitions()
 	var/list/Files = GetMatchingFiles("Sounds/Definitions", ".txt")
