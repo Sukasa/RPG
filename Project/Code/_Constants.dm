@@ -216,6 +216,7 @@ var
 		ColorDarkRed = rgb(128, 0, 0)
 		ColorBlue = rgb(0, 0, 255)
 		ColorDarkBlue = rgb(0, 0, 128)
+		ColorYellow = rgb(255, 255, 0)
 
 	list
 
@@ -242,7 +243,7 @@ var
 
 		// Constants defined for use in scripts
 		ScriptConstants = list(
-								"true"			= TRUE,							"false"			= FALSE,					"oneFrame"			= 1 / world.fps,
+								"true"			= TRUE,							"false"			= FALSE,					"oneFrame"			= world.tick_lag,
 								"isDebug"		= Debug, 						"tileSize"		= world.icon_size,			"black"				= ColorBlack,
 								"white"			= ColorWhite,					"grey"			= ColorGrey,				"red"				= ColorRed,
 								"darkRed"		= ColorDarkRed,					"blue"			= ColorBlue,				"darkBlue"			= ColorDarkBlue,

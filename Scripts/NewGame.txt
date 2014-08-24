@@ -1,11 +1,11 @@
 $Dialogue = newDialogue();
 
-$Dialogue.Text = "Newgame.Demo"
+$Dialogue.Text = "Newgame.Demo";
 
 queueDialogue($Dialogue);
 
-while ($Dialogue.Result == ResultPending)
+while ($Dialogue.Result == resultPending)
 	sleep(1);
-	
+
 loadMap("ObjectTest");
 fadeIn();

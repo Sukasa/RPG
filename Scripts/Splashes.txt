@@ -1,4 +1,4 @@
-setFade(Black, AlphaFull);
+setFade(black, alphaOpaque);
 loadMap("Splash1");
 fadeIn();
 sleep(40);
