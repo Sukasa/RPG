@@ -84,37 +84,37 @@
 
 	// Enforce a standard set of menu controls...
 	if (Key == "North")
-		Input(ControlUp + Modifier)
+		Input(ControlUp | Modifier)
 		return
 	if (Key == "South")
-		Input(ControlDown + Modifier)
+		Input(ControlDown | Modifier)
 		return
 	if (Key == "West")
-		Input(ControlLeft + Modifier)
+		Input(ControlLeft | Modifier)
 		return
 	if (Key == "East")
-		Input(ControlRight + Modifier)
+		Input(ControlRight | Modifier)
 		return
 	if (Key == "Return")
-		Input(ControlEnter + Modifier)
+		Input(ControlEnter | Modifier)
 		return
 	if (Key == "Escape")
-		Input(ControlEscape + Modifier)
+		Input(ControlEscape | Modifier)
 		return
 
 	// ... before using the customized key set
 	if (Key == Config.CommandKeys[ButtonNorth])
-		Input(ControlUp + Modifier)
+		Input(ControlUp | Modifier)
 	if (Key == Config.CommandKeys[ButtonSouth])
-		Input(ControlDown + Modifier)
+		Input(ControlDown | Modifier)
 	if (Key == Config.CommandKeys[ButtonWest])
-		Input(ControlLeft + Modifier)
+		Input(ControlLeft | Modifier)
 	if (Key == Config.CommandKeys[ButtonEast])
-		Input(ControlRight + Modifier)
+		Input(ControlRight | Modifier)
 	if (Key == Config.CommandKeys[ButtonUse] || Key == Config.CommandKeys[ButtonInteract])
-		Input(ControlEnter + Modifier)
+		Input(ControlEnter | Modifier)
 	if (Key == Config.CommandKeys[ButtonMenu])
-		Input(ControlEscape + Modifier)
+		Input(ControlEscape | Modifier)
 
 /Menu/proc/KeyUp(var/Key)
 	KeyChange(Key, ControlReleased)
