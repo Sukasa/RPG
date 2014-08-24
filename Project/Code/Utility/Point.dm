@@ -7,31 +7,26 @@ Point
 		FineX = 0
 		FineY = 0
 
-		step_y
-		step_x
+		//step_y
+		//step_x
 
-Point/New(var/atom/Location)
-	if (!Location)
+Point/New(var/atom/Ref)
+	if (!Ref)
 		return
-	TileX = Location.x
-	TileY = Location.y
+	TileX = Ref.x
+	TileY = Ref.y
 
-	if (IsMovable(Location))
-		PixelX = Location:step_x
-		PixelY = Location:step_y
-		step_x = PixelX
-		step_y = PixelY
+	if (IsMovable(Ref))
+		PixelX = Ref:step_x
+		PixelY = Ref:step_y
 
-	if (IsTurf(Location))
-		step_x = 16
-		step_y = 16
+	if (ismob(Ref))
+		PixelX += Ref:SubStepY
+		PixelY += Ref:SubStepX
 
 	FineX = (TileX * world.icon_size) + PixelX
 	FineY = (TileY * world.icon_size) + PixelY
 
-	if (ismob(Location))
-		FineX += Location:SubStepY
-		FineY += Location:SubStepX
 
 Point/proc/Polar(var/Angle, var/DistPixels)
 	PixelX += fix(sin(Angle) * DistPixels)
