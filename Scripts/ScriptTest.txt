@@ -1,4 +1,0 @@
-fadeout
-sleep 1
-loadraw dynamic/titlemap
-fadein

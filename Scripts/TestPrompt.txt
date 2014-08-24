@@ -1,1 +1,0 @@
-queueprompt Test.LoadTitle Scripts/ScriptTestYes.txt Scripts/ScriptTestNo.txt Language.Name

@@ -1,2 +1,0 @@
-queuedialogue Test.NowLoading Language.Name
-spawn Scripts/ScriptTestYes2.txt

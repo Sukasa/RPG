@@ -1,2 +1,0 @@
-waitdialogue
-loadraw dynamic/titlemap
