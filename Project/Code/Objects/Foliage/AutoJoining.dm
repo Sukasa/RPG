@@ -8,6 +8,20 @@
 		name = "Bush"
 		icon = 'BigLightBush.dmi'
 
+	WaterReeds
+		name = "Reeds"
+		icon = 'WaterReeds.dmi'
+		icon_state = "255"
+
+		Init()
+			. = ..()
+			if (icon_state in ReedRootStates)
+				var/obj/O = new(get_step(src, SOUTH))
+				O.icon = icon
+				O.icon_state = "[icon_state]_2"
+				O.layer = layer
+
+
 	LavaPool
 		MatchTypes = list( /turf/Basic/Lava )
 		name = "Lava Pool"

@@ -290,6 +290,7 @@
 #include "Project\Code\Objects\Foliage\Cacti.dm"
 #include "Project\Code\Objects\Foliage\CliffFace.dm"
 #include "Project\Code\Objects\Foliage\Flowers.dm"
+#include "Project\Code\Objects\Foliage\Grasses.dm"
 #include "Project\Code\Objects\Foliage\PlantLife.dm"
 #include "Project\Code\Objects\Foliage\Tree.dm"
 #include "Project\Code\Objects\Foliage\TreeLeaves.dm"
