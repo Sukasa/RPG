@@ -154,10 +154,12 @@ var
 
 		CliffFaceOffset = 0.5		// Amount to reduce the cliff face's layer by, to ensure correct ordering against north ledges
 
+		AutojoinTerrainLayer = 9	// Layer to draw autojoined objects at that are part of the terrain
 		MobLayer = 10				// Mob draw layer
 		MapMarkerLayer = 10			// MapMarker draw layer, when made viewable via debug call
 		ShadowLayer = 19			// Layer to draw object shadows
-		OverlayLayer = 20			// Layer for overlay graphics, e.g. tree leaves
+		StructureLayer = 20			// Tree structure layer
+		OverlayLayer = 21			// Layer for overlay graphics, e.g. tree leaves
 		HUDLayer = 99				// HUD object layer.  Not used for player UI
 		FlashLayer = 100			// Flash layer, also use for fadein/fadeouts
 		UILayer = 101				// UI Layer, for things like the HUD and menus
