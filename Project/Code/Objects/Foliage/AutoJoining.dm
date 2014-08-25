@@ -1,5 +1,6 @@
 /obj/Autojoin
 	icon_state = "0"
+	layer = AutojoinTerrainLayer
 	Init()
 		. = ..()
 		AutoJoin()

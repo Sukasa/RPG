@@ -52,17 +52,22 @@
 
 /obj/Foliage/Tree/Init()
 	. = list()
-	layer -= ((x + y - 1) / 1000)
+	layer -= ((x + y - 1) / 500)
 	icon_state = "Blank"
 
 	var/Key = "[type]"
 
 	if (!Overlays["[Key]-Trunk"])
-		Overlays["[Key]-Trunk"] = image(src.icon, src, "Trunk", OBJ_LAYER - ((x + y) / 1000))
+		Overlays["[Key]-Trunk"] = image(src.icon, src, "Trunk", StructureLayer)
+
 	if (!Overlays["[Key]-Shadow"])
-		Overlays["[Key]-Shadow"] =  image(src.icon, src, "Shadow", ShadowLayer - ((x + y) / 1000))
+		Overlays["[Key]-Shadow"] =  image(src.icon, src, "Shadow", ShadowLayer)
+
+	if (!Overlays["[Key]-Structure"])
+		Overlays["[Key]-Structure"] =  image(src.icon, src, "Structure", StructureLayer)
 
 	src.overlays += Overlays["[Key]-Trunk"]
 	src.overlays += Overlays["[Key]-Shadow"]
+	src.overlays += Overlays["[Key]-Structure"]
 
 	new/obj/Runtime/TreeLeaves(loc, src)
