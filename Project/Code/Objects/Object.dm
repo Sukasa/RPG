@@ -1,3 +1,6 @@
+/obj
+	layer = ObjectLayer
+
 /obj/New()
 	..()
 	if (!findtext(src, "\improper") && !findtext(src, "\proper"))

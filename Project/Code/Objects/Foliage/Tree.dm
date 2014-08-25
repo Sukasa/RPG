@@ -2,6 +2,7 @@
 	icon = 'OakTree.dmi'
 	name = "Tree"
 	icon_state = "Tree"
+	layer = ObjectLayer
 	density = 1
 	bound_width = 24
 	bound_height = 18
@@ -52,7 +53,7 @@
 
 /obj/Foliage/Tree/Init()
 	. = list()
-	layer -= ((x + y - 1) / 500)
+	layer -= ((x + (y * 3) - 1) / 500)
 	icon_state = "Blank"
 
 	var/Key = "[type]"

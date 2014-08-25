@@ -22,6 +22,7 @@
 
 /CameraController/proc/CameraTick(var/mob/Camera/C, var/mob/M)
 	C.Destination = GetBestCameraDestinationCandidate(C, M)
+	C.PanSpeed = M.MoveSpeed() * 1.5
 	if (M in C.Destination)
 		C.Destination = M
 	else if (C.Destination)

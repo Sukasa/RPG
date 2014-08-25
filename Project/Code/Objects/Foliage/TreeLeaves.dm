@@ -8,7 +8,7 @@
 		bound_width = Source.FoliageBoundWidth
 		bound_height = Source.FoliageBoundHeight
 
-		layer = OverlayLayer - ((x + y) / 1000)
+		layer = OverlayLayer - ((x + (y * 3) - 1) / 500)
 
 		icon = Source.icon
 		icon_state = "Overlay"

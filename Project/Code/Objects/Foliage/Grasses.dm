@@ -1,6 +1,7 @@
 /obj/Foliage/PlantLife/Grasses
 	name = "Grass"
 	icon = 'Grasses.dmi'
+	density = 0
 
 	Sprigs
 		icon_state = "Sprigs"

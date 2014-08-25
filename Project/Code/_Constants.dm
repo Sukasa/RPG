@@ -154,7 +154,8 @@ var
 
 		CliffFaceOffset = 0.5		// Amount to reduce the cliff face's layer by, to ensure correct ordering against north ledges
 
-		AutojoinTerrainLayer = 9	// Layer to draw autojoined objects at that are part of the terrain
+		AutojoinTerrainLayer = 8	// Layer to draw autojoined objects at that are part of the terrain
+		ObjectLayer = 8
 		MobLayer = 10				// Mob draw layer
 		MapMarkerLayer = 10			// MapMarker draw layer, when made viewable via debug call
 		ShadowLayer = 19			// Layer to draw object shadows

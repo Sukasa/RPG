@@ -20,7 +20,7 @@
 
 /turf/proc/Propagate()
 	. = list( )
-	for(var/Dir in Cardinal8)
+	for(var/Dir in Cardinal)
 		var/turf/T = get_step(src, Dir)
 		if (!T)
 			continue
