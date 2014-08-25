@@ -18,10 +18,25 @@
 		Config.Lang.UpdateLanguageFile(LanguageCode, LanguageTable)
 
 /proc/LoadSoundDefinitions()
-	var/list/Files = GetMatchingFiles("Sounds/Definitions", ".txt")
+	var/list/Files = GetMatchingFiles("Sounds\\Definitions", "*.txt")
 	var/DefParser/Parser = new()
-	for(var/File in Files)
-		Parser.ParseDefinitionFile(File)
+	var/list/Definitions = list()
+	var/list/Overwritten = list()
+	for(var/File in Files - "Count")
+		File = Files[File]
+		var/list/Added = Parser.ParseDefinitionFile(File)
+		Overwritten |= (Definitions & Added)
+		Definitions |= Added
+
+	world.log << "<b>Loaded definitions:</b>"
+	for(var/SFX in Definitions)
+		world.log << SFX
+
+	if (Overwritten.len)
+		world.log << "<b>The following sound definitions are multiply-declared:</b>"
+		for(var/SFX in Overwritten)
+			world.log << SFX
+
 
 /proc/RegisterDevScriptFunctions()
 	ScriptFunctions["LoadLanguages"] = /proc/LoadLanguages

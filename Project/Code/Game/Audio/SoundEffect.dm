@@ -51,7 +51,7 @@
 		return
 	if (!FadeDone)
 		Sound.status = Paused ? SOUND_UPDATE | SOUND_PAUSED : SOUND_UPDATE
-		Sound.volume = lerp(FadeFrom, FadeTo, (world.time - FadeStart) / FadeTime) * (Config.Audio.GameVolume / 15) * Volume * Definition.VolumeMultiplier
+		Sound.volume = lerp(FadeFrom, FadeTo, (world.time - FadeStart) / FadeTime) * (Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier
 		world << Sound
 
 		FadeDone = (world.time - FadeStart) >= FadeTime
@@ -60,7 +60,7 @@
 /SoundEffect/proc/Tick()
 	// Tick the sound effect to handle pan/falloff/etc
 
-	Sound.volume = Config.Audio.GameVolume * Volume * Definition.VolumeMultiplier
+	Sound.volume = (Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier
 
 	if (Stopped)
 		if (Paused)

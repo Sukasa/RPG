@@ -144,10 +144,9 @@ var
 
 		DefaultLanguage = "en-US"	// Default game language
 
-		MaxVolume = 16				// Maximum volume, according to game UI, from 0..16
+		MaxVolume = 16				// Maximum volume, according to game UI, from 0..MaxVolume
 		DefaultBGMVolume = MaxVolume// Default BGM volume for new games
 		DefaultSFXVolume = MaxVolume// Default SFX volume for new games
-
 
 		TickerNotStarted = 0		// Game ticker has not started, or stopped
 		TickerRunning = 1			// Game ticker is running
@@ -234,11 +233,11 @@ var
 		RankTitles 		= list("Banned", "Player", "Moderator", "Programmer", "Administrator")
 
 		// Text Colours
-		TextColours 	= 	list(
-								 "\red"		= rgb(255, 0, 0),     "\green"	= rgb(0, 255, 0),   "\blue"		= rgb(32, 64, 255),
-								 "\magenta" = rgb(255, 0, 255),   "\cyan"	= rgb(0, 255, 255), "\yellow"	= rgb(255, 255, 0),
-								 "\white"	= rgb(255, 255, 255), "\black"	= rgb(0, 0, 0)
-							  	)
+		TextColours 	= list(
+								"\red"			= rgb(255, 0, 0),     			"\green"		= rgb(0, 255, 0),  			"\blue"				= rgb(32, 64, 255),
+								"\magenta"		= rgb(255, 0, 255),   			"\cyan"			= rgb(0, 255, 255),			"\yellow"			= rgb(255, 255, 0),
+								"\white"		= rgb(255, 255, 255), 			"\black"		= rgb(0, 0, 0)
+							  )
 
 
 		// Constants defined for use in scripts
@@ -248,7 +247,7 @@ var
 								"white"			= ColorWhite,					"grey"			= ColorGrey,				"red"				= ColorRed,
 								"darkRed"		= ColorDarkRed,					"blue"			= ColorBlue,				"darkBlue"			= ColorDarkBlue,
 								"alphaOpaque"	= AlphaOpaque,					"alphaHalf"		= AlphaHalf,				"alphaTransparent"	= AlphaTransparent,
-								"resultPending"	= DialogueResultPending,		"resultViewed"	= DialogueResultViewed
+								"resultPending"	= DialogueResultPending,		"resultViewed"	= DialogueResultViewed,		"fps"				= world.fps
 							  )
 
 		// Function calls available to scripts.  Note that variables may have their own function calls available as well
@@ -269,7 +268,11 @@ var
 
 		// Config/Player variables are set later
 		ScriptVariables = list(
-							    "world" = world, "config" = null, "player" = null
+							    "world"			= world,						"config"		= null,						"player" = null
+							  )
+
+		ReedRootStates  = list(
+								"7", "199", "193"
 							  )
 
 		// Cliff stuff
@@ -277,6 +280,8 @@ var
 							    "7", "199", "193", "247", "223"
 							  )
 
+
+		// Collision bounds for cliffs
 		CliffBounds 	= list(
             					"31"  = list("bound_x" = 15, "bound_width" = 10),
             					"241" = list("bound_x" = 8, "bound_width" = 6),

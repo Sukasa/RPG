@@ -10,8 +10,6 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		CurrentBGMTrackName = null
 
 		Environment = EnvironmentGeneric
-		GameVolume = 15
-		MusicVolume = 15
 		ChannelCounter = 0
 
 		FreeChannelCount = MaxVoices
@@ -32,8 +30,13 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		Definitions[".index"] >> DefinitionIndex
 	else
 		Definitions = new/savefile("ADATA")
+		DefinitionIndex = list()
 	ResetSounds()
 
+/SoundController/proc/UpdateDefinition(var/DefinitionKey, var/SoundDef/Definition)
+	Definitions[DefinitionKey] << Definition
+	DefinitionIndex |= DefinitionKey
+	Definitions[".index"] << DefinitionIndex
 
 /SoundController/proc/Tick()
 	for(var/SoundEffect/Effect in AllocationEffects)

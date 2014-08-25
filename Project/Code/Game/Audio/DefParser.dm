@@ -21,6 +21,7 @@
 
 	proc
 		ParseDefinitionFile(var/Filename)
+			. = list()
 			Definition = null
 			InputFile = new/StreamReader(Filename)
 			InputFile.StripCarriageReturns()
@@ -33,15 +34,27 @@
 						Config.Audio.Definitions[DefinitionKey] = Definition
 						Config.Audio.DefinitionIndex -= DefinitionKey
 						Config.Audio.DefinitionIndex += DefinitionKey
+						. += DefinitionKey
 					Definition = new/SoundDef()
 					DefinitionKey = copytext(Line, 1, -1)
-				else if (!findtext(Line, "=") || !Definition)
-					return
+					continue
+				else if (!findtext(Line, "=") || findtext(Line, "#") == 1 || !Definition)
+					continue
 
-				var/VarName = copytext(Line, 1, findtext(Line, "="))
-				var/Value = copytext(Line, findtext(Line, "=") + 1)
-				if (Value in Constants)
-					Value = Constants[Value]
+				if (Definition)
+					var/VarName = copytext(Line, 1, findtext(Line, "="))
+					var/Value = copytext(Line, findtext(Line, "=") + 1)
+					if (Value in Constants)
+						Value = Constants[Value]
 
-				Definition.vars[VarName] = Value
+					if (!VarName in Definition.vars)
+						Definition = null
 
+					if (Definition)
+						Definition.vars[VarName] = Value
+
+			if (Definition)
+				Config.Audio.Definitions[DefinitionKey] = Definition
+				Config.Audio.DefinitionIndex -= DefinitionKey
+				Config.Audio.DefinitionIndex += DefinitionKey
+				. += DefinitionKey
