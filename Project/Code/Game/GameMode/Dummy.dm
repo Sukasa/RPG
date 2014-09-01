@@ -1,6 +1,5 @@
 /datum/GameMode/Dummy
 	Name = "Dummy"
-	ModeKey = "DM"
 
 /datum/GameMode/Dummy/Start()
 	Config.NetController.Init()
@@ -9,6 +8,7 @@
 	Config.Events.Init()
 	Config.Audio.Init()
 
+	// Autotile setup
 	for(var/X = 0; X < 256, X++)
 		var/B = X & 85
 		if (((X & 5) == 5) && (X & 2))
@@ -20,3 +20,6 @@
 		if (((X & 65) == 65) && (X & 128))
 			B |= 128
 		Config.AutoTile += B
+
+	spawn(5)
+		Ticker.ChangeGameMode(/datum/GameMode/TitleScreen)

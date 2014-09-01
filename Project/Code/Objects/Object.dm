@@ -1,5 +1,7 @@
 /obj
 	layer = ObjectLayer
+	var
+		OverrideTurfDensity = FALSE
 
 /obj/New()
 	..()

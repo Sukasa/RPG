@@ -7,7 +7,6 @@
 /datum/GameMode/TitleScreen/Tick()
 	if (Camera && Camera.PanComplete())
 		Camera.PanTo(locate(rand(10, world.maxx - 10), rand(10, world.maxy - 10), 1))
-	return
 
 /datum/GameMode/TitleScreen/Start()
 	Config.MapLoader.LoadMap("Title")

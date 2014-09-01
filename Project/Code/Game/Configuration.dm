@@ -13,7 +13,7 @@
 
 	var/tmp/PregamePeriod =  300	// Maximum period (in seconds) to allow players to join
 
-	var/tmp/StartMode   =    /datum/GameMode/Setup
+	var/tmp/StartMode   =    /datum/GameMode/Dummy
 	var/tmp/CurrentMode =	 /datum/GameMode/TeamDeathmatch
 
 	var/tmp/AllowGuests = 	 FALSE	// Allow guest players (i.e. no pager login)

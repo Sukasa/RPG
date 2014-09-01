@@ -1,10 +1,12 @@
 mob/Soldier
 	name = "Soldier"
-	icon = 'Human.dmi'
-	icon_state = "man"
+	icon = 'PlayerMale.dmi'
+	icon_state = "Stand"
 
-	bound_width = 12
-	bound_height = 12
+	bound_width = 21
+	bound_height = 16
+	bound_x = 14
+	bound_y = 12
 
 	// Should probably make these fit the coding style
 	var/dmg_major = 0
@@ -51,7 +53,12 @@ mob/Soldier
 		else if (!client.Keys["Shift"] && Stats.Stamina < Stats.MaxStamina && (RecoveryTimeout-- <= 0))
 			Stats.Stamina++
 
-		dir = SetDir
+		if (SetDir)
+			icon_state = "Walk"
+			dir = SetDir
+		else
+			icon_state = "Stand"
+
 
 		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()

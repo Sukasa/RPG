@@ -90,14 +90,30 @@ mob
 	SubStepX = NewX - round(NewX)
 	SubStepY = NewY - round(NewY)
 
-	if (GetDistanceTo(Destination) <= 1 / world.icon_size)
+	if (GetDistanceTo(Destination) <= OnePixel)
 		if (IsMovable(Destination))
 			Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
 		Destination = null
 	else
-		SmoothMove = 2
-		Move(locate(round(NewX / world.icon_size), y, z), 0, round(NewX % world.icon_size), step_y)
-		Move(locate(x, round(NewY / world.icon_size), z), 0, step_x, round(NewY % world.icon_size))
+
+		if (GetXDistanceTo(Destination) <= OnePixel && GetXDistanceTo(Destination) != 0)
+			world.log << "X Jump: Moving from [x]:[step_x + SubStepX] to [Destination:x]:[Destination:step_x] (Distance is [GetXDistanceTo(Destination)])"
+			SmoothMove = 1
+			Move(locate(Destination:x, y, z), 0, round(Destination:step_x), step_y)
+			SubStepX = 0
+		else
+			SmoothMove = 1
+			Move(locate(round(NewX / world.icon_size), y, z), 0, round(NewX % world.icon_size), step_y)
+
+
+		if (GetYDistanceTo(Destination) <= OnePixel && GetYDistanceTo(Destination) != 0)
+			world.log << "Y Jump: Moving from [y]:[step_y + SubStepY] to [Destination:y]:[Destination:step_y] (Distance is [GetYDistanceTo(Destination)])"
+			SmoothMove = 1
+			Move(locate(x, Destination:y, z), 0, step_x, round(Destination:step_y))
+			SubStepY = 0
+		else
+			SmoothMove = 1
+			Move(locate(x, round(NewY / world.icon_size), z), 0, step_x, round(NewY % world.icon_size))
 
 /mob/Move()
 	..()

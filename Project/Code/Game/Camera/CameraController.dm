@@ -22,7 +22,7 @@
 
 /CameraController/proc/CameraTick(var/mob/Camera/C, var/mob/M)
 	C.Destination = GetBestCameraDestinationCandidate(C, M)
-	C.PanSpeed = M.MoveSpeed() * 1.5
+	C.PanSpeed = M.MoveSpeed() * 2
 	if (M in C.Destination)
 		C.Destination = M
 	else if (C.Destination)
@@ -33,11 +33,15 @@
 			C.Destination:CopyXOffset(M)
 		else if (C.Destination:TileX < M.x)
 			C.Destination.SetXOffset(31)
+		else if (C.Destination:TileX > M.x)
+			C.Destination.SetXOffset(0)
 
 		if (C.Destination:TileY == M.y)
 			C.Destination:CopyYOffset(M)
 		else if (C.Destination:TileY < M.y)
 			C.Destination.SetYOffset(31)
+		else if (C.Destination:TileY > M.y)
+			C.Destination.SetYOffset(0)
 
 /CameraController/proc/Warp(var/mob/M)
 	if (Attachments[M])
@@ -73,4 +77,4 @@
 			. |= Turfs[X]
 
 /CameraController/proc/GetBestCameraDestinationCandidate(var/mob/Camera/C, var/mob/M)
-	. = C.Closest(CameraCross(M))
+	. = M.Closest(CameraCross(M))

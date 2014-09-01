@@ -4,20 +4,20 @@
 	var/list/CacheTimestamps
 
 
-/EventController/proc/SetFade(var/Color = ColorBlack, var/Alpha = 255)
+/EventController/proc/SetFade(var/Color = ColorBlack, var/Alpha = AlphaOpaque)
 	for(var/mob/M in world)
 		if (M.client)
 			M.client.Flash.Set(Color, Alpha)
 
 
-/EventController/proc/FadeIn(var/Color = ColorBlack, var/Time = 8, var/FinalAlpha = 0)
+/EventController/proc/FadeIn(var/Color = ColorBlack, var/Time = 8, var/FinalAlpha = AlphaTransparent)
 	for(var/mob/M in world)
 		if (M.client)
 			M.client.Flash.FadeIn(Color, Time, FinalAlpha)
 	sleep(Time + 1)
 
 
-/EventController/proc/FadeOut(var/Color = ColorBlack, var/Time = 8, var/FinalAlpha = 255)
+/EventController/proc/FadeOut(var/Color = ColorBlack, var/Time = 8, var/FinalAlpha = AlphaOpaque)
 	for(var/mob/M in world)
 		if (M.client)
 			spawn

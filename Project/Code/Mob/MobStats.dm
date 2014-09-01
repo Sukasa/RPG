@@ -12,5 +12,5 @@
 		MaxHealth = 4
 
 		MovementSpeed = 5
-		Stamina = 60
-		MaxStamina = 60
+		Stamina = 120
+		MaxStamina = 120

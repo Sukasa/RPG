@@ -35,11 +35,16 @@ atom/movable/proc/GetAngleTo(var/atom/movable/To)
 
 // Returns the Distance to the passed atom
 atom/proc/GetDistanceTo(var/atom/movable/To)
-	var/atom/A = src
-	while (!isturf(A.loc))
-		A = A.loc
-	var/Point/P = new(A)
+	var/Point/P = new(src)
 	return P.GetDistanceTo(To)
+
+atom/proc/GetXDistanceTo(var/atom/movable/To)
+	var/Point/P = new(src)
+	return P.GetXDistanceTo(To)
+
+atom/proc/GetYDistanceTo(var/atom/movable/To)
+	var/Point/P = new(src)
+	return P.GetYDistanceTo(To)
 
 
 atom/proc/SlowTick()

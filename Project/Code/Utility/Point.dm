@@ -7,22 +7,33 @@ Point
 		FineX = 0
 		FineY = 0
 
-		//step_y
-		//step_x
+		// Spoof variables, so Point can masquerade as a mob
+		x
+		y
+		step_y
+		step_x
+		SubStepX
+		SubStepY
 
 Point/New(var/atom/Ref)
 	if (!Ref)
 		return
 	TileX = Ref.x
 	TileY = Ref.y
+	x = Ref.x
+	y = Ref.y
 
 	if (IsMovable(Ref))
 		PixelX = Ref:step_x
 		PixelY = Ref:step_y
+		step_x = PixelX
+		step_y = PixelY
 
 	if (ismob(Ref))
-		PixelX += Ref:SubStepY
-		PixelY += Ref:SubStepX
+		PixelX += Ref:SubStepX
+		PixelY += Ref:SubStepY
+		SubStepY = Ref:SubStepX
+		SubStepX = Ref:SubStepY
 
 	FineX = (TileX * world.icon_size) + PixelX
 	FineY = (TileY * world.icon_size) + PixelY
@@ -66,24 +77,47 @@ Point/proc/Center(var/atom/movable/X)
 	PixelY += X.bound_y
 	PixelX += X.bound_width / 2
 	PixelY += X.bound_height / 2
+	if (ismob(X))
+		PixelX += X:SubStepX
+		PixelY += X:SubStepY
 	FineX = (TileX * world.icon_size) + PixelX
 	FineY = (TileY * world.icon_size) + PixelY
+	step_x = PixelX
+	step_y = PixelY
 
 Point/proc/SetXOffset(var/X)
 	PixelX = X
 	FineX = (TileX * world.icon_size) + PixelX
+	step_x = PixelX
 
 Point/proc/SetYOffset(var/Y)
 	PixelY = Y
 	FineY = (TileY * world.icon_size) + PixelY
+	step_y = PixelY
 
 Point/proc/CopyXOffset(var/atom/movable/AM)
 	PixelX = AM.step_x
+	if (ismob(AM))
+		PixelX += AM:SubStepX
 	FineX = (TileX * world.icon_size) + PixelX
+	step_x = PixelX
 
 Point/proc/CopyYOffset(var/atom/movable/AM)
 	PixelY = AM.step_y
+	if (ismob(AM))
+		PixelY += AM:SubStepY
 	FineY = (TileY * world.icon_size) + PixelY
+	step_y = PixelY
+
+Point/proc/GetXDistanceTo(var/Point/To)
+	if (IsAtom(To))
+		To = new/Point(To)
+	return abs(To.FineX - src.FineX) / world.icon_size
+
+Point/proc/GetYDistanceTo(var/Point/To)
+	if (IsAtom(To))
+		To = new/Point(To)
+	return abs(To.FineY - src.FineY) / world.icon_size
 
 Point/proc/GetDistanceTo(var/Point/To)
 	if (IsAtom(To))
@@ -113,4 +147,8 @@ Point/proc/Clone()
 	P.PixelY = PixelY
 	P.FineX = FineX
 	P.FineY = FineY
+	P.x = x
+	P.y = y
+	P.step_x = step_x
+	P.step_y = step_y
 	return P

@@ -19,6 +19,7 @@ var
 
 		DefaultWorldView = 9		// Default world view radius
 
+
 		KeyStateUp = 0				// Key is unpressed
 		KeyStatePressed = 1			// Key was just pressed
 		KeyStateDepressed = 2		// Key has been held down for more than 1 frame
@@ -156,11 +157,11 @@ var
 
 		AutojoinTerrainLayer = 8	// Layer to draw autojoined objects at that are part of the terrain
 		ObjectLayer = 8
-		MobLayer = 10				// Mob draw layer
+		MobLayer = 22				// Mob draw layer
 		MapMarkerLayer = 10			// MapMarker draw layer, when made viewable via debug call
-		ShadowLayer = 19			// Layer to draw object shadows
+		ShadowLayer = 23			// Layer to draw object shadows
 		StructureLayer = 20			// Tree structure layer
-		OverlayLayer = 21			// Layer for overlay graphics, e.g. tree leaves
+		OverlayLayer = 25			// Layer for overlay graphics, e.g. tree leaves
 		HUDLayer = 99				// HUD object layer.  Not used for player UI
 		FlashLayer = 100			// Flash layer, also use for fadein/fadeouts
 		UILayer = 101				// UI Layer, for things like the HUD and menus
@@ -219,6 +220,8 @@ var
 		ColorBlue = rgb(0, 0, 255)
 		ColorDarkBlue = rgb(0, 0, 128)
 		ColorYellow = rgb(255, 255, 0)
+
+	OnePixel = (1 / world.icon_size)	// Distance of one pixel
 
 	list
 
@@ -288,7 +291,7 @@ var
 		CliffBounds 	= list(
             					"31"  = list("bound_x" = 15, "bound_width" = 10),
             					"241" = list("bound_x" = 8, "bound_width" = 6),
-            					"124" = list("bound_y" = 11, "bound_height" = 4),
+            					"124" = list("bound_y" = 21, "bound_height" = 4),
             					"199" = list("bound_y" = 23, "bound_height" = 2),
 				            	"7"   = list("bound_x" = 15, "bound_width" = 10),
 				            	"28"  = list("bound_x" = 15, "bound_width" = 10, "bound_y" = 11, "bound_height" = 4),

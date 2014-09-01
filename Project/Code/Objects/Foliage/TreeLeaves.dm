@@ -19,11 +19,11 @@
 	Crossed(var/atom/movable/O)
 		if (ismob(O) && !istype(O, /mob/Camera))
 			if (!Crosses)
-				animate(src, alpha = 96, time = 2)
+				animate(src, alpha = 64, time = 2)
 			Crosses++
 
 	Uncrossed(var/atom/movable/O)
 		if (ismob(O) && !istype(O, /mob/Camera))
 			Crosses--
 		if (!Crosses)
-			animate(src, alpha = 255, time = 2)
+			animate(src, alpha = AlphaOpaque, time = 2)

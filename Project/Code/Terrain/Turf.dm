@@ -30,13 +30,15 @@
 
 /turf/proc/Init()
 	. = list( )
+	for(var/obj/O in src)
+		. |= O.Init()
+		if (O.OverrideTurfDensity)
+			density = 0
 	if (isarea(loc))
 		if(loc:CameraDensity)
 			CameraDensity = world.view + 1
 			. += src
 		density |= loc.density
-	for(var/obj/O in src)
-		. |= O.Init()
 
 /turf/proc/CreateStandIn()
 	var/obj/Runtime/TurfStandIn/StandIn = new(src)

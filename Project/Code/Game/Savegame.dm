@@ -3,6 +3,7 @@
 	var/list/GlobalVariables = list( )
 
 	var/Point/Location = null
+	var/PlayerGraphics = null
 
 	var/CurrentMap = ""
 	var/list/LoadedChunks = list( )
@@ -28,6 +29,7 @@
 			// Location
 			var/client/C = Config.Clients[1]
 			Location = new/Point(C.mob)
+			PlayerGraphics = C.mob.icon
 
 			// Map Info
 			CurrentMap = Config.MapLoader.CurrentMap
@@ -101,6 +103,7 @@
 			Config.Menus.PopMenu(M)
 			Ticker.ChangeGameMode(/datum/GameMode)
 
+			M.icon = PlayerGraphics
 			M.WarpTo(Location)
 			Config.Cameras.Warp(M)
 			Config.Events.FadeIn()

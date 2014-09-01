@@ -8,6 +8,7 @@
 // BEGIN_FILE_DIR
 #define FILE_DIR .
 #define FILE_DIR "ConceptArt"
+#define FILE_DIR "FunnyBugs"
 #define FILE_DIR "Project"
 #define FILE_DIR "Project/Icons"
 #define FILE_DIR "Project/Icons/Map"
@@ -262,7 +263,7 @@
 #include "Project\Code\Mob\BasicBot.dm"
 #include "Project\Code\Mob\Camera.dm"
 #include "Project\Code\Mob\MobStats.dm"
-#include "Project\Code\Mob\Soldier.dm"
+#include "Project\Code\Mob\Player.dm"
 #include "Project\Code\Mob\Spectator.dm"
 #include "Project\Code\Multiplayer\Client.dm"
 #include "Project\Code\Multiplayer\HUD.dm"
