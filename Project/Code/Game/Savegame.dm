@@ -11,8 +11,9 @@
 	var/list/KeyItems = list( )
 	var/list/Inventory = list( )
 	var/list/Equipped = list( )
-
+	var/list/CampResources = list( "Wood" = 0, "Metal" = 0, "Stone" = 0)
 	var/list/Controls = list( )
+
 	var/Language = DefaultLanguage
 	var/MusicVolume = DefaultBGMVolume
 	var/SoundVolume = DefaultSFXVolume
@@ -45,6 +46,7 @@
 			Language = Config.Lang.CurrentLang
 			Controls = Config.CommandKeys
 			FancyGraphics = Config.FancyGraphics
+			CampResources = Config.CampResources
 
 			// Inventory
 			/*
@@ -75,6 +77,7 @@
 			// Load player state
 			Config.EventFlags = EventFlags
 			Config.Globals = GlobalVariables
+			Config.CampResources = CampResources
 
 			/*
 

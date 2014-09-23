@@ -11,6 +11,7 @@
 		CameraDensity = FALSE
 		step_x = 0
 		step_y = 0
+		OverriddenDensity = FALSE
 
 	icon = 'black.dmi'
 	icon_state = "Black"
@@ -33,7 +34,8 @@
 	for(var/obj/O in src)
 		. |= O.Init()
 		if (O.OverrideTurfDensity)
-			density = 0
+			density = O.density
+			OverriddenDensity = TRUE
 	if (isarea(loc))
 		if(loc:CameraDensity)
 			CameraDensity = world.view + 1

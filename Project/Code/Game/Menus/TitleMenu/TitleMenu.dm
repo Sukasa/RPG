@@ -44,6 +44,8 @@
 /Menu/TitleScreen/Input(var/Control)
 	if (EnterEnabled && Control == ControlEnter)
 		EnterEnabled = FALSE
+		Config.Audio.CurrentBGM.SetFade(15, 40)
+		Config.Audio.CurrentBGM.FadeAsync()
 		animate(Text, alpha = 0, time = 6)
 
 		// You can't animate the pixel_* of screen objects anymore (it was a bug), so recreate the original effect here (Sinusoidal easing, etc).

@@ -7,6 +7,7 @@ atom
 		CanTarget = TRUE	// Whether you can target an atom directly.  Right-clicking an object with this set to false will just fire in that general direction
 		InteractRange = 1.5
 		list/MatchTypes = list( )
+		AutojoinValue = 0
 
 atom/movable/proc/GetFineX()
 	return (src.x * world.icon_size) + src.step_x
@@ -75,8 +76,6 @@ atom/proc/UserInRange(var/User = 0, var/Range = 0)
 	return GetDistanceTo(User) <= Range
 
 
-
-
 atom/proc/AutoJoin()
 	var/B = 0
 	for(var/X = 1, X <= 8, X++)
@@ -86,7 +85,8 @@ atom/proc/AutoJoin()
 		for (var/Type in MatchTypes)
 			if (istype(T, Type))
 				B |= 1 << X
-	icon_state = "[Config.AutoTile[(B >> 1) + 1]]"
+	AutojoinValue = Config.AutoTile[(B >> 1) + 1]
+	icon_state = "[AutojoinValue]"
 
 
 atom/proc/Closest(var/list/Candidates)
@@ -95,3 +95,8 @@ atom/proc/Closest(var/list/Candidates)
 		if (Dist > GetDistanceTo(Candidate))
 			Dist = GetDistanceTo(Candidate)
 			. = Candidate
+
+atom/proc/XYNoise(var/UpperBound)
+	. = max(round((x - y) * 3 * tan(((x * y) + x) * 38.5)), 0) % UpperBound
+	if (. == NaN)
+		. = 0

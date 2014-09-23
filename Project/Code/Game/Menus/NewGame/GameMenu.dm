@@ -60,6 +60,7 @@
 					EraseMode = FALSE
 					EraseText()
 				else
+					Config.Audio.SetBGM(null, TRUE, 75)
 					// Load a save or start a new game
 					Config.SaveSlot = CursorPos + 1
 					if (Saves[CursorPos + 1])

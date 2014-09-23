@@ -11,6 +11,7 @@
 /datum/GameMode/TitleScreen/Start()
 	Config.MapLoader.LoadMap("Title")
 	SetMobLayerEnabled(TRUE)
+	Config.Audio.SetBGM("BGM_Thunderdome", TRUE, 5)
 	Camera = Config.Cameras.CreateCinematicCamera(get_turf(locate(10, world.maxy - 10, 1)))
 	Camera.PanSpeed = 3
 	Camera.PanTo(locate(world.maxx - 10, 10, 1))

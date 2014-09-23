@@ -17,9 +17,22 @@
 			LanguageTable[copytext(Line, 1, KeySep)] = copytext(Line, KeySep + 1)
 		Config.Lang.UpdateLanguageFile(LanguageCode, LanguageTable)
 
+/proc/ListSoundDefinitions()
+	for(var/K in Config.Audio.DefinitionIndex)
+		world.log << K
+
+/proc/DisplaySoundDef(var/DefKey)
+	var/datum/D = Config.Audio.Definitions[DefKey]
+	world.log << "[DefKey]: [D]"
+	if (D)
+		for(var/K in D.vars)
+			world.log << "[K]: [D.vars[K]]"
+
+
 /proc/LoadSoundDefinitions()
 	var/list/Files = GetMatchingFiles("Sounds\\Definitions", "*.txt")
 	var/DefParser/Parser = new()
+	var/list/OriginalDefs = Config.Audio.DefinitionIndex.Copy()
 	var/list/Definitions = list()
 	var/list/Overwritten = list()
 	for(var/File in Files - "Count")
@@ -28,12 +41,16 @@
 		Overwritten |= (Definitions & Added)
 		Definitions |= Added
 
+	world.log << "<b>Updated definitions:</b>"
+	for(var/SFX in Definitions & OriginalDefs)
+		world.log << SFX
+
 	world.log << "<b>Loaded definitions:</b>"
-	for(var/SFX in Definitions)
+	for(var/SFX in Definitions - OriginalDefs)
 		world.log << SFX
 
 	if (Overwritten.len)
-		world.log << "<b>The following sound definitions are multiply-declared:</b>"
+		world.log << "<b><font color=\"#990000\">The following sound definitions are multiply-declared:</font></b>"
 		for(var/SFX in Overwritten)
 			world.log << SFX
 
@@ -41,3 +58,5 @@
 /proc/RegisterDevScriptFunctions()
 	ScriptFunctions["LoadLanguages"] = /proc/LoadLanguages
 	ScriptFunctions["LoadSoundDefinitions"] = /proc/LoadSoundDefinitions
+	ScriptFunctions["ListSoundDefinitions"] = /proc/ListSoundDefinitions
+	ScriptFunctions["DisplaySoundDef"] = /proc/DisplaySoundDef

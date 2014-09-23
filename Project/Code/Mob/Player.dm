@@ -4,9 +4,9 @@ mob/Soldier
 	icon_state = "Stand"
 
 	bound_width = 21
-	bound_height = 16
+	bound_height = 28
 	bound_x = 14
-	bound_y = 12
+	//bound_y = 12
 
 	// Should probably make these fit the coding style
 	var/dmg_major = 0

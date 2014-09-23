@@ -58,6 +58,8 @@
 
 	var/SaveSlot
 
+	var/list/CampResources = list( "Wood" = 0, "Metal" = 0, "Stone" = 0)
+
 	// One-Shot Flags
 	var/list/EventFlags = list( )
 

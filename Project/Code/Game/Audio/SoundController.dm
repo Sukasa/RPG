@@ -19,8 +19,10 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		list/AllocationEffects = list(MaxVoices)
 		list/Ambiences = list( )
 		list/DefinitionIndex = list( )
+		list/CacheIndex = list( )
 
 		savefile/Definitions = null
+		savefile/AudioCache = null
 
 
 /SoundController/proc/Init()
@@ -31,18 +33,38 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 	else
 		Definitions = new/savefile("ADATA")
 		DefinitionIndex = list()
+	if (fexists("ACACHE"))
+		AudioCache = new/savefile("ACACHE")
+		AudioCache[".index"] >> CacheIndex
+	else
+		AudioCache = new/savefile("ACACHE")
+		CacheIndex = list()
 	ResetSounds()
 
 /SoundController/proc/UpdateDefinition(var/DefinitionKey, var/SoundDef/Definition)
+	//world.log << "Updating definition [DefinitionKey] to [Definition]"
 	Definitions[DefinitionKey] << Definition
-	DefinitionIndex |= DefinitionKey
+	DefinitionIndex |= list(DefinitionKey)
 	Definitions[".index"] << DefinitionIndex
+	var/Filename = "Sounds\\" + Definition.SoundFile
+	if (!(Filename in Config.Audio.CacheIndex))
+		Config.Audio.CacheAudio(Filename)
 
 /SoundController/proc/Tick()
 	for(var/SoundEffect/Effect in AllocationEffects)
 		if (!Effect)
 			continue
 		Effect.Tick()
+	if (CurrentBGM)
+		CurrentBGM.Tick()
+
+
+/SoundController/proc/CacheAudio(var/Filename)
+	if (!fexists(Filename))
+		return
+	AudioCache[Filename] << file(Filename)
+	CacheIndex |= Filename
+	AudioCache[".index"] << CacheIndex
 
 
 /SoundController/proc/ResetSounds()
@@ -79,18 +101,30 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		CurrentBGM.SetFade(FadeTime / 2, 0)
 
 		while (!CurrentBGM.FadeDone)
-			CurrentBGM.TickFade()
+			//CurrentBGM.TickFade()
 			sleep(world.tick_lag)
 
+		CurrentBGM = null
+
+
 	// Create new BGM
-	CurrentBGM = CreateSound(NewTrackName)
+	if (!NewTrackName || !(NewTrackName in DefinitionIndex))
+		return
+
+
+	CurrentBGM = CreateSound(NewTrackName, null, SoundChannelBGM)
+
+	if(!CurrentBGM)
+		return
+
 	CurrentBGM.Volume = 0
-	CurrentBGM.SetFade(FadeTime / 2, 1)
+	CurrentBGM.SetFade(FadeTime / 2, 100)
 
 	// Fade it in
 	while (!CurrentBGM.FadeDone)
-		CurrentBGM.TickFade()
+		//CurrentBGM.TickFade()
 		sleep(world.tick_lag)
+
 
 /SoundController/proc/CheckFreeChannel(Channel)
 	AllocatedChannels[Channel]--
@@ -136,15 +170,16 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		CurrentBGM.Play()
 
 
-/SoundController/proc/CreateSound(var/SoundName, var/EmissionPos)
+/SoundController/proc/CreateSound(var/SoundName, var/EmissionPos, var/Channel = 0)
 	// See if the sound has been instantiated and cached.  If so, return it
 	if (Ambiences[SoundName])
 		return Ambiences[SoundName]
 
 	var/SoundDef/Definition
 
-	if (!DefinitionIndex[SoundName])
-
+	if (SoundName in DefinitionIndex)
+		Definition = Definitions[SoundName]
+	else
 		if (!Config.IsDevMode)
 			return null
 
@@ -165,13 +200,10 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 
 			Definitions[SoundName] = Definition
 
-	else
-		Definition = Definitions[SoundName]
-
 	if (!Definition)
 		return null
 
-	var/SoundEffect/Effect = new(Definition, EmissionPos)
+	var/SoundEffect/Effect = new(Definition, EmissionPos, Channel)
 
 	if ((Effect.Definition.SoundType & SoundTypeMask) == SoundTypeAmbience)
 		Ambiences[SoundName] = Effect

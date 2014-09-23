@@ -9,8 +9,12 @@
 MDATA
 SDATA
 ADATA
+ACACHE
 LDATA
 DLANG
 Grammar Reduced.txt
 Operator Precedences.txt
 Script Grammar.txt
+oggenc2.exe
+encode.bat
+Project/Maps/backup/*

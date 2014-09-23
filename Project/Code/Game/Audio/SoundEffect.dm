@@ -16,26 +16,31 @@
 		FadeTime
 		FadeTo
 		FadeFrom
-		FadeDone
+		FadeDone = TRUE
 
 		X
 		Y
 
 
-/SoundEffect/New(var/SoundDef/Def, var/atom/PositionRef)
+/SoundEffect/New(var/SoundDef/Def, var/atom/PositionRef, var/Channel)
 	Definition = Def
 	Paused = FALSE
 
-	Sound = sound(Definition.SoundFile)
+	var/SoundFile
+	Config.Audio.AudioCache["Sounds\\" + Definition.SoundFile] >> SoundFile
+
+	Sound = sound(SoundFile, channel = Channel)
 	Sound.environment = Definition.Environment || Config.Audio.Environment
 	Sound.falloff = Definition.Falloff
 	Sound.repeat = Definition.Repeat
 	Sound.frequency = Definition.Frequency
 
 
+
 /SoundEffect/Del()
 	Sound.status = SOUND_UPDATE | SOUND_PAUSED
 	world << Sound
+	world.log << "Killed Sound"
 	..()
 
 
@@ -43,6 +48,8 @@
 	FadeTime = Time
 	FadeTo = NewVolume
 	FadeFrom = Volume
+	FadeStart = world.time
+	FadeDone = FALSE
 
 /SoundEffect/proc/TickFade()
 	if (!Sound)
@@ -50,17 +57,28 @@
 		FadeDone = TRUE
 		return
 	if (!FadeDone)
-		Sound.status = Paused ? SOUND_UPDATE | SOUND_PAUSED : SOUND_UPDATE
-		Sound.volume = lerp(FadeFrom, FadeTo, (world.time - FadeStart) / FadeTime) * (Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier
-		world << Sound
 
+
+		Sound.status = Paused ? SOUND_UPDATE | SOUND_PAUSED : SOUND_UPDATE
+		Volume = lerp(FadeFrom, FadeTo, (world.time - FadeStart) / FadeTime)
+		Sound.volume = ((Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier)
+		//world.log << "DoFade: [Sound.status], [Paused], [Sound.volume] (Source Data: [(Config.SFXVolume / MaxVolume)], [Volume], [Definition.VolumeMultiplier] = [((Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier)])"
+		world << Sound
 		FadeDone = (world.time - FadeStart) >= FadeTime
 
+/SoundEffect/proc/FadeAsync()
+	spawn
+		while(!FadeDone)
+			TickFade()
+			sleep(world.tick_lag)
 
 /SoundEffect/proc/Tick()
 	// Tick the sound effect to handle pan/falloff/etc
 
-	Sound.volume = (Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier
+	if (FadeDone)
+		Sound.volume = (Config.SFXVolume / MaxVolume) * Volume * Definition.VolumeMultiplier
+	else
+		TickFade()
 
 	if (Stopped)
 		if (Paused)
@@ -74,7 +92,10 @@
 		else
 			Sound.status = SOUND_UPDATE
 
-	if ((Definition.SoundType & SoundModeNo3D))
+	if (Definition.SoundType & SoundTypeBGM)
+		Sound.status |= SOUND_STREAM
+
+	if (Definition.SoundType & (SoundModeNo3D|SoundTypeBGM))
 		if (Sound.status != LastStatus)
 			world << Sound
 			LastStatus = Sound.status
@@ -110,6 +131,10 @@
 
 
 /SoundEffect/proc/Play(var/Emitter)
+	if (Definition.SoundType & SoundTypeBGM)
+		Paused = FALSE
+		return
+
 	if (Config.Audio.IsChannelAllocated(Sound.channel) && !(Definition.SoundType & SoundTypeAmbience))
 		Config.Audio.PreserveChannelAllocation(src)
 	else if (!Config.Audio.IsChannelAllocated(Sound.channel))

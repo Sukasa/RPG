@@ -173,6 +173,7 @@ var
 
 		Infinity = 1.#INF
 		NegativeInfinity = -1.#INF
+		NaN = 1.#IND
 
 		Visible = 0					// "Visble Always" setting for atom.visibility var
 		Invisible = 101				// "Never Visible" setting for atom.visibility var
@@ -226,6 +227,7 @@ var
 	list
 
 		//NOTE: Don't change the order of these!  The Cardinal* and CardinalAngles* value orders match up with code implemented in Utility/Geometry.dm and Atom.dm
+		//Cardinal8 is also used for Autojoin tiling
 		Cardinal = 			list(NORTH, EAST, SOUTH, WEST)
 		CardinalAngles = 	list(90, 180, 270, 360)
 

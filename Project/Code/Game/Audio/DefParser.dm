@@ -31,12 +31,10 @@
 
 				if (findtext(Line, "\[") == 1)
 					if (Definition)
-						Config.Audio.Definitions[DefinitionKey] = Definition
-						Config.Audio.DefinitionIndex -= DefinitionKey
-						Config.Audio.DefinitionIndex += DefinitionKey
+						Config.Audio.UpdateDefinition(DefinitionKey, Definition)
 						. += DefinitionKey
 					Definition = new/SoundDef()
-					DefinitionKey = copytext(Line, 1, -1)
+					DefinitionKey = copytext(Line, 2, -1)
 					continue
 				else if (!findtext(Line, "=") || findtext(Line, "#") == 1 || !Definition)
 					continue
@@ -51,10 +49,10 @@
 						Definition = null
 
 					if (Definition)
+						if (IsNumeric(Value))
+							Value = text2num(Value)
 						Definition.vars[VarName] = Value
 
 			if (Definition)
-				Config.Audio.Definitions[DefinitionKey] = Definition
-				Config.Audio.DefinitionIndex -= DefinitionKey
-				Config.Audio.DefinitionIndex += DefinitionKey
+				Config.Audio.UpdateDefinition(DefinitionKey, Definition)
 				. += DefinitionKey

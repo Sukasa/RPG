@@ -38,68 +38,70 @@
 "aL" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area)
 "aM" = (/obj/Foliage/PlantLife/Flowers/White,/turf/Basic/Grass,/area)
 "aN" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area/Boundary)
-"aO" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area/NoScroll)
-"aP" = (/turf/Basic/Grass,/area/NoScroll)
-"aQ" = (/obj/Environment/Stump,/turf/Basic/Grass,/area)
-"aR" = (/obj/Foliage/Tree{step_x = 0},/obj/Autojoin/Water,/turf/Basic/Grass,/area)
-"aS" = (/obj/Environment/Stump,/turf/Decorative/Grass,/area)
-"aT" = (/obj/Environment/Stump/Axe,/turf/Basic/Grass,/area)
-"aU" = (/obj/Environment/Log,/turf/Basic/Grass,/area)
-"aV" = (/obj/Foliage/Tree{step_x = 0; step_y = 0},/turf/Decorative/Grass,/area)
-"aW" = (/obj/MapMarker/Interactible{InteractText = "What is a bed doing here?"},/turf/Basic/Grass,/area)
-"aX" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Basic/Grass,/area)
-"aY" = (/obj/Foliage/Tree{step_x = 7; step_y = 28},/obj/Autojoin/Sand,/turf/Basic/Grass,/area)
-"aZ" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area/Boundary)
-"ba" = (/turf/Decorative/Grass,/area/Boundary)
-"bb" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area)
-"bc" = (/obj/MapMarker/Event/Exit{EntranceTag = "ObjectTest"; MapName = "dynamic/ObjectTest.dmm"},/turf/Basic/Grass,/area/Event)
-"bd" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
-"be" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Basic/Grass,/area)
-"bf" = (/obj/Foliage/Tree{step_x = 0; step_y = 0},/turf/Basic/Grass,/area)
-"bg" = (/obj/Foliage/Tree{step_x = 6; step_y = 11},/turf/Decorative/Grass,/area)
-"bh" = (/obj/Foliage/PlantLife/Flowers/Weeds,/obj/Autojoin/Sand,/turf/Basic/Grass,/area)
-"bi" = (/obj/Autojoin/WaterReeds,/turf/Basic/Water,/area)
-"bj" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Decorative/Grass,/area)
-"bk" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Basic/Grass,/area)
-"bl" = (/obj/Foliage/Tree{step_x = -17; step_y = 1},/turf/Basic/Grass,/area)
-"bm" = (/obj/Foliage/Tree{step_x = 14; step_y = 7},/turf/Basic/Grass,/area)
-"bn" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Basic/Grass,/area)
-"bo" = (/obj/Foliage/Tree{step_x = 20; step_y = 21},/turf/Basic/Grass,/area)
-"bp" = (/obj/Foliage/Tree{step_x = 6; step_y = 6},/turf/Basic/Grass,/area)
-"bq" = (/obj/Foliage/Tree{step_x = 26; step_y = 4},/turf/Basic/Grass,/area)
-"br" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Decorative/Grass,/area)
-"bs" = (/obj/Foliage/Tree{step_x = 29; step_y = 29},/turf/Decorative/Grass,/area)
-"bt" = (/obj/Foliage/Tree{step_x = 29; step_y = 13},/turf/Basic/Grass,/area)
-"bu" = (/obj/Foliage/Tree{step_x = 25; step_y = 14},/turf/Decorative/Grass,/area)
-"bv" = (/obj/Foliage/Tree{step_x = 6; step_y = 15},/turf/Decorative/Grass,/area)
-"bw" = (/obj/Foliage/Tree{step_x = 10; step_y = 13},/turf/Basic/Grass,/area)
-"bx" = (/obj/Foliage/Tree{step_x = 0; step_y = 16},/turf/Basic/Grass,/area)
-"by" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Decorative/Grass,/area)
-"bz" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Basic/Grass,/area)
-"bA" = (/obj/Foliage/Tree{step_x = 7; step_y = 1},/turf/Basic/Grass,/area)
-"bB" = (/obj/Foliage/Tree,/turf/Decorative/Grass,/area)
-"bC" = (/obj/Foliage/Tree{step_x = 29; step_y = 5},/turf/Decorative/Grass,/area)
-"bD" = (/obj/Foliage/PlantLife/Bush/Fern,/turf/Decorative/Grass,/area)
-"bE" = (/obj/Foliage/Tree{step_x = 13; step_y = 19},/turf/Decorative/Grass,/area)
-"bF" = (/obj/MapMarker/Event/Event{ScriptCommand = "queuedialogue Test.TextboxTest1"},/turf/Basic/Grass,/area/Event)
-"bG" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Decorative/Grass,/area)
-"bH" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Decorative/Grass,/area)
-"bI" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Basic/Grass,/area)
-"bJ" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 0; step_y = 4},/turf/Basic/Grass,/area)
-"bK" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Basic/Grass,/area)
-"bL" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Decorative/Grass,/area)
-"bM" = (/obj/Foliage/PlantLife/Grasses/Sprigs,/obj/Foliage/Tree,/turf/Basic/Grass,/area)
-"bN" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Decorative/Grass,/area)
-"bO" = (/obj/Foliage/PlantLife/Bush/LongGrass,/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 10; step_y = 14},/turf/Basic/Grass,/area)
-"bP" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Grasses/ThickTuft,/turf/Decorative/Grass,/area)
-"bQ" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 22; step_y = 21},/turf/Decorative/Grass,/area)
-"bR" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 12; step_y = 18},/turf/Basic/Grass,/area)
-"bS" = (/obj/Foliage/PlantLife/Grasses/Tuft,/turf/Decorative/Grass,/area)
-"bT" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Basic/Grass,/area)
-"bU" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
-"bV" = (/obj/Foliage/PlantLife/Grasses/ThickTuft,/turf/Decorative/Grass,/area)
-"bW" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Decorative/Grass,/area)
-"bX" = (/obj/Autojoin/Water,/turf/Basic/Water,/area)
+"aO" = (/obj/Autojoin/Water,/obj/Autojoin/Structure/SimpleDock,/turf/Basic/Grass,/area)
+"aP" = (/obj/Foliage/Tree{step_x = 0},/turf/Basic/Grass,/area/NoScroll)
+"aQ" = (/obj/Autojoin/Structure/SimpleDock,/turf/Basic/Water,/area)
+"aR" = (/turf/Basic/Grass,/area/NoScroll)
+"aS" = (/obj/Environment/Stump,/turf/Basic/Grass,/area)
+"aT" = (/obj/Foliage/Tree{step_x = 0},/obj/Autojoin/Water,/turf/Basic/Grass,/area)
+"aU" = (/obj/Environment/Stump,/turf/Decorative/Grass,/area)
+"aV" = (/obj/Environment/Stump/Axe,/turf/Basic/Grass,/area)
+"aW" = (/obj/Environment/Log,/turf/Basic/Grass,/area)
+"aX" = (/obj/Foliage/Tree{step_x = 0; step_y = 0},/turf/Decorative/Grass,/area)
+"aY" = (/obj/MapMarker/Interactible{InteractText = "What is a bed doing here?"},/turf/Basic/Grass,/area)
+"aZ" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Basic/Grass,/area)
+"ba" = (/obj/Foliage/Tree{step_x = 7; step_y = 28},/obj/Autojoin/Sand,/turf/Basic/Grass,/area)
+"bb" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area/Boundary)
+"bc" = (/turf/Decorative/Grass,/area/Boundary)
+"bd" = (/obj/Foliage/Tree{step_x = 0},/turf/Decorative/Grass,/area)
+"be" = (/obj/MapMarker/Event/Exit{EntranceTag = "ObjectTest"; MapName = "dynamic/ObjectTest.dmm"},/turf/Basic/Grass,/area/Event)
+"bf" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
+"bg" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Basic/Grass,/area)
+"bh" = (/obj/Foliage/Tree{step_x = 0; step_y = 0},/turf/Basic/Grass,/area)
+"bi" = (/obj/Foliage/Tree{step_x = 6; step_y = 11},/turf/Decorative/Grass,/area)
+"bj" = (/obj/Foliage/PlantLife/Flowers/Weeds,/obj/Autojoin/Sand,/turf/Basic/Grass,/area)
+"bk" = (/obj/Autojoin/WaterReeds,/turf/Basic/Water,/area)
+"bl" = (/obj/Foliage/PlantLife/Bush/Leafy/Small,/turf/Decorative/Grass,/area)
+"bm" = (/obj/Foliage/PlantLife/Bush/Bush,/turf/Basic/Grass,/area)
+"bn" = (/obj/Foliage/Tree{step_x = -17; step_y = 1},/turf/Basic/Grass,/area)
+"bo" = (/obj/Foliage/Tree{step_x = 14; step_y = 7},/turf/Basic/Grass,/area)
+"bp" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Basic/Grass,/area)
+"bq" = (/obj/Foliage/Tree{step_x = 20; step_y = 21},/turf/Basic/Grass,/area)
+"br" = (/obj/Foliage/Tree{step_x = 6; step_y = 6},/turf/Basic/Grass,/area)
+"bs" = (/obj/Foliage/Tree{step_x = 26; step_y = 4},/turf/Basic/Grass,/area)
+"bt" = (/obj/Foliage/PlantLife/Flowers/Clover,/turf/Decorative/Grass,/area)
+"bu" = (/obj/Foliage/Tree{step_x = 29; step_y = 29},/turf/Decorative/Grass,/area)
+"bv" = (/obj/Foliage/Tree{step_x = 29; step_y = 13},/turf/Basic/Grass,/area)
+"bw" = (/obj/Foliage/Tree{step_x = 25; step_y = 14},/turf/Decorative/Grass,/area)
+"bx" = (/obj/Foliage/Tree{step_x = 6; step_y = 15},/turf/Decorative/Grass,/area)
+"by" = (/obj/Foliage/Tree{step_x = 10; step_y = 13},/turf/Basic/Grass,/area)
+"bz" = (/obj/Foliage/Tree{step_x = 0; step_y = 16},/turf/Basic/Grass,/area)
+"bA" = (/obj/Foliage/PlantLife/Bush/Fern/Flowering,/turf/Decorative/Grass,/area)
+"bB" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Basic/Grass,/area)
+"bC" = (/obj/Foliage/Tree{step_x = 7; step_y = 1},/turf/Basic/Grass,/area)
+"bD" = (/obj/Foliage/Tree,/turf/Decorative/Grass,/area)
+"bE" = (/obj/Foliage/Tree{step_x = 29; step_y = 5},/turf/Decorative/Grass,/area)
+"bF" = (/obj/Foliage/PlantLife/Bush/Fern,/turf/Decorative/Grass,/area)
+"bG" = (/obj/Foliage/Tree{step_x = 13; step_y = 19},/turf/Decorative/Grass,/area)
+"bH" = (/obj/MapMarker/Event/Event{ScriptCommand = "queuedialogue Test.TextboxTest1"},/turf/Basic/Grass,/area/Event)
+"bI" = (/obj/Foliage/Tree{step_x = 9; step_y = 30},/turf/Decorative/Grass,/area)
+"bJ" = (/obj/Foliage/Tree{step_x = 8; step_y = 10},/turf/Decorative/Grass,/area)
+"bK" = (/obj/Foliage/Tree{step_x = 17; step_y = 4},/turf/Basic/Grass,/area)
+"bL" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 0; step_y = 4},/turf/Basic/Grass,/area)
+"bM" = (/obj/Foliage/Tree{step_x = 24; step_y = 24},/turf/Basic/Grass,/area)
+"bN" = (/obj/Foliage/Tree{step_x = 6; step_y = 31},/turf/Decorative/Grass,/area)
+"bO" = (/obj/Foliage/PlantLife/Grasses/Sprigs,/obj/Foliage/Tree,/turf/Basic/Grass,/area)
+"bP" = (/obj/Foliage/PlantLife/Bush/FlowerBush,/turf/Decorative/Grass,/area)
+"bQ" = (/obj/Foliage/PlantLife/Bush/LongGrass,/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 10; step_y = 14},/turf/Basic/Grass,/area)
+"bR" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Grasses/ThickTuft,/turf/Decorative/Grass,/area)
+"bS" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 22; step_y = 21},/turf/Decorative/Grass,/area)
+"bT" = (/obj/Foliage/PlantLife/Grasses/Tall/Cattails{step_x = 12; step_y = 18},/turf/Basic/Grass,/area)
+"bU" = (/obj/Foliage/PlantLife/Grasses/Tuft,/turf/Decorative/Grass,/area)
+"bV" = (/obj/MapMarker/MapInfo/Info{tag = "Pan1"},/turf/Basic/Grass,/area)
+"bW" = (/obj/Foliage/Tree{step_x = 0},/obj/Foliage/PlantLife/Bush/Bush,/turf/Decorative/Grass,/area)
+"bX" = (/obj/Foliage/PlantLife/Grasses/ThickTuft,/turf/Decorative/Grass,/area)
+"bY" = (/obj/MapMarker/Zone/Spawn/Attackers,/turf/Decorative/Grass,/area)
+"bZ" = (/obj/Autojoin/Water,/turf/Basic/Water,/area)
 
 (1,1,1) = {"
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabacadaeafafacacacagagahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahahagabacacadacaiajafacacac
@@ -123,63 +125,63 @@ abababababababababababababababababababaqaqaqaqabananauabapapapababababaqaqababan
 abababababababababababababababababababaqaqaqaqaqabaoanaoabapapapabababaqaqabababaCagahahahahahahahahahagabababaqabababababababababababapaparararapababababababab
 ababababababababababasabababababababababababaqaqababaCababapapapabanabaqaqaGabababagahahahahahahahahahagabababaqababababababababapapapaparararapapababababababab
 ababababababababababababababababababababababababababababababapapabababaqaqabababagagahahahahahahahahahagabababaqababababapapapapapapapapapapapapabababababababab
-ababababababababababababababababababababababababaNaaaNaqaCababababababaqaqaCagagagahahahahahahahagagagagababaqababababapapararararapabababapapababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaqababababababaqaMabagahahahahahahagagagagababababaqaqabababapapapapapapapapabaGabababababababababababab
-abababasabababababababauababababababababababababaNaPaNaqaqabababababaqaqababagahahahahahahagababaqaqaqababababababapaparapababababababababababababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaqababababaQawaqabagagahahahahahahagabaqaqababaqaqaqababapapararapababaGabababababababababababababababab
-ababababababababababababababababababababababababaNaPaNaqaqababababaqaqaMabagahahahahagagagagabaqabababaqaqabababapapapapapababababababababababababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaqababanabaqababagagahahahagaRababababaqaqaqaqaqaqababapapapabapapababababababababababababababababababab
-ababababababauabababababababababababababababababaNaPaNaqaqababababaqaqabagahahahahagabababaqabaqaqaqaqababababapapapabapapababababababasabababababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaqababababaqaqabagahahahahagababaqaqaqaqaqaqabababaGapapapababapapababababababababababababababababababab
-ababababababababababababababababababababababababaNaPaNaqaqababababaqawabagahahahahagagabababaqabaqaqabababapaparapababapapababababababababababababababababababab
-ababababababababababababauababababababababababaLaaaOaaaqaqanabababaqaqabagagahahahahagagagabaqaqaqaqaqaqabapaparapababapapabababasababababababasabababababababab
-ababababababababababababababababababababababababaNaPaNaqaqababababaqaSababagahahahahahahagagagababababaqababapapapapabapapababababababababababababababababababab
-abababababababababababababababasabababababababaLaaaOaaaqaqababababaqaqababagahahahahahahahahagababababaqabababaparapapapapababababababababasabababababababababab
-ababababababaTabababababababababababababababababaNaPaNaqaqababababababababagagagahahahahahahagababababaqabababapapararapapabababasababababababababababababababab
-abababababababababauabababababababababababababaLaaaOaaaqaqababababababanabaLabagahahahahahahagagagababaqababababapararapabababababababababababababababababababab
-ababababababababababababababababababababababababaNaPaNaqaqaUabaTabababaGabababagahahahahahahahahagababaqababababapararapabababababababababababababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaqabababababababababaCagahahahahahahahahagabababababababapaparapapababababababababababababababababababab
-ababababababababababababababababababababababababaNaPaNaqaqabababababaUabaQababagahahahahahahahahagabababaqaqabababapararapapabababababababababababababababababab
-abababababababababababababababababababababababaLaaaOaaaqaVaqabababababababababagagagahahahahahahagababababaqabababaparararapabababababababababababababababababab
-ababababababababababababababababababababababababaNaPaNaqaqaqabababababababababanaWagahahahahahahagababababaqabababapapararapabababababababababababababababababab
-abababababababababababababababababababababababaNaPaNaaaqaVaqaqabapapababababaGabagagahahahahagagagababaqaqabababababapararapabababababababababababababababababab
-aNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaPaNaaaNaqaqabaqabapapabababaqaqagagahahahahagagabababaqabaqaqababababapapapapabababababababababababababababababab
-aPaOaPaOaPaOaPaOaPaOaPaOaPaOaPaOaPaOaPaOaPaOaPaNaaaNaaaqaVaXaqabapaYapababaqaqagahahahahahagababababaqaqabaqabababababapapababababababababababababababababababab
-aZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaZbaaNaqababaqabapapapapabaqaqagahahahahahagabasababaqaqaqaqaqababababababababababababababababababababababababab
-aqbbaqbbaqbbabbbaqbbaqbbaqbbaqbbaqbbaqbbaqbbaqbbaqbbaqababanaqababaparapabaqaqagahahahahahagagababababaqaqaqaqaqabababababababababababababababababababababababab
-bcacabababababbdaqaqaqbdaqabaqabaqababbdaqaqaqaqaqaqbebfaqaqaqaqaqaparapapaqaqagahahahahahahagagagababaqabaqababaqababababababababababababababababababababababab
-acacapapapapapapabaqabaqaqabauabaGabababbgabababaqaqabababaqaqaqabapararapaqabagahahahahahahahahagabaqaqaqabaqaqaqaqabababababababababababababababababababababab
-acafapararararapababauauabapapapapababababaqaqaqaqabababbfababababbhararapababagagahahahahahahahagabababababaqaqaqaqaqaqabababababababababababababababababababab
+ababababababababababababababababababababababababaNaaaNaqaCababababababaqaqaCagaOagahahahahahahahagagagagababaqababababapapararararapabababapapababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaqababababababaqaMabagaQahahahahahagagagagababababaqaqabababapapapapapapapapabaGabababababababababababab
+abababasabababababababauababababababababababababaNaRaNaqaqabababababaqaqababagaQahahahahahagababaqaqaqababababababapaparapababababababababababababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaqababababaSawaqabagagahahahahahahagabaqaqababaqaqaqababapapararapababaGabababababababababababababababab
+ababababababababababababababababababababababababaNaRaNaqaqababababaqaqaMabagahahahahagagagagabaqabababaqaqabababapapapapapababababababababababababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaqababanabaqababagagahahahagaTababababaqaqaqaqaqaqababapapapabapapababababababababababababababababababab
+ababababababauabababababababababababababababababaNaRaNaqaqababababaqaqabagahahahahagabababaqabaqaqaqaqababababapapapabapapababababababasabababababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaqababababaqaqabagahahahahagababaqaqaqaqaqaqabababaGapapapababapapababababababababababababababababababab
+ababababababababababababababababababababababababaNaRaNaqaqababababaqawabagahahahahagagabababaqabaqaqabababapaparapababapapababababababababababababababababababab
+ababababababababababababauababababababababababaLaaaPaaaqaqanabababaqaqabagagahahahahagagagabaqaqaqaqaqaqabapaparapababapapabababasababababababasabababababababab
+ababababababababababababababababababababababababaNaRaNaqaqababababaqaUababagahahahahahahagagaOagagababaqababapapapapabapapababababababababababababababababababab
+abababababababababababababababasabababababababaLaaaPaaaqaqababababaqaqababagahahahahahahahahaQahagababaqabababaparapapapapababababababababasabababababababababab
+ababababababaVabababababababababababababababababaNaRaNaqaqababababababababagagagahahahahahahaQahagababaqabababapapararapapabababasababababababababababababababab
+abababababababababauabababababababababababababaLaaaPaaaqaqababababababanabaLabagahahahahahahahahagababaqababababapararapabababababababababababababababababababab
+ababababababababababababababababababababababababaNaRaNaqaqaWabaVabababaGabababagahahahahahahahahagababaqababababapararapabababababababababababababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaqabababababababababaCagahahahahahahahahagabababababababapaparapapababababababababababababababababababab
+ababababababababababababababababababababababababaNaRaNaqaqabababababaWabaSababagahahahahahahahahagabababaqaqabababapararapapabababababababababababababababababab
+abababababababababababababababababababababababaLaaaPaaaqaXaqabababababababababagagagahahahahahahagababababaqabababaparararapabababababababababababababababababab
+ababababababababababababababababababababababababaNaRaNaqaqaqabababababababababanaYagahahahahahahagababababaqabababapapararapabababababababababababababababababab
+abababababababababababababababababababababababaNaRaNaaaqaXaqaqabapapababababaGabagagahahahahagagagababaqaqabababababapararapabababababababababababababababababab
+aNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaaaNaRaNaaaNaqaqabaqabapapabababaqaqagagahahahahagagabababaqabaqaqababababapapapapabababababababababababababababababab
+aRaPaRaPaRaPaRaPaRaPaRaPaRaPaRaPaRaPaRaPaRaPaRaNaaaNaaaqaXaZaqabapbaapababaqaqagahahahahahagababababaqaqabaqabababababapapababababababababababababababababababab
+bbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcbbbcaNaqababaqabapapapapabaqaqagahahahahahagabasababaqaqaqaqaqababababababababababababababababababababababababab
+aqbdaqbdaqbdabbdaqbdaqbdaqbdaqbdaqbdaqbdaqbdaqbdaqbdaqababanaqababaparapabaqaqagahahahahahagagababababaqaqaqaqaqabababababababababababababababababababababababab
+beacabababababbfaqaqaqbfaqabaqabaqababbfaqaqaqaqaqaqbgbhaqaqaqaqaqaparapapaqaqagahahahahahahagagagababaqabaqababaqababababababababababababababababababababababab
+acacapapapapapapabaqabaqaqabauabaGabababbiabababaqaqabababaqaqaqabapararapaqabagahahahahahahahahagabaqaqaqabaqaqaqaqabababababababababababababababababababababab
+acafapararararapababauauabapapapapababababaqaqaqaqabababbhababababbjararapababagagahahahahahahahagabababababaqaqaqaqaqaqabababababababababababababababababababab
 afafarararararapapapababapaparapapabababauabaqabapapapapapapabababaparapapabababagahahahahahahahagagabababababababababaqabababababababababababababababababababab
 afafapaparararararapapapapararapabababaqaqabaqabapapapapapapapapapapapapababababagahahahahahahahahagagagababasabababaqababababababababababababababababababababab
-acacabapapapapaparararararararapababaqabaqaqaqababababapapapapapararapaLababababagahahahbibibiahahahahagagagabababaqaqababababababababababababababababababababab
-acacababaqababaparararararapapapabababababaqbjabababananabaGabapapapapababababagagahahahbibibibibibiahahahagabababaqaqaqaqaqabababababababababababababababababab
-ababbkababababapapapararapapaGababababblabababbmababaqababababababapapapabababagahahahahbibibibibibiahahahagabababaqaqababaqabababababababababababababababababab
-aLababababababababapapapapabababababababababaqaqababaqaqbeababababapapapabaMabagagahahahahbibibibibiahahahagababaqabaqaqabaqabababababababababababababababababab
-ababaqaqaqaqababaqababababababaqbbabbnabababababababababboaqabaLababapapabaqaqaCagahahahahbibibibibiahahahagabaqabababaqaqaqabababababababababababababababababab
-ababaqaqaqbdaqabaqaqaqaqaqaqaqbdabababbpabbqaqaqaqaqabababaqabababaGapapaqaqababagagagahahahahbibiahahahagagabaqabaqaqaqaqababababababababababababababababababab
-abbbaqaqaqaqaqaqabababababaqaqabababababaqaqaqbraqbsaqabbtabababababapapaqaqaqaqabaCagahahahahbibiahahahagababaqaqaqababaqababababababababababababababababababab
-aqaqaqaqaqbuaqaqabapapababaqbvaqaqaqbwaqaqaqaqaqbbaqaqaqaqabbxababaqapapabaqaqaqababagagahahahbibiahahahagababaqaqababaqaqababababababababababababababababababab
-abaqabaqaqaqbyababapapababbzbkabaqaqabaqaqaqbbaqaqaqaqbraqaqbAabaqaqapapapabaqaqabaqabagahahahahahahahahagabababaqabaqbBaqababababababababababababababababababab
-aqaqabbdaqaqabababapapabababababaLaqabaqaqaqaqaqaqaqaqaqbCaqaqabaqaqapapapaGaqaqaqaVabagahahahahahahahagaganababaqaqaqaqaqababababababababababababababababababab
-aqbbaqaqaqaqabaGabapapabaqaqababbDaqabaqaqaqaqaqaqbEaqaqaqaqaqababaqbbapapabaqaqaqaqabagagagahagagagahagbFabababaqaqababaqababababababababababababababababababab
-aqaqaqaqaqaqababapapapabaqbGababaqabababaqbHaqaqbraqaqaqaqaqaqbIabaqaqababababaqaqaqbkaCbJagahagabagahagagaoababaqaqabaqababasababababababababababababababababab
-bbabaqbDaqaqaGapapapapabaqaqabaqababbKabaqaqaqaqaqbbaqaqbLaqaqaqabaqaqaqababababaqaqaqababagahagabagahahaganbMabaqaqaqaqabababababababababababababababababababab
-aqbbaqaqbNaqabapapapababaqaqaqaqabababaqaqaqbbaqbbaqbbaqbbaqbbaqbbabaLaqababababaqaqaqabagagahagabagahahagagauanabababababababababababababababababababababababab
-aqaqaqaqanabapapapaqababaqaqbbababababaLaqaqaqaZaaaNaaaNaaaNaaaNaaaNaabbaqababababaqabbOagagahagagagahahahagaoabaqaqabababababababababababababababababababababab
-aqaqaqbkabapapapapababaqaqbDaqaLabbbaqaqabaqbbaaaNaaaNaaaNaaaNaaaNaaaNbbaqaqababababababaCagahahahahahahahagauaqaqaqaqaqabababababababababababababababababababab
-aqaqaqabapapapapabababaqaqaqbbaqaqaqaqbPaqaqaqaLaaaNaaaNaaaNaaaNaaaNaabbaqaqbkabababaqaqabagagahahahahahahagaganaqaqaqaqasababababababababababababababababababab
-aqaqaqanaparapaGababaqaqaqbbaqbbaqaqaqaqbbaqbbaqaLaaaNaaaNaaaNaaaNaaaNaqbbaqaqabababaqaqbQabagagahahahahahahagagaoabaqababababababababababababababababababababab
-aqaqababapapapabababaqaoababaqabaqaqaqaqaqaqaqaqabaNaaaNaaaNaaaNaaaNaabbaqaqaqabababaqaqaqaqbRagahahbibibiahahaganabaqababaqbBababababababababababababababababab
-aqaqaqababapapababanaqbDaqbkabababababababbbaqaqbbabaLabaLabaNaaaNaaaNaqaqaqaqabababaqaqaqaqabagahahbibibiahahagabauaqaqabaqabababababababababababababababababab
-aqaqaqanaGapapabababaqaqbbaqaqbbaqbbaqaqababaqabbSaqabababaLabaNaaaNaabbaqaqaqababaqaqaqaqaqaCagahahbibibiahahagagaoababababababababababababbTababababababababab
-bUaqaqababababababanaqaqaoaqabaqaoaqaqbbaqababaqaqaqabaoaLabaLabaNaaaNaqbbaqaqababaqaqaqaqababagahahbibibiahahahaganababanababababababababababababababababababab
-aqbNaqababapapabababaqaqaqaqabaqaqaLaqaqaqaqabaqaqaqaqaqaqababaLaaaNaPbbaqaqaqabaqaqaqaqaCabagagahahahahahahahahagababaqabaqaqaqabababababababababababababababab
-aqaqaqababapapabanabaqaqaqaLaqaqaqbVaqbbaqaqaoaqabaQaqaQaqanaLabaNaaaOaqaqaqaqbkaqaqaqabagagagahahahahahahahahagagauanaqaqasabaqabababababababababababababababab
-aqbbaqabababababababaqaqbdaqabaqaqaqaLaaaqaqaqaqaqaqaqaqabaqaobbaaaNaPbbaqaqaqabaqaqababagahahahahahahahahahahagabaoababasabaqababababababababababababababababab
-bbaqaqabapapapabanabaqaqaqababaoabaLaaaNaqaqaqaqaQaqaqaqaQaqaqaLaNaaaOaqaqaqababababbkagagahahahahahahahahagagagababababababaqababababababababababababababababab
-aqaqaqabapapapabababaqaqbbabababaLaaaNabaqaqaqaqaqaqaqabauaqanabaNaaaObbaqbdabababaqabagagahahahahahahahahagabaoananabauaqababababababababababababababababababab
-aqaqbWanabapapabababaqaqabababaLaaaNabaqaqaqanaqaqaQabaQaqaqaqaLaaaNaPbbaqaqababababababbXahahahahahahahahbXauababababaqaqaqaqababababababababababababababababab
-aqaqaqababababababanaqaqababaLaaaNababaqaqaqaqaqaqaqauaqaqaqaoaLaNaaaPbbaqaqaqababababaqbXbXahahahahahahahbXaoanauababaqaqaqasababababababababababababababababab
-aqaqaqanabapapapababaqbbababaLaaaaaLabaqaoaqabanaqaqaqanaqaqabaLaaaNaOaqbbaqaqababababababbXahahahahahahahbXaoababanabababababababababababababababababababababab
+acacabapapapapaparararararararapababaqabaqaqaqababababapapapapapararapaLababababagahahahbkbkbkahahahahagagagabababaqaqababababababababababababababababababababab
+acacababaqababaparararararapapapabababababaqblabababananabaGabapapapapababababagagahahahbkbkbkbkbkbkahahahagabababaqaqaqaqaqabababababababababababababababababab
+ababbmababababapapapararapapaGababababbnabababboababaqababababababapapapabababagahahahahbkbkbkbkbkbkahahahagabababaqaqababaqabababababababababababababababababab
+aLababababababababapapapapabababababababababaqaqababaqaqbgababababapapapabaMabagagahahahahbkbkbkbkbkahahahagababaqabaqaqabaqabababababababababababababababababab
+ababaqaqaqaqababaqababababababaqbdabbpabababababababababbqaqabaLababapapabaqaqaCagahahahahbkbkbkbkbkahahahagabaqabababaqaqaqabababababababababababababababababab
+ababaqaqaqbfaqabaqaqaqaqaqaqaqbfabababbrabbsaqaqaqaqabababaqabababaGapapaqaqababagagagahahahahbkbkahahahagagabaqabaqaqaqaqababababababababababababababababababab
+abbdaqaqaqaqaqaqabababababaqaqabababababaqaqaqbtaqbuaqabbvabababababapapaqaqaqaqabaCagahahahahbkbkahahahagababaqaqaqababaqababababababababababababababababababab
+aqaqaqaqaqbwaqaqabapapababaqbxaqaqaqbyaqaqaqaqaqbdaqaqaqaqabbzababaqapapabaqaqaqababagagahahahbkbkahahahagababaqaqababaqaqababababababababababababababababababab
+abaqabaqaqaqbAababapapababbBbmabaqaqabaqaqaqbdaqaqaqaqbtaqaqbCabaqaqapapapabaqaqabaqabagahahahahahahahahagabababaqabaqbDaqababababababababababababababababababab
+aqaqabbfaqaqabababapapabababababaLaqabaqaqaqaqaqaqaqaqaqbEaqaqabaqaqapapapaGaqaqaqaXabagahahahahahahahagaganababaqaqaqaqaqababababababababababababababababababab
+aqbdaqaqaqaqabaGabapapabaqaqababbFaqabaqaqaqaqaqaqbGaqaqaqaqaqababaqbdapapabaqaqaqaqabagagagahagagagahagbHabababaqaqababaqababababababababababababababababababab
+aqaqaqaqaqaqababapapapabaqbIababaqabababaqbJaqaqbtaqaqaqaqaqaqbKabaqaqababababaqaqaqbmaCbLagahagabagahagagaoababaqaqabaqababasababababababababababababababababab
+bdabaqbFaqaqaGapapapapabaqaqabaqababbMabaqaqaqaqaqbdaqaqbNaqaqaqabaqaqaqababababaqaqaqababagahagabagahahaganbOabaqaqaqaqabababababababababababababababababababab
+aqbdaqaqbPaqabapapapababaqaqaqaqabababaqaqaqbdaqbdaqbdaqbdaqbdaqbdabaLaqababababaqaqaqabagagahagabagahahagagauanabababababababababababababababababababababababab
+aqaqaqaqanabapapapaqababaqaqbdababababaLaqaqaqbbaaaNaaaNaaaNaaaNaaaNaabdaqababababaqabbQagagahagagagahahahagaoabaqaqabababababababababababababababababababababab
+aqaqaqbmabapapapapababaqaqbFaqaLabbdaqaqabaqbdaaaNaaaNaaaNaaaNaaaNaaaNbdaqaqababababababaCagahahahahahahahagauaqaqaqaqaqabababababababababababababababababababab
+aqaqaqabapapapapabababaqaqaqbdaqaqaqaqbRaqaqaqaLaaaNaaaNaaaNaaaNaaaNaabdaqaqbmabababaqaqabagagahahahahahahagaganaqaqaqaqasababababababababababababababababababab
+aqaqaqanaparapaGababaqaqaqbdaqbdaqaqaqaqbdaqbdaqaLaaaNaaaNaaaNaaaNaaaNaqbdaqaqabababaqaqbSabagagahahahahahahagagaoabaqababababababababababababababababababababab
+aqaqababapapapabababaqaoababaqabaqaqaqaqaqaqaqaqabaNaaaNaaaNaaaNaaaNaabdaqaqaqabababaqaqaqaqbTagahahbkbkbkahahaganabaqababaqbDababababababababababababababababab
+aqaqaqababapapababanaqbFaqbmabababababababbdaqaqbdabaLabaLabaNaaaNaaaNaqaqaqaqabababaqaqaqaqabagahahbkbkbkahahagabauaqaqabaqabababababababababababababababababab
+aqaqaqanaGapapabababaqaqbdaqaqbdaqbdaqaqababaqabbUaqabababaLabaNaaaNaabdaqaqaqababaqaqaqaqaqaCagahahbkbkbkahahagagaoababababababababababababbVababababababababab
+bWaqaqababababababanaqaqaoaqabaqaoaqaqbdaqababaqaqaqabaoaLabaLabaNaaaNaqbdaqaqababaqaqaqaqababagahahbkbkbkahahahaganababanababababababababababababababababababab
+aqbPaqababapapabababaqaqaqaqabaqaqaLaqaqaqaqabaqaqaqaqaqaqababaLaaaNaRbdaqaqaqabaqaqaqaqaCabagagahahahahahahahahagababaqabaqaqaqabababababababababababababababab
+aqaqaqababapapabanabaqaqaqaLaqaqaqbXaqbdaqaqaoaqabaSaqaSaqanaLabaNaaaPaqaqaqaqbmaqaqaqabagagagahahahahahahahahagagauanaqaqasabaqabababababababababababababababab
+aqbdaqabababababababaqaqbfaqabaqaqaqaLaaaqaqaqaqaqaqaqaqabaqaobdaaaNaRbdaqaqaqabaqaqababagahahahahahahahahahahagabaoababasabaqababababababababababababababababab
+bdaqaqabapapapabanabaqaqaqababaoabaLaaaNaqaqaqaqaSaqaqaqaSaqaqaLaNaaaPaqaqaqababababbmagagahahahahahahahahagagagababababababaqababababababababababababababababab
+aqaqaqabapapapabababaqaqbdabababaLaaaNabaqaqaqaqaqaqaqabauaqanabaNaaaPbdaqbfabababaqabagagahahahahahahahahagabaoananabauaqababababababababababababababababababab
+aqaqbYanabapapabababaqaqabababaLaaaNabaqaqaqanaqaqaSabaSaqaqaqaLaaaNaRbdaqaqababababababbZahahahahahahahahbZauababababaqaqaqaqababababababababababababababababab
+aqaqaqababababababanaqaqababaLaaaNababaqaqaqaqaqaqaqauaqaqaqaoaLaNaaaRbdaqaqaqababababaqbZbZahahahahahahahbZaoanauababaqaqaqasababababababababababababababababab
+aqaqaqanabapapapababaqbdababaLaaaaaLabaqaoaqabanaqaqaqanaqaqabaLaaaNaPaqbdaqaqababababababbZahahahahahahahbZaoababanabababababababababababababababababababababab
 "}

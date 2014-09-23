@@ -67,3 +67,6 @@ proc
 			Pos = Pos2 + DelimiterLen
 
 		. += copytext(Text, Pos)
+
+	IsNumeric(var/Text)
+		. = "[text2num(Text)]" == Text

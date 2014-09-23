@@ -2,8 +2,14 @@
 	icon_state = "0"
 	layer = AutojoinTerrainLayer
 	Init()
-		. = ..()
+		..()
 		AutoJoin()
+		. = list(src)
+
+	PostProcess()
+		for(var/obj/O in loc)
+			if (O.OverrideTurfDensity)
+				density = O.density
 
 	LightBush
 		name = "Bush"
@@ -82,6 +88,22 @@
 		MatchTypes = list( /turf/Basic/Obsidian )
 		name = "Obsidian"
 		icon = 'BigObsidian.dmi'
+
+
+	Structure
+		SimpleDock
+			name = "Dock"
+			icon = 'Piers.dmi'
+			icon_state = "255"
+			density = FALSE
+			OverrideTurfDensity = TRUE
+
+			PostProcess()
+				if (AutojoinValue & 16)
+					density = TRUE
+					var/turf/T = get_step(src, SOUTH)
+					if (T.Enter(src, loc))
+						density = FALSE
 
 	Clifftop
 		var/Height = 1

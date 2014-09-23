@@ -45,6 +45,7 @@
 		name = "Water"
 		icon = 'WaterOnGrass.dmi'
 		icon_state = "255"
+		density = TRUE
 
 	Pit
 		name = "Pit"
