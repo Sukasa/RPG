@@ -24,7 +24,7 @@
 		if (IsList(TextParams))
 			var/X = 1
 			for(var/K in TextParams)
-				Reader.Replace("\\[X]", "[K]")
+				Reader.Replace("\\[X]", "[TextParams[K]]")
 				X++
 		else
 			Reader.Replace("\\1", "[TextParams]")
@@ -46,7 +46,7 @@
 			var/obj/CurrentLine = RenderLine(JoinList(LineTextBuffer, " "), Color)
 			CurrentLine.pixel_y = (-(LinesOffset + NumLines) * Font.LineSpacing) + PixelY
 
-			LineWidth -= Font.VWFTable[33] // 33 = Space character
+			LineWidth -= Font.VWFTable[33] // 33 = Space character (ASCII 0x20)
 			switch (Align)
 				if (AlignRight)
 					CurrentLine.pixel_x = Width - LineWidth
