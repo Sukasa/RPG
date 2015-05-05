@@ -68,8 +68,8 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 
 
 /SoundController/proc/ResetSounds()
-	AllocatedChannels = list(MaxVoices)
-	AllocationEffects = list(MaxVoices)
+	AllocatedChannels = new/list(MaxVoices)
+	AllocationEffects = new/list(MaxVoices)
 
 	FreeChannelCount = MaxVoices
 	for(var/x = 1, x <= MaxVoices, x++)
