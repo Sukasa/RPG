@@ -3,6 +3,8 @@
 	Script parser.  Uses the lexer to build an Abstract Syntax Tree out of a script, so that it can be interpreted later.  (Or compiled down, whatever).
 	Really messy because it has to "bubble up" errors.  If Lummox/Tom ever get around to implementing exceptions this code would be so much better.
 
+	// TODO I'm running 508 so I need to start cleaning this up
+
 */
 
 /Parser
@@ -65,28 +67,31 @@
 	// ----------------------------
 
 	proc/ParseScript(var/ScriptName)
-		Tokens = new/Lexer(new/StreamReader(Config.Events.GetScript(ScriptName) || ScriptName))
-		. = Block()
-		if (!.)
-			ErrorText("Failed to parse script [ScriptName]!")
-			ErrorText("Unrecognized or unexpected token \"[Tokens.Current()]\" on line [Tokens.Line]")
+		try
+			Tokens = new/Lexer(new/StreamReader(Config.Events.GetScript(ScriptName) || ScriptName))
+			. = Block()
+		catch (var/ScriptCompilationException/ex)
+			ErrorText(ex.GetFormattedMessage())
 
 	proc/ParseLine(var/Script)
-		Tokens = new/Lexer(new/StreamReader(Script, TRUE))
-		. = Line()
-		if (!.)
-			ErrorText("Error - Incorrect or malformed command")
+		try
+			Tokens = new/Lexer(new/StreamReader(Script, TRUE))
+			. = Line()
+		catch (var/ScriptCompilationException/ex)
+			ErrorText(ex.GetFormattedMessage())
+
 
 	// -----------------------------
 
 	proc/Line()
 		if (Expect("/"))
-			return Statement()
-		if (Expect("/") && Is(Functions))
-			var/ASTNode/FunctionNode/Node = new(Tokens.Consume())
-			. = Node
-			while (Tokens.Current())
-				Node.SubNodes += new/ASTNode/ValueLeaf(Tokens.Consume())
+			if (Is(Functions))
+				var/ASTNode/FunctionNode/Node = new(Tokens.Consume())
+				. = Node
+				while (Tokens.Current())
+					Node.SubNodes += new/ASTNode/ValueLeaf(Tokens.Consume())
+			else
+				return Statement()
 
 
 	proc/Block()
@@ -97,7 +102,7 @@
 		while(!(Tokens.Current() in FollowsBlock))
 			var/B = SubBlock()
 			if (!B)
-				return null
+				throw new/ScriptCompilationException("Empty SubBlock", Tokens.Line)
 			Node.SubNodes += B
 			SkipEOLs()
 		if(Node.SubNodes.len == 1)
@@ -110,16 +115,16 @@
 			Tokens.Consume()
 			var/B = Block()
 			if (!B)
-				return null
+				throw new/ScriptCompilationException("Missing Block", Tokens.Line)
 			. += B
 			if (Tokens.Current() != EndStatementBlock)
-				return null
+				throw new/ScriptCompilationException("Unexpected symbol in SubBlock, expected }", Tokens.Line)
 			else
 				Tokens.Consume()
 		else
 			var/S = Statement()
 			if (!S)
-				return null
+				throw new/ScriptCompilationException("Missing Statement", Tokens.Line)
 			. += S
 
 
@@ -146,14 +151,14 @@
 
 
 		if (!(Tokens.Current() in list("}", null)) && !Expect(EndStatement, Newline))
-			. = null
+			throw new/ScriptCompilationException("Erroneous continuation of statement", Tokens.Line)
 
 
 	proc/Expression(var/Level = 0)
 		var/S = SubExpression()
 
 		if (!S)
-			return null
+			throw new/ScriptCompilationException("Missing expression", Tokens.Line)
 
 		. = S
 
@@ -164,12 +169,14 @@
 			. = Node
 			Node.SubNodes += S
 			S = Expression()
-			if (!S || !Expect(TrinaryMid))
-				return null
+			if (!S)
+				throw new/ScriptCompilationException("Missing true-side body in trinary expression", Tokens.Line)
+			if(!Expect(TrinaryMid))
+				throw new/ScriptCompilationException("Unexpected symbol in trinary operator, expected :", Tokens.Line)
 			Node.SubNodes += S
 			S = Expression()
 			if (!S)
-				return null
+				throw new/ScriptCompilationException("Missing false-side body in trinary expression", Tokens.Line)
 			Node.SubNodes += S
 
 
@@ -192,7 +199,7 @@
 					. = Node
 					S = Expression(TestLevel)
 					if (!S)
-						return null
+						throw new/ScriptCompilationException("Missing left-hand side to [Node.Op] operator", Tokens.Line)
 					Node.SubNodes += S
 
 
@@ -206,7 +213,7 @@
 				. = Node
 				S = Expression(Level)
 				if (!S)
-					return null
+					throw new/ScriptCompilationException("Missing left-hand expression in [Node.Op] assignment", Tokens.Line)
 				Node.SubNodes += S
 
 
@@ -215,7 +222,7 @@
 			Tokens.Consume()
 			. = Expression()
 			if (!Expect(EndParenthesis))
-				. = null
+				throw new/ScriptCompilationException("Unexpected symbol in expression, expected )", Tokens.Line)
 
 		else if (Is(Unary))
 			. = Unary()
@@ -231,7 +238,7 @@
 		Node.UnaryType = Tokens.Consume()
 		Node.SubNodes += Expression()
 		if (Node.SubNodes[1] == null)
-			return null
+			throw new/ScriptCompilationException("Malformed unary node", Tokens.Line)
 
 
 	proc/Value()
@@ -240,9 +247,10 @@
 
 		else if (Tokens.Current() == StringCap)
 			Tokens.Consume()
+			var/Line = Tokens.Line
 			. = new/ASTNode/ValueLeaf(Tokens.Consume())
 			if (!Expect(StringCap))
-				return null
+				throw new/ScriptCompilationException("Unterminated string constant", Line)
 
 		else if (Is(VariableStarts))
 			var/VarType = Tokens.Consume()
@@ -255,14 +263,14 @@
 					return null
 				Node.SubNodes += E
 				if (!Expect(EndIndexer))
-					return null
+					throw new/ScriptCompilationException("Unexpected symbol in array index, expected ]", Tokens.Line)
 			else if (Tokens.Current() == ParameterMarker)
 				while (Expect(ParameterMarker))
 					Node.Members += Tokens.Consume()
 				if (Tokens.Current() == BeginParenthesis)
 					Node.Arguments = ArgumentList()
 					if (!Node.Arguments)
-						return null
+						throw new/ScriptCompilationException("No arguments in member function call", Tokens.Line)
 
 		else if (Is(Functions))
 			var/ASTNode/FunctionNode/Node = new(Functions[Tokens.Consume()])
@@ -272,7 +280,7 @@
 			Node.SubNodes = ArgumentList()
 
 			if(!Node.SubNodes)
-				return null
+				throw new/ScriptCompilationException("No arguments to function", Tokens.Line)
 
 		else if (Is(Constants))
 			. = new/ASTNode/ValueLeaf(Constants[Tokens.Consume()])
@@ -280,30 +288,30 @@
 	proc/ArgumentList()
 		. = list()
 		if (!Expect(BeginParenthesis))
-			return null
+			throw new/ScriptCompilationException("Unexpected symbol in function call, expected (", Tokens.Line)
 
 		while (Tokens.Current() && Tokens.Current() != EndParenthesis)
 			if (Tokens.Current() == ArgumentSeparator)
-				return null
+				throw new/ScriptCompilationException("Unexpected argument separator in argument list", Tokens.Line)
 
 			var/E = Expression()
 			if (!E)
-				return null
+				throw new/ScriptCompilationException("Invalid or malformed argument in argument list", Tokens.Line)
 			. += E
 
 			if (!Expect(ArgumentSeparator))
 				if (Tokens.Current() == EndParenthesis)
 					break
-				return null
+				throw new/ScriptCompilationException("Unexpected symbol in argument list, expected argument separator", Tokens.Line)
 
 		if (!Expect(EndParenthesis))
-			return null
+			throw new/ScriptCompilationException("Unexpected symbol in argument list, expected )", Tokens.Line)
 
 	proc/If()
 		var/E = Clause()
 
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("Missing clause in if statement", Tokens.Line)
 
 		var/ASTNode/IfThen/Node = new()
 		Node.ScriptLine = Tokens.Line
@@ -314,7 +322,7 @@
 		E = SubBlock()
 
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("Missing body in if statement", Tokens.Line)
 
 		Node.SubNodes += E
 
@@ -338,12 +346,12 @@
 
 
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("Missing expression in clause", Tokens.Line)
 
 		. = E
 
 		if (!Expect(EndParenthesis))
-			. = null
+			throw new/ScriptCompilationException("Unexpected symbol in clause, expected )", Tokens.Line)
 
 	proc/Else()
 		if (Expect("if"))
@@ -354,7 +362,7 @@
 		var/E = Clause()
 
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("Missing clause for while loop", Tokens.Line)
 
 		var/ASTNode/While/Node = new()
 		Node.ScriptLine = Tokens.Line
@@ -364,7 +372,7 @@
 
 		E = SubBlock()
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("While loop has no body", Tokens.Line)
 
 		Node.SubNodes += E
 
@@ -372,17 +380,17 @@
 	proc/Do()
 
 		if (!Expect(BeginStatementBlock))
-			return null
+			throw new/ScriptCompilationException("Unexpected symbol in do loop, expected {", Tokens.Line)
 
 		var/E = SubBlock()
 
 		if (!E || !Expect(EndStatementBlock))
-			return null
+			throw new/ScriptCompilationException("Malformed do loop body or missing }", Tokens.Line)
 
 		var/S = Expect("while","until")
 
 		if (!S)
-			return null
+			throw new/ScriptCompilationException("Do loop has no repeat condition", Tokens.Line)
 
 		var/ASTNode/Do/Node = new(S)
 		Node.ScriptLine = Tokens.Line
@@ -392,7 +400,7 @@
 		E = Clause()
 
 		if (!E)
-			return null
+			throw new/ScriptCompilationException("Do loop has no repeat clause", Tokens.Line)
 
 		Node.SubNodes += E
 
