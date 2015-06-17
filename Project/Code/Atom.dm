@@ -2,12 +2,13 @@
 
 atom
 	var
-		CoverValue = 0		// Worthiness of an atom as cover.  100 is full protection, 0 is no protection
-		BulletDensity = 0	// Whether you can fire over/through an atom.  Doesn't affect the ability of that atom to give cover.
-		CanTarget = TRUE	// Whether you can target an atom directly.  Right-clicking an object with this set to false will just fire in that general direction
+		CoverValue = 0			// Worthiness of an atom as cover.  100 is full protection, 0 is no protection
+		BulletDensity = 0		// Whether you can fire over/through an atom.  Doesn't affect the ability of that atom to give cover.
+		CanTarget = TRUE		// Whether you can target an atom directly.  Right-clicking an object with this set to false will just fire in that general direction
 		InteractRange = 1.5
 		list/MatchTypes = list( )
 		AutojoinValue = 0
+
 
 atom/movable/proc/GetFineX()
 	return (src.x * world.icon_size) + src.step_x
