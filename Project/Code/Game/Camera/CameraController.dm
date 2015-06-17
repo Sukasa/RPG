@@ -77,4 +77,4 @@
 			. |= Turfs[X]
 
 /CameraController/proc/GetBestCameraDestinationCandidate(var/mob/Camera/C, var/mob/M)
-	. = M.Closest(CameraCross(M))
+	. = M.Closest(CameraCross(M)) //TODO This is really expensive, computationally

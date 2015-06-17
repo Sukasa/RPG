@@ -6,9 +6,11 @@ atom
 		BulletDensity = 0		// Whether you can fire over/through an atom.  Doesn't affect the ability of that atom to give cover.
 		CanTarget = TRUE		// Whether you can target an atom directly.  Right-clicking an object with this set to false will just fire in that general direction
 		InteractRange = 1.5
-		list/MatchTypes = list( )
 		AutojoinValue = 0
 
+		list/MatchTypes = list( )
+		atom/Transport			// What this atom is 'attached' to
+		list/Riders = list( ) 	// What atoms are 'attached' to this atom
 
 atom/movable/proc/GetFineX()
 	return (src.x * world.icon_size) + src.step_x
@@ -40,9 +42,11 @@ atom/proc/GetDistanceTo(var/atom/movable/To)
 	var/Point/P = new(src)
 	return P.GetDistanceTo(To)
 
+
 atom/proc/GetXDistanceTo(var/atom/movable/To)
 	var/Point/P = new(src)
 	return P.GetXDistanceTo(To)
+
 
 atom/proc/GetYDistanceTo(var/atom/movable/To)
 	var/Point/P = new(src)
@@ -81,11 +85,11 @@ atom/proc/AutoJoin()
 	var/B = 0
 	for(var/X = 1, X <= 8, X++)
 		var/turf/T = get_step(src, Cardinal8[X])
-		if (!T || (T.type == type) || locate(type) in T)
+		if (!T || (T.type == type) || (T.type in MatchTypes) || (locate(type) in T))
 			B |= 1 << X
-		for (var/Type in MatchTypes)
-			if (istype(T, Type))
-				B |= 1 << X
+		//for (var/Type in MatchTypes)
+			//if (istype(T, Type))
+				//B |= 1 << X
 	AutojoinValue = Config.AutoTile[(B >> 1) + 1]
 	icon_state = "[AutojoinValue]"
 
@@ -101,3 +105,16 @@ atom/proc/XYNoise(var/UpperBound)
 	. = max(round((x - y) * 3 * tan(((x * y) + x) * 38.5)), 0) % UpperBound
 	if (. == NaN)
 		. = 0
+
+
+atom/proc/Mount(var/atom/Mount)
+	if (Transport)
+		Dismount()
+
+	Transport = Mount
+	Mount.Riders += src
+
+
+atom/proc/Dismount()
+	Transport.Riders -= src
+	Transport = null

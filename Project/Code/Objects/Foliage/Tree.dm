@@ -14,6 +14,11 @@
 		FoliageBoundWidth = 80
 		FoliageBoundHeight = 80
 
+		ShadowBoundX = 8
+		ShadowBoundY = 32
+		ShadowBoundWidth = 80
+		ShadowBoundHeight = 80
+
 		global
 			list/Overlays = list()
 
