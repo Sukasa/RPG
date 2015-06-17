@@ -2,6 +2,7 @@
 	var/savefile/Scripts
 	var/list/CachedScripts
 	var/list/CacheTimestamps
+	var/Parser/Parser
 
 
 /EventController/proc/SetFade(var/Color = ColorBlack, var/Alpha = AlphaOpaque)
@@ -33,6 +34,10 @@
 	Scripts[".stamp"] >> CacheTimestamps
 	if (!CacheTimestamps)
 		CacheTimestamps = list( )
+
+	Parser = new()
+	Parser.Functions = ScriptFunctions
+	Parser.Constants = ScriptConstants
 
 
 /EventController/proc/Dialogue(var/mob/Player, var/QueuedDialogue/Text, var/Name, var/Params)
@@ -92,21 +97,10 @@
 
 
 /EventController/proc/RunScript(var/ScriptName, var/mob/Player = null)
-	var/Parser/Parser = new()
-
-	Parser.Functions = ScriptFunctions
-	Parser.Constants = ScriptConstants
-
 	var/ASTNode/Node = Parser.ParseScript(GetScript(ScriptName))
 	if (Node)
 		Node.Context = new /ScriptExecutionContext()
 		Node.Execute()
-
-
-///EventController/proc/RunScript(var/ScriptName, var/mob/Player = null)
-//	if (IsClient(Player))
-//		Player = Player:mob
-//	Config.Commands.Execute(Player, "run", ScriptName)
 
 
 /EventController/proc/TakeExit(var/MapName, var/EntranceTag, var/mob/Player)
