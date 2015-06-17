@@ -88,14 +88,11 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 /SoundController/proc/SetBGM(var/NewTrackName, var/Async = FALSE, var/FadeTime = 1)
 	if (NewTrackName == CurrentBGMTrackName) // Setting the BGM to itself will do nothing.
 		return
-
 	if (Async)
 		spawn
 			SetBGM(NewTrackName, FALSE, FadeTime)
 		return
-
 	CurrentBGMTrackName = NewTrackName
-
 	if (CurrentBGM)
 		// Fade current BGM
 		CurrentBGM.SetFade(FadeTime / 2, 0)
@@ -106,12 +103,9 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 
 		CurrentBGM = null
 
-
 	// Create new BGM
 	if (!NewTrackName || !(NewTrackName in DefinitionIndex))
 		return
-
-
 	CurrentBGM = CreateSound(NewTrackName, null, SoundChannelBGM)
 
 	if(!CurrentBGM)
@@ -122,7 +116,7 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 
 	// Fade it in
 	while (!CurrentBGM.FadeDone)
-		//CurrentBGM.TickFade()
+		CurrentBGM.TickFade()
 		sleep(world.tick_lag)
 
 
