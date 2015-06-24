@@ -1,3 +1,4 @@
+// Updates all languages in the translation table with new entries from file
 /proc/LoadLanguages()
 	world.log << "Loading Languages"
 	var/list/Files = GetMatchingFiles("Languages", "*.txt")
@@ -17,10 +18,12 @@
 			LanguageTable[copytext(Line, 1, KeySep)] = copytext(Line, KeySep + 1)
 		Config.Lang.UpdateLanguageFile(LanguageCode, LanguageTable)
 
+// Outputs a list of known sound definitions to the world logfile
 /proc/ListSoundDefinitions()
 	for(var/K in Config.Audio.DefinitionIndex)
 		world.log << K
 
+// Outputs detailed information about a given sound definition
 /proc/DisplaySoundDef(var/DefKey)
 	var/datum/D = Config.Audio.Definitions[DefKey]
 	world.log << "[DefKey]: [D]"
@@ -28,7 +31,7 @@
 		for(var/K in D.vars)
 			world.log << "[K]: [D.vars[K]]"
 
-
+// Loads all sound definitions on file to cache
 /proc/LoadSoundDefinitions()
 	var/list/Files = GetMatchingFiles("Sounds\\Definitions", "*.txt")
 	var/DefParser/Parser = new()
@@ -54,7 +57,7 @@
 		for(var/SFX in Overwritten)
 			world.log << SFX
 
-
+// Registers the dev scripting functions into the function list passed to the script parser
 /proc/RegisterDevScriptFunctions()
 	ScriptFunctions["LoadLanguages"] = /proc/LoadLanguages
 	ScriptFunctions["LoadSoundDefinitions"] = /proc/LoadSoundDefinitions

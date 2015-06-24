@@ -107,9 +107,7 @@
 // a named entrance tag before fading in
 /EventController/proc/TakeExit(var/MapName, var/EntranceTag, var/mob/Player)
 	spawn
-
 		FadeOut()
-
 		if (lentext(MapName))
 			if (fexists("Project/Maps/[MapName]"))
 				Config.MapLoader.LoadRawMap("Project/Maps/[MapName]")
