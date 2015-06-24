@@ -5,3 +5,7 @@
 
 /obj/Item/proc/Wield(mob/Wielder)
 	Mount(Wielder)
+
+/obj/item/proc/Use()
+	return
+

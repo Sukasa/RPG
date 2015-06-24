@@ -282,6 +282,7 @@
 #include "Project\Code\Objects\TurfStandIn.dm"
 #include "Project\Code\Objects\Decorative\Camp\Grains.dm"
 #include "Project\Code\Objects\Decorative\Camp\Logs.dm"
+#include "Project\Code\Objects\Decorative\Camp\Tent.dm"
 #include "Project\Code\Objects\Decorative\Furniture\Camp\Cabinets.dm"
 #include "Project\Code\Objects\Decorative\Wilderness\Campfire.dm"
 #include "Project\Code\Objects\Environment\BigCliff.dm"
