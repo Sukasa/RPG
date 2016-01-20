@@ -58,7 +58,6 @@
 
 /obj/Foliage/Tree/Init()
 	. = list()
-	layer -= ((x + (y * 3) - 1) / 500)
 	icon_state = "Blank"
 
 	var/Key = "[type]"

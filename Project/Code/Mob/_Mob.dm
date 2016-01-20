@@ -1,9 +1,5 @@
-mob
+/mob
 	var
-		Point/Destination = null
-		SubStepX = 0
-		SubStepY = 0
-		SmoothMove = 0
 
 		MobStats/Stats = new()
 
@@ -20,6 +16,12 @@ mob
 		InteractScript = null
 		list/InteractText = ""
 		InteractName = null
+
+		FreezeTime = 0
+		StunTime = 0
+
+		obj/Item/ActiveItem = null
+
 	layer = MobLayer
 
 /mob/New()
@@ -49,6 +51,12 @@ mob
 		// Interact
 		Config.Events.Dialogue(Player, pick(InteractText), InteractName)
 
+/mob/proc/PlayAnimation(var/Animation, var/InputPauseTime = 0, var/MovementPauseTime = 0)
+	FreezeTime = InputPauseTime
+	StunTime = FreezeTime + MovementPauseTime
+	flick(Animation, src)
+	return
+
 /mob/proc/Use()
 	var/Point/P = new(src)
 	P.Center(src)
@@ -64,65 +72,14 @@ mob
 	else if (B)
 		B.InteractWith(src)
 	else
-		for(var/mob/M in T)
-			if (M != src && P.Intersects(M))
-				return
-
-
-/mob/proc/WarpTo(var/Point/Target = Destination)
-	if (!istype(Target, /Point))
-		Target = new/Point(Target)
-	step_y = Target.FineY - (bound_height / 2) - bound_y
-	step_x = Target.FineX - (bound_width / 2) - bound_x
-	Move(locate(Target.TileX, Target.TileY, z))
-
-/mob/proc/MoveTo(var/Target = Destination)
-	Destination = Target
-	if (!Target)
-		return
-
-	var/Angle = GetAngleTo(Destination)
-	var/MoveSpeed = min(MoveSpeed(), GetDistanceTo(Destination) * world.icon_size)
-
-	var/NewX = ((MoveSpeed * sin(Angle)) + step_x + SubStepX) + (x * world.icon_size)
-	var/NewY = ((MoveSpeed * cos(Angle)) + step_y + SubStepY) + (y * world.icon_size)
-
-	SubStepX = NewX - round(NewX)
-	SubStepY = NewY - round(NewY)
-
-	if (GetDistanceTo(Destination) <= OnePixel)
-		if (IsMovable(Destination))
-			Move(Destination:loc, 0, Destination:step_x, Destination:step_y)
-		Destination = null
-	else
-
-		if (GetXDistanceTo(Destination) <= OnePixel && GetXDistanceTo(Destination) != 0)
-			world.log << "X Jump: Moving from [x]:[step_x + SubStepX] to [Destination:x]:[Destination:step_x] (Distance is [GetXDistanceTo(Destination)])"
-			SmoothMove = 1
-			Move(locate(Destination:x, y, z), 0, round(Destination:step_x), step_y)
-			SubStepX = 0
+		if (ActiveItem)
+			ActiveItem.Use()
 		else
-			SmoothMove = 1
-			Move(locate(round(NewX / world.icon_size), y, z), 0, round(NewX % world.icon_size), step_y)
+			for(var/mob/M in T)
+				if (M != src && P.Intersects(M))
+					return
 
-
-		if (GetYDistanceTo(Destination) <= OnePixel && GetYDistanceTo(Destination) != 0)
-			world.log << "Y Jump: Moving from [y]:[step_y + SubStepY] to [Destination:y]:[Destination:step_y] (Distance is [GetYDistanceTo(Destination)])"
-			SmoothMove = 1
-			Move(locate(x, Destination:y, z), 0, step_x, round(Destination:step_y))
-			SubStepY = 0
-		else
-			SmoothMove = 1
-			Move(locate(x, round(NewY / world.icon_size), z), 0, step_x, round(NewY % world.icon_size))
-
-/mob/Move()
-	..()
-	if (SmoothMove)
-		SmoothMove--
-	else
-		Destination = null
-
-/mob/proc/MoveSpeed()
+/mob/MoveSpeed()
 	. = Stats.MovementSpeed
 	if (client && client.Keys["Shift"] && Stats.Stamina)
 		. += Stats.MovementSpeed
@@ -158,3 +115,7 @@ mob
 	..()
 	if (client && client.HUD)
 		client.HUD.Tick()
+	if (FreezeTime)
+		FreezeTime--
+	if (StunTime)
+		StunTime--

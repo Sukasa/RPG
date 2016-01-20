@@ -1,25 +1,20 @@
 client
-	show_popup_menus = FALSE
-	control_freak = CONTROL_FREAK_ALL
-	perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
-
 	var
 		obj/Runtime/Chatbox/Chatbox = new()
 		HUD/HUD
 		obj/Runtime/Flash/Flash = new()
-
-
 		list/Keys = list( )
 		list/Pressed = list( )
 		Queue/QueuedDialogue = new()
-
 		EnableMouse = FALSE
 		EnableCursor = FALSE
-
 		EnableKeyboard = TRUE
 		EnableKeyboardMovement = TRUE
-
 		KeyboardHandler = null
+
+	show_popup_menus = FALSE
+	control_freak = CONTROL_FREAK_ALL
+	perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 
 
 /client/proc/Send(var/Text)

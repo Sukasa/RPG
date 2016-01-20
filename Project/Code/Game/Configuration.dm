@@ -84,9 +84,6 @@
 	// Menus
 	var/tmp/MenuController/Menus = new()
 
-	// Commands
-	// var/tmp/CommandController/Commands = new()
-
 	// Translations
 	var/tmp/TranslationController/Lang = new()
 
@@ -104,6 +101,9 @@
 
 	// Audio Controller
 	var/tmp/SoundController/Audio = new()
+
+	// Particle Pool
+	var/tmp/ParticlePool/Particles = new()
 
 	New()
 		. = ..()

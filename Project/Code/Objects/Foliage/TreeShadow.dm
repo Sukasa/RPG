@@ -1,14 +1,13 @@
-/obj/Runtime/TreeLeaves
+/obj/Runtime/TreeShadow
 	var/Crosses = 0
+	layer = ShadowLayer
 	density = 0
-	layer = OverlayLayer
 
 	New(var/Loc, var/obj/Foliage/Tree/Source)
-		..()
-		bound_x = Source.FoliageBoundX
-		bound_y = Source.FoliageBoundY
-		bound_width = Source.FoliageBoundWidth
-		bound_height = Source.FoliageBoundHeight
+		bound_x = Source.ShadowBoundX
+		bound_y = Source.ShadowBoundY
+		bound_width = Source.ShadowBoundWidth
+		bound_height = Source.ShadowBoundHeight
 
 		icon = Source.icon
 		icon_state = "Overlay"

@@ -1,4 +1,4 @@
-mob/Soldier
+/mob/Soldier
 	name = "Soldier"
 	icon = 'PlayerMale.dmi'
 	icon_state = "Stand"
@@ -29,36 +29,36 @@ mob/Soldier
 /mob/Soldier/FastTick()
 	..()
 	var/SetDir = 0
-	if (client && !client.KeyboardHandler && client.EnableKeyboardMovement && !Config.InputSuspended)
+	if (client && !FreezeTime && !client.KeyboardHandler && client.EnableKeyboardMovement && !Config.InputSuspended)
 
-		if (client.Keys[Config.CommandKeys[ButtonSouth]] || client.Keys["South"])
-			step(src, SOUTH, MoveSpeed())
-			SetDir |= SOUTH
+		if (!StunTime)
+			if (client.Keys[Config.CommandKeys[ButtonSouth]] || client.Keys["South"])
+				step(src, SOUTH, MoveSpeed())
+				SetDir |= SOUTH
 
-		if (client.Keys[Config.CommandKeys[ButtonEast]] || client.Keys["East"])
-			step(src, EAST, MoveSpeed())
-			SetDir |= EAST
+			if (client.Keys[Config.CommandKeys[ButtonEast]] || client.Keys["East"])
+				step(src, EAST, MoveSpeed())
+				SetDir |= EAST
 
-		if (client.Keys[Config.CommandKeys[ButtonWest]] || client.Keys["West"])
-			step(src, WEST, MoveSpeed())
-			SetDir |= WEST
+			if (client.Keys[Config.CommandKeys[ButtonWest]] || client.Keys["West"])
+				step(src, WEST, MoveSpeed())
+				SetDir |= WEST
 
-		if (client.Keys[Config.CommandKeys[ButtonNorth]] || client.Keys["North"])
-			step(src, NORTH, MoveSpeed())
-			SetDir |= NORTH
+			if (client.Keys[Config.CommandKeys[ButtonNorth]] || client.Keys["North"])
+				step(src, NORTH, MoveSpeed())
+				SetDir |= NORTH
 
-		if (SetDir && client.Keys["Shift"] && Stats.Stamina > 0)
-			Stats.Stamina--
-			RecoveryTimeout = initial(RecoveryTimeout)
-		else if (!client.Keys["Shift"] && Stats.Stamina < Stats.MaxStamina && (RecoveryTimeout-- <= 0))
-			Stats.Stamina++
+			if (SetDir && client.Keys["Shift"] && Stats.Stamina > 0)
+				Stats.Stamina--
+				RecoveryTimeout = initial(RecoveryTimeout)
+			else if (!client.Keys["Shift"] && Stats.Stamina < Stats.MaxStamina && (RecoveryTimeout-- <= 0))
+				Stats.Stamina++
 
 		if (SetDir)
 			icon_state = "Walk"
 			dir = SetDir
 		else
 			icon_state = "Stand"
-
 
 		if (client.Pressed[Config.CommandKeys[ButtonInteract]])
 			Use()

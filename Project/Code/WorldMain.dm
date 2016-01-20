@@ -1,4 +1,4 @@
-var/datum/Ticker/Ticker = new()
+var/Ticker/Ticker = new()
 var/datum/Configuration/Config = new()
 
 world

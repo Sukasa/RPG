@@ -62,7 +62,7 @@
 	world.log << Text
 
 
-proc/SendUser(var/mob/User = usr, var/Text)
+/proc/SendUser(var/mob/User = usr, var/Text)
 	if (istext(User))
 		Text = User
 		User = usr

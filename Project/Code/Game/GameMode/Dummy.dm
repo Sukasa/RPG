@@ -7,6 +7,7 @@
 	Config.MapLoader.Init()
 	Config.Events.Init()
 	Config.Audio.Init()
+	Config.Particles.Init()
 
 	// Autotile setup
 	for(var/X = 0; X < 256, X++)

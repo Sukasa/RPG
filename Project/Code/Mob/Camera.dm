@@ -1,34 +1,35 @@
+// Basic camera entity.
 /mob/Camera
-	// Basic camera entity.
+	var
+		PanSpeed = 1
+		list/ActiveFor = list( )
+
 	density = 0
 
-	var/PanSpeed = 1
-	var/list/ActiveFor = list( )
+/mob/Camera/MoveSpeed()
+	return PanSpeed
 
-	MoveSpeed()
-		return PanSpeed
+/mob/Camera/proc/PanTo(var/Dest)
+	Destination = Dest
 
-	proc/PanTo(var/Dest)
-		Destination = Dest
+/mob/Camera/proc/PanComplete()
+	return !Destination
 
-	proc/PanComplete()
-		return !Destination
+/mob/Camera/proc/SetActiveFor(var/mob/M)
+	ActiveFor += M
+	if (M.client)
+		M.client.eye = src
 
-	proc/SetActiveFor(var/mob/M)
-		ActiveFor += M
-		if (M.client)
-			M.client.eye = src
+/mob/Camera/proc/SetInactiveFor(var/mob/M)
+	if (M.client)
+		M.client.eye = Config.Cameras.Attachments[M]
+	ActiveFor -= M
 
-	proc/SetInactiveFor(var/mob/M)
+/mob/Camera/proc/SetInactive()
+	for(var/mob/M in ActiveFor)
 		if (M.client)
 			M.client.eye = Config.Cameras.Attachments[M]
-		ActiveFor -= M
+	ActiveFor = list( )
 
-	proc/SetInactive()
-		for(var/mob/M in ActiveFor)
-			if (M.client)
-				M.client.eye = Config.Cameras.Attachments[M]
-		ActiveFor = list( )
-
-	Attached
-		PanSpeed = 32
+/mob/Camera/Attached
+	PanSpeed = 32

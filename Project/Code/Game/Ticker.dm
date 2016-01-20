@@ -1,10 +1,10 @@
-/datum/Ticker
+/Ticker
 	var/datum/GameMode/Mode = null
 	var/Ticks = 0
 	var/list/HighSpeedDevices = list( )
 	var/State = TickerNotStarted
 
-/datum/Ticker/proc/Tick()
+/Ticker/proc/Tick()
 	if (State != TickerRunning)
 		return
 
@@ -41,12 +41,13 @@
 			M.FastTick()
 
 		// Registered high-speed-logic devices also get fastticked at 30Hz (or whatever the value of world.fps is)
-		for (var/obj/O in HighSpeedDevices)
+		for (var/X = HighSpeedDevices.len; X; X--)
+			var/atom/O = HighSpeedDevices[X]
 			O.FastTick()
 
 	Config.Audio.Tick()
 
-/datum/Ticker/proc/ChangeGameMode(var/NewMode)
+/Ticker/proc/ChangeGameMode(var/NewMode)
 	Mode.End()
 	Mode = new NewMode()
 	if (Mode.AutoAssignTeams)
@@ -54,13 +55,13 @@
 	Mode.Start()
 
 //Whether to allow a NEW player to join in
-/datum/Ticker/proc/AllowJoin()
+/Ticker/proc/AllowJoin()
 	return TRUE // Stubbed out: this isn't a multiplayer engine anymore
 	if (!Mode || !Mode.RunTicker())
 		return TRUE
 	return Mode.AllowLateJoin && Config.AllowLateJoin
 
-/datum/Ticker/proc/Start()
+/Ticker/proc/Start()
 	if (State == TickerNotStarted)
 		spawn
 			while(TRUE)
@@ -68,5 +69,5 @@
 				sleep(world.tick_lag)
 	State = TickerRunning
 
-/datum/Ticker/proc/Suspend()
+/Ticker/proc/Suspend()
 	State = TickerSuspended

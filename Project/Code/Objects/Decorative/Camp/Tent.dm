@@ -2,6 +2,8 @@
 
 	icon = 'Tent.dmi'
 	icon_state = "Tent"
+	layer = ObjectLayer;
+
 
 	New()
 		..()
@@ -39,6 +41,10 @@
 		Dummy.icon = icon
 		Dummy.icon_state = "Topper"
 		Dummy.loc = loc
-		Dummy.layer = OverlayLayer
+		Dummy.layer = StructureLayer
+		Dummy.BaseLayer = StructureLayer
+		Dummy.ReCalcLayer();
+
+		ReCalcLayer();
 
 

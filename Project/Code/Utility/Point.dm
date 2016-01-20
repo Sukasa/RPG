@@ -28,8 +28,6 @@ Point/New(var/atom/Ref)
 		PixelY = Ref:step_y
 		step_x = PixelX
 		step_y = PixelY
-
-	if (ismob(Ref))
 		PixelX += Ref:SubStepX
 		PixelY += Ref:SubStepY
 		SubStepY = Ref:SubStepX

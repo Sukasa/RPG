@@ -7,10 +7,10 @@
 		Stamina = 0
 		MaxStamina = 0
 
-	PlayerStats // Starting stats in a new game
-		Health = 4
-		MaxHealth = 4
+/MobStats/PlayerStats // Starting stats in a new game
+	Health = 4
+	MaxHealth = 4
 
-		MovementSpeed = 5
-		Stamina = 120
-		MaxStamina = 120
+	MovementSpeed = 5
+	Stamina = 120
+	MaxStamina = 120

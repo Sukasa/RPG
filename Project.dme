@@ -176,6 +176,7 @@
 #define FILE_DIR "Resources/Turfs"
 #define FILE_DIR "Resources/UI"
 #define FILE_DIR "Sounds"
+#define FILE_DIR "Unpack"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -232,6 +233,7 @@
 #include "Project\Code\Game\Menus\TitleMenu\TitleObject.dm"
 #include "Project\Code\Game\Networks\Network.dm"
 #include "Project\Code\Game\Networks\NetworkController.dm"
+#include "Project\Code\Game\Pools\ParticlePool.dm"
 #include "Project\Code\Game\Scripting\Lexer.dm"
 #include "Project\Code\Game\Scripting\Parser.dm"
 #include "Project\Code\Game\Scripting\ProxyFuncs.dm"
@@ -304,7 +306,9 @@
 #include "Project\Code\Objects\Interactive\Chest.dm"
 #include "Project\Code\Objects\Interactive\Interactive.dm"
 #include "Project\Code\Objects\Interactive\VeggieBins.dm"
+#include "Project\Code\Objects\Items\HitScan.dm"
 #include "Project\Code\Objects\Items\Item.dm"
+#include "Project\Code\Objects\Items\PlayerTools\Sword.dm"
 #include "Project\Code\Objects\Machinery\Machine.dm"
 #include "Project\Code\Objects\Machinery\SignalDebugLight.dm"
 #include "Project\Code\Objects\Machinery\Traps\_Trap.dm"
@@ -319,6 +323,11 @@
 #include "Project\Code\Objects\MapMarkers\Networks\_Network.dm"
 #include "Project\Code\Objects\MapMarkers\Networks\Power.dm"
 #include "Project\Code\Objects\MapMarkers\Networks\Signal.dm"
+#include "Project\Code\Objects\Particles\Particle.dm"
+#include "Project\Code\Objects\Particles\Brains\GentleSmoke.dm"
+#include "Project\Code\Objects\Particles\Brains\ParticleBrain.dm"
+#include "Project\Code\Objects\Particles\Emitters\GentleSmoke.dm"
+#include "Project\Code\Objects\Particles\Emitters\ParticleEmitter.dm"
 #include "Project\Code\Terrain\Decorative.dm"
 #include "Project\Code\Terrain\DecorativeVariants.dm"
 #include "Project\Code\Terrain\Turf.dm"

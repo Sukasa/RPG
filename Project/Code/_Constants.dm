@@ -155,12 +155,12 @@ var
 
 		CliffFaceOffset = 0.5		// Amount to reduce the cliff face's layer by, to ensure correct ordering against north ledges
 
-		AutojoinTerrainLayer = 8	// Layer to draw autojoined objects at that are part of the terrain
-		ObjectLayer = 8
-		MobLayer = 22				// Mob draw layer
+		AutojoinTerrainLayer = 2	// Layer to draw autojoined objects at that are part of the terrain
+		ObjectLayer = 10			// Layer for standard objects to be drawn at
 		MapMarkerLayer = 10			// MapMarker draw layer, when made viewable via debug call
-		ShadowLayer = 23			// Layer to draw object shadows
-		StructureLayer = 20			// Tree structure layer
+		StructureLayer = 22			// Tree structure layer
+		MobLayer = 22				// Mob draw layer
+		ShadowLayer = 22			// Layer to draw object shadows
 		OverlayLayer = 25			// Layer for overlay graphics, e.g. tree leaves
 		HUDLayer = 99				// HUD object layer.  Not used for player UI
 		FlashLayer = 100			// Flash layer, also use for fadein/fadeouts
@@ -222,6 +222,10 @@ var
 		ColorDarkBlue = rgb(0, 0, 128)
 		ColorYellow = rgb(255, 255, 0)
 
+		EffectsNone = 0				// No particle effects
+		EffectsBlast = 1			// Blast damage
+		EffectsHurt = 2				// Injures mobs
+
 	OnePixel = (1 / world.icon_size)	// Distance of one pixel
 
 	list
@@ -255,7 +259,8 @@ var
 								"white"			= ColorWhite,					"grey"			= ColorGrey,				"red"				= ColorRed,
 								"darkRed"		= ColorDarkRed,					"blue"			= ColorBlue,				"darkBlue"			= ColorDarkBlue,
 								"alphaOpaque"	= AlphaOpaque,					"alphaHalf"		= AlphaHalf,				"alphaTransparent"	= AlphaTransparent,
-								"resultPending"	= DialogueResultPending,		"resultViewed"	= DialogueResultViewed,		"fps"				= world.fps
+								"resultPending"	= DialogueResultPending,		"resultViewed"	= DialogueResultViewed,		"fps"				= world.fps,
+								"tickLag"		= world.tick_lag
 							  )
 
 		// Function calls available to scripts.  Note that variables may have their own function calls available as well
