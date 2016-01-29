@@ -86,7 +86,7 @@
 	proc/Line()
 		if (Expect("/"))
 			if (Is(Functions))
-				var/ASTNode/FunctionNode/Node = new(Tokens.Consume())
+				var/ASTNode/FunctionNode/Node = new(Functions[Tokens.Consume()])
 				. = Node
 				while (Tokens.Current())
 					Node.SubNodes += new/ASTNode/ValueLeaf(Tokens.Consume())
@@ -287,6 +287,7 @@
 
 	proc/ArgumentList()
 		. = list()
+
 		if (!Expect(BeginParenthesis))
 			throw new/ScriptCompilationException("Unexpected symbol in function call, expected (", Tokens.Line)
 

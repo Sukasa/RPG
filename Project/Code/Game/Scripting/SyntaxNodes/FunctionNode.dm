@@ -5,7 +5,7 @@
 		FunctionRef = Ref
 
 	Execute()
-		//world.log << "Executing function node: [FunctionRef]"
+		//world.log << "Executing function node: [FunctionRef], [FunctionRef == "LoadLanguages"]"
 		. = list()
 		var/SavedContext = Context
 		for(var/ASTNode/Node in SubNodes)
@@ -17,6 +17,7 @@
 			//var/list/L = .
 			//world.log << "Calling [FunctionRef] with [L.len] arguments"
 			. = call(FunctionRef)(arglist(.))
+			//world.log << "Finished call"
 		Context = SavedContext
 
 	Output()
