@@ -8,7 +8,7 @@
 		world.log << "<b>[File]</b>:"
 		var/StreamReader/Stream = new(File)
 		var/LanguageCode = Stream.TakeLine()
-		var/list/LanguageTable = Config.Lang.Translations[LanguageCode]
+		var/list/LanguageTable = Config.Lang.Translations[LanguageCode] || list( )
 		while (!Stream.EOF())
 			var/Line = Stream.TakeLine()
 			if(findtextEx(Line, "=") == 0 || findtextEx(Line, "#") == 1)
@@ -59,6 +59,7 @@
 
 // Registers the dev scripting functions into the function list passed to the script parser
 /proc/RegisterDevScriptFunctions()
+	world.log << "Registered dev functions"
 	ScriptFunctions["LoadLanguages"] = /proc/LoadLanguages
 	ScriptFunctions["LoadSoundDefinitions"] = /proc/LoadSoundDefinitions
 	ScriptFunctions["ListSoundDefinitions"] = /proc/ListSoundDefinitions

@@ -30,15 +30,19 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 	if (fexists("ADATA"))
 		Definitions = new/savefile("ADATA")
 		Definitions[".index"] >> DefinitionIndex
+		DefinitionIndex = DefinitionIndex || list( )
 	else
 		Definitions = new/savefile("ADATA")
 		DefinitionIndex = list()
+		Definitions[".index"] << DefinitionIndex
+
 	if (fexists("ACACHE"))
 		AudioCache = new/savefile("ACACHE")
 		AudioCache[".index"] >> CacheIndex
 	else
 		AudioCache = new/savefile("ACACHE")
 		CacheIndex = list()
+		AudioCache[".index"] << CacheIndex
 	ResetSounds()
 
 /SoundController/proc/UpdateDefinition(var/DefinitionKey, var/SoundDef/Definition)
@@ -181,9 +185,10 @@ B) When in devmode, if an unknown sound is created, check to see if a matching-n
 		var/list/Files = GetMatchingFiles("Sounds", "[SoundName].*")
 
 		if (Files["Count"] == 0)
-			ErrorText("Unable to find matching sound for [SoundName]")
+			world.log << "Unable to find matching sound for [SoundName]"
 			return null
 		else
+			world.log << "Test"
 			if (Files["Count"] > 1)
 				ErrorText("Multiple matches for [SoundName].  Using first match [Files[1]]")
 			var/FileName = Files[1]

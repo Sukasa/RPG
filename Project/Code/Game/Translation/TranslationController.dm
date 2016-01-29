@@ -10,6 +10,9 @@
 		Translations[".index"] >> Languages
 	else
 		Translations = new/savefile("LDATA")
+		Translations[".index"] << list( )
+		Languages = list( )
+
 	if (fexists("DLANG"))
 		var/savefile/DefaultLang = new/savefile("DLANG")
 		var/Lang
