@@ -177,14 +177,30 @@ atom/proc/GetDistanceTo(var/atom/movable/To)
 	Move(locate(Target.TileX, Target.TileY, z || 1))
 
 /atom/movable/proc/MoveBy(var/StepX, var/StepY)
-	var/NewX = (StepX + step_x + SubStepX) + (x * world.icon_size)
-	var/NewY = (StepY + step_y + SubStepY) + (y * world.icon_size)
+	var/SX = SubStepX + step_x + StepX
+	var/SY = SubStepY + step_y + StepY
 
-	. = Move(locate(round(NewX / world.icon_size), round(NewY / world.icon_size), z), 0, round(NewX % world.icon_size), round(NewY % world.icon_size))
+	var/MX = round(SX)
+	var/MY = round(SY)
 
-	if (.)
-		SubStepX = NewX - round(NewX)
-		SubStepY = NewY - round(NewY)
+	if (SX < 0)
+		SX += world.icon_size
+	if (SY < 0)
+		SY += world.icon_size
+
+	var/NX = round(SX)
+	var/NY = round(SY)
+
+	. = Move(loc, 0, MX, MY)
+
+	if (step_x == NX)
+		// Successful X movement
+		SubStepX = SX - round(SX)
+	if (step_y == NY)
+		// Successful Y movement
+		SubStepY = SY - round(SY)
+
+
 
 /atom/movable/proc/MoveTo(var/Target = Destination)
 	Destination = Target
