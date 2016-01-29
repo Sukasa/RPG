@@ -7,5 +7,5 @@ queueDialogue($Dialogue);
 while ($Dialogue.Result == resultPending)
 	sleep(1);
 
-loadMap("TechDemoCamp");
+loadMap("CaveTest");
 fadeIn();
