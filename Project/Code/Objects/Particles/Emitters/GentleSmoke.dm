@@ -4,6 +4,6 @@ obj/Machinery/ParticleEmitter/GentleSmoke
 	step_y = 16
 
 	SlowTick()
-		Emit = !Emit
-		if (Emit)
+		Emit = (Emit + 1) % 4
+		if (!Emit)
 			EmitParticle(/ParticleBrain/GentleSmoke, TRUE)

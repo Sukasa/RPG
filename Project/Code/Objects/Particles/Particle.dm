@@ -14,7 +14,8 @@ obj/Runtime/Particle
 	icon = 'Particles.dmi'
 
 obj/Runtime/Particle/proc/Instantiate(var/ParticleBrain/NewBrain)
-	Ticker.HighSpeedDevices += src
+	if (!(src in Ticker.HighSpeedDevices))
+		Ticker.HighSpeedDevices += src
 	Age = 0
 
 	alpha = AlphaOpaque

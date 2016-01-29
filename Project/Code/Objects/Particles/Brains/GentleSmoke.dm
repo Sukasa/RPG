@@ -1,11 +1,13 @@
 ParticleBrain/GentleSmoke
 	Think(var/obj/Runtime/Particle/Particle)
-		Particle.MoveBy((((Particle.Age * 2) + Particle.Lifetime) / Particle.Lifetime) * cos(Particle.Age * 4 + Particle.ExtraData) / 2 + (Particle.Age / (4 * Particle.Lifetime)), 0.3)
+		var/X = min((Particle.Age / Particle.Lifetime), 0.75) * sin(world.time)
+		Particle.MoveBy(0.1, 0.3)
 		if (Particle.Lifetime - Particle.Age < world.fps)
 			Particle.alpha = 255 * ((Particle.Lifetime - Particle.Age) / world.fps);
+		//world.log << "\ref[Particle] [Particle.step_x + Particle.SubStepX], [Particle.step_y + Particle.SubStepY]"
 
 	Init(var/obj/Runtime/Particle/Particle)
-		Particle.icon_state = "smokepuff"
+		Particle.icon_state = "smokepoly"
 		Particle.layer += 0.5
 		Particle.Lifetime = world.fps * 9
-		Particle.ExtraData = rand(0, 360)
+		Particle.ExtraData = rand(-180, 180) / 3600
