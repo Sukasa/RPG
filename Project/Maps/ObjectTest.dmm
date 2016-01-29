@@ -74,7 +74,7 @@
 "bv" = (/obj/Environment/CliffFace/Side/South,/turf/Basic/Grass,/area)
 "bw" = (/obj/Environment/CliffFace/OuterCorner/SouthEast,/turf/Basic/Grass,/area)
 "bx" = (/obj/Environment/Sign/TestSign,/obj/MapMarker/Interactible{InteractText = "Object Testing Ahead"},/turf/Basic/Grass,/area)
-"by" = (/obj/ParticleEmitter/GentleSmoke,/obj/Decorative/Wilderness/Campfire,/turf/Basic/Grass,/area)
+"by" = (/obj/Machinery/ParticleEmitter/GentleSmoke,/obj/Decorative/Wilderness/Campfire,/turf/Basic/Grass,/area)
 "bz" = (/obj/Environment/CliffFace/InnerCorner/SouthEast,/turf/Basic/Grass,/area)
 "bA" = (/obj/Environment/CliffFace/Ramp/South,/turf/Basic/Grass,/area)
 "bB" = (/obj/Environment/CliffFace/InnerCorner/SouthWest,/turf/Basic/Grass,/area)
