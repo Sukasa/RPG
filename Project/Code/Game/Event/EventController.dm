@@ -98,6 +98,7 @@
 
 // Runs a script and does not return to the caller until it completes
 /EventController/proc/RunScript(var/ScriptName, var/mob/Player = null)
+	world << "EventController EXECUTE"
 	var/ASTNode/Node = Parser.ParseScript(GetScript(ScriptName))
 	if (Node)
 		Node.Context = new /ScriptExecutionContext()

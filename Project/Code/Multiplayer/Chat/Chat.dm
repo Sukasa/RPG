@@ -1,11 +1,17 @@
 /mob/verb/Say(var/Text as text)
+	world.log << "SAY"
 	if (findtext(Text, "/", 1, 2))
 		var/Parser/Parser = new()
 
 		Parser.Functions = ScriptFunctions
 		Parser.Constants = ScriptConstants
 
+		world.log << "Parsing text [Text]"
+
 		var/ASTNode/Node = Parser.ParseLine(Text)
+
+		world.log << "Executing Node [Node]"
+
 		if (Node)
 			Node.Context = new /ScriptExecutionContext()
 			Node.Execute()
