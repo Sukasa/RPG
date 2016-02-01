@@ -1,7 +1,7 @@
 ParticleBrain/GentleSmoke
 	Think(var/obj/Runtime/Particle/Particle)
 		var/X = min((Particle.Age / Particle.Lifetime), 0.75) * sin(world.time)
-		Particle.MoveBy(0.1, 0.3)
+		Particle.MoveBy(X, 0.3)
 		if (Particle.Lifetime - Particle.Age < world.fps)
 			Particle.alpha = 255 * ((Particle.Lifetime - Particle.Age) / world.fps);
 		//world.log << "\ref[Particle] [Particle.step_x + Particle.SubStepX], [Particle.step_y + Particle.SubStepY]"
